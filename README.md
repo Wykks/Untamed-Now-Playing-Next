@@ -31,7 +31,7 @@ There are a couple of ways to install the extension;
 
 Configuration
 --------------------------------------
-Once you have installed the extension, you can find the options page by either right clicking the music note next to the address bar and selecting Options, or by finding "Untamed Now Playing" on the Extensions page and clicking Options.
+Once you have installed the extension, you can find the options page by either right clicking the music note icon next to the address bar and selecting Options, or by finding "Untamed Now Playing" on the Extensions page and clicking Options.
 
 The main option to configure is the "Save Directory". This is where the file containing the now playing data will be saved. The directory will also be used for caching if you enable the "Check stream is live" option. More information explaining each option can be found by clicking the info button on the right of each option.
 
@@ -49,4 +49,4 @@ This software uses the following libraries developed by third parties, and are l
 * [npapi-file-io](http://code.google.com/p/npapi-file-io) (New BSD License)
 * [Sammy.js](http://sammyjs.org) (MIT License)
 
-Additionally, the main Icon was designed by [CSS Creme](http://csscreme.com/freeicons/).
+Additionally, the main icon was designed by [CSS Creme](http://csscreme.com/freeicons/).
