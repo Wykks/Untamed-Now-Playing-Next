@@ -1,0 +1,44 @@
+{
+	"name": "Untamed Now Playing",
+	"version": "0.1",
+	"description": "Saves 'now playing' data locally, which inturn can be displayed on an XSplit overlay",
+	"background_page": "background.html",
+	"options_page": "options.html",
+	"plugins": [{"path": "lib/npapi-file-io-32.dll", "public": false}],
+	"icons":{
+		"128":"ico/main_128.png"
+	},
+	"browser_action": {
+		"default_title": "Untamed Now Playing",
+		"default_icon": "ico/icon.png"
+	},
+	"permissions": [
+		"tabs",
+		"*://www.youtube.com/*", 
+		"*://youtube.com/*",
+		"*://www.grooveshark.com/*", 
+		"*://grooveshark.com/*",
+		"*://www.soundcloud.com/*", 
+		"*://soundcloud.com/*",
+		"*://ah.fm/*",
+		"*://www.ah.fm/*",
+		"*://pandora.com/*",
+		"*://www.pandora.com/*",
+		"*://api.justin.tv/*"
+	],
+	"content_scripts": [ {
+		"js": [ "lib/jquery.min.js", "lib/proxy.js", "content.js" ],
+		"matches": [
+			"*://www.youtube.com/*", 
+			"*://youtube.com/*",
+			"*://www.grooveshark.com/*", 
+			"*://grooveshark.com/*",
+			"*://www.soundcloud.com/*", 
+			"*://soundcloud.com/*",
+			"*://ah.fm/*",
+			"*://www.ah.fm/*",
+			"*://pandora.com/*",
+			"*://www.pandora.com/*"
+		] 
+	} ]
+}

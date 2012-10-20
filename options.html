@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Untamed Now Playing v0.1 - Options</title>
+		<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<style type="text/css">
+			body {
+				padding-top: 40px;
+			}
+			table#options_table td input[type="text"], table#options_table td select, table#options_table td input[type="number"] {
+				margin: 5px;
+			}
+			table#options_table td {
+				vertical-align: middle;
+			}
+			table#options_table td label {
+				margin: 4px 0px 9px 8px;
+			}
+			.main_content, .popover-title, #stream_details {
+				display: none;
+			}
+			button.pull-right {
+				margin: 5px;
+			}
+			.popover-content {
+				text-align: justify;
+				font-size: 13px;
+				line-height: 18px;
+			}
+			.popover-content pre {
+				margin: 8px 0px;
+				padding: 1px 6px;
+			}
+		</style>
+		<script type="text/javascript" src="lib/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/sammy-latest.min.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			var plugin = document.createElement('embed'), isVisible = false, clickedAway = false, page = false;
+			plugin.setAttribute('type', 'application/x-npapi-file-io');
+			plugin.setAttribute('height', '0');
+			plugin.setAttribute('width', '0');
+			document.documentElement.appendChild(plugin);
+
+			$(document).ready(function()
+			{
+				$('#save_dir').val( (!empty(localStorage['unpSaveDir'])) ? localStorage['unpSaveDir'] : 'C:\\Users\\USERNAME\\Documents\\unp\\' );
+				$('#txt_format').val( (!empty(localStorage['unpTxtFormat'])) ? localStorage['unpTxtFormat'] : '%s%' );
+				$('#song_maxlen').val( (!empty(localStorage['unpSongMaxLen'])) ? localStorage['unpSongMaxLen'] : '60' );
+
+				if (!empty(localStorage['unpSaveFormat']))
+				{
+					$('#save_format').val(localStorage['unpSaveFormat']);
+
+					if (localStorage['unpSaveFormat'] == 'xml')
+						$('#txt_format_details').hide();
+				}
+
+				if (empty(localStorage['unpSongMaxLenApp']) || localStorage['unpSongMaxLenApp'])
+					$('#song_maxlen_append').prop('checked', true);
+
+				if (!empty(localStorage['unpStreamSite']))
+					$('#stream_site').val(localStorage['unpStreamSite']);
+
+				if (localStorage['unpCheckLive'] === 'true')
+				{
+					$('#stream_details').show();
+					$('#check_live').prop('checked', true);
+				}
+
+				if (!empty(localStorage['unpStreamUser']))
+					$('#stream_user').val(localStorage['unpStreamUser']);
+
+				$.sammy(function()
+				{
+					this.get('#/:page', function()
+					{
+						if ($('#' + this.params['page']).length)
+						{
+							page = this.params['page'];
+							$('.active').removeClass('active');
+							$('#nav-' + page).addClass('active');
+							$('.main_content').slideUp();
+							$('#' + page).slideDown();
+
+							if (page == 'about')
+							{
+								$.getJSON('http://ipaddr.me/unp/latest.php?json=1', function(data)
+								{
+									if (data != null && data['version'] > '0.1')
+										Alert('error', 'There is a new version (' + data['version'] + ') of Untamed Now Playing available, please <a href="' + data['update_url'] + '" target="_blank">update</a>');
+								});
+							}
+						}
+					});
+				}).run('#/options');
+
+				$('.opt-tt').popover(
+				{
+					placement: 'top',
+					html: true,
+					trigger: 'click'
+				}
+				).click(function(e)
+				{
+					$('.opt-tt').not(this).popover('hide');
+					clickedAway = false;
+					isVisible = true;
+					e.preventDefault()
+				});
+
+				$(document).click(function(e)
+				{
+					if (isVisible & clickedAway)
+					{
+						$('.opt-tt').popover('hide');
+						isVisible = false;
+						clickedAway = false;
+					}
+					else
+					{
+						clickedAway = true;
+					}
+				});
+
+				$('#save_format').change(function(e)
+				{
+					if ($(this).val() == 'txt')
+						$('#txt_format_details').fadeIn();
+					else
+						$('#txt_format_details').fadeOut();
+				});
+
+				$('#check_live').click(function(e)
+				{
+					if ($('#check_live').is(':checked'))
+						$('#stream_details').fadeIn();
+					else
+						$('#stream_details').fadeOut();
+				});
+
+				$('#save_options').click(function(e)
+				{
+					var save_dir = $('#save_dir').val().split('/').join('\\');
+
+					if (save_dir.substr(save_dir.length - 1) != '\\')
+						save_dir = save_dir + '\\';
+
+					$('#save_dir').val(save_dir);
+
+					if (validateOptions())
+					{
+						if (plugin.fileExists(save_dir + 'unp_cache.txt'))
+							plugin.removeFile(save_dir + 'unp_cache.txt');
+
+						localStorage['unpSaveDir']       = $('#save_dir').val();
+						localStorage['unpSaveFormat']    = $('#save_format').val();
+						localStorage['unpTxtFormat']     = $('#txt_format').val();
+						localStorage['unpSongMaxLen']    = $('#song_maxlen').val();
+						localStorage['unpSongMaxLenApp'] = $('#song_maxlen_append').is(':checked');
+						localStorage['unpCheckLive']     = $('#check_live').is(':checked');
+						localStorage['unpStreamSite']    = $('#stream_site').val();
+						localStorage['unpStreamUser']    = $('#stream_user').val();
+
+						Alert('success', 'Settings have been saved');
+					}
+				});
+			});
+
+			function validateOptions()
+			{
+				if ($('#save_dir').val().indexOf('windows') != -1)
+				{
+					Alert('error', 'Error: Save directory cannot have \'windows\' in the path');
+					return false;
+				}
+
+				if (!plugin.isDirectory($('#save_dir').val()))
+				{
+					Alert('error', 'Error: Unable to read save directory');
+					return false;
+				}
+				
+				plugin.saveTextFile($('#save_dir').val() + 'unp_write_test_53642784162133643354.txt', 'Just a quick test to ensure we can write to this directory! :)');
+
+				if (plugin.getTextFile($('#save_dir').val() + 'unp_write_test_53642784162133643354.txt') != 'Just a quick test to ensure we can write to this directory! :)')
+				{
+					Alert('error', 'Error: Unable to write to save directory');
+					return false;
+				}
+
+				plugin.removeFile($('#save_dir').val() + 'unp_write_test_53642784162133643354.txt');
+
+				if ($('#save_format').val() != 'xml' && $('#save_format').val() != 'txt')
+				{
+					Alert('error', 'Error: Save as format is invalid');
+					return false;
+				}
+
+				if ($('#save_format').val() == 'txt')
+				{
+					if ($('#txt_format').val().indexOf('%s%') == -1)
+					{
+						Alert('error', 'Error: Plain text format must contain %s%');
+						return false;
+					}
+
+					if ($('#txt_format').val().length > 512)
+					{
+						Alert('error', 'Error: Plain text format must be less than 512 chars');
+						return false;
+					}
+
+					if (empty($('#song_maxlen').val()) || $('#song_maxlen').val() > 256 || $('#song_maxlen').val() < 10)
+					{
+						Alert('error', 'Error: Song maximum length must be a number between 10 and 256');
+						return false;
+					}
+				}
+
+				if ($('#check_live').is(':checked'))
+				{
+					if ($('#stream_site').val() != 'justin'/* && $('#stream_site').val() != 'own3d'*/)
+					{
+						Alert('error', 'Error: Stream service is missing or invalid');
+						return false;
+					}
+
+					if (empty($('#stream_user').val()) || $('#stream_user').val().length > 256)
+					{
+						Alert('error', 'Error: Stream user is missing or invalid');
+						return false;
+					}
+				}
+
+				return true;
+			}
+
+			function Alert(type, data)
+			{
+				$('.alert').fadeOut();
+				$('.alert').remove();
+
+				if (page == 'about')
+					$('<div class="alert alert-block alert-' + type + '" style="display:none;"><p>' + data + '</p></div>').prependTo('#about');
+				else 
+					$('<div class="alert alert-block alert-' + type + '" style="display:none;"><p>' + data + '</p></div>').insertBefore('#options_table');
+
+				$('.alert').fadeIn();
+			}
+
+			function empty(mixed_var)
+			{
+				var undef, key, i, len;
+				var emptyValues = [undef, null, false, 0, "", "0"];
+
+				for (i = 0, len = emptyValues.length; i < len; i++) {
+					if (mixed_var === emptyValues[i]) {
+						return true;
+					}
+				}
+
+				if (typeof mixed_var === "object") {
+					for (key in mixed_var) {
+						return false;
+					}
+					return true;
+				}
+
+				return false;
+			}
+		</script>
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="#/about"><strong>Untamed Now Playing <small>v0.1</small></strong></a>
+					<div class="nav-collapse collapse">
+						<ul class="nav pull-right">
+							<li id="nav-options" class="active"><a href="#/options">Options</a></li>
+							<li id="nav-about"><a href="#/about">About</a></li>
+							<li id="nav-contact"><a href="#/contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="options" class="main_content container">
+			<h1>Options</h1>
+			<p>Click the icon beside each option for more information</p>
+			<p>If you find this extension useful, I'd really appreciate it if you consider donating to charity:water, they are a fantastic charity which give 100% of donations to people in need. <a target="_blank" href="http://vimeo.com/22566556">Click here</a> to find out more, or to donate, <a target="_blank" href="https://www.charitywater.org/donateforms/general">click here</a>.</p>
+			<table id="options_table" class="table table-bordered table-hover table-condensed">
+				<tr>
+					<td width="50%">Save to Directory</td>
+					<td width="50%">
+						<input type="text" id="save_dir" style="width:370px;">
+						<button class="btn pull-right opt-tt" data-content="The directory where the now playing file is saved, may also be used for caching stream status. <strong>Please make sure this directory exists</strong>"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td>Save as format</td>
+					<td>
+						<select id="save_format" style="width: 150px;">
+							<option value="txt" selected>Plain text (txt)</option>
+							<option value="xml">XML</option>
+						</select>
+						<button class="btn pull-right opt-tt" data-content="The file format that the now playing file is saved as, both types can be used in XSplit, however XML allows you to easily parse certain data instead of the entire string"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr id="txt_format_details">
+					<td>Plain text now playing format</td>
+					<td>
+						<input type="text" id="txt_format" style="width:370px;">
+						<button class="btn pull-right opt-tt" data-content="The format of the plain text. You can use the following formatting options:<br><pre><strong>%s%</strong> : Song data<br><strong>%d%</strong> : Total Duration<br><strong>%t%</strong> : Time started (24hr)<br><strong>%u%</strong> : URL of page</pre>For example; <em>%s% [%d%]</em><br>Will display: <em>Avicii - Levels [3:19]</em>"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td>Song Maximum Length</td>
+					<td>
+						<input type="number" id="song_maxlen" min="10" max="256" style="width:100px;">
+						<label class="checkbox inline">
+							<input type="checkbox" id="song_maxlen_append" value="1"> Append longer strings with '...'
+						</label>
+						<button class="btn pull-right opt-tt" data-content="The maximum length of the song name. Must be a number between 10 and 256"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td>Check stream is live before saving?</td>
+					<td>
+						<label class="checkbox inline">
+							<input type="checkbox" id="check_live" value="1"> Yes
+						</label>
+						<button class="btn pull-right opt-tt" data-content="This allows increased privacy, however this requires requests to Own3d/Justin/Twitch Tv, and should only be enabled if you require the extra privacy. <strong>Note, currently only Justin/Twitch TV stream check is supported, own3d support will be added later</strong>"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr id="stream_details">
+					<td>Stream details</td>
+					<td>
+						<select id="stream_site" style="width: 150px;">
+							<option value="" selected disabled>Select Service</option>
+							<option value="" disabled>--------------</option>
+							<option value="justin">Justin/Twitch TV</option>
+<!--							<option value="own3d">Own3d</option> -->
+						</select>
+						<input type="text" id="stream_user" placeholder="Username">
+						<button class="btn pull-right opt-tt" data-content="Your Stream details, only used if the 'Check stream' option is enabled"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+			</table>
+			<p style="text-align:center;">
+				<button class="btn btn-large btn-primary" type="button" id="save_options">Save</button>
+			</p>
+		</div>
+		<div id="about" class="main_content container">
+			<h1>About</h1>
+			<p>"Untamed Now Playing" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. Coded by Untamed.</p>
+			<h3>Supported Sites</h3>
+			<p>
+				<ul>
+					<li><a target="_blank" href="http://ah.fm">ah.fm</a></li>
+					<li><a target="_blank" href="http://grooveshark.com">grooveshark.com</a></li>
+					<li><a target="_blank" href="http://pandora.com">pandora.com</a></li>
+					<li><a target="_blank" href="http://soundcloud.com">soundcloud.com</a></li>
+					<li><a target="_blank" href="http://youtube.com">youtube.com</a></li>
+				</ul>
+				Support for more sites will be added over time. If you have a suggestion for a site, please <a href="#/contact">contact me</a>.
+			</p>
+			<h3>Limitations</h3>
+			<p>At the moment, now playing data is only saved when the song intially plays and is only updated when the next song starts playing. Thus if you stop playing music, the output file will still contain the last song played.</p>
+			<h3>Licence</h3>
+			<p>This software is provided "AS IS" without warranty of any kind, either expressed or implied. Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+			<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a></p>
+			<p>
+				This software uses the following libraries developed by third parties, and are licenced seperately;
+				<ul>
+					<li><a target="_blank" href="http://twitter.github.com/bootstrap">Bootstrap</a> (Apache License v2.0)</li>
+					<li><a target="_blank" href="http://jquery.com">jQuery</a> (MIT License)</li>
+					<li><a target="_blank" href="http://code.google.com/p/npapi-file-io">npapi-file-io</a> (New BSD License)</li>
+					<li><a target="_blank" href="http://sammyjs.org">Sammy.js</a> (MIT License)</li>
+				</ul>
+			</p>
+		</div>
+		<div id="contact" class="main_content container">
+			<h1>Contact</h1>
+			<p>If you have any suggestions, feedback, etc, you can email me: <span style="text-decoration:underline;">untamed0@gmail.com</span>, you can also find me on skype: untamed0</p>
+		</div>
+	</body>
+</html>
