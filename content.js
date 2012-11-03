@@ -1,4 +1,3 @@
-// Copyright (c) 2012 Untamed. All rights reserved.
 var play = false, last = false;
 
 $(document).ready(function()
