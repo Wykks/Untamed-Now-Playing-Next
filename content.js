@@ -48,6 +48,27 @@ $(document).ready(function()
 							url        : 'http://grooveshark.com/' + albumName.attr('href')
 						});
 					}
+				}
+				else if ($('#play-pause').hasClass('playing'))
+				{
+					var artistName = $('.now-playing-link.artist').attr('title'), trackName = $('.now-playing-link.song').attr('title'), albumName = $('.now-playing-link.album');
+					play = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						var duration = $('#time-total').html();
+						last = play;
+
+						now_playing(
+						{
+							song       : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumName  : albumName.attr('title'),
+							duration   : ( (duration.substr(0,1) == '0') ? duration.substr(1, duration.length) : duration ),
+							url        : 'http://grooveshark.com/' + albumName.attr('href')
+						});
+					}
 				};
 			}, 10000);
 		break;
