@@ -1,6 +1,6 @@
 {
 	"name": "Untamed Now Playing",
-	"version": "0.1",
+	"version": "0.2",
 	"description": "Saves 'now playing' data locally, which inturn can be displayed on an XSplit overlay",
 	"background_page": "background.html",
 	"options_page": "options.html",
