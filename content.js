@@ -25,6 +25,26 @@ $(document).ready(function()
 				};
 			}, 10000);
 		break;
+		case 'di.fm':
+			setInterval(function() {
+				if ($('#ctl-play').hasClass('pause'))
+				{
+					play = $('.title').html();
+
+					if (last !== play)
+					{
+						var remainingTime = $('.remaining').html();
+						last              = play;
+
+						now_playing(
+						{
+							song     : play,
+							duration : (remainingTime == '') ? $('.elapsed').html() : secToHms(hmsToSec(remainingTime.substr(1,remainingTime.length)) + hmsToSec($('.elapsed').html()))
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'grooveshark.com':
 			setInterval(function() {
 				if ($('#playerDetails_current_song').length && $('#player_play_pause').hasClass('pause'))
@@ -80,9 +100,9 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						var elapsedTime = $('.elapsedTime').html(), remainingTime = $('.remainingTime').html();
-						remainingTime   = remainingTime.substr(1,remainingTime.length);
-						last            = play;
+						var remainingTime = $('.remainingTime').html();
+						remainingTime     = remainingTime.substr(1,remainingTime.length);
+						last              = play;
 
 						now_playing(
 						{
@@ -90,7 +110,7 @@ $(document).ready(function()
 							trackName  : song,
 							artistName : artist,
 							albumName  : $('.playerBarAlbum').html(),
-							duration   : secToHms(hmsToSec(remainingTime) + hmsToSec(elapsedTime)),
+							duration   : secToHms(hmsToSec(remainingTime) + hmsToSec($('.elapsedTime').html())),
 							url        : $('.playerBarSong').attr('href')
 						});
 					}

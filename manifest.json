@@ -1,6 +1,6 @@
 {
 	"name": "Untamed Now Playing",
-	"version": "0.2",
+	"version": "0.3",
 	"description": "Saves 'now playing' data locally, which inturn can be displayed on an XSplit overlay",
 	"background_page": "background.html",
 	"options_page": "options.html",
@@ -24,6 +24,8 @@
 		"*://www.ah.fm/*",
 		"*://pandora.com/*",
 		"*://www.pandora.com/*",
+		"*://di.fm/*",
+		"*://www.di.fm/*",
 		"*://api.justin.tv/*"
 	],
 	"content_scripts": [ {
@@ -37,6 +39,8 @@
 			"*://soundcloud.com/*",
 			"*://ah.fm/*",
 			"*://www.ah.fm/*",
+			"*://di.fm/*",
+			"*://www.di.fm/*",
 			"*://pandora.com/*",
 			"*://www.pandora.com/*"
 		] 

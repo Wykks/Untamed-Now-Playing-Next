@@ -5,6 +5,7 @@
 Supported Sites
 --------------------------------------
 * [ah.fm](http://ah.fm)
+* [di.fm](http://di.fm)
 * [grooveshark.com](http://grooveshark.com)
 * [pandora.com](http://pandora.com)
 * [soundcloud.com](http://soundcloud.com)
