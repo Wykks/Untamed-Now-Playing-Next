@@ -1,4 +1,4 @@
-[Untamed Now Playing](https://github.com/untamed0/Untamed-Now-Playing)
+[Untamed Now Playing](https://github.com/untamed0/Untamed-Now-Playing) v0.3-dev
 =================
 "Untamed Now Playing" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. At the moment, this extension is Windows only.
 
@@ -30,6 +30,8 @@ There are a couple of ways to install the extension;
 4. Tick "Developer mode" on the top right of the page.
 5. Click "Load unpacked extension" and navigate to where you extracted the files in Step #2.
 
+Note, the unpacked extension may have later additions to the code, as the plugin is in development. Also, you can ignore any warning about the manifest being outdated, this will be fixed in a later version.
+
 Configuration
 --------------------------------------
 Once you have installed the extension, you can find the options page by either right clicking the music note icon next to the address bar and selecting Options, or by finding "Untamed Now Playing" on the Extensions page and clicking Options.
@@ -39,6 +41,8 @@ The main option to configure is the "Save Directory". This is where the file con
 Limitations
 --------------------------------------
 At the moment, now playing data is only saved when the song intially plays and is only updated when the next song starts playing. Thus if you stop playing music, the output file will still contain the last song played.
+
+Chrome limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (C:\Users\USERNAME\* or C:\Documents and Settings\USERNAME\*).
 
 Licence
 --------------------------------------
