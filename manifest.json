@@ -27,7 +27,8 @@
 		"*://www.pandora.com/*",
 		"*://di.fm/*",
 		"*://www.di.fm/*",
-		"*://api.justin.tv/*"
+		"*://api.justin.tv/*",
+		"*://api.own3d.tv/*"
 	],
 	"content_scripts": [ {
 		"js": [ "lib/jquery.min.js", "lib/proxy.js", "content.js" ],

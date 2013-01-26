@@ -59,7 +59,7 @@
 			<p>If you find this extension useful, I'd really appreciate it if you consider donating to charity:water, they are a fantastic charity which give 100% of donations to people in need. <a target="_blank" href="http://vimeo.com/22566556">Click here</a> to find out more, or to donate, <a target="_blank" href="https://www.charitywater.org/donateforms/general">click here</a>.</p>
 			<table id="options_table" class="table table-bordered table-hover table-condensed">
 				<tr>
-					<td width="50%">Save to Directory</td>
+					<td width="50%">Save to directory</td>
 					<td width="50%">
 						<input type="text" id="save_dir" style="width:370px;">
 						<button class="btn pull-right opt-tt" data-content="The directory where the now playing file is saved, may also be used for caching stream status. <strong>Please make sure this directory exists</strong>"><i class="icon-info-sign"></i></button>
@@ -83,7 +83,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Song Maximum Length</td>
+					<td>Song maximum length</td>
 					<td>
 						<input type="number" id="song_maxlen" min="10" max="256" style="width:100px;">
 						<label class="checkbox inline">
@@ -93,12 +93,21 @@
 					</td>
 				</tr>
 				<tr>
+					<td>Download album artwork</td>
+					<td>
+						<label class="checkbox inline">
+							<input type="checkbox" id="album_artwork" value="1"> Yes
+						</label>
+						<button class="btn pull-right opt-tt" data-content="The album artwork will be saved to &quot;SaveDirectory/unp_album_art.jpg&quot;. Supported sites: Grooveshark, Pandora, SoundCloud"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
 					<td>Check stream is live before saving?</td>
 					<td>
 						<label class="checkbox inline">
 							<input type="checkbox" id="check_live" value="1"> Yes
 						</label>
-						<button class="btn pull-right opt-tt" data-content="This allows increased privacy, however this requires requests to Own3d/Justin/Twitch Tv, and should only be enabled if you require the extra privacy. <strong>Note, currently only Justin/Twitch TV stream check is supported, own3d support will be added later</strong>"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content="This allows increased privacy, however this requires requests to own3D/Justin/Twitch Tv, and should only be enabled if you require the extra privacy"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="stream_details">
@@ -108,7 +117,7 @@
 							<option value="" selected disabled>Select Service</option>
 							<option value="" disabled>--------------</option>
 							<option value="justin">Justin/Twitch TV</option>
-<!--							<option value="own3d">Own3d</option> -->
+							<option value="own3d">own3D</option>
 						</select>
 						<input type="text" id="stream_user" placeholder="Username">
 						<button class="btn pull-right opt-tt" data-content="Your Stream details, only used if the 'Check stream' option is enabled"><i class="icon-info-sign"></i></button>
