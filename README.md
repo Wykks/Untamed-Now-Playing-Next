@@ -7,8 +7,10 @@ Supported Sites
 * [ah.fm](http://ah.fm)
 * [di.fm](http://di.fm)
 * [grooveshark.com](http://grooveshark.com)
+* [last.fm](http://last.fm)
 * [pandora.com](http://pandora.com)
 * [soundcloud.com](http://soundcloud.com)
+* [turntable.fm](http://turntable.fm)
 * [youtube.com](http://youtube.com)
 
 Support for more sites will be added over time. If you have a suggestion for a site, please open an issue or reply to the teamliquid topic.
@@ -17,7 +19,7 @@ Install
 --------------------------------------
 There are a couple of ways to install the extension;
 
-### Install the packed extension
+### Install the packed extension (Recommended!)
 1. Download the already packed extension [here](http://ipaddr.me/unp/download.php)
 2. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
 3. Drag and drop the packed extension you downloaded in Step #1.
@@ -30,7 +32,7 @@ There are a couple of ways to install the extension;
 4. Tick "Developer mode" on the top right of the page.
 5. Click "Load unpacked extension" and navigate to where you extracted the files in Step #2.
 
-Note, the unpacked extension may have later additions to the code, as the plugin is in development. Also, you can ignore any warning about the manifest being outdated, this will be fixed in a later version.
+Note, the unpacked extension is from the development repository and thus may contain untested code and have bugs, so it's recommended you use the packed extension, which is always tested before release - unless you don't mind being a guinea pig :).
 
 Configuration
 --------------------------------------
