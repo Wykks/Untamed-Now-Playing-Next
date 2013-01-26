@@ -62,6 +62,7 @@ $(document).ready(function()
 					last = play;
 
 					var duration = $('#time-total').text();
+					var albumArt = $('#now-playing-image').attr('src').replace(/(.*)\/([0-9]+)_(.*)(\.jpg$)/i, '$1/142_$3.jpg');
 
 					nowPlaying(
 					{
@@ -69,7 +70,7 @@ $(document).ready(function()
 						trackName  : trackName,
 						artistName : artistName,
 						albumName  : albumName.attr('title'),
-						albumArt   : $('#now-playing-image').attr('src').replace(/(.*)\/([0-9]+)_(.*)(\.jpg$)/i, '$1/142_$3.jpg'),
+						albumArt   : (albumArt == 'http://images.gs-cdn.net/static/albums/40_album.png') ? '?' : albumArt,
 						duration   : $('#time-total').text(),
 						url        : 'http://grooveshark.com/' + albumName.attr('href')
 					});
@@ -233,6 +234,7 @@ function nowPlaying(np)
 			trackName   : ( (typeof np.trackName !== 'undefined') ? np.trackName : '?' ),
 			artistName  : ( (typeof np.artistName !== 'undefined') ? np.artistName : '?' ),
 			albumName   : ( (typeof np.albumName !== 'undefined') ? np.albumName : '?' ),
+			albumArt    : ( (typeof np.albumArt !== 'undefined' && np.albumArt.substring(0,4) == 'http') ? np.albumArt : '?' ),
 			timeStarted : ( (hours < 10) ? '0' + hours : hours ) + ':' + ( (minutes < 10) ? '0' + minutes : minutes ),
 			url         : ( (typeof np.url !== 'undefined') ? np.url : window.location.href ),
 			onComplete  : function(status, data)

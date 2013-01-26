@@ -24,7 +24,7 @@
 		"*://last.fm/*",
 		"*://www.last.fm/*",
 		"*://pandora.com/*",
-		"*://www.pandora.com/*",
+		"*://*.pandora.com/*",
 		"*://soundcloud.com/*",
 		"*://www.soundcloud.com/*",
 		"*://turntable.fm/*",
@@ -32,7 +32,10 @@
 		"*://youtube.com/*",
 		"*://www.youtube.com/*",
 		"*://api.justin.tv/*",
-		"*://api.own3d.tv/*"
+		"*://api.own3d.tv/*",
+		"*://*.gs-cdn.net/*",
+		"*://*.p-cdn.com/*",
+		"*://*.sndcdn.com/*"
 	],
 	"content_scripts": [ {
 		"js": [ "lib/jquery.min.js", "lib/proxy.js", "content.js" ],
