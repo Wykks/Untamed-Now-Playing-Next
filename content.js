@@ -17,7 +17,7 @@ $(document).ready(function()
 					{
 						last = play;
 
-						now_playing(
+						nowPlaying(
 						{
 							nowPlaying : play,
 							duration   : ((duration == null) ? '?' : duration[1])
@@ -39,7 +39,7 @@ $(document).ready(function()
 
 						var remainingTime = $('.remaining').text();
 
-						now_playing(
+						nowPlaying(
 						{
 							nowPlaying : play,
 							duration   : (remainingTime == '') ? $('.elapsed').text() : secToHms(hmsToSec(remainingTime.substr(1,remainingTime.length)) + hmsToSec($('.elapsed').text()))
@@ -63,14 +63,14 @@ $(document).ready(function()
 
 					var duration = $('#time-total').text();
 
-					now_playing(
+					nowPlaying(
 					{
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
 						albumName  : albumName.attr('title'),
 						albumArt   : $('#now-playing-image').attr('src').replace(/(.*)\/([0-9]+)_(.*)(\.jpg$)/i, '$1/142_$3.jpg'),
-						duration   : ( (duration.substr(0,1) == '0') ? duration.substr(1, duration.length) : duration ),
+						duration   : $('#time-total').text(),
 						url        : 'http://grooveshark.com/' + albumName.attr('href')
 					});
 				}
@@ -92,9 +92,9 @@ $(document).ready(function()
 						last = play;
 	
 						var remainingTime = $('#trackRemaining').text();
-						var remainingTime = remainingTime.substr(1,remainingTime.length);
+						var remainingTime = remainingTime.substr(1, remainingTime.length);
 
-						now_playing(
+						nowPlaying(
 						{
 							nowPlaying : play,
 							trackName  : trackName,
@@ -113,7 +113,8 @@ $(document).ready(function()
 			{
 				if ($('.pauseButton').is(':visible'))
 				{
-					var artistName = $('.playerBarArtist').text(), trackName = $('.playerBarSong').text();
+					var artistName = $('.playerBarArtist').text();
+					var trackName = $('.playerBarSong').text();
 					var play = artistName + ' - ' + trackName;
 
 					if (last !== play)
@@ -123,7 +124,7 @@ $(document).ready(function()
 						var remainingTime = $('.remainingTime').text();
 						var remainingTime = remainingTime.substr(1,remainingTime.length);
 
-						now_playing(
+						nowPlaying(
 						{
 							nowPlaying : play,
 							trackName  : trackName,
@@ -156,7 +157,7 @@ $(document).ready(function()
 						var albumArt = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
 						var albumArt = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)(\.jpg)\?(.*)$/i, '$1/$2-t200x200.jpg');
 
-						now_playing(
+						nowPlaying(
 						{
 							nowPlaying : play,
 							trackName  : trackName,
@@ -183,7 +184,7 @@ $(document).ready(function()
 					{
 						last = play;
 
-						now_playing(
+						nowPlaying(
 						{
 							nowPlaying : play,
 							trackName  : trackName,
@@ -203,7 +204,7 @@ $(document).ready(function()
 				var duration = $('body').text().match(/\"length_seconds\"\: (\d+)/)[1];
 				var play = $('meta[name=title]').attr('content');
 
-				now_playing(
+				nowPlaying(
 				{
 					nowPlaying : play,
 					duration   : secToHms(duration),
@@ -214,7 +215,7 @@ $(document).ready(function()
 	}
 });
 
-function now_playing(np)
+function nowPlaying(np)
 {
 	if (np.nowPlaying !== null && np.nowPlaying !== false && typeof np.nowPlaying !== 'undefined')
 	{
