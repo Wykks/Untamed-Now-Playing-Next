@@ -19,8 +19,8 @@ $(document).ready(function()
 
 						now_playing(
 						{
-							song     : play,
-							duration : ((duration == null) ? '?' : duration[1])
+							nowPlaying : play,
+							duration   : ((duration == null) ? '?' : duration[1])
 						});
 					}
 				};
@@ -35,13 +35,14 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
+						last = play;
+
 						var remainingTime = $('.remaining').text();
-						last              = play;
 
 						now_playing(
 						{
-							song     : play,
-							duration : (remainingTime == '') ? $('.elapsed').text() : secToHms(hmsToSec(remainingTime.substr(1,remainingTime.length)) + hmsToSec($('.elapsed').text()))
+							nowPlaying : play,
+							duration   : (remainingTime == '') ? $('.elapsed').text() : secToHms(hmsToSec(remainingTime.substr(1,remainingTime.length)) + hmsToSec($('.elapsed').text()))
 						});
 					}
 				};
@@ -50,17 +51,21 @@ $(document).ready(function()
 		case 'grooveshark.com':
 			setInterval(function()
 			{
-				var artistName = $('.now-playing-link.artist').attr('title'), trackName = $('.now-playing-link.song').attr('title'), albumName = $('.now-playing-link.album');
+				var artistName = $('.now-playing-link.artist').attr('title');
+				var trackName  = $('.now-playing-link.song').attr('title');
+				var albumName  = $('.now-playing-link.album');
+
 				play = artistName + ' - ' + trackName;
 
 				if (last !== play)
 				{
-					var duration = $('#time-total').text();
 					last = play;
+
+					var duration = $('#time-total').text();
 
 					now_playing(
 					{
-						song       : play,
+						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
 						albumName  : albumName.attr('title'),
@@ -71,25 +76,58 @@ $(document).ready(function()
 				}
 			}, 10000);
 		break;
+		case 'last.fm':
+			setInterval(function()
+			{
+				if (!$('#radioControlPlay').is(':visible'))
+				{
+					var artistName        = $('strong.artist').find('a').text();
+					var trackNameSelector = $('strong.track').find('a');
+					var trackName         = trackNameSelector.text();
+
+					play = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+	
+						var remainingTime = $('#trackRemaining').text();
+						var remainingTime = remainingTime.substr(1,remainingTime.length);
+
+						now_playing(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumName  : $('.album').find('.title').text(),
+							albumArt   : $('span.albumCover').find('img.art').attr('src').replace(/(.*)\/serve\/(.*)\/(.*)(\.jpg$)/i, '$1/serve/126/$3.jpg'),
+							duration   : secToHms(hmsToSec(remainingTime) + hmsToSec($('#trackPlayed').text())),
+							url        : trackNameSelector.attr('href')
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'pandora.com':
 			setInterval(function()
 			{
 				if ($('.pauseButton').is(':visible'))
 				{
-					var artist = $('.playerBarArtist').text(), song = $('.playerBarSong').text();
-					play = artist + ' - ' + song;
+					var artistName = $('.playerBarArtist').text(), trackName = $('.playerBarSong').text();
+					var play = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
+						last = play;
+	
 						var remainingTime = $('.remainingTime').text();
-						remainingTime     = remainingTime.substr(1,remainingTime.length);
-						last              = play;
+						var remainingTime = remainingTime.substr(1,remainingTime.length);
 
 						now_playing(
 						{
-							song       : play,
-							trackName  : song,
-							artistName : artist,
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
 							albumName  : $('.playerBarAlbum').text(),
 							albumArt   : $('.playerBarArt').attr('src'),
 							duration   : secToHms(hmsToSec(remainingTime) + hmsToSec($('.elapsedTime').text())),
@@ -102,45 +140,74 @@ $(document).ready(function()
 		case 'soundcloud.com':
 			setInterval(function()
 			{
-				selector = $('.sc-button-pause').parent().parent();
+				var selector = $('.sc-button-pause').parent().parent();
+
 				if (selector.length)
 				{
-					play = selector.parent().find('.sc-type-light').find('.soundTitle__username').text() + ' - ' + selector.find('.sc-media-content').find('.soundTitle__title').text();
+					var artistName = selector.parent().find('.sc-type-light').find('.soundTitle__username').text();
+					var trackName  = selector.find('.sc-media-content').find('.soundTitle__title').text();
 
+					play = artistName + ' - ' + trackName;
+					
 					if (last !== play)
 					{
 						last = play;
 
-						art = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
-						if (typeof art === 'undefined')
-							art = $('.image__full').attr('src');
-						else
-							art = art.replace(/(.*)\/(.*)-t([0-9x]+)(\.jpg)\?(.*)$/i, '$1/$2-t200x200.jpg');
+						var albumArt = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
+						var albumArt = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)(\.jpg)\?(.*)$/i, '$1/$2-t200x200.jpg');
 
 						now_playing(
 						{
-							song     : play,
-							albumArt : art,
-							duration : selector.parent().parent().parent().find('.sound__body').find('.sound__waveform').find('.waveform__visibleLayers').find('.waveform__layer').find('.timeIndicator__total').text().replace(/\./g, ':'),
-							url      : url
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumArt   : albumArt,
+							duration   : selector.parent().parent().parent().find('.sound__body').find('.sound__waveform').find('.waveform__visibleLayers').find('.waveform__layer').find('.timeIndicator__total').text().replace(/\./g, ':')
 						});
 					}
 				}
 			}, 10000);
 		break;
+		case 'turntable.fm':
+			setInterval(function()
+			{
+				if ($('#songboard-title').length)
+				{
+					var selector = $('#song-log').find('.song').eq(0);
+					var details = selector.find('.details').text();
+					var trackName = selector.find('.title').text();
+					var artistName = details.replace(/(.*) - (.*)$/i, '$1');
+					var play = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						now_playing(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumArt   : selector.find('.thumb').css('background-image').replace('url(','').replace(')',''),
+							duration   : details.replace(/(.*) - (.*)$/i, '$2')
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'youtube.com':
 			if (typeof $('meta[name=title]').attr('content') !== 'undefined' && last !== $('meta[name=title]').attr('content'))
 			{
-				var duration = $('body').text().match(/\"length_seconds\"\: (\d+)/)[1];
-
-				play = $('meta[name=title]').attr('content');
 				last = play;
+
+				var duration = $('body').text().match(/\"length_seconds\"\: (\d+)/)[1];
+				var play = $('meta[name=title]').attr('content');
 
 				now_playing(
 				{
-					song     : play,
-					duration : ( (duration !== null) ? secToHms(duration) : duration = '?' ),
-					url      : $('link[itemprop="url"]').attr('href')
+					nowPlaying : play,
+					duration   : secToHms(duration),
+					url        : $('link[itemprop="url"]').attr('href')
 				});
 			}
 		break;
@@ -149,17 +216,19 @@ $(document).ready(function()
 
 function now_playing(np)
 {
-	if (np.song !== null && np.song !== false && typeof np.song !== 'undefined')
+	if (np.nowPlaying !== null && np.nowPlaying !== false && typeof np.nowPlaying !== 'undefined')
 	{
-		var currentTime = new Date(), minutes = currentTime.getMinutes(), hours = currentTime.getHours();
+		var currentTime = new Date();
+		var minutes = currentTime.getMinutes();
+		var	hours = currentTime.getHours();
 
 		proxyReq(
 		{
 			type        : 'npapi',
 			method      : 'w',
 			filename    : 'unp_now_playing',
-			song        : np.song,
-			duration    : np.duration,
+			nowPlaying  : np.nowPlaying,
+			duration    : ( (typeof np.duration !== 'undefined') ? np.duration : '?' ),
 			trackName   : ( (typeof np.trackName !== 'undefined') ? np.trackName : '?' ),
 			artistName  : ( (typeof np.artistName !== 'undefined') ? np.artistName : '?' ),
 			albumName   : ( (typeof np.albumName !== 'undefined') ? np.albumName : '?' ),
@@ -178,7 +247,9 @@ function now_playing(np)
 
 function hmsToSec(hms)
 {
-	var p = hms.split(':'), s = 0, m = 1;
+	var p = hms.split(':');
+	var	s = 0
+	var m = 1;
 
 	while (p.length > 0) {
 		s += m * parseInt(p.pop());
@@ -190,6 +261,9 @@ function hmsToSec(hms)
 
 function secToHms(sec)
 {
-	var hours = parseInt( sec / 3600 ) % 24, minutes = parseInt( sec / 60 ) % 60, seconds = sec % 60;
+	var hours = parseInt( sec / 3600 ) % 24;
+	var	minutes = parseInt( sec / 60 ) % 60;
+	var seconds = sec % 60;
+
 	return ((hours != 0) ? hours + ':' : '') + ((hours != 0 && minutes < 10) ? '0' + minutes : minutes) + ':' + ((seconds < 10) ? '0' + seconds : seconds);
 }
