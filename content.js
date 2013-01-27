@@ -53,6 +53,31 @@ $(document).ready(function()
 				};
 			}, 10000);
 		break;
+		case 'deezer.com':
+			setInterval(function()
+			{
+				if ($('.h_icn_pause').is(':visible'))
+				{
+					var artistName = $('#current-artist').text();
+					var trackName  = $('#current-track').text();
+
+					play = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							duration   : $('#end-track').text()
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'di.fm':
 			setInterval(function()
 			{

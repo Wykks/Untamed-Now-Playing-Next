@@ -6,6 +6,7 @@ Supported Sites
 --------------------------------------
 * [8tracks.com](http://8tracks.com)
 * [ah.fm](http://ah.fm)
+* [deezer.com](http://deezer.com)
 * [di.fm](http://di.fm)
 * [grooveshark.com](http://grooveshark.com)
 * [iheart.com](http://iheart.com)
