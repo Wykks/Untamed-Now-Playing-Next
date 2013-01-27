@@ -6,6 +6,33 @@ $(document).ready(function()
 
 	switch(host)
 	{
+		case '8tracks.com':
+			setInterval(function()
+			{
+				if ($('#player_pause_button').css('display') == 'block')
+				{
+					var artistName = $('.title_artist').find('.a').text();
+					var trackName  = $('.title_artist').find('.t').text();
+
+					play = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumName  : $('.album').find('.detail').text(),
+							albumArt   : $('.mix_art_wrapper').find('a').find('img').attr('src').replace(/(.*)?(.*)^/i, '$1'),
+							duration   : $('#time-total').text()
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'ah.fm':
 			setInterval(function()
 			{
