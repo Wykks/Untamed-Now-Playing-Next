@@ -33,9 +33,15 @@
 		"*://www.youtube.com/*",
 		"*://api.justin.tv/*",
 		"*://api.own3d.tv/*",
+		// grooveshark cdn
 		"*://*.gs-cdn.net/*",
+		// pandora cdn
 		"*://*.p-cdn.com/*",
-		"*://*.sndcdn.com/*"
+		// soundcloud cdn
+		"*://*.sndcdn.com/*",
+		// turntable cdns
+		"*://images.mndigital.com/*",
+		"*://images.musicnet.com/*"
 	],
 	"content_scripts": [ {
 		"js": [ "lib/jquery.min.js", "lib/proxy.js", "content.js" ],

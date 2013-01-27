@@ -185,12 +185,14 @@ $(document).ready(function()
 					{
 						last = play;
 
+						var albumArt = selector.find('.thumb').css('background-image').replace('url(','').replace(')','');
+
 						nowPlaying(
 						{
 							nowPlaying : play,
 							trackName  : trackName,
 							artistName : artistName,
-							albumArt   : selector.find('.thumb').css('background-image').replace('url(','').replace(')',''),
+							albumArt   : (albumArt == 'https://s3.amazonaws.com/static.turntable.fm/images/playlist/empty-record.png') ? '?' : albumArt,
 							duration   : details.replace(/(.*) - (.*)$/i, '$2')
 						});
 					}
