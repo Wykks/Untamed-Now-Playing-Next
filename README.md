@@ -22,13 +22,13 @@ Install
 --------------------------------------
 There are a couple of ways to install the extension;
 
-### Install the packed extension (Recommended!)
+### Install the packed extension (v0.2 - Stable, recommended!)
 1. Download the already packed extension [here](http://ipaddr.me/unp/download.php)
 2. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
 3. Drag and drop the packed extension you downloaded in Step #1.
 4. Click 'continue' on the bottom left of the Chrome window.
 
-### Install the unpacked extension
+### Install the unpacked extension (v0.3-dev - Under development, not recommended)
 1. Download the extension from Github [here](https://github.com/untamed0/Untamed-Now-Playing/zipball/master)
 2. Extract the files to a safe place.
 3. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
