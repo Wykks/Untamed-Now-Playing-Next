@@ -78,30 +78,33 @@ $(document).ready(function()
 		case 'grooveshark.com':
 			setInterval(function()
 			{
-				var artistName = $('.now-playing-link.artist').attr('title');
-				var trackName  = $('.now-playing-link.song').attr('title');
-				var albumName  = $('.now-playing-link.album');
-
-				play = artistName + ' - ' + trackName;
-
-				if (last !== play)
+				if ($('#play-pause').hasClass('playing'))
 				{
-					last = play;
+					var artistName = $('.now-playing-link.artist').attr('title');
+					var trackName  = $('.now-playing-link.song').attr('title');
+					var albumName  = $('.now-playing-link.album');
 
-					var duration = $('#time-total').text();
-					var albumArt = $('#now-playing-image').attr('src').replace(/(.*)\/([0-9]+)_(.*)(\.jpg$)/i, '$1/142_$3.jpg');
+					play = artistName + ' - ' + trackName;
 
-					nowPlaying(
+					if (last !== play)
 					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumName  : albumName.attr('title'),
-						albumArt   : (albumArt == 'http://images.gs-cdn.net/static/albums/40_album.png') ? '?' : albumArt,
-						duration   : $('#time-total').text(),
-						url        : 'http://grooveshark.com/' + albumName.attr('href')
-					});
-				}
+						last = play;
+
+						var duration = $('#time-total').text();
+						var albumArt = $('#now-playing-image').attr('src').replace(/(.*)\/([0-9]+)_(.*)(\.jpg$)/i, '$1/142_$3.jpg');
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumName  : albumName.attr('title'),
+							albumArt   : (albumArt == 'http://images.gs-cdn.net/static/albums/40_album.png') ? '?' : albumArt,
+							duration   : $('#time-total').text(),
+							url        : 'http://grooveshark.com/' + albumName.attr('href')
+						});
+					}
+				};
 			}, 10000);
 		break;
 		case 'iheart.com':
