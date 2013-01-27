@@ -16,7 +16,7 @@
 	"permissions": [
 		"tabs",
 		"*://8tracks.com/*",
-		"*://www.8tracks.com/*",
+		"*://*.8tracks.com/*",
 		"*://ah.fm/*",
 		"*://www.ah.fm/*",
 		"*://deezer.com/*",
@@ -28,7 +28,7 @@
 		"*://iheart.com/*",
 		"*://www.iheart.com/*",
 		"*://last.fm/*",
-		"*://www.last.fm/*",
+		"*://*.last.fm/*",
 		"*://pandora.com/*",
 		"*://*.pandora.com/*",
 		"*://songza.com/*",
@@ -40,7 +40,7 @@
 		"*://turntable.fm/*",
 		"*://www.turntable.fm/*",
 		"*://we7.com/*",
-		"*://www.we7.com/*",
+		"*://*.we7.com/*",
 		"*://youtube.com/*",
 		"*://www.youtube.com/*",
 		"*://api.justin.tv/*",
@@ -53,11 +53,7 @@
 		"*://*.sndcdn.com/*",
 		// songza and turntable cdns
 		"*://images.mndigital.com/*",
-		"*://images.musicnet.com/*",
-		// 8tracks cdn
-		"*://imgix.8tracks.com/*",
-		// we7 cdn
-		"*://images.we7.com/*"
+		"*://images.musicnet.com/*"
 	],
 	"content_scripts": [ {
 		"js": [ "lib/jquery.min.js", "lib/proxy.js", "content.js" ],
