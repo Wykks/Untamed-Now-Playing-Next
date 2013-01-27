@@ -219,8 +219,8 @@ $(document).ready(function()
 			{
 				if ($('div.sz-player-revamp').hasClass('sz-player-state-play'))
 				{
-					var artistName = $('.szi-artist').text();
-					var trackName = $('.szi-title').text();
+					var artistName = $('.szi-roll-song').find('.szi-info').find('.szi-artist').text();
+					var trackName = $('.szi-roll-song').find('.szi-info').find('.szi-title').text();
 					var play = artistName + ' - ' + trackName;
 
 					if (last !== play)
