@@ -1,4 +1,4 @@
-[Untamed Now Playing](https://github.com/untamed0/Untamed-Now-Playing) v0.3-dev
+[Untamed Now Playing](https://github.com/untamed0/Untamed-Now-Playing)
 =================
 "Untamed Now Playing" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. At the moment, this extension is Windows only.
 
@@ -24,13 +24,13 @@ Install
 --------------------------------------
 There are a couple of ways to install the extension;
 
-### Install the packed extension (v0.2 - Stable, recommended!)
+### Install the packed extension (v0.3 - Stable, recommended!)
 1. Download the already packed extension [here](http://ipaddr.me/unp/download.php)
 2. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
 3. Drag and drop the packed extension you downloaded in Step #1.
 4. Click 'continue' on the bottom left of the Chrome window.
 
-### Install the unpacked extension (v0.3-dev - Under development, not recommended)
+### Install the unpacked extension (v0.4-dev - Under development, not recommended)
 1. Download the extension from Github [here](https://github.com/untamed0/Untamed-Now-Playing/zipball/master)
 2. Extract the files to a safe place.
 3. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
