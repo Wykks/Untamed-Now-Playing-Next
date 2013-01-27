@@ -25,6 +25,8 @@
 		"*://www.last.fm/*",
 		"*://pandora.com/*",
 		"*://*.pandora.com/*",
+		"*://songza.com/*",
+		"*://www.songza.com/*",
 		"*://soundcloud.com/*",
 		"*://www.soundcloud.com/*",
 		"*://turntable.fm/*",
@@ -39,7 +41,7 @@
 		"*://*.p-cdn.com/*",
 		// soundcloud cdn
 		"*://*.sndcdn.com/*",
-		// turntable cdns
+		// songza and turntable cdns
 		"*://images.mndigital.com/*",
 		"*://images.musicnet.com/*"
 	],
@@ -56,6 +58,8 @@
 			"*://www.last.fm/*",
 			"*://pandora.com/*",
 			"*://www.pandora.com/*",
+			"*://songza.com/*",
+			"*://www.songza.com/*",
 			"*://soundcloud.com/*",
 			"*://www.soundcloud.com/*",
 			"*://turntable.fm/*",

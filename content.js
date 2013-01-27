@@ -139,6 +139,31 @@ $(document).ready(function()
 				};
 			}, 10000);
 		break;
+		case 'songza.com':
+			setInterval(function()
+			{
+				if ($('div.sz-player-revamp').hasClass('sz-player-state-play'))
+				{
+					var artistName = $('.szi-artist').text();
+					var trackName = $('.szi-title').text();
+					var play = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumArt   : $('.szi-roll-song').find('img').attr('src'),
+							url        : 'http://songza.com' + $('.szi-station-info').find('a').attr('href')
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'soundcloud.com':
 			setInterval(function()
 			{

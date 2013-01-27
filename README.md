@@ -9,6 +9,7 @@ Supported Sites
 * [grooveshark.com](http://grooveshark.com)
 * [last.fm](http://last.fm)
 * [pandora.com](http://pandora.com)
+* [songza.com](http://songza.com)
 * [soundcloud.com](http://soundcloud.com)
 * [turntable.fm](http://turntable.fm)
 * [youtube.com](http://youtube.com)
