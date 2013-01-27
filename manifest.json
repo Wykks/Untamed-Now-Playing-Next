@@ -3,6 +3,7 @@
 	"name": "Untamed Now Playing",
 	"version": "0.3",
 	"description": "Saves 'now playing' data locally, which inturn can be displayed on an XSplit overlay",
+	"update_url": "http://ipaddr.me/unp/updates.xml",
 	"background": { "scripts": ["lib/jquery.min.js", "lib/proxy.js", "lib/pages/background.js"] },
 	"options_page": "options.html",
 	"plugins": [{"path": "lib/npapi-file-io-32.dll", "public": false}],
