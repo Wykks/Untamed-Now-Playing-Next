@@ -245,6 +245,25 @@ $(document).ready(function()
 				}
 			}, 10000);
 		break;
+		case 'tunein.com':
+			setInterval(function()
+			{
+				if ($('#tuner').hasClass('playing'))
+				{
+					play = $('.line1').find('h1').find('span').text() + ' - ' + $('.line2').find('.info').find('span').text();
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'turntable.fm':
 			setInterval(function()
 			{
