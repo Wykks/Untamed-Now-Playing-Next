@@ -4,9 +4,11 @@
 
 Supported Sites
 --------------------------------------
+* [8tracks.com](http://8tracks.com)
 * [ah.fm](http://ah.fm)
 * [di.fm](http://di.fm)
 * [grooveshark.com](http://grooveshark.com)
+* [iheart.com](http://iheart.com)
 * [last.fm](http://last.fm)
 * [pandora.com](http://pandora.com)
 * [songza.com](http://songza.com)

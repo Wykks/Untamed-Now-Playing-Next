@@ -104,6 +104,26 @@ $(document).ready(function()
 				}
 			}, 10000);
 		break;
+		case 'iheart.com':
+			setInterval(function()
+			{
+				if ($('#playerPlay').hasClass('pause'))
+				{
+					play = $('h1.title').find('a').text() + ' - ' + $('h2.description').text();
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							url   : 'http://iheart.com' + $('.liveStn').find('.title').find('a').attr('href')
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'last.fm':
 			setInterval(function()
 			{
