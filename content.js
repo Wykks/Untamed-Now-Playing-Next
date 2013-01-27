@@ -318,6 +318,31 @@ $(document).ready(function()
 				};
 			}, 10000);
 		break;
+		case 'we7.com':
+			setInterval(function()
+			{
+				if ($('.main-action').hasClass('pause-mode'))
+				{
+					var artistName = $('.chugger-current').find('.artist').attr('title');
+					var trackName = $('.chugger-current').find('.song').attr('title');
+					var play = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumArt   : $('.chugger-current').find('.chugger-artwork').find('img').attr('src'),
+							url        : $('#now-playing-like-bar').find('.fb-like').attr('data-href')
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'youtube.com':
 			if (typeof $('meta[name=title]').attr('content') !== 'undefined' && last !== $('meta[name=title]').attr('content'))
 			{

@@ -15,6 +15,7 @@ Supported Sites
 * [songza.com](http://songza.com)
 * [soundcloud.com](http://soundcloud.com)
 * [turntable.fm](http://turntable.fm)
+* [we7.com](http://we7.com)
 * [youtube.com](http://youtube.com)
 
 Support for more sites will be added over time. If you have a suggestion for a site, please open an issue or reply to the teamliquid topic.
