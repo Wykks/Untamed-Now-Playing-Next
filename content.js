@@ -155,7 +155,7 @@ $(document).ready(function()
 		case 'last.fm':
 			setInterval(function()
 			{
-				if (!$('#radioControlPlay').is(':visible'))
+				if (!$('#radioControlPlay').is(':visible') && $('#nowPlayingMeta').is(':visible'))
 				{
 					var artistName        = $('strong.artist').find('a').text();
 					var trackNameSelector = $('strong.track').find('a');
