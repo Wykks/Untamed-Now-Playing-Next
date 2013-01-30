@@ -53,7 +53,7 @@ Chrome limits what directories can be saved to, if you run into problems, try sa
 
 Known Issues
 --------------------------------------
-Chrome under Windows 8 in Metro mode doesn't support NPAPI plugins, see [here](http://blog.chromium.org/2012/07/npapi-plug-ins-in-windows-8-metro-mode.html). There is also currently a bug in Chrome which causes NPAPI plugins not working in Windows 8 Desktop mode. A temporary work around is to run Chrome in Windows 7 compatability mode. This bug has already been reported to the Chrome team and has been confirmed.
+Chrome under **Windows 8 in Metro mode** doesn't support NPAPI plugins, see [here](http://blog.chromium.org/2012/07/npapi-plug-ins-in-windows-8-metro-mode.html). There is also currently a bug in Chrome which causes NPAPI plugins to not work under **Windows 8 in Desktop mode**. A temporary work around is to run Chrome in Windows 7 compatability mode. This bug has already been reported to the Chrome team and has been confirmed.
 
 Licence
 --------------------------------------
