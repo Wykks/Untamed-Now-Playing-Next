@@ -28,6 +28,8 @@
 		"*://www.grooveshark.com/*",
 		"*://iheart.com/*",
 		"*://www.iheart.com/*",
+		"*://jango.com/*",
+		"*://www.jango.com/*",
 		"*://last.fm/*",
 		"*://*.last.fm/*",
 		"*://pandora.com/*",
@@ -50,6 +52,8 @@
 		"*://api.own3d.tv/*",
 		// grooveshark cdn
 		"*://*.gs-cdn.net/*",
+		// jango cdn
+		"*://*.album.images.jango.com/*",
 		// pandora cdn
 		"*://*.p-cdn.com/*",
 		// soundcloud cdn
@@ -59,6 +63,7 @@
 		"*://images.musicnet.com/*"
 	],
 	"content_scripts": [ {
+		"all_frames": true,
 		"js": [ "lib/jquery.min.js", "lib/proxy.js", "content.js" ],
 		"matches": [
 			"*://8tracks.com/*",
@@ -73,6 +78,8 @@
 			"*://www.grooveshark.com/*",
 			"*://iheart.com/*",
 			"*://www.iheart.com/*",
+			"*://jango.com/*",
+			"*://www.jango.com/*",
 			"*://last.fm/*",
 			"*://www.last.fm/*",
 			"*://pandora.com/*",

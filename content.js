@@ -152,6 +152,32 @@ $(document).ready(function()
 				};
 			}, 10000);
 		break;
+		case 'jango.com':
+			setInterval(function()
+			{
+				if ($('#btn-playpause').hasClass('pause'))
+				{
+					var artistName        = $('#player_current_artist').find('a').text();
+					var trackName         = $('#current-song').find('a').text();
+
+					play = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumArt   : $('#player_main_pic_img').attr('src'),
+							url        : 'http://jango.com' + $('#station_info').find('a').attr('href')
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'last.fm':
 			setInterval(function()
 			{

@@ -10,6 +10,7 @@ Supported Sites
 * [di.fm](http://di.fm)
 * [grooveshark.com](http://grooveshark.com)
 * [iheart.com](http://iheart.com)
+* [jango.com](http://jango.com)
 * [last.fm](http://last.fm)
 * [pandora.com](http://pandora.com)
 * [plug.dj](http://plug.dj)
