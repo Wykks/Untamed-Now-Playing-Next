@@ -14,6 +14,7 @@ Supported Sites
 * [last.fm](http://last.fm)
 * [pandora.com](http://pandora.com)
 * [plug.dj](http://plug.dj)
+* [seoul.fm](http://seoul.fm)
 * [songza.com](http://songza.com)
 * [soundcloud.com](http://soundcloud.com)
 * [turntable.fm](http://turntable.fm)

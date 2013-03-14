@@ -256,6 +256,23 @@ $(document).ready(function()
 				}
 			}, 10000);
 		break;
+		// seoul.fm iframe
+		case 'up.seoul.fm':
+			var artistName = $('#title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text();
+			var trackName = $('#title').find('font').find('b').text();
+			var play = artistName + ' - ' + trackName;
+
+			last = play;
+
+			nowPlaying(
+			{
+				nowPlaying : play,
+				trackName  : trackName,
+				artistName : artistName,
+				albumArt   : 'http://up.seoul.fm/' + $('#cpPictureMainSong').attr('src'),
+				url        : 'http://seoul.fm'
+			});
+		break;
 		case 'songza.com':
 			setInterval(function()
 			{
