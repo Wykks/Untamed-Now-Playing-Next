@@ -214,6 +214,22 @@ $(document).ready(function()
 				};
 			}, 10000);
 		break;
+		case 'plug.dj':
+			setInterval(function()
+			{
+				var play = $('#now-playing-value').text();
+
+				if (last !== play)
+				{
+					last = play;
+
+					nowPlaying(
+					{
+						nowPlaying : play
+					});
+				}
+			}, 10000);
+		break;
 		case 'songza.com':
 			setInterval(function()
 			{

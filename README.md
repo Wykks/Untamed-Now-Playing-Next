@@ -12,6 +12,7 @@ Supported Sites
 * [iheart.com](http://iheart.com)
 * [last.fm](http://last.fm)
 * [pandora.com](http://pandora.com)
+* [plug.dj](http://plug.dj)
 * [songza.com](http://songza.com)
 * [soundcloud.com](http://soundcloud.com)
 * [turntable.fm](http://turntable.fm)
