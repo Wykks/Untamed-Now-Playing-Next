@@ -72,7 +72,9 @@ $(document).ready(function()
 							nowPlaying : play,
 							trackName  : trackName,
 							artistName : artistName,
-							duration   : $('#end-track').text()
+							albumArt   : $('#naboo_menu_infos_cover').attr('src'),
+							duration   : $('#end-track').text(),
+							url        : 'http://deezer.com/track/' + $('#h_love').find('a').attr('onclick').replace(/(.*)"SNG_ID":"([0-9]+)"(.*)/i, '$2'),
 						});
 					}
 				};
