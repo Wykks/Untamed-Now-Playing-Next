@@ -377,6 +377,30 @@ $(document).ready(function()
 				};
 			}, 10000);
 		break;
+		case 'vk.com':
+			setInterval(function()
+			{
+				if ($('#gp_play').hasClass('playing'))
+				{
+					var artistName = $('#gp_performer').text();
+					var trackName = $('#gp_title').text();
+					var play = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							url        : 'http://vk.com/wall-' + $('#gp_play_btn').find('a').attr('onclick').replace(/playAudioNew\('(.*)-(.*)',(.*)/i, '$2')
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'we7.com':
 			setInterval(function()
 			{

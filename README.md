@@ -18,6 +18,7 @@ Supported Sites
 * [songza.com](http://songza.com)
 * [soundcloud.com](http://soundcloud.com)
 * [turntable.fm](http://turntable.fm)
+* [vk.com](http://vk.com)
 * [we7.com](http://we7.com)
 * [youtube.com](http://youtube.com)
 
