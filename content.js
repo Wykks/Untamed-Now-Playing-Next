@@ -116,7 +116,7 @@ $(document).ready(function()
 						last = play;
 
 						var duration = $('#time-total').text();
-						var albumArt = $('#now-playing-image').attr('src').replace(/(.*)\/([0-9]+)_(.*)(\.jpg$)/i, '$1/142_$3.jpg');
+						var albumArt = $('#now-playing-image').attr('src').replace(/(.*)\/([0-9]+)_(.*)\.(jpg|jpeg|png)$/i, '$1/142_$3.$4');
 
 						nowPlaying(
 						{
@@ -124,7 +124,7 @@ $(document).ready(function()
 							trackName  : trackName,
 							artistName : artistName,
 							albumName  : albumName.attr('title'),
-							albumArt   : (albumArt == 'http://images.gs-cdn.net/static/albums/40_album.png') ? '?' : albumArt,
+							albumArt   : (albumArt == 'http://images.gs-cdn.net/static/albums/142_album.png') ? '?' : albumArt,
 							duration   : $('#time-total').text(),
 							url        : 'http://grooveshark.com/' + albumName.attr('href')
 						});
@@ -202,7 +202,7 @@ $(document).ready(function()
 							trackName  : trackName,
 							artistName : artistName,
 							albumName  : $('.album').find('.title').text(),
-							albumArt   : $('span.albumCover').find('img.art').attr('src').replace(/(.*)\/serve\/(.*)\/(.*)(\.jpg$)/i, '$1/serve/126/$3.jpg'),
+							albumArt   : $('span.albumCover').find('img.art').attr('src').replace(/(.*)\/serve\/(.*)\/(.*)\.(jpg|jpeg|png)$/i, '$1/serve/126/$3.$4'),
 							duration   : secToHms(hmsToSec(remainingTime) + hmsToSec($('#trackPlayed').text())),
 							url        : trackNameSelector.attr('href')
 						});
@@ -315,7 +315,7 @@ $(document).ready(function()
 						last = play;
 
 						var albumArt = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
-						var albumArt = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)(\.jpg)\?(.*)$/i, '$1/$2-t200x200.jpg');
+						var albumArt = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
 
 						nowPlaying(
 						{
