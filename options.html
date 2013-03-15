@@ -17,6 +17,12 @@
 			table#options_table td label {
 				margin: 4px 0px 9px 8px;
 			}
+			table#sites_table thead th, table#sites_table tbody td {
+				text-align: center;
+			}
+			table#sites_table tbody td:nth-of-type(1) {
+				text-align: left;
+			}
 			.main_content, .popover-title, #stream_details {
 				display: none;
 			}
@@ -47,6 +53,7 @@
 						<ul class="nav pull-right">
 							<li id="nav-options" class="active"><a href="#/options">Options</a></li>
 							<li id="nav-about"><a href="#/about">About</a></li>
+							<li id="nav-sites"><a href="#/sites">Site Features</a></li>
 							<li id="nav-contact"><a href="#/contact">Contact</a></li>
 						</ul>
 					</div>
@@ -79,7 +86,7 @@
 					<td>Plain text now playing format</td>
 					<td>
 						<input type="text" id="txt_format" style="width:370px;">
-						<button class="btn pull-right opt-tt" data-content="The format of the plain text. You can use the following formatting options:<br><pre><strong>%s%</strong> : Song data<br><strong>%d%</strong> : Total Duration<br><strong>%t%</strong> : Time started (24hr)<br><strong>%u%</strong> : URL of page</pre>For example; <em>%s% [%d%]</em><br>Will display: <em>Avicii - Levels [3:19]</em>"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content="For the list of available variables and which sites support them, and examples <a href='#/sites'>click here</a>.<br>OBS users using the &quot;Scroll&quot; option may need to add a few spaces to the end of this option to prevent the first and last word from merging"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
@@ -127,6 +134,179 @@
 				<button class="btn btn-large btn-primary" type="button" id="save_options">Save</button>
 			</p>
 		</div>
+		<div id="sites" class="main_content container">
+			<h1>Site Features</h1>
+			<p>This is a list of the supported sites, and their available features. <strong>This information is only for users who want more customisation, and is irrelevant for the majority of users.</strong> The symbols in brackets are the variables used for formatting the "Plain text" save as option.</p>
+			<p><strong>"Now Playing" (%s%), "Time Started" (%t%) and "URL" (%u%) variables are supported by all the below sites.</strong> For sites such as YouTube which doesn't give the artist and title information seperately, the "Now Playing" variable will be the title of the video. For sites that support artist and title, the "Now Playing" variable is made up of "Artist - Title".</p>
+			<table id="sites_table" class="table table-bordered table-hover table-condensed">
+				<thead>
+					<tr>
+						<th>&nbsp;</th>
+						<th>Artist (%a%)</th>
+						<th>Title (%e%)</th>
+						<th>Duration (%d%)</th>
+						<th>Album (%b%)</th>
+						<th>Artwork (N/A)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a target="_blank" href="http://8tracks.com">8tracks.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://ah.fm">ah.fm</a></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://deezer.com">deezer.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://di.fm">di.fm</a></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://grooveshark.com">grooveshark.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://iheart.com">iheart.com</a></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://jango.com">jango.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://last.fm">last.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://pandora.com">pandora.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://plug.dj">plug.dj</a></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://seoul.fm">seoul.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://songza.com">songza.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://soundcloud.com">soundcloud.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://tunein.com">tunein.com</a></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://turntable.fm">turntable.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://vk.com">vk.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://we7.com">we7.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://youtube.com">youtube.com</a></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Full list of Variables</h3>
+			<pre><strong>%s%</strong> : Now Playing data<br><strong>%a%</strong> : Artist<br><strong>%e%</strong> : Title<br><strong>%b%</strong> : Album<br><strong>%d%</strong> : Total Duration<br><strong>%t%</strong> : Time started (24hr)<br><strong>%u%</strong> : URL of page<br><strong>%n%</strong> : New line</pre>
+			<h3>Plain Text Format Examples</h3>
+			<p>If you listen to GrooveShark, and your plain text format is set to:</p>
+			<pre>%a% - %e% (%b%) [%d%]</pre>
+			<p>The output will be:</p>
+			<pre>Artist - Title (Album) [Duration]</pre>
+			<p>However, if you were to switch to YouTube with the same settings, the output would be:</p>
+			<pre>? - ? (?) [Duration]</pre>
+			<p>Because YouTube doesn't support the artist, title and album variables. Because of this, if you like to switch music sites, it's best to keep to the basic "Now Playing" (%s%) variable which all sites support.</p>
+		</div>
 		<div id="about" class="main_content container">
 			<h1>About</h1>
 			<p>"Untamed Now Playing" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. Coded by Untamed.</p>
@@ -168,7 +348,7 @@
 					<li><a target="_blank" href="http://sammyjs.org">Sammy.js</a> (MIT License)</li>
 				</ul>
 			</p>
-			<p>Additionally, the main icon was designed by <a target="_blank" href="http://csscreme.com/freeicons/">CSS Creme</a>.</p>
+			<p>Additionally, the main icon was designed by <a target="_blank" href="http://csscreme.com/freeicons/">CSS Creme</a>, and icons designed by <a target="_blank" href="http://www.fatcow.com/free-icons">FatCow</a> are also used on the options pages.</p>
 		</div>
 		<div id="contact" class="main_content container">
 			<h1>Contact</h1>
