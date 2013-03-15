@@ -62,7 +62,7 @@
 					<td width="50%">Save to directory</td>
 					<td width="50%">
 						<input type="text" id="save_dir" style="width:370px;">
-						<button class="btn pull-right opt-tt" data-content="The directory where the now playing file is saved, may also be used for caching stream status. <strong>Please make sure this directory exists</strong>"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content="The directory where the now playing file is saved, may also be used for caching stream status"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
@@ -86,7 +86,7 @@
 					<td>Song maximum length</td>
 					<td>
 						<input type="number" id="song_maxlen" min="10" max="256" style="width:100px;">
-						<label class="checkbox inline">
+						<label class="checkbox inline" style="width:200px;">
 							<input type="checkbox" id="song_maxlen_append" value="1"> Append longer strings with '...'
 						</label>
 						<button class="btn pull-right opt-tt" data-content="The maximum length of the song name. Must be a number between 10 and 256"><i class="icon-info-sign"></i></button>
@@ -98,7 +98,7 @@
 						<label class="checkbox inline">
 							<input type="checkbox" id="album_artwork" value="1"> Yes
 						</label>
-						<button class="btn pull-right opt-tt" data-content="The album artwork will be saved to &quot;SaveDirectory/unp_album_art.jpg&quot;. Supported sites: 8tracks, Grooveshark, Last.fm, Pandora, Songza, SoundCloud, Turntable, WE7"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content="The album artwork will be saved to &quot;SaveDirectory/unp_album_art.jpg&quot;. Supported sites: 8tracks, Grooveshark, Jango, Last.fm, Pandora, Seoul.fm, Songza, SoundCloud, Turntable, WE7"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
@@ -115,9 +115,8 @@
 					<td>
 						<select id="stream_site" style="width: 150px;">
 							<option value="" selected disabled>Select Service</option>
-							<option value="" disabled>--------------</option>
 							<option value="justin">Justin/Twitch TV</option>
-							<option value="own3d">own3D</option>
+							<option value="own3d" disabled>own3D</option>
 						</select>
 						<input type="text" id="stream_user" placeholder="Username">
 						<button class="btn pull-right opt-tt" data-content="Your Stream details, only used if the 'Check stream' option is enabled. <strong>When using own3D, you will need to use your &quot;Live ID&quot;</strong>, this number can be found in Settings > My Livestreams"><i class="icon-info-sign"></i></button>
@@ -130,7 +129,7 @@
 		</div>
 		<div id="about" class="main_content container">
 			<h1>About</h1>
-			<p>"Untamed Now Playing" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. Coded by Untamed.</p>
+			<p>"Untamed Now Playing" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. Coded by Untamed.</p>
 			<h3>Supported Sites</h3>
 			<p>
 				<ul>

@@ -1,6 +1,6 @@
 [Untamed Now Playing](https://github.com/untamed0/Untamed-Now-Playing)
 =================
-"Untamed Now Playing" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. At the moment, this extension is Windows only.
+"Untamed Now Playing" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. At the moment, this extension is Windows only.
 
 Supported Sites
 --------------------------------------
