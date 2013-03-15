@@ -334,7 +334,7 @@ $(document).ready(function()
 			{
 				if ($('#tuner').hasClass('playing'))
 				{
-					play = $('.line1').find('h1').find('span').text() + ' - ' + $('.line2').find('.info').find('span').text();
+					play = $('.line1').find('.info').text() + ' - ' + $('.line2').find('.title').text();
 
 					if (last !== play)
 					{
