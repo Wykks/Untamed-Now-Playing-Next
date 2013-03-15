@@ -26,7 +26,7 @@ $(document).ready(function()
 							trackName  : trackName,
 							artistName : artistName,
 							albumName  : $('.album').find('.detail').text(),
-							albumArt   : $('.mix_art_wrapper').find('a').find('img').attr('src').replace(/(.*)?(.*)^/i, '$1'),
+							albumArt   : $('.mix_art_wrapper').find('a').find('img').attr('src').replace(/(.*)\?(.*)/i, '$1'),
 							duration   : $('#time-total').text()
 						});
 					}
