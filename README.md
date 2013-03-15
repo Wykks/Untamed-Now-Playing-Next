@@ -69,4 +69,4 @@ This software uses the following libraries developed by third parties, and are l
 * [npapi-file-io](http://code.google.com/p/npapi-file-io) (New BSD License)
 * [Sammy.js](http://sammyjs.org) (MIT License)
 
-Additionally, the main icon was designed by [CSS Creme](http://csscreme.com/freeicons/), and icons designed by [FatCow](http://www.fatcow.com/free-icons) are also used on the options pages.
+Additionally, the main icon was designed by [CSS Creme](http://csscreme.com/freeicons/), and icons designed by [FatCow](http://www.fatcow.com/free-icons) are used on the options pages.
