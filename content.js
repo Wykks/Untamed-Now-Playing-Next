@@ -438,6 +438,7 @@ $(document).ready(function()
 				{
 					nowPlaying : play,
 					duration   : secToHms(duration),
+					albumArt   : $('link[itemprop="thumbnailUrl"]').attr('href'),
 					url        : $('link[itemprop="url"]').attr('href')
 				});
 			}

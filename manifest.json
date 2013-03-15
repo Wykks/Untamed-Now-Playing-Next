@@ -63,7 +63,9 @@
 		"*://*.sndcdn.com/*",
 		// songza and turntable cdns
 		"*://images.mndigital.com/*",
-		"*://images.musicnet.com/*"
+		"*://images.musicnet.com/*",
+		// youtube cdn
+		"*://*.ytimg.com/*"
 	],
 	"content_scripts": [ {
 		"all_frames": true,
