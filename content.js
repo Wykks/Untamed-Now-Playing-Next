@@ -362,9 +362,9 @@ $(document).ready(function()
 				if ($('#songboard-title').length)
 				{
 					var selector = $('#song-log').find('.song').eq(0);
-					var details = selector.find('.details').text();
+					var details = selector.find('.details').find('span').html();
 					var trackName = selector.find('.title').text();
-					var artistName = details.replace(/(.*) - (.*)$/i, '$1');
+					var artistName = details.replace(/(.*)<span class(.*)<\/span>(.*)$/i, '$1');
 					var play = artistName + ' - ' + trackName;
 
 					if (last !== play)
@@ -379,7 +379,7 @@ $(document).ready(function()
 							trackName  : trackName,
 							artistName : artistName,
 							albumArt   : (albumArt == 'https://s3.amazonaws.com/static.turntable.fm/images/playlist/empty-record.png') ? '?' : albumArt,
-							duration   : details.replace(/(.*) - (.*)$/i, '$2')
+							duration   : details.replace(/(.*)<span class(.*)<\/span>(.*)$/i, '$3')
 						});
 					}
 				};

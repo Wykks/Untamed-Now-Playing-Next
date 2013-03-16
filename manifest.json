@@ -62,6 +62,7 @@
 		// soundcloud cdn
 		"*://*.sndcdn.com/*",
 		// songza and turntable cdns
+		"*://cdn.7static.com/*",
 		"*://images.mndigital.com/*",
 		"*://images.musicnet.com/*",
 		// youtube cdn
