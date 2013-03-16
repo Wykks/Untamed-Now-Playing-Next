@@ -56,7 +56,7 @@
 		// grooveshark cdn
 		"*://*.gs-cdn.net/*",
 		// jango cdn
-		"*://*.album.images.jango.com/*",
+		"*://*.images.jango.com/*",
 		// pandora cdn
 		"*://*.p-cdn.com/*",
 		// soundcloud cdn
