@@ -139,7 +139,10 @@ $(document).ready(function()
 			{
 				if ($('#playerPlay').hasClass('pause'))
 				{
-					play = $('h1.title').find('a').text() + ' - ' + $('h2.description').text();
+					var artistName = $('h2.artist').find('a').attr('title');
+					var trackName  = $('h1.title').find('a').attr('title');
+
+					play = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -148,7 +151,10 @@ $(document).ready(function()
 						nowPlaying(
 						{
 							nowPlaying : play,
-							url   : 'http://iheart.com' + $('.liveStn').find('.title').find('a').attr('href')
+							trackName  : trackName,
+							artistName : artistName,
+							albumArt   : $('.playerArt').find('a').find('img').attr('src').replace('imscale?w=54', 'imscale?w=150'),
+							url        : 'http://iheart.com' + $('.liveStn').find('.title').find('a').attr('href')
 						});
 					}
 				};
