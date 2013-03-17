@@ -29,7 +29,7 @@ Install
 --------------------------------------
 There are a couple of ways to install the extension;
 
-### Install the packed extension (v0.4 - Stable, recommended!)
+### Install the packed extension (v0.4.1 - Stable, recommended!)
 1. Download the already packed extension [here](http://ipaddr.me/unp/download.php)
 2. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
 3. Drag and drop the packed extension you downloaded in Step #1.
