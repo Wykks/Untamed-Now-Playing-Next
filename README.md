@@ -17,6 +17,7 @@ Supported Sites
 * [seoul.fm](http://seoul.fm)
 * [songza.com](http://songza.com)
 * [soundcloud.com](http://soundcloud.com)
+* [tunein.com](http://tunein.com)
 * [turntable.fm](http://turntable.fm)
 * [vk.com](http://vk.com)
 * [we7.com](http://we7.com)
