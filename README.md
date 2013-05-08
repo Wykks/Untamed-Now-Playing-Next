@@ -9,6 +9,7 @@ Supported Sites
 * [deezer.com](http://deezer.com)
 * [di.fm](http://di.fm)
 * [grooveshark.com](http://grooveshark.com)
+* [retro.grooveshark.com](http://retro.grooveshark.com)
 * [iheart.com](http://iheart.com)
 * [jango.com](http://jango.com)
 * [last.fm](http://last.fm)
