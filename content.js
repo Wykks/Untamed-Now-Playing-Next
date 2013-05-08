@@ -337,6 +337,31 @@ $(document).ready(function()
 				}
 			}, 10000);
 		break;
+		case 'themusicninja.com':
+			setInterval(function()
+			{
+				if ($('#player-features').hasClass('tmn_playing'))
+				{
+					var artistName = $.trim($('.track_name').find('a').find('.artist').text());
+					var trackName  = $.trim($('.track_name').find('a').find('.title').text());
+
+					play = artistName + ' - ' + trackName;
+					
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							duration   : $('.sm2_total').text()
+						});
+					}
+				}
+			}, 10000);
+		break;
 		case 'tunein.com':
 			setInterval(function()
 			{
