@@ -313,8 +313,8 @@ $(document).ready(function()
 
 				if (selector.length)
 				{
-					var artistName = selector.parent().find('.sc-type-light').find('.soundTitle__username').text();
-					var trackName  = selector.find('.sc-media-content').find('.soundTitle__title').text();
+					var artistName = $.trim(selector.parent().find('.sc-type-light').find('.soundTitle__username').text());
+					var trackName  = $.trim(selector.find('.sc-media-content').find('.soundTitle__title').text());
 
 					play = artistName + ' - ' + trackName;
 					
