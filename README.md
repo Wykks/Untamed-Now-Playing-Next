@@ -13,6 +13,7 @@ Supported Sites
 * [jango.com](http://jango.com)
 * [last.fm](http://last.fm)
 * [pandora.com](http://pandora.com)
+* [play.google.com](http://play.google.com)
 * [plug.dj](http://plug.dj)
 * [seoul.fm](http://seoul.fm)
 * [songza.com](http://songza.com)

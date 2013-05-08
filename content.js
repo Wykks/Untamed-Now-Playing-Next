@@ -259,6 +259,32 @@ $(document).ready(function()
 				};
 			}, 10000);
 		break;
+		case 'play.google.com':
+			setInterval(function()
+			{
+				if ($('#playPause').attr('title') == 'Pause')
+				{
+					var artistName = $('#playerSongTitle').find('.tooltip').text();
+					var trackName = $('#player-artist').find('.tooltip').text();
+					var play = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumArt   : 'http:' + $('#playingAlbumArt').attr('src'),
+							duration   : $('#duration').text(),
+							url        : 'http://play.google.com'
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'plug.dj':
 			setInterval(function()
 			{

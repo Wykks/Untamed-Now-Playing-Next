@@ -54,6 +54,7 @@
 		"*://*.lastfm.com.tr/*",
 		"*://pandora.com/*",
 		"*://*.pandora.com/*",
+		"*://play.google.com/*",
 		"*://plug.dj/*",
 		"*://www.plug.dj/*",
 		"*://up.seoul.fm/*",
@@ -81,6 +82,8 @@
 		"*://*.images.jango.com/*",
 		// pandora cdn
 		"*://*.p-cdn.com/*",
+		// google play cdn
+		"*://*.googleusercontent.com/*",
 		// soundcloud cdn
 		"*://*.sndcdn.com/*",
 		// songza and turntable cdns
@@ -132,6 +135,7 @@
 			"*://*.lastfm.com.tr/*",
 			"*://pandora.com/*",
 			"*://www.pandora.com/*",
+			"*://play.google.com/*",
 			"*://plug.dj/*",
 			"*://www.plug.dj/*",
 			"*://up.seoul.fm/nowplaying.html",
