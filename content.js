@@ -185,8 +185,19 @@ $(document).ready(function()
 					}
 				};
 			}, 10000);
-		break;
-		case 'last.fm':
+			break;
+			case 'last.fm':
+			case 'lastfm.de':
+			case 'lastfm.es':
+			case 'lastfm.fr':
+			case 'lastfm.it':
+			case 'lastfm.jp':
+			case 'lastfm.pl':
+			case 'lastfm.com.br':
+			case 'lastfm.ru':
+			case 'lastfm.se':
+			case 'lastfm.com.tr':
+			case 'cn.last.fm':
 			setInterval(function()
 			{
 				if (!$('#radioControlPlay').is(':visible') && $('#nowPlayingMeta').is(':visible'))
