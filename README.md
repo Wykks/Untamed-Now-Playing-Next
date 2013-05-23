@@ -13,6 +13,7 @@ Supported Sites
 * [iheart.com](http://iheart.com)
 * [jango.com](http://jango.com)
 * [last.fm](http://last.fm)
+* [nightbot.tv](http://nightbot.tv)
 * [pandora.com](http://pandora.com)
 * [play.google.com](http://play.google.com)
 * [plug.dj](http://plug.dj)

@@ -255,6 +255,26 @@ $(document).ready(function()
 				};
 			}, 10000);
 		break;
+		case 'nightbot.tv':
+			setInterval(function()
+			{
+				if ($('#pause').is(':visible'))
+				{
+					var play = $('#currentTitle').text();
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							duration   : secToHms(hmsToSec($('#duration').text()))
+						});
+					}
+				}
+			}, 10000);
+		break;
 		case 'pandora.com':
 			setInterval(function()
 			{
