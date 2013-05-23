@@ -296,8 +296,8 @@ $(document).ready(function()
 			{
 				if ($('#playPause').attr('title') == 'Pause')
 				{
-					var artistName = $('#playerSongTitle').find('.tooltip').text();
-					var trackName = $('#player-artist').find('.tooltip').text();
+					var artistName = $('#player-artist').text();
+					var trackName = $('#playerSongTitle').find('.tooltip').text();
 					var play = artistName + ' - ' + trackName;
 
 					if (last !== play)
@@ -309,6 +309,7 @@ $(document).ready(function()
 							nowPlaying : play,
 							trackName  : trackName,
 							artistName : artistName,
+							albumName  : $('.player-album').text(),
 							albumArt   : 'http:' + $('#playingAlbumArt').attr('src'),
 							duration   : $('#duration').text(),
 							url        : 'http://play.google.com'
