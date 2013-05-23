@@ -58,6 +58,8 @@
 		"*://pandora.com/*",
 		"*://*.pandora.com/*",
 		"*://play.google.com/*",
+		// play.spotify.com
+		"*://*.spapps.co/*",
 		"*://plug.dj/*",
 		"*://www.plug.dj/*",
 		"*://up.seoul.fm/*",
@@ -85,8 +87,10 @@
 		"*://*.images.jango.com/*",
 		// pandora cdn
 		"*://*.p-cdn.com/*",
-		// google play cdn
+		// play.google cdn
 		"*://*.googleusercontent.com/*",
+		// play.spotify cdn
+		"*://*.cloudfront.net/*",
 		// soundcloud cdn
 		"*://*.sndcdn.com/*",
 		// songza and turntable cdns
@@ -142,6 +146,8 @@
 			"*://pandora.com/*",
 			"*://www.pandora.com/*",
 			"*://play.google.com/*",
+			// play.spotify.com
+			"*://*.spapps.co/*",
 			"*://plug.dj/*",
 			"*://www.plug.dj/*",
 			"*://up.seoul.fm/nowplaying.html",

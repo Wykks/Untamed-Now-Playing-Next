@@ -16,6 +16,7 @@ Supported Sites
 * [nightbot.tv](http://nightbot.tv)
 * [pandora.com](http://pandora.com)
 * [play.google.com](http://play.google.com)
+* [play.spotify.com](http://play.spotify.com)
 * [plug.dj](http://plug.dj)
 * [seoul.fm](http://seoul.fm)
 * [songza.com](http://songza.com)

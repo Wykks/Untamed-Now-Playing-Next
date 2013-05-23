@@ -4,6 +4,9 @@ $(document).ready(function()
 {
 	var host = window.location.host.replace('www.', '');
 
+	if (/^([a-z0-9]+)-player.spapps.co$/.test(host))
+		host = 'player.spapps.co';
+
 	switch(host)
 	{
 		case '8tracks.com':
@@ -327,6 +330,34 @@ $(document).ready(function()
 							albumArt   : 'http:' + $('#playingAlbumArt').attr('src'),
 							duration   : $('#duration').text(),
 							url        : 'http://play.google.com'
+						});
+					}
+				};
+			}, 10000);
+		break;
+		// play.spotify.com
+		case 'player.spapps.co':
+			setInterval(function()
+			{
+				if ($('#play-pause').hasClass('playing'))
+				{
+					var artistName        = $('#track-artist').find('a').text();
+					var trackNameSelector = $('#track-name').find('a');
+					var trackName         = trackNameSelector.text();
+					var play              = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumArt   : $('.sp-image-img').css('background-image').replace('url(','').replace(')',''),
+							duration   : $('#track-length').text(),
+							url        : trackNameSelector.attr('href')
 						});
 					}
 				};
