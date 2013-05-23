@@ -1,4 +1,4 @@
-var play = false, last = false;
+var last = false;
 
 $(document).ready(function()
 {
@@ -13,8 +13,7 @@ $(document).ready(function()
 				{
 					var artistName = $('.title_artist').find('.a').text();
 					var trackName  = $('.title_artist').find('.t').text();
-
-					play = artistName + ' - ' + trackName;
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -38,7 +37,7 @@ $(document).ready(function()
 			{
 				if ($('.now_playing').length && $('#pause').is(':visible'))
 				{
-					play = 'AH.FM - ' + $('.now_playing > div > .blank').text();
+					var play = 'AH.FM - ' + $('.now_playing > div > .blank').text();
 
 					if (last !== play)
 					{
@@ -60,8 +59,7 @@ $(document).ready(function()
 				{
 					var artistName = $('#current-artist').text();
 					var trackName  = $('#current-track').text();
-
-					play = artistName + ' - ' + trackName;
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -85,7 +83,7 @@ $(document).ready(function()
 			{
 				if ($('#ctl-play').hasClass('pause'))
 				{
-					play = $('.title').text();
+					var play = $('.title').text();
 
 					if (last !== play)
 					{
@@ -110,8 +108,7 @@ $(document).ready(function()
 					var artistName = $('.now-playing-link.artist').attr('title');
 					var trackName  = $('.now-playing-link.song').attr('title');
 					var albumName  = $('.now-playing-link.album');
-
-					play = artistName + ' - ' + trackName;
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -173,8 +170,7 @@ $(document).ready(function()
 				{
 					var artistName = $('h2.artist').find('a').attr('title');
 					var trackName  = $('h1.title').find('a').attr('title');
-
-					play = artistName + ' - ' + trackName;
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -197,10 +193,9 @@ $(document).ready(function()
 			{
 				if ($('#btn-playpause').hasClass('pause'))
 				{
-					var artistName        = $('#player_current_artist').find('a').text();
-					var trackName         = $('#current-song').find('a').text();
-
-					play = artistName + ' - ' + trackName;
+					var artistName = $('#player_current_artist').find('a').text();
+					var trackName  = $('#current-song').find('a').text();
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -237,8 +232,7 @@ $(document).ready(function()
 					var artistName        = $('strong.artist').find('a').text();
 					var trackNameSelector = $('strong.track').find('a');
 					var trackName         = trackNameSelector.text();
-
-					play = artistName + ' - ' + trackName;
+					var play              = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -267,8 +261,8 @@ $(document).ready(function()
 				if ($('.pauseButton').is(':visible'))
 				{
 					var artistName = $('.playerBarArtist').text();
-					var trackName = $('.playerBarSong').text();
-					var play = artistName + ' - ' + trackName;
+					var trackName  = $('.playerBarSong').text();
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -297,8 +291,8 @@ $(document).ready(function()
 				if ($('#playPause').attr('title') == 'Pause')
 				{
 					var artistName = $('#player-artist').text();
-					var trackName = $('#playerSongTitle').find('.tooltip').text();
-					var play = artistName + ' - ' + trackName;
+					var trackName  = $('#playerSongTitle').find('.tooltip').text();
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -337,8 +331,8 @@ $(document).ready(function()
 		// seoul.fm iframe
 		case 'up.seoul.fm':
 			var artistName = $('#title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text();
-			var trackName = $('#title').find('font').find('b').text();
-			var play = artistName + ' - ' + trackName;
+			var trackName  = $('#title').find('font').find('b').text();
+			var play       = artistName + ' - ' + trackName;
 
 			last = play;
 
@@ -357,8 +351,8 @@ $(document).ready(function()
 				if ($('div.sz-player-revamp').hasClass('sz-player-state-play'))
 				{
 					var artistName = $('.szi-roll-song').find('.szi-info').find('.szi-artist').text();
-					var trackName = $('.szi-roll-song').find('.szi-info').find('.szi-title').text();
-					var play = artistName + ' - ' + trackName;
+					var trackName  = $('.szi-roll-song').find('.szi-info').find('.szi-title').text();
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -385,8 +379,7 @@ $(document).ready(function()
 				{
 					var artistName = $.trim(selector.parent().find('.sc-type-light').find('.soundTitle__username').text());
 					var trackName  = $.trim(selector.find('.sc-media-content').find('.soundTitle__title').text());
-
-					play = artistName + ' - ' + trackName;
+					var play       = artistName + ' - ' + trackName;
 					
 					if (last !== play)
 					{
@@ -414,8 +407,7 @@ $(document).ready(function()
 				{
 					var artistName = $.trim($('.track_name').find('a').find('.artist').text());
 					var trackName  = $.trim($('.track_name').find('a').find('.title').text());
-
-					play = artistName + ' - ' + trackName;
+					var play       = artistName + ' - ' + trackName;
 					
 					if (last !== play)
 					{
@@ -437,7 +429,7 @@ $(document).ready(function()
 			{
 				if ($('#tuner').hasClass('playing'))
 				{
-					play = $('.line1').find('.info').text() + ' - ' + $('.line2').find('.title').text();
+					var play = $('.line1').find('.info').text() + ' - ' + $('.line2').find('.title').text();
 
 					if (last !== play)
 					{
@@ -456,11 +448,11 @@ $(document).ready(function()
 			{
 				if ($('#songboard-title').length)
 				{
-					var selector = $('#song-log').find('.song').eq(0);
-					var details = selector.find('.details').find('span').html();
-					var trackName = selector.find('.title').text();
+					var selector   = $('#song-log').find('.song').eq(0);
+					var details    = selector.find('.details').find('span').html();
+					var trackName  = selector.find('.title').text();
 					var artistName = details.replace(/(.*)<span class(.*)<\/span>(.*)$/i, '$1');
-					var play = artistName + ' - ' + trackName;
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -486,8 +478,8 @@ $(document).ready(function()
 				if ($('#gp_play').hasClass('playing'))
 				{
 					var artistName = $('#gp_performer').text();
-					var trackName = $('#gp_title').text();
-					var play = artistName + ' - ' + trackName;
+					var trackName  = $('#gp_title').text();
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -510,8 +502,8 @@ $(document).ready(function()
 				if ($('.main-action').hasClass('pause-mode'))
 				{
 					var artistName = $('.chugger-current').find('.artist').attr('title');
-					var trackName = $('.chugger-current').find('.song').attr('title');
-					var play = artistName + ' - ' + trackName;
+					var trackName  = $('.chugger-current').find('.song').attr('title');
+					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
@@ -532,10 +524,10 @@ $(document).ready(function()
 		case 'youtube.com':
 			if (typeof $('meta[name=title]').attr('content') !== 'undefined' && last !== $('meta[name=title]').attr('content'))
 			{
-				last = play;
-
 				var duration = $('body').text().match(/\"length_seconds\"\: (\d+)/)[1];
-				var play = $('meta[name=title]').attr('content');
+				var play     = $('meta[name=title]').attr('content');
+
+				last = play;
 
 				nowPlaying(
 				{
@@ -554,8 +546,8 @@ function nowPlaying(np)
 	if (np.nowPlaying !== null && np.nowPlaying !== false && typeof np.nowPlaying !== 'undefined')
 	{
 		var currentTime = new Date();
-		var minutes = currentTime.getMinutes();
-		var	hours = currentTime.getHours();
+		var minutes     = currentTime.getMinutes();
+		var	hours       = currentTime.getHours();
 
 		proxyReq(
 		{
@@ -597,7 +589,7 @@ function hmsToSec(hms)
 
 function secToHms(sec)
 {
-	var hours = parseInt( sec / 3600 ) % 24;
+	var hours   = parseInt( sec / 3600 ) % 24;
 	var	minutes = parseInt( sec / 60 ) % 60;
 	var seconds = sec % 60;
 
