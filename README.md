@@ -19,6 +19,7 @@ Supported Sites
 * [play.spotify.com](http://play.spotify.com)
 * [plug.dj](http://plug.dj)
 * [seoul.fm](http://seoul.fm)
+* [slacker.com](http://slacker.com)
 * [songza.com](http://songza.com)
 * [soundcloud.com](http://soundcloud.com)
 * [themusicninja.com](themusicninja.com)

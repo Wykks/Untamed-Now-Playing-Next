@@ -396,6 +396,34 @@ $(document).ready(function()
 				url        : 'http://seoul.fm'
 			});
 		break;
+		case 'slacker.com':
+			setInterval(function()
+			{
+				if ($('#playerPlayPauseButton').find('div').css('background-position') == '-960px 0px')
+				{
+					var artistName        = $('#player-artist-name').text();
+					var trackNameSelector = $('#player-track-name');
+					var trackName         = trackNameSelector.text();
+					var play              = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumName  : $('#player-album-name').text(),
+							albumArt   : $('#track-art-current-img').attr('src'),
+							duration   : $('#total-length').text(),
+							url        : 'http://slacker.com/#song/' + trackNameSelector.attr('itemid') + '/' + trackNameSelector.attr('perfid') + '/'
+						});
+					}
+				};
+			}, 10000);
+		break;
 		case 'songza.com':
 			setInterval(function()
 			{

@@ -67,6 +67,8 @@
 		"*://www.songza.com/*",
 		"*://soundcloud.com/*",
 		"*://www.soundcloud.com/*",
+		"*://slacker.com/*",
+		"*://www.slacker.com/*",
 		"*://themusicninja.com/*",
 		"*://www.themusicninja.com/*",
 		"*://tunein.com/*",
@@ -91,6 +93,8 @@
 		"*://*.googleusercontent.com/*",
 		// play.spotify cdn
 		"*://*.cloudfront.net/*",
+		// slacker cdn
+		"*://*.slkimg.com/*",
 		// soundcloud cdn
 		"*://*.sndcdn.com/*",
 		// songza and turntable cdns
@@ -151,6 +155,8 @@
 			"*://plug.dj/*",
 			"*://www.plug.dj/*",
 			"*://up.seoul.fm/nowplaying.html",
+			"*://slacker.com/*",
+			"*://www.slacker.com/*",
 			"*://songza.com/*",
 			"*://www.songza.com/*",
 			"*://soundcloud.com/*",
