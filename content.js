@@ -379,6 +379,32 @@ $(document).ready(function()
 				}
 			}, 10000);
 		break;
+		case 'prostopleer.com':
+			setInterval(function()
+			{
+				if ($('#play').hasClass('pause'))
+				{
+					var nPSelector = $.trim($('.now-playing').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text()).match(/^(.+) \u2014 (.+) \((.+)\)$/);
+					var artistName = nPSelector[1];
+					var trackName  = nPSelector[2];
+					var play       = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							duration   : secToHms(hmsToSec(nPSelector[3])),
+							url        : 'http://prostopleer.com/tracks/' + $('li.current').attr('link')
+						});
+					}
+				}
+			}, 10000);
+		break;
 		// seoul.fm iframe
 		case 'up.seoul.fm':
 			var artistName = $('#title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text();
