@@ -29,6 +29,7 @@ Supported Sites
 * [vk.com](http://vk.com)
 * [we7.com](http://we7.com)
 * [youtube.com](http://youtube.com)
+* [zaycev.fm](http://zaycev.fm)
 
 Support for more sites will be added over time. If you have a suggestion for a site, please open an issue or reply to the teamliquid topic.
 

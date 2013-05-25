@@ -83,6 +83,8 @@
 		"*://*.we7.com/*",
 		"*://youtube.com/*",
 		"*://www.youtube.com/*",
+		"*://zaycev.fm/*",
+		"*://www.zaycev.fm/*",
 		"*://api.justin.tv/*",
 		"*://api.own3d.tv/*",
 		// grooveshark cdn
@@ -176,7 +178,9 @@
 			"*://we7.com/*",
 			"*://www.we7.com/*",
 			"*://youtube.com/*",
-			"*://www.youtube.com/*"
+			"*://www.youtube.com/*",
+			"*://zaycev.fm/*",
+			"*://www.zaycev.fm/*"
 		] 
 	} ]
 }

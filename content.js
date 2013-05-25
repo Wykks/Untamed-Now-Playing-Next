@@ -681,6 +681,34 @@ $(document).ready(function()
 				}
 			});
 		break;
+		case 'zaycev.fm':
+			setInterval(function()
+			{
+				if ($('.zp_play').hasClass('g-active'))
+				{
+					var selector   = $('#zp_current_song').find('span');
+					var artistName = selector.find('.ontheair_artist').text().replace(/^(.+)\u00A0-\u00A0$/, '$1');
+					var trackName  = selector.find('.ontheair_song').text();
+					var play       = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						last = play;
+
+						var albumArt = selector.find('div').find('img').attr('src');
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumArt   : (albumArt == 'http://img1.zaycev.fm/media/images/nomp3s.jpg') ? '?' : albumArt,
+							url        : $('.ontheair_song').attr('href')
+						});
+					}
+				}
+			}, 10000);
+		break;
 	}
 });
 
