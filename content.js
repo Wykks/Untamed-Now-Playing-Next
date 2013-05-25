@@ -482,26 +482,54 @@ $(document).ready(function()
 
 				if (selector.length)
 				{
-					var artistName = $.trim(selector.parent().find('.sc-type-light').find('.soundTitle__username').text());
-					var trackName  = $.trim(selector.find('.sc-media-content').find('.soundTitle__title').text());
-					var play       = artistName + ' - ' + trackName;
-					
-					if (last !== play)
+					if (selector.parent().hasClass('carouselItem'))
 					{
-						last = play;
-
-						var albumArt = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
-						var albumArt = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
-
-						nowPlaying(
-						{
-							nowPlaying : play,
-							trackName  : trackName,
-							artistName : artistName,
-							albumArt   : albumArt,
-							duration   : selector.parent().parent().parent().find('.sound__body').find('.sound__waveform').find('.waveform__visibleLayers').find('.waveform__layer').find('.timeIndicator__total').text().replace(/\./g, ':')
-						});
+						var selector2         = selector.parent().find('.carouselItem__info');
+						var trackNameSelector = selector2.find('div').eq(1).find('a');
+						var artistName        = selector2.find('div').eq(0).find('a').text();
+						var trackName         = trackNameSelector.text();
+						var albumArt          = selector.parent().find('.carouselItem__artworkContainer').find('.image__hasPlaceholder').find('img').attr('src').replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
+						var duration          = '?';
+						var url               = 'http://soundcloud.com' + trackNameSelector.attr('href');
 					}
+					else
+					{
+						var artistName = $.trim(selector.parent().find('.sc-type-light').find('.soundTitle__username').text());
+						var trackName  = $.trim(selector.find('.sc-media-content').find('.soundTitle__title').text());
+						var albumArt   = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
+						var albumArt   = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
+						var duration   = selector.parent().parent().parent().find('.sound__body').find('.sound__waveform').find('.waveform__visibleLayers').find('.waveform__layer').find('.timeIndicator__total').text().replace(/\./g, ':');
+						var url        = window.location.href;
+					}
+				}
+				else if ($('.nowPlaying').hasClass('playing'))
+				{
+						var artistName = document.title.replace(/^(.*) by (.*)$/i, '$2');
+						var trackName  = $('.nowPlaying').attr('title');
+						var albumArt   = '?';
+						var duration   = '?';
+						var url        = 'http://soundcloud.com' + $('.nowPlaying').attr('href');
+				}
+				else
+				{
+					return;
+				}
+
+				var play = artistName + ' - ' + trackName;
+
+				if (last !== play)
+				{
+					last = play;
+
+					nowPlaying(
+					{
+						nowPlaying : play,
+						trackName  : trackName,
+						artistName : artistName,
+						albumArt   : albumArt,
+						duration   : duration,
+						url        : url
+					});
 				}
 			}, 10000);
 		break;
