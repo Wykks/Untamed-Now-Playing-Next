@@ -17,6 +17,9 @@
 			table#options_table td label {
 				margin: 4px 0px 9px 8px;
 			}
+			table#sites_table {
+				margin-bottom: 4px;
+			}
 			table#sites_table thead th, table#sites_table tbody td {
 				text-align: center;
 			}
@@ -28,6 +31,9 @@
 			}
 			button.pull-right {
 				margin: 5px;
+			}
+			small {
+				font-size: 0.8em;
 			}
 			.popover-content {
 				text-align: justify;
@@ -308,9 +314,9 @@
 						<td><a target="_blank" href="http://soundcloud.com">soundcloud.com</a></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
-						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"><strong>*</strong></td>
 						<td><img alt="No" src="ico/cross.png"></td>
-						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"><strong>*</strong></td>
 					</tr>
 					<tr>
 						<td><a target="_blank" href="http://themusicninja.com">themusicninja.com</a></td>
@@ -362,6 +368,7 @@
 					</tr>
 				</tbody>
 			</table>
+			<small><strong>*:</strong> Soundcloud has different page layouts. For best results use the artist or track view, and don't navigate away. If you do, UNP will only be able to pick up the Artist, Track and URL variables.</small>
 			<h3>Full list of Variables</h3>
 			<pre><strong>%s%</strong> : Now Playing data<br><strong>%a%</strong> : Artist<br><strong>%e%</strong> : Title<br><strong>%b%</strong> : Album<br><strong>%d%</strong> : Total Duration<br><strong>%t%</strong> : Time started (24hr)<br><strong>%u%</strong> : URL of page<br><strong>%n%</strong> : New line</pre>
 			<h3>Plain Text Format Examples</h3>
@@ -441,6 +448,7 @@
 					</ul>
 				</li>
 				<li>Fixed Last.fm localisation</li>
+				<li>Improvements to Soundcloud support</li>
 				<li>Option to disable YouTube parsing</li>
 				<li>Added changelog page to options</li>
 				<li>Misc code formatting fixes</li>
