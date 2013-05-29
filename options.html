@@ -13,6 +13,7 @@
 			}
 			table#options_table td {
 				vertical-align: middle;
+				width: 50%;
 			}
 			table#options_table td label {
 				margin: 4px 0px 9px 8px;
@@ -76,8 +77,8 @@
 			<p>If you find this extension useful, I'd really appreciate it if you consider donating to charity:water, they are a fantastic charity which give 100% of donations to people in need. <a target="_blank" href="http://vimeo.com/22566556">Click here</a> to find out more, or to donate, <a target="_blank" href="https://www.charitywater.org/donateforms/general">click here</a>.</p>
 			<table id="options_table" class="table table-bordered table-hover table-condensed">
 				<tr>
-					<td width="50%">Save to directory</td>
-					<td width="50%">
+					<td>Save to directory</td>
+					<td>
 						<input type="text" id="save_dir" style="width:370px;">
 						<button class="btn pull-right opt-tt" data-content="The directory where the now playing file is saved, may also be used for caching stream status"><i class="icon-info-sign"></i></button>
 					</td>
@@ -395,58 +396,54 @@
 			<h1>About</h1>
 			<p>"Untamed Now Playing" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. Coded by Untamed.</p>
 			<h3>Supported Sites</h3>
-			<p>
-				<ul>
-					<li><a target="_blank" href="http://8tracks.com">8tracks.com</a></li>
-					<li><a target="_blank" href="http://ah.fm">ah.fm</a></li>
-					<li><a target="_blank" href="http://deezer.com">deezer.com</a></li>
-					<li><a target="_blank" href="http://di.fm">di.fm</a></li>
-					<li><a target="_blank" href="http://grooveshark.com">grooveshark.com</a></li>
-					<li><a target="_blank" href="http://retro.grooveshark.com">retro.grooveshark.com</a></li>
-					<li><a target="_blank" href="http://iheart.com">iheart.com</a></li>
-					<li><a target="_blank" href="http://jango.com">jango.com</a></li>
-					<li><a target="_blank" href="http://last.fm">last.fm</a></li>
-					<li><a target="_blank" href="http://nightbot.tv">nightbot.tv</a></li>
-					<li><a target="_blank" href="http://pandora.com">pandora.com</a></li>
-					<li><a target="_blank" href="http://play.google.com">play.google.com</a></li>
-					<li><a target="_blank" href="http://play.spotify.com">play.spotify.com</a></li>
-					<li><a target="_blank" href="http://plug.dj">plug.dj</a></li>
-					<li><a target="_blank" href="http://prostopleer.com">prostopleer.com</a></li>
-					<li><a target="_blank" href="http://seoul.fm">seoul.fm</a></li>
-					<li><a target="_blank" href="http://slacker.com">slacker.com</a></li>
-					<li><a target="_blank" href="http://songza.com">songza.com</a></li>
-					<li><a target="_blank" href="http://soundcloud.com">soundcloud.com</a></li>
-					<li><a target="_blank" href="http://themusicninja.com">themusicninja.com</a></li>
-					<li><a target="_blank" href="http://tunein.com">tunein.com</a></li>
-					<li><a target="_blank" href="http://turntable.fm">turntable.fm</a></li>
-					<li><a target="_blank" href="http://vk.com">vk.com</a></li>
-					<li><a target="_blank" href="http://we7.com">we7.com</a></li>
-					<li><a target="_blank" href="http://youtube.com">youtube.com</a></li>
-					<li><a target="_blank" href="http://zaycev.fm">zaycev.fm</a></li>
-				</ul>
-				Support for more sites will be added over time. If you have a suggestion for a site, please <a href="#/contact">contact me</a>.
-			</p>
+			<ul>
+				<li><a target="_blank" href="http://8tracks.com">8tracks.com</a></li>
+				<li><a target="_blank" href="http://ah.fm">ah.fm</a></li>
+				<li><a target="_blank" href="http://deezer.com">deezer.com</a></li>
+				<li><a target="_blank" href="http://di.fm">di.fm</a></li>
+				<li><a target="_blank" href="http://grooveshark.com">grooveshark.com</a></li>
+				<li><a target="_blank" href="http://retro.grooveshark.com">retro.grooveshark.com</a></li>
+				<li><a target="_blank" href="http://iheart.com">iheart.com</a></li>
+				<li><a target="_blank" href="http://jango.com">jango.com</a></li>
+				<li><a target="_blank" href="http://last.fm">last.fm</a></li>
+				<li><a target="_blank" href="http://nightbot.tv">nightbot.tv</a></li>
+				<li><a target="_blank" href="http://pandora.com">pandora.com</a></li>
+				<li><a target="_blank" href="http://play.google.com">play.google.com</a></li>
+				<li><a target="_blank" href="http://play.spotify.com">play.spotify.com</a></li>
+				<li><a target="_blank" href="http://plug.dj">plug.dj</a></li>
+				<li><a target="_blank" href="http://prostopleer.com">prostopleer.com</a></li>
+				<li><a target="_blank" href="http://seoul.fm">seoul.fm</a></li>
+				<li><a target="_blank" href="http://slacker.com">slacker.com</a></li>
+				<li><a target="_blank" href="http://songza.com">songza.com</a></li>
+				<li><a target="_blank" href="http://soundcloud.com">soundcloud.com</a></li>
+				<li><a target="_blank" href="http://themusicninja.com">themusicninja.com</a></li>
+				<li><a target="_blank" href="http://tunein.com">tunein.com</a></li>
+				<li><a target="_blank" href="http://turntable.fm">turntable.fm</a></li>
+				<li><a target="_blank" href="http://vk.com">vk.com</a></li>
+				<li><a target="_blank" href="http://we7.com">we7.com</a></li>
+				<li><a target="_blank" href="http://youtube.com">youtube.com</a></li>
+				<li><a target="_blank" href="http://zaycev.fm">zaycev.fm</a></li>
+			</ul>
+			<p>Support for more sites will be added over time. If you have a suggestion for a site, please <a href="#/contact">contact me</a>.</p>
 			<h3>Limitations</h3>
 			<p>At the moment, now playing data is only saved when the song intially plays and is only updated when the next song starts playing. Thus if you stop playing music, the output file will still contain the last song played.</p>
 			<p>Chrome limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (C:\Users\USERNAME* or C:\Documents and Settings\USERNAME*).</p>
 			<h3>Licence</h3>
 			<p>This software is provided "AS IS" without warranty of any kind, either expressed or implied. Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
 			<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a></p>
-			<p>
-				This software uses the following libraries developed by third parties, and are licenced seperately;
-				<ul>
-					<li><a target="_blank" href="http://twitter.github.com/bootstrap">Bootstrap</a> (Apache License v2.0)</li>
-					<li><a target="_blank" href="http://jquery.com">jQuery</a> (MIT License)</li>
-					<li><a target="_blank" href="http://code.google.com/p/npapi-file-io">npapi-file-io</a> (New BSD License)</li>
-					<li><a target="_blank" href="http://sammyjs.org">Sammy.js</a> (MIT License)</li>
-				</ul>
-			</p>
+			<p>This software uses the following libraries developed by third parties, and are licenced seperately;</p>
+			<ul>
+				<li><a target="_blank" href="http://twitter.github.com/bootstrap">Bootstrap</a> (Apache License v2.0)</li>
+				<li><a target="_blank" href="http://jquery.com">jQuery</a> (MIT License)</li>
+				<li><a target="_blank" href="http://code.google.com/p/npapi-file-io">npapi-file-io</a> (New BSD License)</li>
+				<li><a target="_blank" href="http://sammyjs.org">Sammy.js</a> (MIT License)</li>
+			</ul>
 			<p>Additionally, the main icon was designed by <a target="_blank" href="http://csscreme.com/freeicons/">CSS Creme</a>, and icons designed by <a target="_blank" href="http://www.fatcow.com/free-icons">FatCow</a> are used on the options pages.</p>
 		</div>
 		<div id="changelog" class="main_content container">
 			<h1>Changelog</h1>
 			<p>&nbsp;</p>
-			<h4>0.5 - 25 May 13</h4>
+			<h4 title="0.5">0.5 - 25 May 13</h4>
 			<ul>
 				<li>Added support for:
 					<ul>
@@ -468,13 +465,13 @@
 				<li>Misc code formatting &amp; other small fixes</li>
 			</ul>
 			<p>&nbsp;</p>
-			<h4>0.4.1 - 17 Mar 13</h4>
+			<h4 title="0.4.1">0.4.1 - 17 Mar 13</h4>
 			<ul>
 				<li>Added missing support site to docs (TuneIn.com)</li>
 				<li>Fixed plain text format validation bug</li>
 			</ul>
 			<p>&nbsp;</p>
-			<h4>0.4 - 16 Mar 13</h4>
+			<h4 title="0.4">0.4 - 16 Mar 13</h4>
 			<ul>
 				<li>Added support for:
 					<ul>
@@ -502,7 +499,7 @@
 				<li>Added png album art support</li>
 			</ul>
 			<p>&nbsp;</p>
-			<h4>0.3 - 27 Jan 13</h4>
+			<h4 title="0.3">0.3 - 27 Jan 13</h4>
 			<ul>
 				<li>Added more supported sites:
 					<ul>
@@ -522,13 +519,13 @@
 				<li>Lots of parsing/misc fixes & improvements</li>
 			</ul>
 			<p>&nbsp;</p>
-			<h4>0.2 - 3 Nov 12</h4>
+			<h4 title="0.2">0.2 - 3 Nov 12</h4>
 			<ul>
 				<li>Added support for new GrooveShark</li>
 				<li>Fixed typos &amp; misc</li>
 			</ul>
 			<p>&nbsp;</p>
-			<h4>0.1 - 19 Oct 12</h4>
+			<h4 title="0.1">0.1 - 19 Oct 12</h4>
 			<ul>
 				<li>Intial release</li>
 			</ul>
