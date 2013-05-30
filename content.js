@@ -40,7 +40,8 @@ $(document).ready(function()
 			{
 				if ($('.now_playing').length && $('#pause').is(':visible'))
 				{
-					var play = 'AH.FM - ' + $('.now_playing > div > .blank').text();
+					var play = $('.now_playing > div > .blank').text();
+					var matches = play.match('^(.+) - (.+) on AH.FM$');
 
 					if (last !== play)
 					{
@@ -49,7 +50,8 @@ $(document).ready(function()
 						nowPlaying(
 						{
 							nowPlaying : play,
-							duration   : ((duration == null) ? '?' : duration[1])
+							trackName  : matches[2],
+							artistName : matches[1]
 						});
 					}
 				};
@@ -87,6 +89,7 @@ $(document).ready(function()
 				if ($('#ctl-play').hasClass('pause'))
 				{
 					var play = $('.title').text();
+					var matches = play.match('^(.+) - (.+)$');
 
 					if (last !== play)
 					{
@@ -97,6 +100,9 @@ $(document).ready(function()
 						nowPlaying(
 						{
 							nowPlaying : play,
+							trackName  : matches[2],
+							artistName : matches[1],
+							albumArt   : $('#art').find('img').attr('src'),
 							duration   : (remainingTime == '') ? $('.elapsed').text() : secToHms(hmsToSec(remainingTime.substr(1,remainingTime.length)) + hmsToSec($('.elapsed').text()))
 						});
 					}
@@ -264,6 +270,18 @@ $(document).ready(function()
 				if ($('#pause').is(':visible'))
 				{
 					var play = $('#currentTitle').text();
+					var parse;
+
+					if (parse = parseArtistTitle(play))
+					{
+						var artistName = parse[0];
+						var trackName  = parse[1];
+					}
+					else
+					{
+						var artistName = '?';
+						var trackName  = play;
+					}
 
 					if (last !== play)
 					{
@@ -272,6 +290,8 @@ $(document).ready(function()
 						nowPlaying(
 						{
 							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
 							duration   : secToHms(hmsToSec($('#duration').text()))
 						});
 					}
@@ -367,6 +387,18 @@ $(document).ready(function()
 			setInterval(function()
 			{
 				var play = $('#now-playing-value').text();
+				var parse;
+
+				if (parse = parseArtistTitle(play))
+				{
+					var artistName = parse[0];
+					var trackName  = parse[1];
+				}
+				else
+				{
+					var artistName = '?';
+					var trackName  = play;
+				}
 
 				if (last !== play)
 				{
@@ -374,7 +406,9 @@ $(document).ready(function()
 
 					nowPlaying(
 					{
-						nowPlaying : play
+						nowPlaying : play,
+						trackName  : trackName,
+						artistName : artistName
 					});
 				}
 			}, 10000);
@@ -578,9 +612,21 @@ $(document).ready(function()
 		case 'tunein.com':
 			setInterval(function()
 			{
-				if ($('#tuner').hasClass('playing'))
+				if ($('.playbutton-cont').find('a').hasClass('playing'))
 				{
-					var play = $('.line1').find('.info').text() + ' - ' + $('.line2').find('.title').text();
+					var play = $('.line1').text();
+					var parse;
+
+					if (parse = parseArtistTitle(play))
+					{
+						var artistName = parse[1];
+						var trackName  = parse[0] + ' [' + $('.line2').find('.title').text() + ']';
+					}
+					else
+					{
+						var artistName = $('.line2').find('.title').text();
+						var trackName  = play;
+					}
 
 					if (last !== play)
 					{
@@ -588,7 +634,10 @@ $(document).ready(function()
 
 						nowPlaying(
 						{
-							nowPlaying : play
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							albumArt   : $('.image').find('img').attr('src')
 						});
 					}
 				};
@@ -686,12 +735,40 @@ $(document).ready(function()
 				{
 					var duration = $('body').text().match(/\"length_seconds\"\: (\d+)/)[1];
 					var play     = $('meta[name=title]').attr('content');
+					var parse;
+
+					if ($('#eow-title').find('a').length)
+					{
+						var artistName = $('#eow-title').find('a').text();
+						var trackName  = $.trim($('#eow-title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text());
+						var matches;
+
+						if (matches = trackName.match('^(-|\u2012|\u2013|\u2014|\u2015]|\|)'))
+						{
+							if (matches[0] != '')
+							{
+								trackName = $.trim(trackName.substring(1));
+							}
+						}
+					}
+					else if (parse = parseArtistTitle(play))
+					{
+						var artistName = parse[0];
+						var trackName  = parse[1];
+					}
+					else
+					{
+						var artistName = '?';
+						var trackName  = play;
+					}
 
 					last = play;
 
 					nowPlaying(
 					{
 						nowPlaying : play,
+						trackName  : trackName,
+						artistName : artistName,
 						duration   : secToHms(duration),
 						albumArt   : $('link[itemprop="thumbnailUrl"]').attr('href'),
 						url        : $('link[itemprop="url"]').attr('href')
@@ -773,6 +850,24 @@ function optionGet(callback)
 			callback(JSON.parse(data));
 		}
 	});
+}
+
+function parseArtistTitle(input)
+{
+	var match;
+
+	if (match = input.match(/(.+)[ ]?(-|\u[2012-2015]|\||:)[ ]?(.+)/))
+	{
+		return [ $.trim(match[1]) , $.trim(match[3]) ];
+	}
+	else if (match = input.match(/(.+)\|(.+)/))
+	{
+		return [ $.trim(match[1]) , $.trim(match[2]) ];
+	}
+	else
+	{
+		return false;
+	}
 }
 
 function hmsToSec(hms)
