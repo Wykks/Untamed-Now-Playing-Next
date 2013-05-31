@@ -27,7 +27,7 @@
 			table#sites_table tbody td:nth-of-type(1) {
 				text-align: left;
 			}
-			.main_content, .popover-title, #stream_details {
+			.main_content, .popover-title, #stream_details, #nightbot_details {
 				display: none;
 			}
 			button.pull-right {
@@ -116,7 +116,7 @@
 						<label class="checkbox inline">
 							<input type="checkbox" id="album_artwork" value="1"> Yes
 						</label>
-						<button class="btn pull-right opt-tt" data-content="The album artwork will be saved to &quot;SaveDirectory/unp_album_art.jpg&quot;. PNG album art is sent to a server operated by the developer, which converts the image to JPG for the extension to download and save. Supported sites: 8tracks, Deezer, Grooveshark, iheart, Jango, Last.fm, Pandora, Seoul.fm, Songza, SoundCloud, Turntable, WE7, YouTube"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content="The album artwork will be saved to &quot;SaveDirectory/unp_album_art.jpg&quot;. PNG album art is sent to a server operated by the developer, which converts the image to JPG for the extension to download and save. For the list of supported sites, <a href='#/sites'>click here</a>"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
@@ -126,6 +126,23 @@
 							<input type="checkbox" id="disable_youtube" value="0"> Yes
 						</label>
 						<button class="btn pull-right opt-tt" data-content="Prevent UNP processing YouTube"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td>Intergrate with <a href="http://nightbot.tv" target="_blank">Nightbot</a>?</td>
+					<td>
+						<label class="checkbox inline">
+							<input type="checkbox" id="nightbot_enable" value="1"> Yes
+						</label>
+						<button class="btn pull-right opt-tt" data-content="Send now playing data to Nightbot, which will allow viewers to recieve now playing information via twitch/justin tv chat.<br /><br />Please note, Nightbot isn't operated by the developer of UNP, it's a third party service"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr id="nightbot_details">
+					<td>Nightbot API details</td>
+					<td>
+						<input type="text" id="nightbot_user" placeholder="Username" style="width:30%;">
+						<input type="text" id="nightbot_api_key" placeholder="API Key" style="width:45%;">
+						<button class="btn pull-right opt-tt" data-content="Your unique Nightbot API key can be obtained <a href='http://www.nightbot.tv/account' target='_blank'>here</a>"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
