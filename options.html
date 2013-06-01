@@ -90,7 +90,7 @@
 							<option value="txt" selected>Plain text (txt)</option>
 							<option value="xml">XML</option>
 						</select>
-						<button class="btn pull-right opt-tt" data-content="The file format that the now playing file is saved as, both types can be used in XSplit, however XML allows you to easily parse certain data instead of the entire string"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content="The file format that the now playing file is saved as. Xsplit supports both XML and TXT, OBS just supports TXT. XML allows you display different info in different text titles in your scenes"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="txt_format_details">
@@ -151,7 +151,7 @@
 						<label class="checkbox inline">
 							<input type="checkbox" id="check_live" value="1"> Yes
 						</label>
-						<button class="btn pull-right opt-tt" data-content="This allows increased privacy, however this requires requests to own3D/Justin/Twitch Tv, and should only be enabled if you require the extra privacy"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content="This will check your stream is live before saving any 'Now Playing' data or sending anything to Nightbot. This offers increased privacy, however it requires requests to Justin/Twitch TV, and should only be enabled if you require the extra privacy"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="stream_details">
@@ -404,9 +404,6 @@
 			<pre>%a% - %e% (%b%) [%d%]</pre>
 			<p>The output will be:</p>
 			<pre>Artist - Title (Album) [Duration]</pre>
-			<p>However, if you were to switch to YouTube with the same settings, the output would be:</p>
-			<pre>? - ? (?) [Duration]</pre>
-			<p>Because YouTube doesn't support the artist, title and album variables. Because of this, if you like to switch music sites, it's best to keep to the basic "Now Playing" (%s%) variable which all sites support.</p>
 		</div>
 		<div id="about" class="main_content container">
 			<h1>About</h1>
@@ -461,11 +458,27 @@
 			<p>&nbsp;</p>
 			<h4 title="0.6">0.6 - ???</h4>
 			<ul>
+				<li>Add support for Soundcloud sets</li>
+				<li>Fixed:
+					<ul>
+						<li>Songza.com</li>
+						<li>zaycev.fm</li>
+					</ul>
+				</li>
+				<li>Improved:
+					<ul>
+						<li>Grooveshark.com</li>
+						<li>Jango.com</li>
+						<li>Seoul.fm</li>
+					</ul>
+				</li>
 				<li>Nightbot API intergration</li>
 				<li>Use regex for sites that don't split artist and title</li>
-				<li>Open changelog page on auto update</li>
-				<li>Add support for Soundcloud sets</li>
 				<li>Update jquery, sammy and boostrap</li>
+				<li>Code improvements, minimize DOM access</li>
+				<li>Remove own3d support</li>
+				<li>Open changelog page on auto update</li>
+				<li>Updates to documentation</li>
 			</ul>
 			<p>&nbsp;</p>
 			<h4 title="0.5">0.5 - 25 May 13</h4>
