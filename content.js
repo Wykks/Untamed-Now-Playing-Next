@@ -457,7 +457,7 @@ $(document).ready(function()
 		case 'songza.com':
 			setInterval(function()
 			{
-				if ($('div.sz-player-revamp').hasClass('sz-player-state-play'))
+				if ($('.sz-player').hasClass('sz-player-state-play'))
 				{
 					var selector   = $('.szi-roll-song').find('.szi-info');
 					var artistName = selector.find('.szi-artist').text();
