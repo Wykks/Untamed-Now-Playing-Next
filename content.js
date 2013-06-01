@@ -202,6 +202,7 @@ $(document).ready(function()
 							nowPlaying : play,
 							trackName  : trackName,
 							artistName : artistName,
+							albumName  : $.trim($('#player_current_artist').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text()),
 							albumArt   : $('#player_main_pic_img').attr('src'),
 							url        : 'http://jango.com' + $('#station_info').find('a').attr('href')
 						});
@@ -413,9 +414,9 @@ $(document).ready(function()
 			}, 10000);
 		break;
 		// seoul.fm iframe
-		case 'up.seoul.fm':
-			var artistName = $('#title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text();
-			var trackName  = $('#title').find('font').find('b').text();
+		case 'yuri.seoul.fm':
+			var artistName = $.trim($('#title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text());
+			var trackName  = $.trim($('#title').find('font').find('b').text());
 			var play       = artistName + ' - ' + trackName;
 
 			nowPlaying(
@@ -423,7 +424,7 @@ $(document).ready(function()
 				nowPlaying : play,
 				trackName  : trackName,
 				artistName : artistName,
-				albumArt   : 'http://up.seoul.fm/' + $('#cpPictureMainSong').attr('src'),
+				albumArt   : $('#cpPictureMainSong').attr('src'),
 				url        : 'http://seoul.fm'
 			});
 		break;

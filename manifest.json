@@ -64,7 +64,7 @@
 		"*://www.plug.dj/*",
 		"*://prostopleer.com/*",
 		"*://www.prostopleer.com/*",
-		"*://up.seoul.fm/*",
+		"*://yuri.seoul.fm/*",
 		"*://songza.com/*",
 		"*://www.songza.com/*",
 		"*://soundcloud.com/*",
@@ -87,8 +87,11 @@
 		"*://www.zaycev.fm/*",
 		"*://api.justin.tv/*",
 		"*://api.own3d.tv/*",
+		// di.fm cdn
+		"*://static.audioaddict.com/*",
 		// grooveshark cdn
 		"*://*.gs-cdn.net/*",
+		"*://images.grooveshark.com/*",
 		// jango cdn
 		"*://*.images.jango.com/*",
 		// pandora cdn
@@ -160,7 +163,7 @@
 			"*://www.plug.dj/*",
 			"*://prostopleer.com/*",
 			"*://www.prostopleer.com/*",
-			"*://up.seoul.fm/nowplaying.html",
+			"*://yuri.seoul.fm/a/nowplaying.html",
 			"*://slacker.com/*",
 			"*://www.slacker.com/*",
 			"*://songza.com/*",
