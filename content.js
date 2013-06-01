@@ -526,7 +526,7 @@ $(document).ready(function()
 				else if ($('.nowPlaying').hasClass('playing'))
 				{
 						var artistName = document.title.replace(/^(.*) by (.*)$/i, '$2');
-						var trackName  = $('.nowPlaying').attr('title');
+						var trackName  = $('.nowPlaying').attr('title').replace(/^return to (.*)/i, '$1');
 						var albumArt   = '?';
 						var duration   = '?';
 						var url        = 'http://soundcloud.com' + $('.nowPlaying').attr('href');
@@ -739,8 +739,8 @@ $(document).ready(function()
 				if ($('.zp_play').hasClass('g-active'))
 				{
 					var selector   = $('#zp_current_song').find('span');
-					var artistName = selector.find('.ontheair_artist').text().replace(/^(.+)\u00A0-\u00A0$/, '$1');
-					var trackName  = selector.find('.ontheair_song').text();
+					var artistName = $.trim(selector.find('.ontheair_artist').text().replace(/^(.+)\u00A0-\u00A0$/, '$1'));
+					var trackName  = $.trim(selector.find('.ontheair_song').text());
 					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
