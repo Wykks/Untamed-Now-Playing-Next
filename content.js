@@ -5,7 +5,9 @@ $(document).ready(function()
 	var host = window.location.host.replace('www.', '');
 
 	if (/^([a-z0-9]+)-player.spapps.co$/.test(host))
+	{
 		host = 'player.spapps.co';
+	}
 
 	switch(host)
 	{
@@ -14,14 +16,13 @@ $(document).ready(function()
 			{
 				if ($('#player_pause_button').css('display') == 'block')
 				{
-					var artistName = $('.title_artist').find('.a').text();
-					var trackName  = $('.title_artist').find('.t').text();
+					var selector   = $('.title_artist');
+					var artistName = selector.find('.a').text();
+					var trackName  = selector.find('.t').text();
 					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -32,7 +33,7 @@ $(document).ready(function()
 							duration   : $('#time-total').text()
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'ah.fm':
@@ -40,13 +41,11 @@ $(document).ready(function()
 			{
 				if ($('.now_playing').length && $('#pause').is(':visible'))
 				{
-					var play = $('.now_playing > div > .blank').text();
+					var play    = $('.now_playing > div > .blank').text();
 					var matches = play.match('^(.+) - (.+) on AH.FM$');
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -54,7 +53,7 @@ $(document).ready(function()
 							artistName : matches[1]
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'deezer.com':
@@ -68,8 +67,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -77,10 +74,10 @@ $(document).ready(function()
 							artistName : artistName,
 							albumArt   : $('#naboo_menu_infos_cover').attr('src'),
 							duration   : $('#end-track').text(),
-							url        : 'http://deezer.com/track/' + $('#h_love').find('a').attr('onclick').replace(/(.*)"SNG_ID":"([0-9]+)"(.*)/i, '$2'),
+							url        : 'http://deezer.com/track/' + $('#h_love').find('a').attr('onclick').replace(/(.*)"SNG_ID":"([0-9]+)"(.*)/i, '$2')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'di.fm':
@@ -88,13 +85,11 @@ $(document).ready(function()
 			{
 				if ($('#ctl-play').hasClass('pause'))
 				{
-					var play = $('.title').text();
+					var play    = $('.title').text();
 					var matches = play.match('^(.+) - (.+)$');
 
 					if (last !== play)
 					{
-						last = play;
-
 						var remainingTime = $('.remaining').text();
 
 						nowPlaying(
@@ -106,7 +101,7 @@ $(document).ready(function()
 							duration   : (remainingTime == '') ? $('.elapsed').text() : secToHms(hmsToSec(remainingTime.substr(1,remainingTime.length)) + hmsToSec($('.elapsed').text()))
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'grooveshark.com':
@@ -121,8 +116,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						var duration = $('#time-total').text();
 						var albumArt = $('#now-playing-image').attr('src').replace(/(.*)\/([0-9]+)_(.*)\.(jpg|jpeg|png)$/i, '$1/142_$3.$4');
 
@@ -137,7 +130,7 @@ $(document).ready(function()
 							url        : 'http://grooveshark.com/' + albumName.attr('href')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'retro.grooveshark.com':
@@ -153,8 +146,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						var duration = $('#player_duration').html();
 						var albumArt = $('.queue-item-active').find('.queue-item-content').find('.queueSong').find('.albumart').find('img').attr('src').replace(/(.*)\/([0-9]+)_(.*)\.(jpg|jpeg|png)$/i, '$1/142_$3.$4');
 
@@ -169,7 +160,7 @@ $(document).ready(function()
 							url        : 'http://retro.grooveshark.com/' + albumName.attr('href')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'iheart.com':
@@ -183,8 +174,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -194,7 +183,7 @@ $(document).ready(function()
 							url        : 'http://iheart.com' + $('.liveStn').find('.title').find('a').attr('href')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'jango.com':
@@ -208,8 +197,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -219,7 +206,7 @@ $(document).ready(function()
 							url        : 'http://jango.com' + $('#station_info').find('a').attr('href')
 						});
 					}
-				};
+				}
 			}, 10000);
 			break;
 			case 'last.fm':
@@ -245,8 +232,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-	
 						var remainingTime = $('#trackRemaining').text();
 						var remainingTime = remainingTime.substr(1, remainingTime.length);
 
@@ -261,7 +246,7 @@ $(document).ready(function()
 							url        : trackNameSelector.attr('href')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'nightbot.tv':
@@ -285,8 +270,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -309,8 +292,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-	
 						var remainingTime = $('.remainingTime').text();
 						var remainingTime = remainingTime.substr(1,remainingTime.length);
 
@@ -325,7 +306,7 @@ $(document).ready(function()
 							url        : $('.playerBarSong').attr('href')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'play.google.com':
@@ -339,8 +320,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -352,7 +331,7 @@ $(document).ready(function()
 							url        : 'http://play.google.com'
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		// play.spotify.com
@@ -368,8 +347,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -380,7 +357,7 @@ $(document).ready(function()
 							url        : trackNameSelector.attr('href')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'plug.dj':
@@ -402,8 +379,6 @@ $(document).ready(function()
 
 				if (last !== play)
 				{
-					last = play;
-
 					nowPlaying(
 					{
 						nowPlaying : play,
@@ -425,8 +400,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -444,8 +417,6 @@ $(document).ready(function()
 			var artistName = $('#title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text();
 			var trackName  = $('#title').find('font').find('b').text();
 			var play       = artistName + ' - ' + trackName;
-
-			last = play;
 
 			nowPlaying(
 			{
@@ -468,8 +439,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -481,7 +450,7 @@ $(document).ready(function()
 							url        : 'http://slacker.com/#song/' + trackNameSelector.attr('itemid') + '/' + trackNameSelector.attr('perfid') + '/'
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'songza.com':
@@ -489,14 +458,13 @@ $(document).ready(function()
 			{
 				if ($('div.sz-player-revamp').hasClass('sz-player-state-play'))
 				{
-					var artistName = $('.szi-roll-song').find('.szi-info').find('.szi-artist').text();
-					var trackName  = $('.szi-roll-song').find('.szi-info').find('.szi-title').text();
+					var selector   = $('.szi-roll-song').find('.szi-info');
+					var artistName = selector.find('.szi-artist').text();
+					var trackName  = selector.find('.szi-title').text();
 					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -506,7 +474,7 @@ $(document).ready(function()
 							url        : 'http://songza.com' + $('.szi-station-info').find('a').attr('href')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'soundcloud.com':
@@ -518,7 +486,7 @@ $(document).ready(function()
 				{
 					var selector2  = selector.eq(1).parent().parent().parent();
 					var artistName = $.trim(selector2.find('.soundTitle').find('.sc-truncate').find('a').text());
-					var trackName  = $('.sc-button-pause').parent().parent().eq(1).parent().parent().parent().find('.soundTitle').find('div:eq(2)').find('div').find('a').text();
+					var trackName  = selector2.find('.soundTitle').find('div:eq(2)').find('div').find('a').text();
 					var albumArt   = selector2.find('.sc-media-image').find('img').attr('src').replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
 					var duration   = '?';
 					var url        = window.location.href;
@@ -571,8 +539,6 @@ $(document).ready(function()
 
 				if (last !== play)
 				{
-					last = play;
-
 					nowPlaying(
 					{
 						nowPlaying : play,
@@ -590,14 +556,13 @@ $(document).ready(function()
 			{
 				if ($('#player-features').hasClass('tmn_playing'))
 				{
-					var artistName = $.trim($('.track_name').find('a').find('.artist').text());
-					var trackName  = $.trim($('.track_name').find('a').find('.title').text());
+					var selector   = $('.track_name').find('a');
+					var artistName = $.trim(selector.find('.artist').text());
+					var trackName  = $.trim(selector.find('.title').text());
 					var play       = artistName + ' - ' + trackName;
 					
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -630,8 +595,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -640,7 +603,7 @@ $(document).ready(function()
 							albumArt   : $('.image').find('img').attr('src')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'turntable.fm':
@@ -656,8 +619,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						var albumArt = selector.find('.thumb').css('background-image').replace('url(','').replace(')','');
 
 						nowPlaying(
@@ -669,7 +630,7 @@ $(document).ready(function()
 							duration   : details.replace(/(.*)<span class(.*)<\/span>(.*)$/i, '$3')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'vk.com':
@@ -683,8 +644,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -693,7 +652,7 @@ $(document).ready(function()
 							url        : 'http://vk.com/wall-' + $('#gp_play_btn').find('a').attr('onclick').replace(/playAudioNew\('(.*)-(.*)',(.*)/i, '$2')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'we7.com':
@@ -701,24 +660,23 @@ $(document).ready(function()
 			{
 				if ($('.main-action').hasClass('pause-mode'))
 				{
-					var artistName = $('.chugger-current').find('.artist').attr('title');
-					var trackName  = $('.chugger-current').find('.song').attr('title');
+					var selector   = $('.chugger-current');
+					var artistName = selector.find('.artist').attr('title');
+					var trackName  = selector.find('.song').attr('title');
 					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
 					{
-						last = play;
-
 						nowPlaying(
 						{
 							nowPlaying : play,
 							trackName  : trackName,
 							artistName : artistName,
-							albumArt   : $('.chugger-current').find('.chugger-artwork').find('img').attr('src'),
+							albumArt   : selector.find('.chugger-artwork').find('img').attr('src'),
 							url        : $('#now-playing-like-bar').find('.fb-like').attr('data-href')
 						});
 					}
-				};
+				}
 			}, 10000);
 		break;
 		case 'youtube.com':
@@ -762,8 +720,6 @@ $(document).ready(function()
 						var trackName  = play;
 					}
 
-					last = play;
-
 					nowPlaying(
 					{
 						nowPlaying : play,
@@ -788,8 +744,6 @@ $(document).ready(function()
 
 					if (last !== play)
 					{
-						last = play;
-
 						var albumArt = selector.find('div').find('img').attr('src');
 
 						nowPlaying(
@@ -809,6 +763,8 @@ $(document).ready(function()
 
 function nowPlaying(np)
 {
+	last = np.nowPlaying;
+
 	if (np.nowPlaying !== null && np.nowPlaying !== false && typeof np.nowPlaying !== 'undefined')
 	{
 		var currentTime = new Date();
