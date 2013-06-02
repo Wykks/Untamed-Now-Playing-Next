@@ -104,6 +104,24 @@ $(document).ready(function()
 				}
 			}, 10000);
 		break;
+		case 'distortionradio.com':
+			setInterval(function()
+			{
+				var currentPlaying = $('li.now');
+				var artistName = currentPlaying.find('.player_artist').text();
+				var trackName = currentPlaying.find('.player_title').text();
+				var play    = artistName + ' - ' + trackName;
+				if (last !== play)
+				{
+					nowPlaying(
+					{
+						nowPlaying : play,
+						trackName  : artistName,
+						artistName : trackName,
+					});
+				}
+			}, 10000);
+		break;
 		case 'grooveshark.com':
 			setInterval(function()
 			{
