@@ -8,6 +8,7 @@ Supported Sites
 * [ah.fm](http://ah.fm)
 * [deezer.com](http://deezer.com)
 * [di.fm](http://di.fm)
+* [distortionradio.com](http://distortionradio.com)
 * [grooveshark.com](http://grooveshark.com)
 * [retro.grooveshark.com](http://retro.grooveshark.com)
 * [iheart.com](http://iheart.com)
