@@ -60,8 +60,7 @@
 		"*://pandora.com/*",
 		"*://*.pandora.com/*",
 		"*://play.google.com/*",
-		// play.spotify.com
-		"*://*.spapps.co/*",
+		"*://play.spotify.com/*",
 		"*://plug.dj/*",
 		"*://www.plug.dj/*",
 		"*://prostopleer.com/*",
@@ -161,8 +160,7 @@
 			"*://pandora.com/*",
 			"*://www.pandora.com/*",
 			"*://play.google.com/*",
-			// play.spotify.com
-			"*://*.spapps.co/*",
+			"*://play.spotify.com/*",
 			"*://plug.dj/*",
 			"*://www.plug.dj/*",
 			"*://prostopleer.com/*",

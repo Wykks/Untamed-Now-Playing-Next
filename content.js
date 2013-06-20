@@ -4,11 +4,6 @@ $(document).ready(function()
 {
 	var host = window.location.host.replace('www.', '');
 
-	if (/^([a-z0-9]+)-player.spapps.co$/.test(host))
-	{
-		host = 'player.spapps.co';
-	}
-
 	switch(host)
 	{
 		case '8tracks.com':
@@ -353,8 +348,7 @@ $(document).ready(function()
 				}
 			}, 10000);
 		break;
-		// play.spotify.com
-		case 'player.spapps.co':
+		case 'play.spotify.com':
 			setInterval(function()
 			{
 				if ($('#play-pause').hasClass('playing'))
