@@ -8,7 +8,7 @@
 			body {
 				padding-top: 40px;
 			}
-			table#options_table td input[type="text"], table#options_table td select, table#options_table td input[type="number"] {
+			table#options_table td input[type="text"], table#options_table td input[type="password"], table#options_table td select, table#options_table td input[type="number"] {
 				margin: 5px;
 			}
 			table#options_table td {
@@ -135,14 +135,14 @@
 						<label class="checkbox inline">
 							<input type="checkbox" id="nightbot_enable" value="1"> Yes
 						</label>
-						<button class="btn pull-right opt-tt" data-content="Send now playing data to Nightbot, which will allow viewers to recieve now playing information via twitch/justin tv chat.<br /><br />Please note, Nightbot isn't operated by the developer of UNP, it's a third party service"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content="Send now playing data to Nightbot, which will allow viewers to recieve now playing information via twitch/justin tv chat. To do this, create a custom command in the Nightbot.tv panel, for more information see the <a href='http://wiki.nightbot.tv/chat:variables' target='blank'>Nightbot wiki</a><br /><br />Please note, Nightbot isn't operated by the developer of UNP, it's a third party service"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="nightbot_details">
 					<td>Nightbot API details</td>
 					<td>
 						<input type="text" id="nightbot_user" placeholder="Username" style="width:30%;">
-						<input type="text" id="nightbot_api_key" placeholder="API Key" style="width:45%;">
+						<input type="password" id="nightbot_api_key" placeholder="API Key" style="width:45%;">
 						<button class="btn pull-right opt-tt" data-content="Your unique Nightbot API key can be obtained <a href='http://www.nightbot.tv/account' target='_blank'>here</a>"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
