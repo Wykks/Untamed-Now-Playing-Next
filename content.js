@@ -326,10 +326,10 @@ $(document).ready(function()
 		case 'play.google.com':
 			setInterval(function()
 			{
-				if ($('#playPause').attr('title') == 'Pause')
+				if ($('button.playing[data-id="play-pause"]').length)
 				{
 					var artistName = $('#player-artist').text();
-					var trackName  = $('#playerSongTitle').find('.tooltip').text();
+					var trackName  = $('#playerSongTitle').text();
 					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
@@ -341,7 +341,7 @@ $(document).ready(function()
 							artistName : artistName,
 							albumName  : $('.player-album').text(),
 							albumArt   : 'http:' + $('#playingAlbumArt').attr('src'),
-							duration   : $('#duration').text(),
+							duration   : $('#time_container_duration').text(),
 							url        : 'http://play.google.com'
 						});
 					}
