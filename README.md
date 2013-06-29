@@ -6,6 +6,7 @@ Supported Sites
 --------------------------------------
 * [8tracks.com](http://8tracks.com)
 * [ah.fm](http://ah.fm)
+* [blinkboxmusic.com](http://blinkboxmusic.com)
 * [deezer.com](http://deezer.com)
 * [di.fm](http://di.fm)
 * [distortionradio.com](http://distortionradio.com)
@@ -29,7 +30,6 @@ Supported Sites
 * [tunein.com](http://tunein.com)
 * [turntable.fm](http://turntable.fm)
 * [vk.com](http://vk.com)
-* [we7.com](http://we7.com)
 * [youtube.com](http://youtube.com)
 * [zaycev.fm](http://zaycev.fm)
 

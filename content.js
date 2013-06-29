@@ -51,6 +51,28 @@ $(document).ready(function()
 				}
 			}, 10000);
 		break;
+		case 'blinkboxmusic.com':
+			setInterval(function()
+			{
+				if ($('.control-button[data-play-button]').hasClass('playing'))
+				{
+					var artistName = $('.track-artist').text();
+					var trackName  = $('.track-name').text();
+					var play       = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							duration   : $('.total').text()
+						});
+					}
+				}
+			}, 10000);
+		break;
 		case 'deezer.com':
 			setInterval(function()
 			{
@@ -690,30 +712,6 @@ $(document).ready(function()
 							trackName  : trackName,
 							artistName : artistName,
 							url        : 'http://vk.com/wall-' + $('#gp_play_btn').find('a').attr('onclick').replace(/playAudioNew\('(.*)-(.*)',(.*)/i, '$2')
-						});
-					}
-				}
-			}, 10000);
-		break;
-		case 'we7.com':
-			setInterval(function()
-			{
-				if ($('.main-action').hasClass('pause-mode'))
-				{
-					var selector   = $('.chugger-current');
-					var artistName = selector.find('.artist').attr('title');
-					var trackName  = selector.find('.song').attr('title');
-					var play       = artistName + ' - ' + trackName;
-
-					if (last !== play)
-					{
-						nowPlaying(
-						{
-							nowPlaying : play,
-							trackName  : trackName,
-							artistName : artistName,
-							albumArt   : selector.find('.chugger-artwork').find('img').attr('src'),
-							url        : $('#now-playing-like-bar').find('.fb-like').attr('data-href')
 						});
 					}
 				}
