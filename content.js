@@ -11,9 +11,9 @@ $(document).ready(function()
 			{
 				if ($('#player_pause_button').css('display') == 'block')
 				{
-					var selector   = $('.title_artist');
-					var artistName = selector.find('.a').text();
-					var trackName  = selector.find('.t').text();
+					var selector   = $('li.now_playing').find('.title_container').find('.title_artist');
+					var artistName = selector.find('.a').eq(0).text();
+					var trackName  = selector.find('.t').eq(0).text();
 					var play       = artistName + ' - ' + trackName;
 
 					if (last !== play)
@@ -23,9 +23,9 @@ $(document).ready(function()
 							nowPlaying : play,
 							trackName  : trackName,
 							artistName : artistName,
-							albumName  : $('.album').find('.detail').text(),
-							albumArt   : $('.mix_art_wrapper').find('a').find('img').attr('src').replace(/(.*)\?(.*)/i, '$1'),
-							duration   : $('#time-total').text()
+							albumName  : $('li.now_playing').find('.album').find('.detail').text(),
+							albumArt   : $('#mix_player_details').find('a').find('img').attr('src').replace(/(.*)\?(.*)/i, '$1'),
+							url        : 'http://8tracks.com' + $('.mixname').find('a').attr('href')
 						});
 					}
 				}
