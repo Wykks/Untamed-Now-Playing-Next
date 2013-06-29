@@ -11,6 +11,7 @@ Supported Sites
 * [distortionradio.com](http://distortionradio.com)
 * [grooveshark.com](http://grooveshark.com)
 * [retro.grooveshark.com](http://retro.grooveshark.com)
+* [hypem.com](http://hypem.com)
 * [iheart.com](http://iheart.com)
 * [jango.com](http://jango.com)
 * [last.fm](http://last.fm)

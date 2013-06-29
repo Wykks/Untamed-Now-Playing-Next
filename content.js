@@ -103,9 +103,10 @@ $(document).ready(function()
 			setInterval(function()
 			{
 				var currentPlaying = $('li.now');
-				var artistName = currentPlaying.find('.player_artist').text();
-				var trackName = currentPlaying.find('.player_title').text();
-				var play    = artistName + ' - ' + trackName;
+				var artistName     = currentPlaying.find('.player_artist').text();
+				var trackName      = currentPlaying.find('.player_title').text();
+				var play           = artistName + ' - ' + trackName;
+
 				if (last !== play)
 				{
 					nowPlaying(
@@ -172,6 +173,31 @@ $(document).ready(function()
 							albumArt   : (albumArt == 'http://images.gs-cdn.net/static/albums/142_album.png') ? '?' : albumArt,
 							duration   : ( (duration.substr(0,1) == '0') ? duration.substr(1, duration.length) : duration ),
 							url        : 'http://retro.grooveshark.com/' + albumName.attr('href')
+						});
+					}
+				}
+			}, 10000);
+		break;
+		case 'hypem.com':
+			setInterval(function()
+			{
+				if ($('#playerPlay').hasClass('pause'))
+				{
+					var playerDetails     = $('#player-nowplaying');
+					var artistName        = playerDetails.children('a').eq(0).text();
+					var trackNameSelector = playerDetails.children('a').eq(1);
+					var trackName         = trackNameSelector.text();
+					var play              = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							duration   : $('#player-time-total').text(),
+							url        : 'http://hypem.com' + trackNameSelector.attr('href')
 						});
 					}
 				}
