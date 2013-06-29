@@ -113,6 +113,7 @@ $(document).ready(function()
 						nowPlaying : play,
 						trackName  : artistName,
 						artistName : trackName,
+						albumArt   : currentPlaying.find('.player_album').find('a').css('background-image').replace('url(','').replace(')','').replace('60x60', '150x150')
 					});
 				}
 			}, 10000);

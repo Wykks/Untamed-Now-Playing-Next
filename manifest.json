@@ -90,6 +90,8 @@
 		"*://api.own3d.tv/*",
 		// di.fm cdn
 		"*://static.audioaddict.com/*",
+		// distortionradio cdn
+		"*://images.distortionradio.com/*",
 		// grooveshark cdn
 		"*://*.gs-cdn.net/*",
 		"*://images.grooveshark.com/*",
