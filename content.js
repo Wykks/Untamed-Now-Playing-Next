@@ -402,9 +402,15 @@ $(document).ready(function()
 			{
 				if ($('#play-pause').hasClass('playing'))
 				{
-					var artistName        = $('#track-artist').find('a').text();
+					var artistName = '';
+
+					$('#track-artist').find('a').each(function()
+					{
+						artistName += (artistName == '') ? $(this).text() : ', ' + $(this).text();
+					});
+
 					var trackNameSelector = $('#track-name').find('a');
-					var trackName         = trackNameSelector.text();
+					var trackName         = trackNameSelector.eq(0).text();
 					var play              = artistName + ' - ' + trackName;
 
 					if (last !== play)
