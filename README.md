@@ -18,6 +18,7 @@ Supported Sites
 * [last.fm](http://last.fm)
 * [nightbot.tv](http://nightbot.tv)
 * [pandora.com](http://pandora.com)
+* [piki.fm](http://piki.fm)
 * [play.google.com](http://play.google.com)
 * [play.spotify.com](http://play.spotify.com)
 * [plug.dj](http://plug.dj)

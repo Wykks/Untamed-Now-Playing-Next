@@ -372,6 +372,32 @@ $(document).ready(function()
 				}
 			}, 10000);
 		break;
+		case 'piki.fm':
+			setInterval(function()
+			{
+				if ($('.btn-player-pause').is(':visible'))
+				{
+					var artistName = $('.artist-name').text();
+					var trackName  = $('.song-name').text();
+					var play       = artistName + ' - ' + trackName;
+
+					if (last !== play)
+					{
+						var remainingTime = $('.song-time-left').text();
+						var remainingTime = remainingTime.substr(1,remainingTime.length);
+
+						nowPlaying(
+						{
+							nowPlaying : play,
+							trackName  : trackName,
+							artistName : artistName,
+							duration   : secToHms(hmsToSec($('.song-time-past').text()) + hmsToSec(remainingTime)),
+							url        : 'http://piki.fm'
+						});
+					}
+				}
+			}, 10000);
+		break;
 		case 'play.google.com':
 			setInterval(function()
 			{
