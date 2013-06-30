@@ -847,13 +847,13 @@ function nowPlaying(np)
 			method      : 'w',
 			filename    : 'unp_now_playing',
 			nowPlaying  : np.nowPlaying,
-			duration    : ( (typeof np.duration !== 'undefined') ? np.duration : '?' ),
-			trackName   : ( (typeof np.trackName !== 'undefined') ? np.trackName : '?' ),
-			artistName  : ( (typeof np.artistName !== 'undefined') ? np.artistName : '?' ),
-			albumName   : ( (typeof np.albumName !== 'undefined') ? np.albumName : '?' ),
-			albumArt    : ( (typeof np.albumArt !== 'undefined' && np.albumArt.substring(0,4) == 'http') ? np.albumArt : '?' ),
+			duration    : ( (!empty(np.duration)) ? np.duration : '?' ),
+			trackName   : ( (!empty(np.trackName)) ? np.trackName : '?' ),
+			artistName  : ( (!empty(np.artistName)) ? np.artistName : '?' ),
+			albumName   : ( (!empty(np.albumName)) ? np.albumName : '?' ),
+			albumArt    : ( (!empty(np.albumArt) && np.albumArt.substring(0,4) == 'http') ? np.albumArt : '?' ),
 			timeStarted : ( (hours < 10) ? '0' + hours : hours ) + ':' + ( (minutes < 10) ? '0' + minutes : minutes ),
-			url         : ( (typeof np.url !== 'undefined') ? np.url : window.location.href ),
+			url         : ( (!empty(np.url)) ? np.url : window.location.href ),
 			onComplete  : function(status, data)
 			{
 				if (status == 'ok')
@@ -894,6 +894,32 @@ function parseArtistTitle(input)
 	{
 		return false;
 	}
+}
+
+function empty(mixed_var)
+{
+	var undef, key, i, len;
+	var emptyValues = [undef, null, false, 0, '', '0'];
+
+	for (i = 0, len = emptyValues.length; i < len; i++)
+	{
+		if (mixed_var === emptyValues[i])
+		{
+			return true;
+		}
+	}
+
+	if (typeof mixed_var === 'object')
+	{
+		for (key in mixed_var)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	return false;
 }
 
 function hmsToSec(hms)
