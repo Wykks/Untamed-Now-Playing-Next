@@ -124,9 +124,9 @@ $(document).ready(function()
 		case 'distortionradio.com':
 			setInterval(function()
 			{
-				var currentPlaying = $('li.now');
-				var artistName     = currentPlaying.find('.player_artist').text();
-				var trackName      = currentPlaying.find('.player_title').text();
+				var currentPlaying = $('.item_info').slice(0,1);
+				var artistName     = currentPlaying.find('.artist').text();
+				var trackName      = currentPlaying.find('.title').text();
 				var play           = artistName + ' - ' + trackName;
 
 				if (last !== play)
@@ -136,7 +136,6 @@ $(document).ready(function()
 						nowPlaying : play,
 						trackName  : artistName,
 						artistName : trackName,
-						albumArt   : currentPlaying.find('.player_album').find('a').css('background-image').replace('url(','').replace(')','').replace('60x60', '150x150')
 					});
 				}
 			}, 10000);
