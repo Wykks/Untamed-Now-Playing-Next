@@ -6,16 +6,19 @@ Supported Sites
 --------------------------------------
 * [8tracks.com](http://8tracks.com)
 * [ah.fm](http://ah.fm)
+* [blinkboxmusic.com](http://blinkboxmusic.com)
 * [deezer.com](http://deezer.com)
 * [di.fm](http://di.fm)
 * [distortionradio.com](http://distortionradio.com)
 * [grooveshark.com](http://grooveshark.com)
 * [retro.grooveshark.com](http://retro.grooveshark.com)
+* [hypem.com](http://hypem.com)
 * [iheart.com](http://iheart.com)
 * [jango.com](http://jango.com)
 * [last.fm](http://last.fm)
 * [nightbot.tv](http://nightbot.tv)
 * [pandora.com](http://pandora.com)
+* [piki.fm](http://piki.fm)
 * [play.google.com](http://play.google.com)
 * [play.spotify.com](http://play.spotify.com)
 * [plug.dj](http://plug.dj)
@@ -28,7 +31,6 @@ Supported Sites
 * [tunein.com](http://tunein.com)
 * [turntable.fm](http://turntable.fm)
 * [vk.com](http://vk.com)
-* [we7.com](http://we7.com)
 * [youtube.com](http://youtube.com)
 * [zaycev.fm](http://zaycev.fm)
 
@@ -38,13 +40,13 @@ Install
 --------------------------------------
 There are a couple of ways to install the extension;
 
-### Install the packed extension (v0.5 - Stable, recommended!)
+### Install the packed extension (v0.6.1 - Stable, recommended!)
 1. Download the already packed extension [here](http://ipaddr.me/unp/download.php)
 2. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
 3. Drag and drop the packed extension you downloaded in Step #1.
 4. Click 'continue' on the bottom left of the Chrome window.
 
-### Install the unpacked extension (v0.6-dev - Under development, not recommended)
+### Install the unpacked extension (v0.7-dev - Under development, not recommended)
 1. Download the extension from Github [here](https://github.com/untamed0/Untamed-Now-Playing/zipball/master)
 2. Extract the files to a safe place.
 3. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.

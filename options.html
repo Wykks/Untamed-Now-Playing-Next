@@ -2,13 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Untamed Now Playing v0.5 - Options</title>
+		<title>Untamed Now Playing v0.6.1 - Options</title>
 		<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<style type="text/css">
 			body {
 				padding-top: 40px;
 			}
-			table#options_table td input[type="text"], table#options_table td select, table#options_table td input[type="number"] {
+			table#options_table td input[type="text"], table#options_table td input[type="password"], table#options_table td select, table#options_table td input[type="number"] {
 				margin: 5px;
 			}
 			table#options_table td {
@@ -49,7 +49,7 @@
 				padding-right: 14px;
 			}
 		</style>
-		<script type="text/javascript" src="lib/jquery-2.0.1.min.js"></script>
+		<script type="text/javascript" src="lib/jquery-2.0.2.min.js"></script>
 		<script type="text/javascript" src="lib/sammy-latest.min.js"></script>
 		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="lib/pages/options.js"></script>
@@ -58,7 +58,7 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="#/about"><strong>Untamed Now Playing <small>v0.5</small></strong></a>
+					<a class="brand" href="#/about"><strong>Untamed Now Playing <small>v0.6.1</small></strong></a>
 					<div class="nav-collapse collapse">
 						<ul class="nav pull-right">
 							<li id="nav-options" class="active"><a href="#/options">Options</a></li>
@@ -89,6 +89,7 @@
 						<select id="save_format" style="width: 150px;">
 							<option value="txt" selected>Plain text (txt)</option>
 							<option value="xml">XML</option>
+							<option value="multi">Multiple txt files</option>
 						</select>
 						<button class="btn pull-right opt-tt" data-content="The file format that the now playing file is saved as. Xsplit supports both XML and TXT, OBS just supports TXT. XML allows you display different info in different text titles in your scenes"><i class="icon-info-sign"></i></button>
 					</td>
@@ -101,13 +102,13 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Song maximum length</td>
+					<td>Variable maximum length</td>
 					<td>
 						<input type="number" id="song_maxlen" min="10" max="256" style="width:100px;">
 						<label class="checkbox inline" style="width:200px;">
 							<input type="checkbox" id="song_maxlen_append" value="1"> Append longer strings with '...'
 						</label>
-						<button class="btn pull-right opt-tt" data-content="The maximum length of the song name. Must be a number between 10 and 256"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content="The maximum length of 'Now Playing', Artist, Track, Album variables. Must be a number between 10 and 256"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
@@ -129,19 +130,19 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Intergrate with <a href="http://nightbot.tv" target="_blank">Nightbot</a>?</td>
+					<td>Integrate with <a href="http://nightbot.tv" target="_blank">Nightbot</a>?</td>
 					<td>
 						<label class="checkbox inline">
 							<input type="checkbox" id="nightbot_enable" value="1"> Yes
 						</label>
-						<button class="btn pull-right opt-tt" data-content="Send now playing data to Nightbot, which will allow viewers to recieve now playing information via twitch/justin tv chat.<br /><br />Please note, Nightbot isn't operated by the developer of UNP, it's a third party service"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content="Send now playing data to Nightbot, which will allow viewers to recieve now playing information via twitch/justin tv chat. To do this, create a custom command in the Nightbot.tv panel, for more information see the <a href='http://wiki.nightbot.tv/chat:variables' target='blank'>Nightbot wiki</a><br /><br />Please note, Nightbot isn't operated by the developer of UNP, it's a third party service"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="nightbot_details">
 					<td>Nightbot API details</td>
 					<td>
 						<input type="text" id="nightbot_user" placeholder="Username" style="width:30%;">
-						<input type="text" id="nightbot_api_key" placeholder="API Key" style="width:45%;">
+						<input type="password" id="nightbot_api_key" placeholder="API Key" style="width:45%;">
 						<button class="btn pull-right opt-tt" data-content="Your unique Nightbot API key can be obtained <a href='http://www.nightbot.tv/account' target='_blank'>here</a>"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
@@ -190,12 +191,20 @@
 						<td><a target="_blank" href="http://8tracks.com">8tracks.com</a></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
-						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
 					</tr>
 					<tr>
 						<td><a target="_blank" href="http://ah.fm">ah.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://blinkboxmusic.com">blinkboxmusic.com</a></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
@@ -223,7 +232,7 @@
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="No" src="ico/cross.png"></td>
-						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="No" src="ico/cross.png"></td>
 					</tr>
 					<tr>
@@ -241,6 +250,14 @@
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://hypem.com">hypem.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
 					</tr>
 					<tr>
 						<td><a target="_blank" href="http://iheart.com">iheart.com</a></td>
@@ -281,6 +298,14 @@
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://piki.fm">piki.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
 					</tr>
 					<tr>
 						<td><a target="_blank" href="http://play.google.com">play.google.com</a></td>
@@ -379,14 +404,6 @@
 						<td><img alt="No" src="ico/cross.png"></td>
 					</tr>
 					<tr>
-						<td><a target="_blank" href="http://we7.com">we7.com</a></td>
-						<td><img alt="Yes" src="ico/tick.png"></td>
-						<td><img alt="Yes" src="ico/tick.png"></td>
-						<td><img alt="No" src="ico/cross.png"></td>
-						<td><img alt="No" src="ico/cross.png"></td>
-						<td><img alt="Yes" src="ico/tick.png"></td>
-					</tr>
-					<tr>
 						<td><a target="_blank" href="http://youtube.com">youtube.com</a></td>
 						<td><img alt="Possibly" src="ico/magnifier.png"></td>
 						<td><img alt="Possibly" src="ico/magnifier.png"></td>
@@ -420,16 +437,19 @@
 			<ul>
 				<li><a target="_blank" href="http://8tracks.com">8tracks.com</a></li>
 				<li><a target="_blank" href="http://ah.fm">ah.fm</a></li>
+				<li><a target="_blank" href="http://blinkboxmusic.com">blinkboxmusic.com</a></li>
 				<li><a target="_blank" href="http://deezer.com">deezer.com</a></li>
 				<li><a target="_blank" href="http://di.fm">di.fm</a></li>
 				<li><a target="_blank" href="http://www.distortionradio.com">distortionradio.com</a></li>
 				<li><a target="_blank" href="http://grooveshark.com">grooveshark.com</a></li>
 				<li><a target="_blank" href="http://retro.grooveshark.com">retro.grooveshark.com</a></li>
+				<li><a target="_blank" href="http://hypem.com">hypem.com</a></li>
 				<li><a target="_blank" href="http://iheart.com">iheart.com</a></li>
 				<li><a target="_blank" href="http://jango.com">jango.com</a></li>
 				<li><a target="_blank" href="http://last.fm">last.fm</a></li>
 				<li><a target="_blank" href="http://nightbot.tv">nightbot.tv</a></li>
 				<li><a target="_blank" href="http://pandora.com">pandora.com</a></li>
+				<li><a target="_blank" href="http://piki.fm">piki.fm</a></li>
 				<li><a target="_blank" href="http://play.google.com">play.google.com</a></li>
 				<li><a target="_blank" href="http://play.spotify.com">play.spotify.com</a></li>
 				<li><a target="_blank" href="http://plug.dj">plug.dj</a></li>
@@ -442,7 +462,6 @@
 				<li><a target="_blank" href="http://tunein.com">tunein.com</a></li>
 				<li><a target="_blank" href="http://turntable.fm">turntable.fm</a></li>
 				<li><a target="_blank" href="http://vk.com">vk.com</a></li>
-				<li><a target="_blank" href="http://we7.com">we7.com</a></li>
 				<li><a target="_blank" href="http://youtube.com">youtube.com</a></li>
 				<li><a target="_blank" href="http://zaycev.fm">zaycev.fm</a></li>
 			</ul>
@@ -453,11 +472,11 @@
 			<h3>License</h3>
 			<p>This software is provided "AS IS" without warranty of any kind, either expressed or implied. Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
 			<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a></p>
-			<p>This software uses the following libraries developed by third parties, and are licenced seperately;</p>
+			<p>This software uses the following libraries developed by third parties;</p>
 			<ul>
+				<li><a target="_blank" href="https://bitbucket.org/ryanackley/npapi-chrome-file-api/overview">NPAPI-chrome-file-api</a> (GNU GPL v2.0)</li>
 				<li><a target="_blank" href="http://twitter.github.com/bootstrap">Bootstrap</a> (Apache License v2.0)</li>
 				<li><a target="_blank" href="http://jquery.com">jQuery</a> (MIT License)</li>
-				<li><a target="_blank" href="http://code.google.com/p/npapi-file-io">npapi-file-io</a> (New BSD License)</li>
 				<li><a target="_blank" href="http://sammyjs.org">Sammy.js</a> (MIT License)</li>
 			</ul>
 			<p>Additionally, the main icon was designed by <a target="_blank" href="http://csscreme.com/freeicons/">CSS Creme</a>, and icons designed by <a target="_blank" href="http://www.fatcow.com/free-icons">FatCow</a> are used on the options pages.</p>
@@ -465,11 +484,30 @@
 		<div id="changelog" class="main_content container">
 			<h1>Changelog</h1>
 			<p>&nbsp;</p>
-			<h4 title="0.6">0.6 - ???</h4>
+			<h4 title="0.6.1">0.6.1 - 30 Jun 13</h4>
+			<ul>
+				<li>Added piki.fm</li>
+				<li>Fixed 8tracks.com</li>
+				<li>Fixed UTF8/16 saving</li>
+				<li>Fixed max length always appending</li>
+				<li>Improved play.spotify.com</li>
+				<li>Improved empty string detection</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="0.6">0.6 - 29 Jun 13</h4>
 			<ul>
 				<li>Add support for Soundcloud sets</li>
+				<li>Added:
+					<ul>
+						<li>blinkboxmusic.com</li>
+						<li>DistortionRadio.com</li>
+						<li>HypeM.com</li>
+					</ul>
+				</li>
 				<li>Fixed:
 					<ul>
+						<li>play.google.com</li>
+						<li>play.spotify.com</li>
 						<li>Songza.com</li>
 						<li>zaycev.fm</li>
 					</ul>
@@ -481,13 +519,21 @@
 						<li>Seoul.fm</li>
 					</ul>
 				</li>
+				<li>Removed:
+					<ul>
+						<li>WE7.com (Rebranded to blinkboxmusic.com)</li>
+					</ul>
+				</li>
 				<li>Nightbot API intergration</li>
 				<li>Use regex for sites that don't split artist and title</li>
+				<li>Improve song/variable max length option</li>
+				<li>Option to output to multiple txt files, alternative to XML</li>
 				<li>Update jquery, sammy and boostrap</li>
 				<li>Code improvements, minimize DOM access</li>
 				<li>Remove own3d support</li>
 				<li>Open changelog page on auto update</li>
 				<li>Updates to documentation</li>
+				<li>Switched NPAPI plugins (from <a target="_blank" href="http://code.google.com/p/npapi-file-io/">npapi-file-io</a> to <a target="_blank" href="https://bitbucket.org/ryanackley/npapi-chrome-file-api/overview">NPAPI-chrome-file-api</a>)</li>
 			</ul>
 			<p>&nbsp;</p>
 			<h4 title="0.5">0.5 - 25 May 13</h4>
