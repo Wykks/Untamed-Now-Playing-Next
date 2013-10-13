@@ -750,19 +750,18 @@ $(document).ready(function()
 			}, 10000);
 		break;
 		case 'youtube.com':
-			optionGet(function(data)
-			{
+			function youtubeSupport(data) {
 				if (data['unpDisableYoutube'] === 'true')
 				{
 					$('body').append('<div style="position:fixed;bottom:0;right:0;z-index:999;border-top-left-radius:3px;background:linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(246,246,246,1) 66%,rgba(237,237,237,1) 100%);opacity:0.8;border:1px solid #EDEDED;padding:2px 5px;font-size:11px">UNP: YouTube parsing is disabled, to change <a href="chrome-extension://' + chrome.i18n.getMessage('@@extension_id') + '/options.html" target="_blank" style="color:#000">click here</a></div>');
 					console.log('UNP: YouTube parsing disabled');
 					return;
 				}
-
-				if (typeof $('meta[name=title]').attr('content') !== 'undefined' && last !== $('meta[name=title]').attr('content'))
+				if (typeof $('#watch7-container > meta[itemprop="name"]').attr('content') !== 'undefined' &&
+					last !== $('#watch7-container > meta[itemprop="name"]').attr('content'))
 				{
 					var duration = $('body').text().match(/\"length_seconds\"\: (\d+)/)[1];
-					var play     = $('meta[name=title]').attr('content');
+					var play     = $('#watch7-container > meta[itemprop="name"]').attr('content');
 					var parse;
 
 					if ($('#eow-title').find('a').length)
@@ -800,7 +799,22 @@ $(document).ready(function()
 						url        : $('link[itemprop="url"]').attr('href')
 					});
 				}
+			}
+
+			var observer = new WebKitMutationObserver(function(mutations) {
+				mutations.forEach(ytAttrModified);
 			});
+			observer.observe(document.body, { attributes: true });
+			var re = new RegExp('page-loaded');
+			function ytAttrModified(mutation) {
+				if (mutation.attributeName != 'class')
+					return;
+				var newValue = mutation.target.getAttribute(mutation.attributeName);
+				if (newValue.match(re))
+					optionGet(youtubeSupport);
+			}
+
+			optionGet(youtubeSupport);
 		break;
 		case 'zaycev.fm':
 			setInterval(function()
