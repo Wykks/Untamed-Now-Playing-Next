@@ -859,7 +859,6 @@ function nowPlaying(np)
 		{
 			type        : 'npapi',
 			method      : 'w',
-			filename    : 'unp_now_playing',
 			nowPlaying  : np.nowPlaying,
 			duration    : ( (!empty(np.duration)) ? np.duration : '?' ),
 			trackName   : ( (!empty(np.trackName)) ? np.trackName : '?' ),
