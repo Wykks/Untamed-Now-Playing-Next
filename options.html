@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Untamed Now Playing v0.6.1 - Options</title>
+		<title>Untamed Now Playing v0.7.0 - Options</title>
 		<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<style type="text/css">
 			body {
@@ -58,132 +58,132 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="#/about"><strong>Untamed Now Playing <small>v0.6.1</small></strong></a>
+					<a class="brand" href="#/about"><strong data-i18n="extention_name"></strong> <small>v0.7.0</small></a>
 					<div class="nav-collapse collapse">
 						<ul class="nav pull-right">
-							<li id="nav-options" class="active"><a href="#/options">Options</a></li>
-							<li id="nav-sites"><a href="#/sites">Site Features</a></li>
-							<li id="nav-about"><a href="#/about">About</a></li>
-							<li id="nav-changelog"><a href="#/changelog">Changelog</a></li>
-							<li id="nav-contact"><a href="#/contact">Contact</a></li>
+							<li id="nav-options" class="active"><a href="#/options" data-i18n="nav_options"></a></li>
+							<li id="nav-sites"><a href="#/sites" data-i18n="nav_sites"></a></li>
+							<li id="nav-about"><a href="#/about" data-i18n="nav_about"></a></li>
+							<li id="nav-changelog"><a href="#/changelog" data-i18n="nav_change"></a></li>
+							<li id="nav-contact"><a href="#/contact" data-i18n="nav_contact"></a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div id="options" class="main_content container">
-			<h1>Options</h1>
-			<p>Click the icon beside each option for more information</p>
-			<p>If you find this extension useful, I'd really appreciate it if you consider donating to charity:water, they are a fantastic charity which give 100% of donations to people in need. <a target="_blank" href="http://vimeo.com/22566556">Click here</a> to find out more, or to donate, <a target="_blank" href="https://www.charitywater.org/donateforms/general">click here</a>.</p>
+			<h1 data-i18n="nav_options"></h1>
+			<p data-i18n="opt_des"></p>
+			<p data-i18n="opt_donate"></p>
 			<table id="options_table" class="table table-bordered table-hover table-condensed">
 				<tr>
-					<td>Save to directory</td>
+					<td data-i18n="opt_0"></td>
 					<td>
 						<input type="text" id="save_dir" style="width:370px;">
-						<button class="btn pull-right opt-tt" data-content="The directory where the now playing file is saved, may also be used for caching stream status"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td>Save as format</td>
+					<td data-i18n="opt_1"></td>
 					<td>
 						<select id="save_format" style="width: 150px;">
-							<option value="txt" selected>Plain text (txt)</option>
-							<option value="xml">XML</option>
-							<option value="multi">Multiple txt files</option>
+							<option value="txt" data-i18n="opt_1_select_txt" selected></option>
+							<option value="xml" data-i18n="opt_1_select_xml"></option>
+							<option value="multi" data-i18n="opt_1_select_multi"></option>
 						</select>
-						<button class="btn pull-right opt-tt" data-content="The file format that the now playing file is saved as. Xsplit supports both XML and TXT, OBS just supports TXT. XML allows you display different info in different text titles in your scenes"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="txt_format_details">
-					<td>Plain text now playing format</td>
+					<td data-i18n="opt_2"></td>
 					<td>
 						<input type="text" id="txt_format" style="width:370px;">
-						<button class="btn pull-right opt-tt" data-content="For the list of available variables and which sites support them, and examples <a href='#/sites'>click here</a>.<br>OBS users using the &quot;Scroll&quot; option may need to add a few spaces to the end of this option to prevent the first and last word from merging"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td>Variable maximum length</td>
+					<td data-i18n="opt_3"></td>
 					<td>
 						<input type="number" id="song_maxlen" min="10" max="256" style="width:100px;">
 						<label class="checkbox inline" style="width:200px;">
-							<input type="checkbox" id="song_maxlen_append" value="1"> Append longer strings with '...'
+							<input type="checkbox" id="song_maxlen_append" value="1"> <span data-i18n="opt_3_des"></span>
 						</label>
-						<button class="btn pull-right opt-tt" data-content="The maximum length of 'Now Playing', Artist, Track, Album variables. Must be a number between 10 and 256"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td>Download album artwork</td>
+					<td data-i18n="opt_4"></td>
 					<td>
 						<label class="checkbox inline">
-							<input type="checkbox" id="album_artwork" value="1"> Yes
+							<input type="checkbox" id="album_artwork" value="1"> <span data-i18n="yes"></span>
 						</label>
-						<button class="btn pull-right opt-tt" data-content="The album artwork will be saved to &quot;SaveDirectory/unp_album_art.jpg&quot;. PNG album art is sent to a server operated by the developer, which converts the image to JPG for the extension to download and save. For the list of supported sites, <a href='#/sites'>click here</a>"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td>Disable YouTube parsing</td>
+					<td data-i18n="opt_5"></td>
 					<td>
 						<label class="checkbox inline">
-							<input type="checkbox" id="disable_youtube" value="0"> Yes
+							<input type="checkbox" id="disable_youtube" value="0"> <span data-i18n="yes"></span>
 						</label>
-						<button class="btn pull-right opt-tt" data-content="Prevent UNP processing YouTube"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td>Integrate with <a href="http://nightbot.tv" target="_blank">Nightbot</a>?</td>
+					<td data-i18n="opt_6"></td>
 					<td>
 						<label class="checkbox inline">
-							<input type="checkbox" id="nightbot_enable" value="1"> Yes
+							<input type="checkbox" id="nightbot_enable" value="1"> <span data-i18n="yes"></span>
 						</label>
-						<button class="btn pull-right opt-tt" data-content="Send now playing data to Nightbot, which will allow viewers to recieve now playing information via twitch/justin tv chat. To do this, create a custom command in the Nightbot.tv panel, for more information see the <a href='http://wiki.nightbot.tv/chat:variables' target='blank'>Nightbot wiki</a><br /><br />Please note, Nightbot isn't operated by the developer of UNP, it's a third party service"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="nightbot_details">
-					<td>Nightbot API details</td>
+					<td data-i18n="opt_7"></td>
 					<td>
 						<input type="text" id="nightbot_user" placeholder="Username" style="width:30%;">
 						<input type="password" id="nightbot_api_key" placeholder="API Key" style="width:45%;">
-						<button class="btn pull-right opt-tt" data-content="Your unique Nightbot API key can be obtained <a href='http://www.nightbot.tv/account' target='_blank'>here</a>"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td>Check stream is live before saving?</td>
+					<td data-i18n="opt_8"></td>
 					<td>
 						<label class="checkbox inline">
-							<input type="checkbox" id="check_live" value="1"> Yes
+							<input type="checkbox" id="check_live" value="1"> <span data-i18n="yes"></span>
 						</label>
-						<button class="btn pull-right opt-tt" data-content="This will check your stream is live before saving any 'Now Playing' data or sending anything to Nightbot. This offers increased privacy, however it requires requests to Justin/Twitch TV, and should only be enabled if you require the extra privacy"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="stream_details">
-					<td>Stream details</td>
+					<td data-i18n="opt_9"></td>
 					<td>
 						<select id="stream_site" style="width: 150px;">
-							<option value="" selected disabled>Select Service</option>
-							<option value="justin">Justin/Twitch TV</option>
+							<option value="" data-i18n="opt_9_select" selected disabled></option>
+							<option value="justin" data-i18n="opt_9_select_justin"></option>
 						</select>
 						<input type="text" id="stream_user" placeholder="Username">
-						<button class="btn pull-right opt-tt" data-content="Your Stream details, only used if the 'Check stream' option is enabled"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt" data-content=""><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 			</table>
 			<p style="text-align:center;">
-				<button class="btn btn-large btn-primary" type="button" id="save_options">Save</button>
+				<button class="btn btn-large btn-primary" type="button" id="save_options" data-i18n="save"></button>
 			</p>
 		</div>
 		<div id="sites" class="main_content container">
-			<h1>Site Features</h1>
-			<p>This is a list of the supported sites, and their available features. <strong>This information is only for users who want more customisation, and is irrelevant for the majority of users.</strong> The symbols in brackets are the variables used for formatting the "Plain text" save as option.</p>
-			<p><strong>"Now Playing" (%s%), "Time Started" (%t%) and "URL" (%u%) variables are fully supported by every site.</strong> The magnifying glass icon denotes sites which don't display the artist and title information seperately, for these sites UNP will try to split the information into Artist and Title, but accuracy can't be guaranteed.</p>
+			<h1 data-i18n="nav_sites"></h1>
+			<p data-i18n="sites_des"></p>
+			<p data-i18n="sites_des_2"></p>
 			<table id="sites_table" class="table table-bordered table-hover table-condensed">
 				<thead>
 					<tr>
 						<th>&nbsp;</th>
-						<th>Artist (%a%)</th>
-						<th>Title (%e%)</th>
-						<th>Duration (%d%)</th>
-						<th>Album (%b%)</th>
-						<th>Artwork (N/A)</th>
+						<th data-i18n="sites_th_artist"></th>
+						<th data-i18n="sites_th_title"></th>
+						<th data-i18n="sites_th_duration"></th>
+						<th data-i18n="sites_th_album"></th>
+						<th data-i18n="sites_th_artwork"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -419,70 +419,75 @@
 						<td><img alt="No" src="ico/cross.png"></td>
 						<td><img alt="Yes" src="ico/tick.png"></td>
 					</tr>
+					<tr>
+						<td><a target="_blank" href="http://play.baidu.com">play.baidu.com</a> (Chinese)</td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://player.kuwo.cn">player.kuwo.cn</a> (Chinese)</td>
+						<td><img alt="Yes" src="ico/magnifier.png"></td>
+						<td><img alt="Yes" src="ico/magnifier.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://y.qq.com">y.qq.com</a> (Chinese)</td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
 				</tbody>
 			</table>
-			<small><strong>*:</strong> Soundcloud has 5 different page layouts. For best results use the detailed artist, track or set view, and don't navigate away; otherwise UNP may only be able to pick up Artist, Track and URL.</small>
-			<h3>Full list of Variables</h3>
-			<pre><strong>%s%</strong> : Now Playing data<br><strong>%a%</strong> : Artist<br><strong>%e%</strong> : Title<br><strong>%b%</strong> : Album<br><strong>%d%</strong> : Total Duration<br><strong>%t%</strong> : Time started (24hr)<br><strong>%u%</strong> : URL of page<br><strong>%n%</strong> : New line</pre>
-			<h3>Plain Text Format Examples</h3>
-			<p>If you listen to GrooveShark, and your plain text format is set to:</p>
+			<small data-i18n="sites_note"></small>
+			<p data-i18n="sites_des3"></p>
+			<h3 data-i18n="sites_var_list"></h3>
+			<pre><strong>%s%</strong> : <span data-i18n="sites_var_s"></span><br><strong>%a%</strong> : <span data-i18n="sites_var_a"></span><br><strong>%e%</strong> : <span data-i18n="sites_var_e"></span><br><strong>%b%</strong> : <span data-i18n="sites_var_b"></span><br><strong>%d%</strong> : <span data-i18n="sites_var_d"></span><br><strong>%t%</strong> : <span data-i18n="sites_var_t"></span><br><strong>%u%</strong> : <span data-i18n="sites_var_u"></span><br><strong>%n%</strong> : <span data-i18n="sites_var_n"></span></pre>
+			<h3 data-i18n="sites_example"></h3>
+			<p data-i18n="sites_example_1"></p>
 			<pre>%a% - %e% (%b%) [%d%]</pre>
-			<p>The output will be:</p>
+			<p data-i18n="sites_example_2"></p>
 			<pre>Artist - Title (Album) [Duration]</pre>
 		</div>
 		<div id="about" class="main_content container">
-			<h1>About</h1>
-			<p>"Untamed Now Playing" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. Coded by Untamed.</p>
-			<h3>Supported Sites</h3>
-			<ul>
-				<li><a target="_blank" href="http://8tracks.com">8tracks.com</a></li>
-				<li><a target="_blank" href="http://ah.fm">ah.fm</a></li>
-				<li><a target="_blank" href="http://blinkboxmusic.com">blinkboxmusic.com</a></li>
-				<li><a target="_blank" href="http://deezer.com">deezer.com</a></li>
-				<li><a target="_blank" href="http://di.fm">di.fm</a></li>
-				<li><a target="_blank" href="http://www.distortionradio.com">distortionradio.com</a></li>
-				<li><a target="_blank" href="http://grooveshark.com">grooveshark.com</a></li>
-				<li><a target="_blank" href="http://retro.grooveshark.com">retro.grooveshark.com</a></li>
-				<li><a target="_blank" href="http://hypem.com">hypem.com</a></li>
-				<li><a target="_blank" href="http://iheart.com">iheart.com</a></li>
-				<li><a target="_blank" href="http://jango.com">jango.com</a></li>
-				<li><a target="_blank" href="http://last.fm">last.fm</a></li>
-				<li><a target="_blank" href="http://nightbot.tv">nightbot.tv</a></li>
-				<li><a target="_blank" href="http://pandora.com">pandora.com</a></li>
-				<li><a target="_blank" href="http://piki.fm">piki.fm</a></li>
-				<li><a target="_blank" href="http://play.google.com">play.google.com</a></li>
-				<li><a target="_blank" href="http://play.spotify.com">play.spotify.com</a></li>
-				<li><a target="_blank" href="http://plug.dj">plug.dj</a></li>
-				<li><a target="_blank" href="http://prostopleer.com">prostopleer.com</a></li>
-				<li><a target="_blank" href="http://seoul.fm">seoul.fm</a></li>
-				<li><a target="_blank" href="http://slacker.com">slacker.com</a></li>
-				<li><a target="_blank" href="http://songza.com">songza.com</a></li>
-				<li><a target="_blank" href="http://soundcloud.com">soundcloud.com</a></li>
-				<li><a target="_blank" href="http://themusicninja.com">themusicninja.com</a></li>
-				<li><a target="_blank" href="http://tunein.com">tunein.com</a></li>
-				<li><a target="_blank" href="http://turntable.fm">turntable.fm</a></li>
-				<li><a target="_blank" href="http://vk.com">vk.com</a></li>
-				<li><a target="_blank" href="http://youtube.com">youtube.com</a></li>
-				<li><a target="_blank" href="http://zaycev.fm">zaycev.fm</a></li>
-			</ul>
-			<p>Support for more sites will be added over time. If you have a suggestion for a site, please <a href="#/contact">contact me</a>.</p>
-			<h3>Limitations</h3>
-			<p>At the moment, now playing data is only saved when the song intially plays and is only updated when the next song starts playing. Thus if you stop playing music, the output file will still contain the last song played.</p>
-			<p>Chrome limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (C:\Users\USERNAME* or C:\Documents and Settings\USERNAME*).</p>
-			<h3>License</h3>
-			<p>This software is provided "AS IS" without warranty of any kind, either expressed or implied. Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+			<h1 data-i18n="nav_about"></h1>
+			<p data-i18n="about_des"></p>
+			<!--Maintain supported sites list in 2 different place seems exhausting, So move contact to sites page -->
+			<h3 data-i18n="about_limi"></h3>
+			<p data-i18n="about_limi_1"></p>
+			<p data-i18n="about_limi_2"></p>
+			<h3 data-i18n="about_license"></h3>
+			<p data-i18n="about_license_1"></p>
 			<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a></p>
-			<p>This software uses the following libraries developed by third parties;</p>
+			<p data-i18n="about_license_2"></p>
 			<ul>
 				<li><a target="_blank" href="https://bitbucket.org/ryanackley/npapi-chrome-file-api/overview">NPAPI-chrome-file-api</a> (GNU GPL v2.0)</li>
 				<li><a target="_blank" href="http://twitter.github.com/bootstrap">Bootstrap</a> (Apache License v2.0)</li>
 				<li><a target="_blank" href="http://jquery.com">jQuery</a> (MIT License)</li>
 				<li><a target="_blank" href="http://sammyjs.org">Sammy.js</a> (MIT License)</li>
 			</ul>
-			<p>Additionally, the main icon was designed by <a target="_blank" href="http://csscreme.com/freeicons/">CSS Creme</a>, and icons designed by <a target="_blank" href="http://www.fatcow.com/free-icons">FatCow</a> are used on the options pages.</p>
+			<p data-i18n="about_license_3"></p>
 		</div>
 		<div id="changelog" class="main_content container">
-			<h1>Changelog</h1>
+			<h1  data-i18n="nav_change"></h1>
+			<p>&nbsp;</p>
+			<h4 title="0.7.0">0.7.0 - 11 Feb 14</h4>
+			<ul>
+				<li>Added 
+				<ul>
+					<li>play.baidu.com</li>
+					<li>y.qq.com</li>
+					<li>player.kuwo.cn</li>
+				</ul></li>
+				<li>Minor reconstruction for i18n</li>
+				<li>Added supported language: zh_CN</li>
+			</ul>
 			<p>&nbsp;</p>
 			<h4 title="0.6.1">0.6.1 - 30 Jun 13</h4>
 			<ul>
@@ -625,8 +630,9 @@
 			<p>&nbsp;</p>
 		</div>
 		<div id="contact" class="main_content container">
-			<h1>Contact</h1>
-			<p>If you have any suggestions, feedback, etc, you can email me: <span style="text-decoration:underline;">untamed0@gmail.com</span>, you can also find me on Skype: <span style="text-decoration:underline;">untamed0</span>. If you add me on Skype, please make sure you mention UNP in the request, otherwise I may ignore it due to the amount of spam requests I get.</p>
+			<h1 data-i18n="nav_contact"></h1>
+			<p data-i18n="contact_1"></p>
+			<p data-i18n="contact_2"></p>
 		</div>
 	</body>
 </html>

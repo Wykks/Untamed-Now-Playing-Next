@@ -1,0 +1,113 @@
+{
+  "extention_name":{"message":"Untamed Now Playing"},
+  "extention_des":{"message":"Saves 'now playing' data locally, which inturn can be displayed on an XSplit overlay"},
+
+  "yes":{"message":"Yes"},
+  "no":{"message":"No"},
+  "username":{"message":"Username"},
+  "save":{"message":"Save"},
+
+  "nav_options":{"message":"Options"},
+  "nav_sites":{"message":"Site Features"},
+  "nav_about":{"message":"About"},
+  "nav_change":{"message":"Changelog"},
+  "nav_contact":{"message":"Contact"},
+
+  "opt_saved":{"message":"Settings have been saved"},
+  "opt_des":{"message":"Click the icon beside each option for more information"},
+  "opt_donate":{"message":"If you find this extension useful, I'd really appreciate it if you consider donating to charity:water, they are a fantastic charity which give 100% of donations to people in need. <a target=\"_blank\" href=\"http://vimeo.com/22566556\">Click here</a> to find out more, or to donate, <a target=\"_blank\" href=\"https://www.charitywater.org/donateforms/general\">click here</a>."},
+
+  "opt_0":{"message":"Save to directory"},
+  "opt_1":{"message":"Save as format"},
+  "opt_1_select_txt":{"message":"Plain text (txt)"},
+  "opt_1_select_xml":{"message":"XML"},
+  "opt_1_select_multi":{"message":"Multiple txt files"},
+  "opt_2":{"message":"Plain text now playing format"},
+  "opt_3":{"message":"Variable maximum length"},
+  "opt_3_des":{"message":"Append longer strings with '...'"},
+  "opt_4":{"message":"Download album artwork"},
+  "opt_5":{"message":"Disable YouTube parsing"},
+  "opt_6":{"message":"Integrate with <a href=\"http://nightbot.tv\" target=\"_blank\">Nightbot</a>?"},
+  "opt_7":{"message":"Nightbot API details"},
+  "opt_8":{"message":"Check stream is live before saving?"},
+  "opt_9":{"message":"Stream details"},
+  "opt_9_select":{"message":"Select Service"},
+  "opt_9_select_justin":{"message":"Justin/Twitch TV"},
+  "opt_tt_0":{"message":"The directory where the now playing file is saved, may also be used for caching stream status"},
+  "opt_tt_1":{"message":"The file format that the now playing file is saved as. Xsplit supports both XML and TXT, OBS just supports TXT. XML allows you display different info in different text titles in your scenes"},
+  "opt_tt_2":{"message":"For the list of available variables and which sites support them, and examples <a href='#/sites'>click here</a>.<br>OBS users using the &quot;Scroll&quot; option may need to add a few spaces to the end of this option to prevent the first and last word from merging"},
+  "opt_tt_3":{"message":"The maximum length of 'Now Playing', Artist, Track, Album variables. Must be a number between 10 and 256"},
+  "opt_tt_4":{"message":"The album artwork will be saved to &quot;SaveDirectory/unp_album_art.jpg&quot;. PNG album art is sent to a server operated by the developer, which converts the image to JPG for the extension to download and save. For the list of supported sites, <a href='#/sites'>click here</a>"},
+  "opt_tt_5":{"message":"Prevent UNP processing YouTube"},
+  "opt_tt_6":{"message":"Send now playing data to Nightbot, which will allow viewers to recieve now playing information via twitch/justin tv chat. To do this, create a custom command in the Nightbot.tv panel, for more information see the <a href='http://wiki.nightbot.tv/chat:variables' target='blank'>Nightbot wiki</a><br /><br />Please note, Nightbot isn't operated by the developer of UNP, it's a third party service"},
+  "opt_tt_7":{"message":"Your unique Nightbot API key can be obtained <a href='http://www.nightbot.tv/account' target='_blank'>here</a>"},
+  "opt_tt_8":{"message":"This will check your stream is live before saving any 'Now Playing' data or sending anything to Nightbot. This offers increased privacy, however it requires requests to Justin/Twitch TV, and should only be enabled if you require the extra privacy"},
+  "opt_tt_9":{"message":"Your Stream details, only used if the 'Check stream' option is enabled"},
+
+
+  "sites_des":{"message":"This is a list of the supported sites, and their available features. <strong>This information is only for users who want more customisation, and is irrelevant for the majority of users.</strong> The symbols in brackets are the variables used for formatting the \"Plain text\" save as option."},
+  "sites_des_2":{"message":"<strong>\"Now Playing\" (%s%), \"Time Started\" (%t%) and \"URL\" (%u%) variables are fully supported by every site.</strong> The magnifying glass icon denotes sites which don't display the artist and title information seperately, for these sites UNP will try to split the information into Artist and Title, but accuracy can't be guaranteed."},
+  "sites_th_artist":{"message":"Artist (%a%)"},
+  "sites_th_title":{"message":"Title (%e%)"},
+  "sites_th_duration":{"message":"Duration (%d%)"},
+  "sites_th_album":{"message":"Album (%b%)"},
+  "sites_th_artwork":{"message":"Artwork (N/A)"},
+  "sites_note":{"message":"*: Soundcloud has 5 different page layouts. For best results use the detailed artist, track or set view, and don't navigate away; otherwise UNP may only be able to pick up Artist, Track and URL."},
+  "sites_var_list":{"message":"Full list of Variables"},
+  "sites_var_s":{"message":"Now Playing data"},
+  "sites_var_a":{"message":"Artist"},
+  "sites_var_e":{"message":"Title"},
+  "sites_var_b":{"message":"Album"},
+  "sites_var_d":{"message":"Total Duration"},
+  "sites_var_t":{"message":"Time started (24hr)"},
+  "sites_var_u":{"message":"URL of page"},
+  "sites_var_n":{"message":"New line"},
+  "sites_example":{"message":"Plain Text Format Examples"},
+  "sites_example_1":{"message":"If you listen to GrooveShark, and your plain text format is set to:"},
+  "sites_example_2":{"message":"The output will be:"},
+  "sites_des_3":{"message":"Support for more sites will be added over time. If you have a suggestion for a site, please <a href=\"#/contact\">contact me</a>."},
+
+  "about_des":{"message":"\"Untamed Now Playing\" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. Coded by Untamed."},
+  "about_limi":{"message":"Limitations"},
+  "about_limi_1":{"message":"At the moment, now playing data is only saved when the song intially plays and is only updated when the next song starts playing. Thus if you stop playing music, the output file will still contain the last song played."},
+  "about_limi_2":{"message":"Chrome limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (C:\\Users\\USERNAME* or C:\\Documents and Settings\\USERNAME*)."},
+  "about_license":{"message":"License"},
+  "about_license_1":{"message":"This software is provided \"AS IS\" without warranty of any kind, either expressed or implied. Licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/3.0/deed\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>."},
+  "about_license_2":{"message":"This software uses the following libraries developed by third parties;"},
+  "about_license_3":{"message":"Additionally, the main icon was designed by <a target=\"_blank\" href=\"http://csscreme.com/freeicons/\">CSS Creme</a>, and icons designed by <a target=\"_blank\" href=\"http://www.fatcow.com/free-icons\">FatCow</a> are used on the options pages."},
+
+  "contact_1":{"message":"If you have any suggestions, feedback, etc, you can email me: <span style=\"text-decoration:underline;\">untamed0@gmail.com</span>, you can also find me on Skype: <span style=\"text-decoration:underline;\">untamed0</span>. If you add me on Skype, please make sure you mention UNP in the request, otherwise I may ignore it due to the amount of spam requests I get."},
+  "contact_2":{"message":""},
+
+  "warn_opt":{"message":"<strong>Warning!</strong><br />You need to configure UNP! The main option is the \"Save to directory\", set a directory where the now playing information will be saved. If you run into any problems, make a reply in either the Teamliquid, Xsplit or OBS topic, or contact me directly (my contact info is available <a href=\"#/contact\" style=\"color:#7C6238\">here</a>)."},
+  
+  "error_new_ver":{
+    "message":"There is a new version ($VERSION$) of Untamed Now Playing available. If you're using the stable version, the extension will update automatically. However if you're using the development version, you need to <a href=\"$URL$'\" target=\"_blank\">update manually</a>",
+    "placeholders":{
+      "version":{
+        "content": "$1"
+      },
+      "url":{
+        "content": "$2"
+      }
+    }
+  },
+  "err_nightbot":{
+    "message":"Error: Nightbot API returned: \"$ERRINFO$\"",
+    "placeholders":{
+      "errinfo":{
+        "content": "$1"
+      }
+    }
+  },
+  "err_directory_win":{"message":"Error: Save directory cannot have 'windows' in the path"},
+  "err_directory_unable":{"message":"Error: Unable to read save directory.<br><br>Chrome can limit readable/writable directories, if you run into problems, try changing the folder to your 'My Documents' or a subdirectory of that folder eg: 'C:\\Users\\Sam\\Documents\\unp\\'"},
+  "err_directory_inaccess":{"message":"Error: Unable to write to save directory"},
+  "err_fmt_invalid":{"message":"Error: Save as format is invalid"},
+  "err_fmt_toolong":{"message":"Error: Plain text format must be less than 512 chars"},
+  "err_maxlen_invalid":{"message":"Error: Song maximum length must be a number between 10 and 256"},
+  "err_nightbot_user":{"message":"Error: Nightbot user is missing or invalid format"},
+  "err_nightbot_key":{"message":"Error: Nightbot API key is missing or invalid format"},
+  "err_stream_service":{"message":"Error: Stream service is missing or invalid"},
+  "err_stream_user":{"message":"Error: Stream user is missing or invalid"}
+}
