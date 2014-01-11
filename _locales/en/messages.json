@@ -16,7 +16,6 @@
   "opt_saved":{"message":"Settings have been saved"},
   "opt_des":{"message":"Click the icon beside each option for more information"},
   "opt_donate":{"message":"If you find this extension useful, I'd really appreciate it if you consider donating to charity:water, they are a fantastic charity which give 100% of donations to people in need. <a target=\"_blank\" href=\"http://vimeo.com/22566556\">Click here</a> to find out more, or to donate, <a target=\"_blank\" href=\"https://www.charitywater.org/donateforms/general\">click here</a>."},
-
   "opt_0":{"message":"Save to directory"},
   "opt_1":{"message":"Save as format"},
   "opt_1_select_txt":{"message":"Plain text (txt)"},

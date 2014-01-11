@@ -16,7 +16,7 @@
   "opt_saved":{"message":"设置已保存"},
   "opt_des":{"message":"点击每个选项旁边的图标获得更多信息"},
   "opt_donate":{"message":"如果您觉得这个扩展对您有用，请捐助慈善机构：water，他们是很不错的慈善机构，将所有的捐赠都给那些需要的人。<a target=\"_blank\" href=\"http://vimeo.com/22566556\">点击这里</a>获取更多的信息，或者<a target=\"_blank\" href=\"https://www.charitywater.org/donateforms/general\">点击这里</a>捐赠."},
-
+  "opt_donate_2":{"message":"如果您觉得汉化和对中文网站的支持对您有用，不妨捐助<a target=\"_blank\" href=\"http://bears.sinaapp.com/#donate\">CuGBabyBeaR</a>"},
   "opt_0":{"message":"保存到目录"},
   "opt_1":{"message":"保存格式"},
   "opt_1_select_txt":{"message":"纯文本(txt)"},
