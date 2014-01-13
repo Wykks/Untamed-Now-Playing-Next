@@ -119,7 +119,7 @@
 
 		// Chinese music sites
 		"*://play.baidu.com/*",
-		"*://c.hiphotos.baidu.com/ting/pic/*",
+		"*://*.hiphotos.baidu.com/ting/pic/*",
 		"*://y.qq.com/*",
 		"*://imgcache.qq.com/music/photo/*",
 		"*://*.kuwo.cn/*"
