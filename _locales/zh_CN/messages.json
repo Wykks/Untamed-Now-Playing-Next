@@ -1,5 +1,5 @@
 {
-  "extention_name":{"message":"Untamed Now Playing"},
+  "extention_name":{"message":"Untamed Now Playing Next"},
   "extention_des":{"message":"将'正在播放'信息本地保存, 使其可以在 XSplit 或者 OBS 等直播软件中使用。"},
 
   "yes":{"message":"是"},
@@ -67,7 +67,7 @@
   "sites_example_2":{"message":"输出将会是："},
   "sites_des_3":{"message":"更多站点的支持将会在将来逐渐增加。如果你对于某个站点有什么建议，请<a href=\"#/contact\">联系我们</a>."},
 
-  "about_des":{"message":"\"Untamed Now Playing\" 是一个Chrome浏览器扩展，它从在线电台/音乐网站解析歌曲标题和歌手，并且写到硬盘的文件中。如Xsplit或OBS之类的软件就可以读取这个文件并显示出来，使观众可以很容易的看见当前正在播放的歌曲信息。程序：Untamed、CuGBabyBeaR"},
+  "about_des":{"message":"\"Untamed Now Playing Next\" 是一个Chrome浏览器扩展，它从在线电台/音乐网站解析歌曲标题和歌手，并且写到硬盘的文件中。如Xsplit或OBS之类的软件就可以读取这个文件并显示出来，使观众可以很容易的看见当前正在播放的歌曲信息。程序：Untamed、CuGBabyBeaR、Wylk"},
   "about_limi":{"message":"限制"},
   "about_limi_1":{"message":"现在，正在播放信息只会在歌曲刚开始播放时保存，并且只在下一首歌播放后更新。因此如果你停止播放音乐，输出文件仍然会保持为你播放的上一个音乐。"},
   "about_limi_2":{"message":"Chrome限制保存目录，如果你在运行时出现问题，试着将文件保存在你的个人文档的子文件夹下(C:\\Users\\USERNAME* 或 C:\\Documents and Settings\\USERNAME*)。"},
@@ -76,11 +76,11 @@
   "about_license_2":{"message":"本软件使用如下第三方库："},
   "about_license_3":{"message":"另外，主图标是由<a target=\"_blank\" href=\"http://csscreme.com/freeicons/\">CSS Creme</a>设计，选项页中使用的其它图标由<a target=\"_blank\" href=\"http://www.fatcow.com/free-icons\">FatCow</a>设计。"},
 
-  "contact_1":{"message":"如果你有任何意见建议等，可以用英文给 untamed 发送Email：<span style=\"text-decoration:underline;\">untamed0@gmail.com</span>。Skype： <span style=\"text-decoration:underline;\">untamed0</span>。 在Skype上加untamed的时候，请确认你在添加好友请求中提到了UNP，否则可能因为当做垃圾信息而被无视。"},
+  "contact_1":{"message":"If you have any suggestions, feedback, etc, you can post here <span style=\"text-decoration:underline;\">http://obsproject.com/forum/viewtopic.php?f=22&t=2614</span> or here <span style=\"text-decoration:underline;\">https://github.com/Wylk/Untamed-Now-Playing-Next</span>。"},
   "contact_2":{"message":"如果你对本扩展的汉化、中文网站的支持方面有任何意见或建议，可以给 CuGBabyBeaR 发送Email：<span style=\"text-decoration:underline;\">fxxd3740@163.com</span>。QQ:<span style=\"text-decoration:underline;\">304401964</span>。"},
 
 
-  "warn_opt":{"message":"<strong>警告!</strong><br />你需要设置 UNP! 主设置是 \"保存到目录\", 设置一个保存正在播放信息文件的目录。 如果你在使用中有任何问题，请在 Teamliquid, Xsplit 或 OBS 中回复, 或直接联系我们（我们的联系信息 <a href=\"#/contact\" style=\"color:#7C6238\">在这</a>）。"},
+  "warn_opt":{"message":"<strong>警告!</strong><br />你需要设置 UNPN! 主设置是 \"保存到目录\", 设置一个保存正在播放信息文件的目录。 如果你在使用中有任何问题，请在 Teamliquid, Xsplit 或 OBS 中回复, 或直接联系我们（我们的联系信息 <a href=\"#/contact\" style=\"color:#7C6238\">在这</a>）。"},
   "error_new_ver":{
     "message":"有可用的 Untamed Now Playing 新版本 ($VERSION$) 。如果你在使用稳定版，扩展会自动升级。但是如果你使用的是开发版你需要 <a href=\"$URL$'\" target=\"_blank\">手动升级</a>",
     "placeholders":{
@@ -101,7 +101,7 @@
     }
   },
   "err_directory_win":{"message":"错误: 保存目录的路径中不能包括 'windows'。"},
-  "err_directory_unable":{"message":"错误: 不能读取保存目录。<br><br>Chrome 会限制读写目录，如果你运行时出现了此错误，试着更改目录到“我的文档”或其子目录。例如: 'C:\\Users\\Sam\\Documents\\unp\\'"},
+  "err_directory_unable":{"message":"错误: 不能读取保存目录。<br><br>Chrome 会限制读写目录，如果你运行时出现了此错误，试着更改目录到“我的文档”或其子目录。例如: 'C:\\Users\\Sam\\Documents\\unpn\\'"},
   "err_directory_inaccess":{"message":"错误: 不能写入保存目录。"},
   "err_fmt_invalid":{"message":"错误: 保存格式不可用"},
   "err_fmt_toolong":{"message":"错误: 文本格式必须小于512字符"},
