@@ -1,8 +1,9 @@
 {
 	"manifest_version": 2,
-	"name": "Untamed Now Playing",
-	"version": "0.6.1",
-	"description": "Saves 'now playing' data locally, which inturn can be displayed on an XSplit overlay",
+	"name": "__MSG_extention_name__",
+	"version": "0.7.0",
+	"description": "__MSG_extention_des__",
+	"default_locale": "en",
 	"update_url": "http://ipaddr.me/unp/updates.xml",
 	"background": { "scripts": ["lib/jquery-2.0.2.min.js", "lib/proxy.js", "lib/pages/background.js"] },
 	"options_page": "options.html",
@@ -114,7 +115,14 @@
 		"*://images.mndigital.com/*",
 		"*://images.musicnet.com/*",
 		// youtube cdn
-		"*://*.ytimg.com/*"
+		"*://*.ytimg.com/*",
+
+		// Chinese music sites
+		"*://play.baidu.com/*",
+		"*://*.hiphotos.baidu.com/ting/pic/*",
+		"*://y.qq.com/*",
+		"*://imgcache.qq.com/music/photo/*",
+		"*://*.kuwo.cn/*"
 	],
 	"content_scripts": [ {
 		"all_frames": true,
@@ -191,7 +199,14 @@
 			"*://youtube.com/*",
 			"*://www.youtube.com/*",
 			"*://zaycev.fm/*",
-			"*://www.zaycev.fm/*"
+			"*://www.zaycev.fm/*",
+			// Chinese sites
+			"*://play.baidu.com/*",
+			"*://player.kuwo.cn/*",
+			"*://y.qq.com/*"
 		] 
-	} ]
+	} ],
+	"web_accessible_resources":[
+		"lib/jquery-2.0.2.min.map"
+	]
 }

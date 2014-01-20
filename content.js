@@ -1,4 +1,5 @@
 var last = false;
+var interval = 10000;
 
 $(document).ready(function()
 {
@@ -7,17 +8,14 @@ $(document).ready(function()
 	switch(host)
 	{
 		case '8tracks.com':
-			setInterval(function()
-			{
-				if ($('#player_pause_button').css('display') == 'block')
-				{
+			setInterval(function(){
+				if ($('#player_pause_button').css('display') == 'block'){
 					var selector   = $('li.now_playing').find('.title_container').find('.title_artist');
 					var artistName = selector.find('.a').eq(0).text();
 					var trackName  = selector.find('.t').eq(0).text();
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -29,18 +27,15 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'ah.fm':
-			setInterval(function()
-			{
-				if ($('.now_playing').length && $('#pause').is(':visible'))
-				{
+			setInterval(function(){
+				if ($('.now_playing').length && $('#pause').is(':visible')){
 					var play    = $('.now_playing > div > .blank').text();
 					var matches = play.match('^(.+) - (.+) on AH.FM$');
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -49,19 +44,16 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'blinkboxmusic.com':
-			setInterval(function()
-			{
-				if ($('.control-button[data-play-button]').hasClass('playing'))
-				{
+			setInterval(function(){
+				if ($('.control-button[data-play-button]').hasClass('playing')){
 					var artistName = $('.track-artist').text();
 					var trackName  = $('.track-name').text();
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -71,19 +63,16 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'deezer.com':
-			setInterval(function()
-			{
-				if ($('.h_icn_pause').is(':visible'))
-				{
+			setInterval(function(){
+				if ($('.h_icn_pause').is(':visible')){
 					var artistName = $('#current-artist').text();
 					var trackName  = $('#current-track').text();
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -95,18 +84,15 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'di.fm':
-			setInterval(function()
-			{
-				if ($('#ctl-play').hasClass('pause'))
-				{
+			setInterval(function(){
+				if ($('#ctl-play').hasClass('pause')){
 					var play    = $('.title').text();
 					var matches = play.match('^(.+) - (.+)$');
 
-					if (last !== play)
-					{
+					if (last !== play){
 						var remainingTime = $('.remaining').text();
 
 						nowPlaying(
@@ -119,18 +105,16 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'distortionradio.com':
-			setInterval(function()
-			{
+			setInterval(function(){
 				var currentPlaying = $('li.now');
 				var artistName     = currentPlaying.find('.player_artist').text();
 				var trackName      = currentPlaying.find('.player_title').text();
 				var play           = artistName + ' - ' + trackName;
 
-				if (last !== play)
-				{
+				if (last !== play){
 					nowPlaying(
 					{
 						nowPlaying : play,
@@ -139,20 +123,17 @@ $(document).ready(function()
 						albumArt   : currentPlaying.find('.player_album').find('a').css('background-image').replace('url(','').replace(')','').replace('60x60', '150x150')
 					});
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'grooveshark.com':
-			setInterval(function()
-			{
-				if ($('#play-pause').hasClass('playing'))
-				{
+			setInterval(function(){
+				if ($('#play-pause').hasClass('playing')){
 					var artistName = $('.now-playing-link.artist').attr('title');
 					var trackName  = $('.now-playing-link.song').attr('title');
 					var albumName  = $('.now-playing-link.album');
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						var duration = $('#time-total').text();
 						var albumArt = $('#now-playing-image').attr('src').replace(/(.*)\/([0-9]+)_(.*)\.(jpg|jpeg|png)$/i, '$1/142_$3.$4');
 
@@ -168,21 +149,18 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'retro.grooveshark.com':
-			setInterval(function()
-			{
-				if ($('#playerDetails_current_song').length && $('#player_play_pause').hasClass('pause'))
-				{
+			setInterval(function(){
+				if ($('#playerDetails_current_song').length && $('#player_play_pause').hasClass('pause')){
 					var playerDetails = $('#playerDetails_current_song');
 					var artistName    = playerDetails.find('.artist').attr('title');
 					var trackName     = playerDetails.find('.song').attr('title');
 					var albumName     = playerDetails.find('.album');
 					var play          = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						var duration = $('#player_duration').html();
 						var albumArt = $('.queue-item-active').find('.queue-item-content').find('.queueSong').find('.albumart').find('img').attr('src').replace(/(.*)\/([0-9]+)_(.*)\.(jpg|jpeg|png)$/i, '$1/142_$3.$4');
 
@@ -198,21 +176,18 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'hypem.com':
-			setInterval(function()
-			{
-				if ($('#playerPlay').hasClass('pause'))
-				{
+			setInterval(function(){
+				if ($('#playerPlay').hasClass('pause')){
 					var playerDetails     = $('#player-nowplaying');
 					var artistName        = playerDetails.children('a').eq(0).text();
 					var trackNameSelector = playerDetails.children('a').eq(1);
 					var trackName         = trackNameSelector.text();
 					var play              = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -223,19 +198,16 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'iheart.com':
-			setInterval(function()
-			{
-				if ($('#playerPlay').hasClass('pause'))
-				{
+			setInterval(function(){
+				if ($('#playerPlay').hasClass('pause')){
 					var artistName = $('h2.artist').find('a').attr('title');
 					var trackName  = $('h1.title').find('a').attr('title');
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -246,19 +218,16 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'jango.com':
-			setInterval(function()
-			{
-				if ($('#btn-playpause').hasClass('pause'))
-				{
+			setInterval(function(){
+				if ($('#btn-playpause').hasClass('pause')){
 					var artistName = $('#player_current_artist').find('a').text();
 					var trackName  = $('#current-song').find('a').text();
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -270,7 +239,7 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 			break;
 			case 'last.fm':
 			case 'lastfm.de':
@@ -284,17 +253,14 @@ $(document).ready(function()
 			case 'lastfm.se':
 			case 'lastfm.com.tr':
 			case 'cn.last.fm':
-			setInterval(function()
-			{
-				if (!$('#radioControlPlay').is(':visible') && $('#nowPlayingMeta').is(':visible'))
-				{
+			setInterval(function(){
+				if (!$('#radioControlPlay').is(':visible') && $('#nowPlayingMeta').is(':visible')){
 					var artistName        = $('strong.artist').find('a').text();
 					var trackNameSelector = $('strong.track').find('a');
 					var trackName         = trackNameSelector.text();
 					var play              = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						var remainingTime = $('#trackRemaining').text();
 						var remainingTime = remainingTime.substr(1, remainingTime.length);
 
@@ -310,18 +276,15 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'nightbot.tv':
-			setInterval(function()
-			{
-				if ($('#pause').is(':visible'))
-				{
+			setInterval(function(){
+				if ($('#pause').is(':visible')){
 					var play = $('#currentTitle').text();
 					var parse;
 
-					if (parse = parseArtistTitle(play))
-					{
+					if (parse = parseArtistTitle(play)){
 						var artistName = parse[0];
 						var trackName  = parse[1];
 					}
@@ -331,8 +294,7 @@ $(document).ready(function()
 						var trackName  = play;
 					}
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -342,19 +304,16 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'pandora.com':
-			setInterval(function()
-			{
-				if ($('.pauseButton').is(':visible'))
-				{
+			setInterval(function(){
+				if ($('.pauseButton').is(':visible')){
 					var artistName = $('.playerBarArtist').text();
 					var trackName  = $('.playerBarSong').text();
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						var remainingTime = $('.remainingTime').text();
 						var remainingTime = remainingTime.substr(1,remainingTime.length);
 
@@ -370,19 +329,16 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'piki.fm':
-			setInterval(function()
-			{
-				if ($('.btn-player-pause').is(':visible'))
-				{
+			setInterval(function(){
+				if ($('.btn-player-pause').is(':visible')){
 					var artistName = $('.artist-name').text();
 					var trackName  = $('.song-name').text();
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						var remainingTime = $('.song-time-left').text();
 						var remainingTime = remainingTime.substr(1,remainingTime.length);
 
@@ -396,19 +352,16 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'play.google.com':
-			setInterval(function()
-			{
-				if ($('button.playing[data-id="play-pause"]').length)
-				{
+			setInterval(function(){
+				if ($('button.playing[data-id="play-pause"]').length){
 					var artistName = $('#player-artist').text();
 					var trackName  = $('#playerSongTitle').text();
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -421,17 +374,14 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'play.spotify.com':
-			setInterval(function()
-			{
-				if ($('#play-pause').hasClass('playing'))
-				{
+			setInterval(function(){
+				if ($('#play-pause').hasClass('playing')){
 					var artistName = '';
 
-					$('#track-artist').find('a').each(function()
-					{
+					$('#track-artist').find('a').each(function(){
 						artistName += (artistName == '') ? $(this).text() : ', ' + $(this).text();
 					});
 
@@ -439,8 +389,7 @@ $(document).ready(function()
 					var trackName         = trackNameSelector.eq(0).text();
 					var play              = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -452,16 +401,14 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'plug.dj':
-			setInterval(function()
-			{
+			setInterval(function(){
 				var play = $('#now-playing-value').text();
 				var parse;
 
-				if (parse = parseArtistTitle(play))
-				{
+				if (parse = parseArtistTitle(play)){
 					var artistName = parse[0];
 					var trackName  = parse[1];
 				}
@@ -471,8 +418,7 @@ $(document).ready(function()
 					var trackName  = play;
 				}
 
-				if (last !== play)
-				{
+				if (last !== play){
 					nowPlaying(
 					{
 						nowPlaying : play,
@@ -480,20 +426,17 @@ $(document).ready(function()
 						artistName : artistName
 					});
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'prostopleer.com':
-			setInterval(function()
-			{
-				if ($('#play').hasClass('pause'))
-				{
+			setInterval(function(){
+				if ($('#play').hasClass('pause')){
 					var nPSelector = $.trim($('.now-playing').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text()).match(/^(.+) \u2014 (.+) \((.+)\)$/);
 					var artistName = nPSelector[1];
 					var trackName  = nPSelector[2];
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -504,7 +447,7 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		// seoul.fm iframe
 		case 'yuri.seoul.fm':
@@ -522,17 +465,14 @@ $(document).ready(function()
 			});
 		break;
 		case 'slacker.com':
-			setInterval(function()
-			{
-				if ($('#playerPlayPauseButton').find('div').css('background-position') == '-960px 0px')
-				{
+			setInterval(function(){
+				if ($('#playerPlayPauseButton').find('div').css('background-position') == '-960px 0px'){
 					var artistName        = $('#player-artist-name').text();
 					var trackNameSelector = $('#player-track-name');
 					var trackName         = trackNameSelector.text();
 					var play              = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -545,20 +485,17 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'songza.com':
-			setInterval(function()
-			{
-				if ($('.sz-player').hasClass('sz-player-state-play'))
-				{
+			setInterval(function(){
+				if ($('.sz-player').hasClass('sz-player-state-play')){
 					var selector   = $('.szi-roll-song').find('.szi-info');
 					var artistName = selector.find('.szi-artist').text();
 					var trackName  = selector.find('.szi-title').text();
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -569,15 +506,13 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'soundcloud.com':
-			setInterval(function()
-			{
+			setInterval(function(){
 				var selector = $('.sc-button-pause').parent().parent();
 
-				if (selector.eq(1).hasClass('soundActions'))
-				{
+				if (selector.eq(1).hasClass('soundActions')){
 					var selector2  = selector.eq(1).parent().parent().parent();
 					var artistName = $.trim(selector2.find('.soundTitle').find('.sc-truncate').find('a').text());
 					var trackName  = selector2.find('.soundTitle').find('div:eq(2)').find('div').find('a').text();
@@ -585,10 +520,8 @@ $(document).ready(function()
 					var duration   = '?';
 					var url        = window.location.href;
 				}
-				else if (selector.length)
-				{
-					if (selector.parent().hasClass('carouselItem'))
-					{
+				else if (selector.length){
+					if (selector.parent().hasClass('carouselItem')){
 						var selector2         = selector.parent().find('.carouselItem__info');
 						var trackNameSelector = selector2.find('div').eq(1).find('a');
 						var artistName        = selector2.find('div').eq(0).find('a').text();
@@ -597,8 +530,7 @@ $(document).ready(function()
 						var duration          = '?';
 						var url               = 'http://soundcloud.com' + trackNameSelector.attr('href');
 					}
-					else if (selector.parent().parent().parent().hasClass('playlist'))
-					{
+					else if (selector.parent().parent().parent().hasClass('playlist')){
 						var artistName = $.trim(selector.parent().find('.sc-type-light').find('.soundTitle__username').text());
 						var trackName  = document.title.substring(2).replace(/^(.*) in (.*)$/, '$1');
 						var albumArt   = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
@@ -616,8 +548,7 @@ $(document).ready(function()
 						var url        = window.location.href;
 					}
 				}
-				else if ($('.nowPlaying').hasClass('playing'))
-				{
+				else if ($('.nowPlaying').hasClass('playing')){
 						var artistName = document.title.replace(/^(.*) by (.*)$/i, '$2');
 						var trackName  = $('.nowPlaying').attr('title').replace(/^return to (.*)/i, '$1');
 						var albumArt   = '?';
@@ -631,8 +562,7 @@ $(document).ready(function()
 
 				var play = artistName + ' - ' + trackName;
 
-				if (last !== play)
-				{
+				if (last !== play){
 					nowPlaying(
 					{
 						nowPlaying : play,
@@ -643,20 +573,17 @@ $(document).ready(function()
 						url        : url
 					});
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'themusicninja.com':
-			setInterval(function()
-			{
-				if ($('#player-features').hasClass('tmn_playing'))
-				{
+			setInterval(function(){
+				if ($('#player-features').hasClass('tmn_playing')){
 					var selector   = $('.track_name').find('a');
 					var artistName = $.trim(selector.find('.artist').text());
 					var trackName  = $.trim(selector.find('.title').text());
 					var play       = artistName + ' - ' + trackName;
 					
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -666,18 +593,15 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'tunein.com':
-			setInterval(function()
-			{
-				if ($('.playbutton-cont').find('a').hasClass('playing'))
-				{
+			setInterval(function(){
+				if ($('.playbutton-cont').find('a').hasClass('playing')){
 					var play = $('.line1').text();
 					var parse;
 
-					if (parse = parseArtistTitle(play))
-					{
+					if (parse = parseArtistTitle(play)){
 						var artistName = parse[1];
 						var trackName  = parse[0] + ' [' + $('.line2').find('.title').text() + ']';
 					}
@@ -687,8 +611,7 @@ $(document).ready(function()
 						var trackName  = play;
 					}
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -698,21 +621,18 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'turntable.fm':
-			setInterval(function()
-			{
-				if ($('#songboard-title').length)
-				{
+			setInterval(function(){
+				if ($('#songboard-title').length){
 					var selector   = $('#song-log').find('.song').eq(0);
 					var details    = selector.find('.details').find('span').html();
 					var trackName  = selector.find('.title').text();
 					var artistName = details.replace(/(.*)<span class(.*)<\/span>(.*)$/i, '$1');
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						var albumArt = selector.find('.thumb').css('background-image').replace('url(','').replace(')','');
 
 						nowPlaying(
@@ -725,19 +645,16 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'vk.com':
-			setInterval(function()
-			{
-				if ($('#gp_play').hasClass('playing'))
-				{
+			setInterval(function(){
+				if ($('#gp_play').hasClass('playing')){
 					var artistName = $('#gp_performer').text();
 					var trackName  = $('#gp_title').text();
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						nowPlaying(
 						{
 							nowPlaying : play,
@@ -747,7 +664,7 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
 		break;
 		case 'youtube.com':
 			function youtubeSupport(data) {
@@ -764,8 +681,7 @@ $(document).ready(function()
 					var play     = $('#watch7-container > meta[itemprop="name"]').attr('content');
 					var parse;
 
-					if ($('#eow-title').find('a').length)
-					{
+					if ($('#eow-title').find('a').length){
 						var artistName = $('#eow-title').find('a').text();
 						var trackName  = $.trim($('#eow-title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text());
 						var matches;
@@ -778,8 +694,7 @@ $(document).ready(function()
 							}
 						}
 					}
-					else if (parse = parseArtistTitle(play))
-					{
+					else if (parse = parseArtistTitle(play)){
 						var artistName = parse[0];
 						var trackName  = parse[1];
 					}
@@ -817,17 +732,14 @@ $(document).ready(function()
 			optionGet(youtubeSupport);
 		break;
 		case 'zaycev.fm':
-			setInterval(function()
-			{
-				if ($('.zp_play').hasClass('g-active'))
-				{
+			setInterval(function(){
+				if ($('.zp_play').hasClass('g-active')){
 					var selector   = $('#zp_current_song').find('span');
 					var artistName = $.trim(selector.find('.ontheair_artist').text().replace(/^(.+)\u00A0-\u00A0$/, '$1'));
 					var trackName  = $.trim(selector.find('.ontheair_song').text());
 					var play       = artistName + ' - ' + trackName;
 
-					if (last !== play)
-					{
+					if (last !== play){
 						var albumArt = selector.find('div').find('img').attr('src');
 
 						nowPlaying(
@@ -840,7 +752,110 @@ $(document).ready(function()
 						});
 					}
 				}
-			}, 10000);
+			}, interval);
+		break;
+		case 'play.baidu.com':
+		setInterval(function(){
+			var selector   = $('#playTitle').find('.title');
+			var artistName = $.trim(selector.find('.songname').text());
+			var trackName  = $.trim(selector.find('.artist').text());
+			var play       = artistName + ' - ' + trackName;
+
+			if (last !== play)
+			{
+				var albumArt = $('.album').find('img').attr('src');
+
+				nowPlaying(
+				{
+					nowPlaying : play,
+					trackName  : trackName,
+					artistName : artistName,
+					albumName  : $('.album-wrapper .album-name').text(),
+					albumArt   : albumArt,
+					duration   : $.trim($('#timeWrap').find('.totalTime').text()),
+					url        : selector.find('.songname').attr('href')
+				});
+			}
+			}, interval);
+		break;
+		case 'y.qq.com':
+		setInterval(function(){
+			var selector   = $('#divsonginfo');
+			var artistName = $.trim(selector.find('.music_name span').text());
+			var trackName  = $.trim(selector.find('.singer_name').text());
+			var play       = artistName + ' - ' + trackName;
+
+			if (last !== play)
+			{
+				var albumArt = selector.find('.album_pic img').attr('src');
+
+				nowPlaying(
+				{
+					nowPlaying : play,
+					trackName  : trackName,
+					artistName : artistName,
+					albumArt   : albumArt,
+					duration   : $.trim(selector.find('#ptime').text()),
+					url        : 'http://y.qq.com/#type=song&mid=' + selector.find('.btn_like').attr('mid')
+				});
+			}
+			}, interval);
+		break;
+		case 'player.kuwo.cn':
+		setInterval(function(){
+			var selector   = $('.control_left');
+			var play       = selector.find('.dec_time span').text();
+
+			if (last !== play)
+			{
+				if (parse = parseArtistTitle(play)){
+					var artistName = parse[0];
+					var trackName  = parse[1];
+				}
+				else
+				{
+					var artistName = '?';
+					var trackName  = play;
+				}
+				var albumArt = selector.find('.control_img img').attr('src');
+
+				var data = $("#bdshare").attr("data");
+				var musicid = data.substr(data.indexOf('MUSIC_') + 6,7)
+
+				nowPlaying(
+				{
+					nowPlaying : play,
+					trackName  : trackName,
+					artistName : artistName,
+					albumArt   : albumArt,
+					duration   : $.trim(selector.find('#wp_totalTime').text()),
+					url        : 'http://www.kuwo.cn/yinyue/' + musicid
+				});
+			}
+			}, interval);
+		break;
+		case 'fm.5sing.com':
+		setInterval(function(){
+			var selector   = $('.box_player');
+			var artistName = $.trim(selector.find('.sing_remark span').eq(0).text());
+			var track = selector.find('#_sing_title a')
+			var trackName  = $.trim(track.text());
+			var play       = artistName + ' - ' + trackName;
+
+			if (last !== play)
+			{
+				var albumArt = $('.album').find('img').attr('src');
+
+				nowPlaying(
+				{
+					nowPlaying : play,
+					trackName  : trackName,
+					artistName : artistName,
+					albumArt   : albumArt,
+					url        : track.attr('href')
+				});
+			}
+			}, interval);
 		break;
 	}
 });
