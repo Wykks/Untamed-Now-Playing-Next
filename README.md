@@ -1,7 +1,7 @@
 [Untamed Now Playing Next](https://github.com/Wylk/Untamed-Now-Playing-Next)
 =================
 "Untamed Now Playing Next" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. At the moment, this extension is Windows only.
-This version ("Next) is the same a the original with some improvement.
+This version ("Next") is the same as the original with some improvement by me (Wylk).
 
 Supported Sites
 --------------------------------------
