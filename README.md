@@ -45,7 +45,7 @@ Install
 There are a couple of ways to install the extension;
 
 ### Install the packed extension (v1.0 - Stable, recommended!)
-1. Download the already packed extension *link here soon*
+1. Download the already packed extension [here](https://dl.dropboxusercontent.com/u/3440078/UNPN_v1.0.crx)
 2. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
 3. Drag and drop the packed extension you downloaded in Step #1.
 4. Click 'continue' on the bottom left of the Chrome window.
