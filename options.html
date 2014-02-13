@@ -96,34 +96,25 @@
 					</td>
 				</tr>
 				<tr id="filename_details">
-					<td>Filename</td>
+					<td data-i18n="opt_2"></td>
 					<td>
 						<input type="text" id="filename" style="width:370px;">
-						<button class="btn pull-right opt-tt" data-content="Don't include file extension"><i class="icon-info-sign"></i></button>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="txt_format_details">
-					<td data-i18n="opt_2"></td>
+					<td data-i18n="opt_3"></td>
 					<td>
 						<input type="text" id="txt_format" style="width:370px;">
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td data-i18n="opt_3"></td>
+					<td data-i18n="opt_4"></td>
 					<td>
 						<input type="number" id="song_maxlen" min="10" max="256" style="width:100px;">
 						<label class="checkbox inline" style="width:200px;">
-							<input type="checkbox" id="song_maxlen_append" value="1"> <span data-i18n="opt_3_des"></span>
-						</label>
-						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
-					</td>
-				</tr>
-				<tr>
-					<td data-i18n="opt_4"></td>
-					<td>
-						<label class="checkbox inline">
-							<input type="checkbox" id="album_artwork" value="1"> <span data-i18n="yes"></span>
+							<input type="checkbox" id="song_maxlen_append" value="1"> <span data-i18n="opt_4_des"></span>
 						</label>
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
@@ -132,7 +123,7 @@
 					<td data-i18n="opt_5"></td>
 					<td>
 						<label class="checkbox inline">
-							<input type="checkbox" id="disable_youtube" value="0"> <span data-i18n="yes"></span>
+							<input type="checkbox" id="album_artwork" value="1"> <span data-i18n="yes"></span>
 						</label>
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
@@ -141,13 +132,22 @@
 					<td data-i18n="opt_6"></td>
 					<td>
 						<label class="checkbox inline">
+							<input type="checkbox" id="disable_youtube" value="0"> <span data-i18n="yes"></span>
+						</label>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td data-i18n="opt_7"></td>
+					<td>
+						<label class="checkbox inline">
 							<input type="checkbox" id="nightbot_enable" value="1"> <span data-i18n="yes"></span>
 						</label>
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="nightbot_details">
-					<td data-i18n="opt_7"></td>
+					<td data-i18n="opt_8"></td>
 					<td>
 						<input type="text" id="nightbot_user" placeholder="Username" style="width:30%;">
 						<input type="password" id="nightbot_api_key" placeholder="API Key" style="width:45%;">
@@ -155,7 +155,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td data-i18n="opt_8"></td>
+					<td data-i18n="opt_9"></td>
 					<td>
 						<label class="checkbox inline">
 							<input type="checkbox" id="check_live" value="1"> <span data-i18n="yes"></span>
@@ -164,11 +164,11 @@
 					</td>
 				</tr>
 				<tr id="stream_details">
-					<td data-i18n="opt_9"></td>
+					<td data-i18n="opt_10"></td>
 					<td>
 						<select id="stream_site" style="width: 150px;">
-							<option value="" data-i18n="opt_9_select" selected disabled></option>
-							<option value="justin" data-i18n="opt_9_select_justin"></option>
+							<option value="" data-i18n="opt_10_select" selected disabled></option>
+							<option value="justin" data-i18n="opt_10_select_justin"></option>
 						</select>
 						<input type="text" id="stream_user" placeholder="Username">
 						<button class="btn pull-right opt-tt" data-content=""><i class="icon-info-sign"></i></button>
