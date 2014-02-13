@@ -22,28 +22,30 @@
   "opt_1_select_txt":{"message":"纯文本(txt)"},
   "opt_1_select_xml":{"message":"XML"},
   "opt_1_select_multi":{"message":"多个文本文档"},
-  "opt_2":{"message":"正在播放信息文本格式"},
-  "opt_3":{"message":"最大长度"},
-  "opt_3_des":{"message":"字符串比其长时添加 '...'"},
-  "opt_4":{"message":"下载专辑封面"},
-  "opt_5":{"message":"禁用 YouTube 解析"},
-  "opt_6":{"message":"与<a href=\"http://nightbot.tv\" target=\"_blank\">Nightbot</a>整合"},
-  "opt_7":{"message":"Nightbot API 信息"},
-  "opt_7_username":{"message":"Username"},
-  "opt_8":{"message":"保存前检查直播是否开始"},
-  "opt_9":{"message":"直播信息"},
-  "opt_9_select":{"message":"选择服务"},
-  "opt_9_select_justin":{"message":"Justin/Twitch TV"},
+  "opt_2":{"message":"Filename"},
+  "opt_3":{"message":"正在播放信息文本格式"},
+  "opt_4":{"message":"最大长度"},
+  "opt_4_des":{"message":"字符串比其长时添加 '...'"},
+  "opt_5":{"message":"下载专辑封面"},
+  "opt_6":{"message":"禁用 YouTube 解析"},
+  "opt_7":{"message":"与<a href=\"http://nightbot.tv\" target=\"_blank\">Nightbot</a>整合"},
+  "opt_8":{"message":"Nightbot API 信息"},
+  "opt_8_username":{"message":"Username"},
+  "opt_9":{"message":"保存前检查直播是否开始"},
+  "opt_10":{"message":"直播信息"},
+  "opt_10_select":{"message":"选择服务"},
+  "opt_10_select_justin":{"message":"Justin/Twitch TV"},
   "opt_tt_0":{"message":"这是正在播放文件保存目录，同样会被用来缓存直播状态"},
   "opt_tt_1":{"message":"正在播放文件的保存格式。Xsplit支持XML和TXT, OBS只支持TXT。 XML允许在你的场景中，以不同的文本标题显示不同的信息"},
-  "opt_tt_2":{"message":"<a href='#/sites'>点击这里</a>获得所有可有变量、网站支持情况和示例列表。<br />OBS用户使用&quot;滚动&quot;选项可能需要在末尾添加若干空格以避免首尾单词合并"},
-  "opt_tt_3":{"message":"'正在播放'、歌手、歌曲、专辑变量的最大长度。长度必须在10到256之间"},
-  "opt_tt_4":{"message":"专辑封面将保存到 &quot;SaveDirectory/unp_album_art.jpg&quot;。 PNG格式专辑封面上传到开发者的服务器，并转换成JPG由插件下载保存。 <a href='#/sites'>点击这里</a>获得支持站点"},
-  "opt_tt_5":{"message":"阻止本扩展处理YouTube上的信息"},
-  "opt_tt_6":{"message":"发送正在播放数据到Nightbot，他将允许观众通过twitch/justin聊天频道接收正在播放信息。为了实现这个功能，需要在Nightbot.tv控制板创建一个自定义命令，更多信息请见<a href='http://wiki.nightbot.tv/chat:variables' target='blank'>Nightbot wiki</a><br /><br />请注意, Nightbot并非由开发者控制，这是一个第三方服务。"},
-  "opt_tt_7":{"message":"你的Nightbot API key可以在<a href='http://www.nightbot.tv/account' target='_blank'>这里</a>获得"},
-  "opt_tt_8":{"message":"这将在保存任何'正在播放'数据或向Nightbot发送任何数据之前，检查你的直播是否开始。这将更加隐私，但是其需要访问Justin/Twitch TV，并且建议只在你真正需要的时候使用。"},
-  "opt_tt_9":{"message":"你的直播信息，只有在'检查直播'选项可用时使用"},
+  "opt_tt_2":{"message":"Don't include file extension"},
+  "opt_tt_3":{"message":"<a href='#/sites'>点击这里</a>获得所有可有变量、网站支持情况和示例列表。<br />OBS用户使用&quot;滚动&quot;选项可能需要在末尾添加若干空格以避免首尾单词合并"},
+  "opt_tt_4":{"message":"'正在播放'、歌手、歌曲、专辑变量的最大长度。长度必须在10到256之间"},
+  "opt_tt_5":{"message":"专辑封面将保存到 &quot;SaveDirectory/unp_album_art.jpg&quot;。 PNG格式专辑封面上传到开发者的服务器，并转换成JPG由插件下载保存。 <a href='#/sites'>点击这里</a>获得支持站点"},
+  "opt_tt_6":{"message":"阻止本扩展处理YouTube上的信息"},
+  "opt_tt_7":{"message":"发送正在播放数据到Nightbot，他将允许观众通过twitch/justin聊天频道接收正在播放信息。为了实现这个功能，需要在Nightbot.tv控制板创建一个自定义命令，更多信息请见<a href='http://wiki.nightbot.tv/chat:variables' target='blank'>Nightbot wiki</a><br /><br />请注意, Nightbot并非由开发者控制，这是一个第三方服务。"},
+  "opt_tt_8":{"message":"你的Nightbot API key可以在<a href='http://www.nightbot.tv/account' target='_blank'>这里</a>获得"},
+  "opt_tt_9":{"message":"这将在保存任何'正在播放'数据或向Nightbot发送任何数据之前，检查你的直播是否开始。这将更加隐私，但是其需要访问Justin/Twitch TV，并且建议只在你真正需要的时候使用。"},
+  "opt_tt_10":{"message":"你的直播信息，只有在'检查直播'选项可用时使用"},
 
   "sites_des":{"message":"这是一个支持网站的列表，以及在这些网站上可用的功能。<strong>这些信息是为了那些打算自定义化的用户，大多数用户则用不上。</strong>括号中的符号是保存为选项为“纯文本”时，用来格式化的变量。"},
   "sites_des_2":{"message":"<strong>\"正在播放\" (%s%), \"开始时间\" (%t%) and \"网站\" (%u%) 这3个变量完全支持所有站点。</strong> 放大镜图标表示网站不单独显示歌手和歌曲标题信息。对于这些网站，本应用将试图提取歌手和标题信息，但不保证准确性。"},
@@ -86,28 +88,28 @@
     "placeholders":{
       "version":{
         "content": "$1"
+        },
+        "url":{
+          "content": "$2"
+        }
+      }
       },
-      "url":{
-        "content": "$2"
+      "err_nightbot":{
+        "message":"错误: Nightbot API 返回: \"$ERRINFO$\"",
+        "placeholders":{
+          "errinfo":{
+            "content": "$1"
+          }
+        }
+        },
+        "err_directory_win":{"message":"错误: 保存目录的路径中不能包括 'windows'。"},
+        "err_directory_unable":{"message":"错误: 不能读取保存目录。<br><br>Chrome 会限制读写目录，如果你运行时出现了此错误，试着更改目录到“我的文档”或其子目录。例如: 'C:\\Users\\Sam\\Documents\\unpn\\'"},
+        "err_directory_inaccess":{"message":"错误: 不能写入保存目录。"},
+        "err_fmt_invalid":{"message":"错误: 保存格式不可用"},
+        "err_fmt_toolong":{"message":"错误: 文本格式必须小于512字符"},
+        "err_maxlen_invalid":{"message":"错误: 歌曲最大长度必须是 10 到 256 之间的数字"},
+        "err_nightbot_user":{"message":"错误: Nightbot 用户不存在或格式错误"},
+        "err_nightbot_key":{"message":"错误: Nightbot API key 用户不存在或格式错误"},
+        "err_stream_service":{"message":"错误: 直播服务不存在或格式错误"},
+        "err_stream_user":{"message":"错误: 直播用户不存在或格式错误"}
       }
-    }
-  },
-  "err_nightbot":{
-    "message":"错误: Nightbot API 返回: \"$ERRINFO$\"",
-    "placeholders":{
-      "errinfo":{
-        "content": "$1"
-      }
-    }
-  },
-  "err_directory_win":{"message":"错误: 保存目录的路径中不能包括 'windows'。"},
-  "err_directory_unable":{"message":"错误: 不能读取保存目录。<br><br>Chrome 会限制读写目录，如果你运行时出现了此错误，试着更改目录到“我的文档”或其子目录。例如: 'C:\\Users\\Sam\\Documents\\unpn\\'"},
-  "err_directory_inaccess":{"message":"错误: 不能写入保存目录。"},
-  "err_fmt_invalid":{"message":"错误: 保存格式不可用"},
-  "err_fmt_toolong":{"message":"错误: 文本格式必须小于512字符"},
-  "err_maxlen_invalid":{"message":"错误: 歌曲最大长度必须是 10 到 256 之间的数字"},
-  "err_nightbot_user":{"message":"错误: Nightbot 用户不存在或格式错误"},
-  "err_nightbot_key":{"message":"错误: Nightbot API key 用户不存在或格式错误"},
-  "err_stream_service":{"message":"错误: 直播服务不存在或格式错误"},
-  "err_stream_user":{"message":"错误: 直播用户不存在或格式错误"}
-}
