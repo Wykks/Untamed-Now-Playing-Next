@@ -857,6 +857,35 @@ $(document).ready(function()
 			}
 			}, interval);
 		break;
+		case 'rdio.com':
+		setInterval(function(){
+			if ($('.play_pause').hasClass('playing')) {
+				var selector = $('.player_bottom');
+				var artistName = $.trim(selector.find('.artist_title').text());
+				var track = selector.find('.song_title');
+				var trackName  = $.trim(track.text());
+				var play       = artistName + ' - ' + trackName;
+
+				if (last !== play)
+				{
+					var albumArt = selector.find('.queue_art').attr('src');
+					var url = 'http://www.rdio.com' + track.attr('href');
+					var albumName = track.attr('href').match(".*/album/(.*)/track.*")[1].replace("_"," ");
+
+					nowPlaying(
+					{
+						nowPlaying : play,
+						trackName  : trackName,
+						artistName : artistName,
+						albumName  : albumName,
+						albumArt   : albumArt,
+						duration   : selector.find('.duration').text(),
+						url        : url
+					});
+				}
+			}
+			}, interval);
+		break;
 	}
 });
 

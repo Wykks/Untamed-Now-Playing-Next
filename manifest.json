@@ -90,6 +90,7 @@
 		"*://www.zaycev.fm/*",
 		"*://api.justin.tv/*",
 		"*://api.own3d.tv/*",
+		"*://*.rdio.com/*",
 		// di.fm cdn
 		"*://static.audioaddict.com/*",
 		// distortionradio cdn
@@ -199,6 +200,7 @@
 			"*://www.youtube.com/*",
 			"*://zaycev.fm/*",
 			"*://www.zaycev.fm/*",
+			"*://*.rdio.com/*",
 			// Chinese sites
 			"*://play.baidu.com/*",
 			"*://player.kuwo.cn/*",
