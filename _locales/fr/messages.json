@@ -13,7 +13,7 @@
   "nav_change":{"message":"Historique des versions"},
   "nav_contact":{"message":"Contact"},
 
-  "opt_saved":{"message":"Les paramêtres ont été sauvegardés"},
+  "opt_saved":{"message":"Les paramètres ont été sauvegardés"},
   "opt_des":{"message":"Cliquez sur les icones en dessous de chaques options pour plus d'informations"},
   "opt_donate":{"message":"Si vous trouvez cette extension utile, j'apprécirai beaucoup si vous envisagiez de donner à charity:water. <a target=\"_blank\" href=\"http://vimeo.com/22566556\">cliquez ici</a> pour en savoir plus, ou pour donner, <a target=\"_blank\" href=\"https://www.charitywater.org/donateforms/general\">cliquez ici</a>."},
   "opt_0":{"message":"Dossier de sauvegarde"},
@@ -101,14 +101,14 @@
           }
         }
         },
-        "err_directory_win":{"message":"Error: Save directory cannot have 'windows' in the path"},
-        "err_directory_unable":{"message":"Error: Unable to read save directory.<br><br>Chrome can limit readable/writable directories, if you run into problems, try changing the folder to your 'My Documents' or a subdirectory of that folder eg: 'C:\\Users\\Sam\\Documents\\unpn\\'"},
-        "err_directory_inaccess":{"message":"Error: Unable to write to save directory"},
-        "err_fmt_invalid":{"message":"Error: Save as format is invalid"},
-        "err_fmt_toolong":{"message":"Error: Plain text format must be less than 512 chars"},
-        "err_maxlen_invalid":{"message":"Error: Song maximum length must be a number between 10 and 256"},
-        "err_nightbot_user":{"message":"Error: Nightbot user is missing or invalid format"},
-        "err_nightbot_key":{"message":"Error: Nightbot API key is missing or invalid format"},
-        "err_stream_service":{"message":"Error: Stream service is missing or invalid"},
-        "err_stream_user":{"message":"Error: Stream user is missing or invalid"}
+        "err_directory_win":{"message":"Erreur: Le dossier de sauvegarde ne peut pas avoir 'windows' dans le chemin"},
+        "err_directory_unable":{"message":"Erreur: Impossible de lire dans le dossier de sauvegarde.<br><br>Chrome peut limiter la lecture/écriture dans les dossiers, si vous avez des problèmes, essayez de changer le dossier vers votre 'Mes Documents' ou un sous-dossier de ce dossier ex: 'C:\\Users\\Sam\\Documents\\unpn\\'"},
+        "err_directory_inaccess":{"message":"Erreur: Impossible d'écrite dans le dossier de sauvegarde"},
+        "err_fmt_invalid":{"message":"Erreur: Le format de sauvegarde est invalide"},
+        "err_fmt_toolong":{"message":"Erreur: Le format du fichier simple dois être inférieur à 512 caractère"},
+        "err_maxlen_invalid":{"message":"Erreur: La longueur maximale des variables dois être un nombre entre 10 et 256"},
+        "err_nightbot_user":{"message":"Erreur: L'utilisateur Nightbot est manquant ou invalide"},
+        "err_nightbot_key":{"message":"Erreur: La clef Nightbot API est manquante ou invalide"},
+        "err_stream_service":{"message":"Erreur: Service du stream manquant ou invalide"},
+        "err_stream_user":{"message":"Erreur: Utilisateur du stream manquant ou invalide"}
       }
