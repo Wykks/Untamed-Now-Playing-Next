@@ -675,11 +675,11 @@ $(document).ready(function()
 					console.log('UNP: YouTube parsing disabled');
 					return;
 				}
-				if (typeof $('#watch7-container > meta[itemprop="name"]').attr('content') !== 'undefined' &&
-					last !== $('#watch7-container > meta[itemprop="name"]').attr('content'))
+				if (typeof $('#watch7-content > meta[itemprop="name"]').attr('content') !== 'undefined' &&
+					last !== $('#watch7-content > meta[itemprop="name"]').attr('content'))
 				{
 					var duration = $('body').text().match(/\"length_seconds\"\: (\d+)/)[1];
-					var play     = $('#watch7-container > meta[itemprop="name"]').attr('content');
+					var play     = $('#watch7-content > meta[itemprop="name"]').attr('content');
 					var parse;
 
 					if ($('#eow-title').find('a').length){
@@ -729,7 +729,6 @@ $(document).ready(function()
 				if (newValue.match(re))
 					optionGet(youtubeSupport);
 			}
-
 			optionGet(youtubeSupport);
 		break;
 		case 'zaycev.fm':
