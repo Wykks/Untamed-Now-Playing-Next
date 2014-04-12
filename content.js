@@ -406,7 +406,7 @@ $(document).ready(function()
 		break;
 		case 'plug.dj':
 			setInterval(function(){
-				var play = $('#now-playing-value').text();
+				var play = $("#now-playing-media").find('span.bar-value').text();
 				var parse;
 
 				if (parse = parseArtistTitle(play)){
