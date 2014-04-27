@@ -489,26 +489,26 @@ $(document).ready(function()
 			}, interval);
 		break;
 		case 'songza.com':
-			setInterval(function(){
-				if ($('.sz-player').hasClass('sz-player-state-play')){
-					var selector   = $('.szi-roll-song').find('.szi-info');
-					var artistName = selector.find('.szi-artist').text();
-					var trackName  = selector.find('.szi-title').text();
-					var play       = artistName + ' - ' + trackName;
+            setInterval(function(){
+                if ($('div.miniplayer-info').find('.miniplayer-info-track-title').length > 0){
+                    var selector   = $('div.miniplayer-info');
+                    var artistName = selector.find('.miniplayer-info-artist-name').find('a').attr('title');
+                    var trackName  = selector.find('.miniplayer-info-track-title').find('a').attr('title');
+                    var play       = artistName + ' - ' + trackName;
 
-					if (last !== play){
-						nowPlaying(
-						{
-							nowPlaying : play,
-							trackName  : trackName,
-							artistName : artistName,
-							albumArt   : $('.szi-roll-song').find('img').attr('src'),
-							url        : 'http://songza.com' + $('.szi-station-info').find('a').attr('href')
-						});
-					}
-				}
-			}, interval);
-		break;
+                    if (last !== play){
+                        nowPlaying(
+                        {
+                            nowPlaying : play,
+                            trackName  : trackName,
+                            artistName : artistName,
+                            albumArt   : $('div.miniplayer-album-art-wrapper').find('img').attr('src'),
+                            url        : $('div.miniplayer-info-playlist-title').find('a').attr('href')
+                        });
+                    }
+                }
+            }, interval);
+        break;
 		case 'soundcloud.com':
 			setInterval(function(){
 				var selector = $('.sc-button-pause').parent().parent();
