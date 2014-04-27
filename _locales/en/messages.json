@@ -33,6 +33,7 @@
   "opt_10":{"message":"Stream details"},
   "opt_10_select":{"message":"Select Service"},
   "opt_10_select_justin":{"message":"Justin/Twitch TV"},
+  "opt_11":{"message":"Empty the file automatically"},
   "opt_tt_0":{"message":"The directory where the now playing file is saved, may also be used for caching stream status"},
   "opt_tt_1":{"message":"The file format that the now playing file is saved as. Xsplit supports both XML and TXT, OBS just supports TXT. XML allows you display different info in different text titles in your scenes"},
   "opt_tt_2":{"message":"Don't include file extension"},
@@ -44,6 +45,7 @@
   "opt_tt_8":{"message":"Your unique Nightbot API key can be obtained <a href='http://www.nightbot.tv/account' target='_blank'>here</a>"},
   "opt_tt_9":{"message":"This will check your stream is live before saving any 'Now Playing' data or sending anything to Nightbot. This offers increased privacy, however it requires requests to Justin/Twitch TV, and should only be enabled if you require the extra privacy"},
   "opt_tt_10":{"message":"Your Stream details, only used if the 'Check stream' option is enabled"},
+  "opt_tt_11":{"message":"The file will be emptied each time a page supported by UNPN is closed"},
 
 
   "sites_des":{"message":"This is a list of the supported sites, and their available features. <strong>This information is only for users who want more customisation, and is irrelevant for the majority of users.</strong> The symbols in brackets are the variables used for formatting the \"Plain text\" save as option."},
