@@ -122,7 +122,8 @@
 		"*://*.hiphotos.baidu.com/ting/pic/*",
 		"*://y.qq.com/*",
 		"*://imgcache.qq.com/music/photo/*",
-		"*://*.kuwo.cn/*"
+		"*://*.kuwo.cn/*",
+		"*://www.xiami.com/play/*"
 	],
 	"content_scripts": [ {
 		"all_frames": true,
@@ -204,7 +205,8 @@
 			// Chinese sites
 			"*://play.baidu.com/*",
 			"*://player.kuwo.cn/*",
-			"*://y.qq.com/*"
+			"*://y.qq.com/*",
+			"*://www.xiami.com/play/*"
 		] 
 	} ],
 	"web_accessible_resources":[

@@ -886,6 +886,35 @@ $(document).ready(function()
 			}
 			}, interval);
 		break;
+		case 'xiami.com':
+		setInterval(function(){
+			if ($('#J_playBtn').hasClass('pause-btn')) {
+				var selector   = $('#J_trackInfo').find('#J_trackName');
+				var trackName  = $.trim(selector.attr('title'));
+				var url        = selector.attr('href');
+				var info       = $('#J_trackList'+ url.match(".*/song/(.*)")[1]);
+				var artistName = $.trim(info.find('.ui-row-item-body div:nth-child(2)').text());
+				var play       = artistName + ' - ' + trackName;
+
+				if (last !== play)
+				{
+					var albumArt = $('#J_playerCover').find('img').attr('src');
+					var albumName = $.trim(info.find('.ui-row-item-body div:nth-child(3)').text());
+
+					nowPlaying(
+					{
+						nowPlaying : play,
+						trackName  : trackName,
+						artistName : artistName,
+						albumName  : albumName,
+						albumArt   : albumArt,
+						duration   : $('#J_durationTime').text(),
+						url        : url
+					});
+				}
+			}
+			}, interval);
+		break;
 	}
 });
 

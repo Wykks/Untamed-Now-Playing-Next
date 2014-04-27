@@ -38,6 +38,7 @@ Supported Sites
 * [player.kuwo.cn](http://player.kuwo.cn)
 * [y.qq.com](http://y.qq.com)
 * [rdio.com](http://www.rdio.com)
+* [xiami.com](http://www.xiami.com/play)
 
 Support for more sites will be added over time. If you have a suggestion for a site, please open an issue or reply to the obs topic.
 
