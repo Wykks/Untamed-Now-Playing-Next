@@ -4,6 +4,17 @@ var interval = 10000;
 $(document).ready(function()
 {
 	var host = window.location.host.replace('www.', '');
+	optionGet(function(data) {
+		if (data['unpAutoClear'] === 'true' && !(host == 'youtube.com' && data['unpDisableYoutube'] === 'true')) {
+			$(window).bind('beforeunload', function() {
+				proxyReq(
+				{
+					type        : 'npapi',
+					method      : 'c'
+				});
+			});
+		}
+	});
 
 	switch(host)
 	{

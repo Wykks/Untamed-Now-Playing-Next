@@ -35,6 +35,7 @@
   "opt_10":{"message":"直播信息"},
   "opt_10_select":{"message":"选择服务"},
   "opt_10_select_justin":{"message":"Justin/Twitch TV"},
+  "opt_11":{"message":"Empty the file automatically"},
   "opt_tt_0":{"message":"这是正在播放文件保存目录，同样会被用来缓存直播状态"},
   "opt_tt_1":{"message":"正在播放文件的保存格式。Xsplit支持XML和TXT, OBS只支持TXT。 XML允许在你的场景中，以不同的文本标题显示不同的信息"},
   "opt_tt_2":{"message":"Don't include file extension"},
@@ -46,6 +47,7 @@
   "opt_tt_8":{"message":"你的Nightbot API key可以在<a href='http://www.nightbot.tv/account' target='_blank'>这里</a>获得"},
   "opt_tt_9":{"message":"这将在保存任何'正在播放'数据或向Nightbot发送任何数据之前，检查你的直播是否开始。这将更加隐私，但是其需要访问Justin/Twitch TV，并且建议只在你真正需要的时候使用。"},
   "opt_tt_10":{"message":"你的直播信息，只有在'检查直播'选项可用时使用"},
+  "opt_tt_11":{"message":"The file will be emptied each time a page supported by UNPN is closed"},
 
   "sites_des":{"message":"这是一个支持网站的列表，以及在这些网站上可用的功能。<strong>这些信息是为了那些打算自定义化的用户，大多数用户则用不上。</strong>括号中的符号是保存为选项为“纯文本”时，用来格式化的变量。"},
   "sites_des_2":{"message":"<strong>\"正在播放\" (%s%), \"开始时间\" (%t%) and \"网站\" (%u%) 这3个变量完全支持所有站点。</strong> 放大镜图标表示网站不单独显示歌手和歌曲标题信息。对于这些网站，本应用将试图提取歌手和标题信息，但不保证准确性。"},
