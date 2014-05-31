@@ -679,9 +679,46 @@ $(document).ready(function()
 			}, interval);
 		break;
 		case 'youtube.com':
+			if (window.location.pathname.match(/^\/tv.*/)) {
+				optionGet(youtubeTvSupport);
+				return;
+			}
+			function youtubeTvSupport(data) {
+				if (data['unpDisableYoutube'] === 'true') {
+					console.log('UNP: YouTube parsing disabled');
+					return;
+				}
+				setInterval(function(){
+					if ($('#watch').hasClass('play')){
+						var duration = $('#watch .player-time-total').text();
+						var play     = $('#watch .player-video-title').text();
+						if (last !== play){
+							var match = window.location.hash.match(/#.*[?&]v=([^&]+)(&|$)/);
+						    var url = match ? 'http://youtu.be/' + match[1] : "";
+							var parse;
+							if (parse = parseArtistTitle(play)){
+								var artistName = parse[0];
+								var trackName  = parse[1];
+							}
+							else
+							{
+								var artistName = '?';
+								var trackName  = play;
+							}
+							nowPlaying(
+							{
+								nowPlaying : play,
+								trackName  : trackName,
+								artistName : artistName,
+								duration   : duration,
+								url        : url
+							});
+						}
+					}
+				}, interval);
+			}
 			function youtubeSupport(data) {
-				if (data['unpDisableYoutube'] === 'true')
-				{
+				if (data['unpDisableYoutube'] === 'true') {
 					$('body').append('<div style="position:fixed;bottom:0;right:0;z-index:999;border-top-left-radius:3px;background:linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(246,246,246,1) 66%,rgba(237,237,237,1) 100%);opacity:0.8;border:1px solid #EDEDED;padding:2px 5px;font-size:11px">UNP: YouTube parsing is disabled, to change <a href="chrome-extension://' + chrome.i18n.getMessage('@@extension_id') + '/options.html" target="_blank" style="color:#000">click here</a></div>');
 					console.log('UNP: YouTube parsing disabled');
 					return;
