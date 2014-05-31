@@ -725,7 +725,7 @@ $(document).ready(function()
 				if (typeof $('#watch7-content > meta[itemprop="name"]').attr('content') !== 'undefined' &&
 					last !== $('#watch7-content > meta[itemprop="name"]').attr('content'))
 				{
-					var duration = $('body').text().match(/\"length_seconds\"\: (\d+)/)[1];
+					var duration = $('.ytp-time-duration').text();
 					var play     = $('#watch7-content > meta[itemprop="name"]').attr('content');
 					var parse;
 
