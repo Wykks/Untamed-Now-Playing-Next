@@ -477,7 +477,7 @@ $(document).ready(function()
 		break;
 		case 'slacker.com':
 			setInterval(function(){
-				if ($('#playerPlayPauseButton').find('div').css('background-position') == '-960px 0px'){
+				if ($('#mini-play').hasClass('pause')) {
 					var artistName        = $('#player-artist-name').text();
 					var trackNameSelector = $('#player-track-name');
 					var trackName         = trackNameSelector.text();
@@ -491,8 +491,8 @@ $(document).ready(function()
 							artistName : artistName,
 							albumName  : $('#player-album-name').text(),
 							albumArt   : $('#track-art-current-img').attr('src'),
-							duration   : $('#total-length').text(),
-							url        : 'http://slacker.com/#song/' + trackNameSelector.attr('itemid') + '/' + trackNameSelector.attr('perfid') + '/'
+							duration   : $('#progress-total').text(),
+							url        : 'http://slacker.com/#song/' + trackNameSelector.attr('itemid') + '/' + trackNameSelector.attr('perfid') + '/' + trackNameSelector.attr('trackid')
 						});
 					}
 				}
