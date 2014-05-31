@@ -100,20 +100,19 @@ $(document).ready(function()
 		break;
 		case 'di.fm':
 			setInterval(function(){
-				if ($('#ctl-play').hasClass('pause')){
-					var play    = $('.title').text();
-					var matches = play.match('^(.+) - (.+)$');
+				if ($('#ctl-play > i').hasClass('icon-stop')){
+					var play    = $('#now-playing .title').text();
 
 					if (last !== play){
-						var remainingTime = $('.remaining').text();
-
+						var remainingTime = $('.timestamps .remaining').text();
+						var matches = play.match('^(.+) - (.+)$');
 						nowPlaying(
 						{
 							nowPlaying : play,
 							trackName  : matches[2],
 							artistName : matches[1],
 							albumArt   : $('#art').find('img').attr('src'),
-							duration   : (remainingTime == '') ? $('.elapsed').text() : secToHms(hmsToSec(remainingTime.substr(1,remainingTime.length)) + hmsToSec($('.elapsed').text()))
+							duration   : (remainingTime == '') ? $('.timestamps .elapsed').text() : secToHms(hmsToSec(remainingTime.substr(1,remainingTime.length)) + hmsToSec($('.timestamps .elapsed').text()))
 						});
 					}
 				}
