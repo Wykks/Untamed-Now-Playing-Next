@@ -1,4 +1,4 @@
-[Untamed Now Playing Next](https://github.com/Wylk/Untamed-Now-Playing-Next)
+B[Untamed Now Playing Next](https://github.com/Wylk/Untamed-Now-Playing-Next)
 =================
 "Untamed Now Playing Next" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. At the moment, this extension is Windows only.
 This version ("Next") is the same as the original with some improvement by me (Wylk).
@@ -9,7 +9,7 @@ Supported Sites
 * [ah.fm](http://ah.fm)
 * [blinkboxmusic.com](http://blinkboxmusic.com)
 * [deezer.com](http://deezer.com)
-* [di.fm](http://di.fm)
+*77;10200;0c [di.fm](http://di.fm)
 * [distortionradio.com](http://distortionradio.com)
 * [grooveshark.com](http://grooveshark.com)
 * [retro.grooveshark.com](http://retro.grooveshark.com)
@@ -33,6 +33,7 @@ Supported Sites
 * [turntable.fm](http://turntable.fm)
 * [vk.com](http://vk.com)
 * [youtube.com](http://youtube.com)
+* [youtube.com/tv](http://youtube.com/tv)
 * [zaycev.fm](http://zaycev.fm)
 * [play.baidu.com](http://play.baidu.com)
 * [player.kuwo.cn](http://player.kuwo.cn)
