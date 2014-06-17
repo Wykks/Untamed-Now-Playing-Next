@@ -526,8 +526,9 @@ $(document).ready(function()
 				if (selector.eq(1).hasClass('soundActions')){
 					var selector2  = selector.eq(1).parent().parent().parent();
 					var artistName = $.trim(selector2.find('.soundTitle').find('.sc-truncate').find('a').text());
-					var trackName  = selector2.find('.soundTitle').find('div:eq(2)').find('div').find('a').text();
-					var albumArt   = selector2.find('.sc-media-image').find('img').attr('src').replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
+					var trackName  = document.title;
+					var albumArt   = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
+					var albumArt   = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
 					var duration   = '?';
 					var url        = window.location.href;
 				}
@@ -542,8 +543,9 @@ $(document).ready(function()
 						var url               = 'http://soundcloud.com' + trackNameSelector.attr('href');
 					}
 					else if (selector.parent().parent().parent().hasClass('playlist')){
+						var selector2  = selector.eq(1).parent().parent().parent();
 						var artistName = $.trim(selector.parent().find('.sc-type-light').find('.soundTitle__username').text());
-						var trackName  = document.title.substring(2).replace(/^(.*) in (.*)$/, '$1');
+						var trackName  = document.title;
 						var albumArt   = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
 						var albumArt   = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
 						var duration   = '?';
@@ -560,7 +562,7 @@ $(document).ready(function()
 					}
 				}
 				else if ($('.nowPlaying').hasClass('playing')){
-						var artistName = document.title.replace(/^(.*) by (.*)$/i, '$2');
+						var artistName = document.title;
 						var trackName  = $('.nowPlaying').attr('title').replace(/^return to (.*)/i, '$1');
 						var albumArt   = '?';
 						var duration   = '?';
