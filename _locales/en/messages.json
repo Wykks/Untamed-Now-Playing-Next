@@ -90,28 +90,28 @@
     "placeholders":{
       "version":{
         "content": "$1"
-        },
-        "url":{
-          "content": "$2"
-        }
-      }
       },
-      "err_nightbot":{
-        "message":"Error: Nightbot API returned: \"$ERRINFO$\"",
-        "placeholders":{
-          "errinfo":{
-            "content": "$1"
-          }
-        }
-        },
-        "err_directory_win":{"message":"Error: Save directory cannot have 'windows' in the path"},
-        "err_directory_unable":{"message":"Error: Unable to read save directory.<br><br>Chrome can limit readable/writable directories, if you run into problems, try changing the folder to your 'My Documents' or a subdirectory of that folder eg: 'C:\\Users\\Sam\\Documents\\unpn\\'"},
-        "err_directory_inaccess":{"message":"Error: Unable to write to save directory"},
-        "err_fmt_invalid":{"message":"Error: Save as format is invalid"},
-        "err_fmt_toolong":{"message":"Error: Plain text format must be less than 512 chars"},
-        "err_maxlen_invalid":{"message":"Error: Song maximum length must be a number between 10 and 256"},
-        "err_nightbot_user":{"message":"Error: Nightbot user is missing or invalid format"},
-        "err_nightbot_key":{"message":"Error: Nightbot API key is missing or invalid format"},
-        "err_stream_service":{"message":"Error: Stream service is missing or invalid"},
-        "err_stream_user":{"message":"Error: Stream user is missing or invalid"}
+      "url":{
+        "content": "$2"
       }
+    }
+  },
+  "err_nightbot":{
+    "message":"Error: Nightbot API returned: \"$ERRINFO$\"",
+    "placeholders":{
+      "errinfo":{
+        "content": "$1"
+      }
+    }
+  },
+  "err_directory_win":{"message":"Error: Save directory cannot have 'windows' in the path"},
+  "err_directory_unable":{"message":"Error: Unable to read save directory.<br><br>Chrome can limit readable/writable directories, if you run into problems, try changing the folder to your 'My Documents' or a subdirectory of that folder eg: 'C:\\Users\\Sam\\Documents\\unpn\\'"},
+  "err_directory_inaccess":{"message":"Error: Unable to write to save directory"},
+  "err_fmt_invalid":{"message":"Error: Save as format is invalid"},
+  "err_fmt_toolong":{"message":"Error: Plain text format must be less than 512 chars"},
+  "err_maxlen_invalid":{"message":"Error: Song maximum length must be a number between 10 and 256"},
+  "err_nightbot_user":{"message":"Error: Nightbot user is missing or invalid format"},
+  "err_nightbot_key":{"message":"Error: Nightbot API key is missing or invalid format"},
+  "err_stream_service":{"message":"Error: Stream service is missing or invalid"},
+  "err_stream_user":{"message":"Error: Stream user is missing or invalid"}
+}
