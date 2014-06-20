@@ -91,6 +91,8 @@
 		"*://api.justin.tv/*",
 		"*://api.own3d.tv/*",
 		"*://*.rdio.com/*",
+		"*://radiorecord.ru/*",
+ 		"*://www.radiorecord.ru/*",
 		// di.fm cdn
 		"*://static.audioaddict.com/*",
 		// distortionradio cdn
@@ -202,6 +204,8 @@
 			"*://zaycev.fm/*",
 			"*://www.zaycev.fm/*",
 			"*://*.rdio.com/*",
+			"*://radiorecord.ru/*",
+ 			"*://www.radiorecord.ru/*",
 			// Chinese sites
 			"*://play.baidu.com/*",
 			"*://player.kuwo.cn/*",
