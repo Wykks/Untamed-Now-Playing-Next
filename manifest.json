@@ -1,5 +1,5 @@
 {
-	"manifest_version": 3,
+	"manifest_version": 2,
 	"name": "__MSG_extention_name__",
 	"version": "1.4",
 	"description": "__MSG_extention_des__",
@@ -204,8 +204,8 @@
 			"*://zaycev.fm/*",
 			"*://www.zaycev.fm/*",
 			"*://*.rdio.com/*",
-			"*://radiorecord.ru/*",
- 			"*://www.radiorecord.ru/*",
+			"*://radiorecord.ru/player/*",
+ 			"*://www.radiorecord.ru/player/*",
 			// Chinese sites
 			"*://play.baidu.com/*",
 			"*://player.kuwo.cn/*",
