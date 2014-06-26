@@ -92,7 +92,7 @@ $(document).ready(function()
 							nowPlaying : play,
 							trackName  : trackName,
 							artistName : artistName,
-							duration   : $('#player_track_lengthk').text(),
+							duration   : $('#player_track_length').text(),
 						});
 					}
 				}
