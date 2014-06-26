@@ -475,6 +475,24 @@ $(document).ready(function()
 				url        : 'http://seoul.fm'
 			});
 		break;
+		case 'radiorecord.ru':
+			setInterval(function()
+			{
+				var currentPlaying = $('.nowtrack');
+				var artistName     = currentPlaying.find('.artist').text();
+				var trackName      = currentPlaying.find('.title').text();
+				var play           = artistName + ' - ' + trackName;
+
+				if (last !== play){
+					nowPlaying(
+					{
+						nowPlaying : play,
+						trackName  : artistName,
+						artistName : trackName,
+					});
+				}
+			}, interval);
+		break;
 		case 'slacker.com':
 			setInterval(function(){
 				if ($('#mini-play').hasClass('pause')) {
