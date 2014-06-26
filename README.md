@@ -47,13 +47,19 @@ Install
 --------------------------------------
 There are a couple of ways to install the extension;
 
-### Install the packed extension (v1.4 - Stable, recommended!)
+Important note
+Chrome will now only install extensions from Google’s Web Store and deactivates all other installed extensions.
+As a workaround you should be able to install the extension in dev mode (see "Install the unpacked extension")
+
+For more informations : https://github.com/Wykks/Untamed-Now-Playing-Next/issues/7
+
+### Install the packed extension (v1.4 - Stable)
 1. Download the already packed extension [here](https://dl.dropboxusercontent.com/u/3440078/UNPN_v1.4.crx)
 2. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
 3. Drag and drop the packed extension you downloaded in Step #1.
 4. Click 'continue' on the bottom left of the Chrome window.
 
-### Install the unpacked extension (Under development, not recommended)
+### Install the unpacked extension (Under development)
 1. Download the extension from Github [here](https://github.com/Wylk/Untamed-Now-Playing-Next/zipball/master)
 2. Extract the files to a safe place.
 3. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
