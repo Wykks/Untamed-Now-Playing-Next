@@ -266,14 +266,12 @@ $(document).ready(function()
 			case 'cn.last.fm':
 			setInterval(function(){
 				if (!$('#radioControlPlay').is(':visible') && $('#nowPlayingMeta').is(':visible')){
-					var artistName        = $('strong.artist').find('a').text();
-					var trackNameSelector = $('strong.track').find('a');
+					var artistName        = $('.artist').find('a').text();
+					var trackNameSelector = $('.track').find('a');
 					var trackName         = trackNameSelector.text();
 					var play              = artistName + ' - ' + trackName;
 
 					if (last !== play){
-						var remainingTime = $('#trackRemaining').text();
-						var remainingTime = remainingTime.substr(1, remainingTime.length);
 
 						nowPlaying(
 						{
@@ -282,7 +280,6 @@ $(document).ready(function()
 							artistName : artistName,
 							albumName  : $('.album').find('.title').text(),
 							albumArt   : $('span.albumCover').find('img.art').attr('src').replace(/(.*)\/serve\/(.*)\/(.*)\.(jpg|jpeg|png)$/i, '$1/serve/126/$3.$4'),
-							duration   : secToHms(hmsToSec(remainingTime) + hmsToSec($('#trackPlayed').text())),
 							url        : trackNameSelector.attr('href')
 						});
 					}
