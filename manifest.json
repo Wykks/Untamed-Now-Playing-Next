@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "__MSG_extention_name__",
-	"version": "1.4",
+	"version": "1.5",
 	"description": "__MSG_extention_des__",
 	"default_locale": "en",
 	"background": { "scripts": ["lib/jquery-2.0.2.min.js", "lib/proxy.js", "lib/pages/background.js"] },
