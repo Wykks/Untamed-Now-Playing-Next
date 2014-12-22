@@ -57,6 +57,7 @@
   "sites_th_album":{"message":"Album (%b%)"},
   "sites_th_artwork":{"message":"Artwork (N/A)"},
   "sites_note":{"message":"*: Soundcloud has 5 different page layouts. For best results use the detailed artist, track or set view, and don't navigate away; otherwise UNPN may only be able to pick up Artist, Track and URL."},
+  "sites_note_2":{"message":"*: Xiami radio is not supported because of the useage flash player. Please use xiami player page."},
   "sites_var_list":{"message":"Full list of Variables"},
   "sites_var_s":{"message":"Now Playing data"},
   "sites_var_a":{"message":"Artist"},
@@ -84,7 +85,7 @@
   "contact_2":{"message":""},
 
   "warn_opt":{"message":"<strong>Attention!</strong><br />Vous devez configurer UNPN ! L'option principale est \"Dossier de sauvegarde\", choisissez où les informations de lecture en cours seront sauvegardée. Si vous avez des problèmes, faites moi en part (mes informations de contact sont <a href=\"#/contact\" style=\"color:#7C6238\">ici</a>)."},
-  
+
   "error_new_ver":{
     "message":"There is a new version ($VERSION$) of Untamed Now Playing available. If you're using the stable version, the extension will update automatically. However if you're using the development version, you need to <a href=\"$URL$'\" target=\"_blank\">update manually</a>",
     "placeholders":{
