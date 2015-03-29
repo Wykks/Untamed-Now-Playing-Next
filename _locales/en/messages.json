@@ -20,6 +20,7 @@
   "opt_1":{"message":"Save as format"},
   "opt_1_select_txt":{"message":"Plain text (txt)"},
   "opt_1_select_xml":{"message":"XML"},
+  "opt_1_select_json":{"message":"JSON"},
   "opt_1_select_multi":{"message":"Multiple txt files"},
   "opt_2":{"message":"Filename"},
   "opt_3":{"message":"Plain text now playing format"},
