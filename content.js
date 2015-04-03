@@ -491,6 +491,24 @@ $(document).ready(function()
 				}
 			}, interval);
 		break;
+		case 'radioultra.ru':
+			setInterval(function()
+			{
+				var currentPlaying = $('#song-info');
+				var artistName     = currentPlaying.find('.artist').text();
+				var trackName      = currentPlaying.find('.title').text();
+				var play           = artistName + ' - ' + trackName;
+
+				if (last !== play){
+					nowPlaying(
+					{
+						nowPlaying : play,
+						trackName  : artistName,
+						artistName : trackName,
+					});
+				}
+			}, interval);
+		break;
 		case 'slacker.com':
 			setInterval(function(){
 				if ($('#mini-play').hasClass('pause')) {
@@ -942,27 +960,6 @@ $(document).ready(function()
 			}
 			}, interval);
 		break;
-		case 'radioultra.ru':
-		setInterval(function(){
-			var artistName = $('.artist').text()
-			var trackName = $('.title').text()
-			var albumName = $('.album').text()
-			var play = artistName + ' - ' + trackName;
-
-
-			if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumName  : albumName,
-					});
-				}
-
-			}, interval);
-		break;
-	}
 	}
 });
 
