@@ -125,7 +125,11 @@
 		"*://y.qq.com/*",
 		"*://imgcache.qq.com/music/photo/*",
 		"*://*.kuwo.cn/*",
-		"*://www.xiami.com/play/*"
+		"*://www.xiami.com/play/*",
+		"*://www.radioultra.ru/*",
+		"*://radioultra.ru/*",
+		"*://www.radioultra.ru/player/*",
+		"*://radioultra.ru/player/*"
 	],
 	"content_scripts": [ {
 		"all_frames": true,
@@ -210,7 +214,11 @@
 			"*://play.baidu.com/*",
 			"*://player.kuwo.cn/*",
 			"*://y.qq.com/*",
-			"*://www.xiami.com/play/*"
+			"*://www.xiami.com/play/*",
+			"*://www.radioultra.ru/*",
+			"*://radioultra.ru/*",
+			"*://www.radioultra.ru/player/*",
+			"*://radioultra.ru/player/*"
 		] 
 	} ],
 	"web_accessible_resources":[

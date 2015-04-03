@@ -39,6 +39,7 @@ Supported Sites
 * [player.kuwo.cn](http://player.kuwo.cn)
 * [y.qq.com](http://y.qq.com)
 * [rdio.com](http://www.rdio.com)
+* [radioultra.ru](http://www.radioultra.ru/player)
 * [xiami.com](http://www.xiami.com/play)
 
 Support for more sites will be added over time. If you have a suggestion for a site, please open an issue or reply to the obs topic.
@@ -53,14 +54,9 @@ As a workaround you should be able to install the extension in dev mode (see "In
 
 For more informations : https://github.com/Wykks/Untamed-Now-Playing-Next/issues/7
 
-### Install the packed extension (v1.4 - Stable)
-1. Download the already packed extension [here](https://dl.dropboxusercontent.com/u/3440078/UNPN_v1.4.crx)
-2. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
-3. Drag and drop the packed extension you downloaded in Step #1.
-4. Click 'continue' on the bottom left of the Chrome window.
 
 ### Install the unpacked extension (Under development)
-1. Download the extension from Github [here](https://github.com/Wylk/Untamed-Now-Playing-Next/zipball/master)
+1. Download the extension from Github [here](https://github.com/Niller2005/Untamed-Now-Playing-Next/archive/master.zip)
 2. Extract the files to a safe place.
 3. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
 4. Tick "Developer mode" on the top right of the page.

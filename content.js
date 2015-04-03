@@ -491,6 +491,24 @@ $(document).ready(function()
 				}
 			}, interval);
 		break;
+		case 'radioultra.ru':
+			setInterval(function()
+			{
+				var currentPlaying = $('#song-info');
+				var artistName     = currentPlaying.find('.artist').text();
+				var trackName      = currentPlaying.find('.title').text();
+				var play           = artistName + ' - ' + trackName;
+
+				if (last !== play){
+					nowPlaying(
+					{
+						nowPlaying : play,
+						trackName  : artistName,
+						artistName : trackName,
+					});
+				}
+			}, interval);
+		break;
 		case 'slacker.com':
 			setInterval(function(){
 				if ($('#mini-play').hasClass('pause')) {
@@ -537,46 +555,20 @@ $(document).ready(function()
         break;
 		case 'soundcloud.com':
 			setInterval(function(){
-				var selector = $('.sc-button-pause').parent().parent();
-				var trackName = $('.playbackSoundBadge__title').text();
+				var selector = $('.playbackSoundBadge__title').text();
 				var duration = $('playbackTimeline__duration').text();
 				var url = "http://soundcloud.com" + $('.playbackSoundBadge__title').attr('href');
+				var artistName = "?";
+				var trackName = "?";
 
-
-				if (selector.eq(1).hasClass('soundActions')){
-					var selector2  = selector.eq(1).parent().parent().parent();
-					var artistName = $.trim(selector2.find('.soundTitle').find('.sc-truncate').find('a').text());
-					var albumArt   = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
-					var albumArt   = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
-				}
-				else if (selector.length){
-					if (selector.parent().hasClass('carouselItem')){
-						var selector2         = selector.parent().find('.carouselItem__info');
-						var trackNameSelector = selector2.find('div').eq(1).find('a');
-						var artistName        = selector2.find('div').eq(0).find('a').text();
-						var albumArt          = selector.parent().find('.carouselItem__artworkContainer').find('.image__hasPlaceholder').find('img').attr('src').replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
-					}
-					else if (selector.parent().parent().parent().hasClass('playlist')){
-						var selector2  = selector.eq(1).parent().parent().parent();
-						var artistName = $.trim(selector.parent().find('.sc-type-light').find('.soundTitle__username').text());
-						var albumArt   = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
-						var albumArt   = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
-					}
-					else
-					{
-						var artistName = $.trim(selector.parent().find('.sc-type-light').find('.soundTitle__username').text());
-						var albumArt   = selector.parent().parent().parent().find('a').find('div').find('img').attr('src');
-						var albumArt   = (typeof albumArt === 'undefined') ? $('.image__full').attr('src') : albumArt.replace(/(.*)\/(.*)-t([0-9x]+)\.(jpg|jpeg|png)\?(.*)$/i, '$1/$2-t200x200.$4');
-					}
-				}
-				else if ($('.nowPlaying').hasClass('playing')){
-						var artistName = document.title;
-						var albumArt   = '?';
-				}
-				else
-				{
-					return;
-				}
+				if (selector.indexOf(" - ") >= 0) {
+					var res = selector.split(" - ");
+					artistName = res[0];
+					trackName = res[1];
+				} else {
+					artistName = "?";
+					trackName = selector;
+				};
 
 				var play = artistName + ' - ' + trackName;
 
@@ -586,7 +578,6 @@ $(document).ready(function()
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
-						albumArt   : albumArt,
 						duration   : duration,
 						url        : url
 					});
@@ -600,7 +591,7 @@ $(document).ready(function()
 					var artistName = $.trim(selector.find('.artist').text());
 					var trackName  = $.trim(selector.find('.title').text());
 					var play       = artistName + ' - ' + trackName;
-					
+
 					if (last !== play){
 						nowPlaying(
 						{
