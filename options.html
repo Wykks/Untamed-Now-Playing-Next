@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Untamed Now Playing Next v1.5 - Options</title>
+		<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<style type="text/css">
+			body {
+				padding-top: 40px;
+			}
+			table#options_table td input[type="text"], table#options_table td input[type="password"], table#options_table td select, table#options_table td input[type="number"] {
+				margin: 5px;
+			}
+			table#options_table td {
+				vertical-align: middle;
+				width: 50%;
+			}
+			table#options_table td label {
+				margin: 4px 0px 9px 8px;
+			}
+			table#sites_table {
+				margin-bottom: 4px;
+			}
+			table#sites_table thead th, table#sites_table tbody td {
+				text-align: center;
+			}
+			table#sites_table tbody td:nth-of-type(1) {
+				text-align: left;
+			}
+			.main_content, .popover-title, #stream_details, #nightbot_details {
+				display: none;
+			}
+			button.pull-right {
+				margin: 5px;
+			}
+			small {
+				font-size: 0.8em;
+			}
+			.popover-content {
+				text-align: justify;
+				font-size: 13px;
+				line-height: 18px;
+			}
+			.popover-content pre {
+				margin: 8px 0px;
+				padding: 1px 6px;
+			}
+			.alert {
+				padding-right: 14px;
+			}
+		</style>
+		<script type="text/javascript" src="lib/jquery-2.0.2.min.js"></script>
+		<script type="text/javascript" src="lib/sammy-latest.min.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="lib/pages/options.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="#/about"><strong data-i18n="extention_name"></strong> <small>v1.5</small></a>
+					<div class="nav-collapse collapse">
+						<ul class="nav pull-right">
+							<li id="nav-options" class="active"><a href="#/options" data-i18n="nav_options"></a></li>
+							<li id="nav-sites"><a href="#/sites" data-i18n="nav_sites"></a></li>
+							<li id="nav-about"><a href="#/about" data-i18n="nav_about"></a></li>
+							<li id="nav-changelog"><a href="#/changelog" data-i18n="nav_change"></a></li>
+							<li id="nav-contact"><a href="#/contact" data-i18n="nav_contact"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="options" class="main_content container">
+			<h1 data-i18n="nav_options"></h1>
+			<p data-i18n="opt_des"></p>
+			<p data-i18n="opt_donate"></p>
+			<p data-i18n="opt_donate_2"></p>
+			<table id="options_table" class="table table-bordered table-hover table-condensed">
+				<tr>
+					<td data-i18n="opt_0"></td>
+					<td>
+						<input type="text" id="save_dir" style="width:370px;">
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td data-i18n="opt_1"></td>
+					<td>
+						<select id="save_format" style="width: 150px;">
+							<option value="txt" data-i18n="opt_1_select_txt" selected></option>
+							<option value="json" data-i18n="opt_1_select_json"></option>
+							<option value="xml" data-i18n="opt_1_select_xml"></option>
+							<option value="multi" data-i18n="opt_1_select_multi"></option>
+						</select>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr id="filename_details">
+					<td data-i18n="opt_2"></td>
+					<td>
+						<input type="text" id="filename" style="width:370px;">
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr id="txt_format_details">
+					<td data-i18n="opt_3"></td>
+					<td>
+						<input type="text" id="txt_format" style="width:370px;">
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td data-i18n="opt_4"></td>
+					<td>
+						<input type="number" id="song_maxlen" min="10" max="256" style="width:100px;">
+						<label class="checkbox inline" style="width:200px;">
+							<input type="checkbox" id="song_maxlen_append" value="1"> <span data-i18n="opt_4_des"></span>
+						</label>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td data-i18n="opt_5"></td>
+					<td>
+						<label class="checkbox inline">
+							<input type="checkbox" id="album_artwork" value="1"> <span data-i18n="yes"></span>
+						</label>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td data-i18n="opt_6"></td>
+					<td>
+						<label class="checkbox inline">
+							<input type="checkbox" id="disable_youtube" value="0"> <span data-i18n="yes"></span>
+						</label>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td data-i18n="opt_7"></td>
+					<td>
+						<label class="checkbox inline">
+							<input type="checkbox" id="nightbot_enable" value="1"> <span data-i18n="yes"></span>
+						</label>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr id="nightbot_details">
+					<td data-i18n="opt_8"></td>
+					<td>
+						<input type="text" id="nightbot_user" placeholder="Username" style="width:30%;">
+						<input type="password" id="nightbot_api_key" placeholder="API Key" style="width:45%;">
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td data-i18n="opt_9"></td>
+					<td>
+						<label class="checkbox inline">
+							<input type="checkbox" id="check_live" value="1"> <span data-i18n="yes"></span>
+						</label>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr id="stream_details">
+					<td data-i18n="opt_10"></td>
+					<td>
+						<select id="stream_site" style="width: 150px;">
+							<option value="" data-i18n="opt_10_select" selected disabled></option>
+							<option value="justin" data-i18n="opt_10_select_justin"></option>
+							<option value="twitch" data-i18n="opt_10_select_twitch"></option>
+						</select>
+						<input type="text" id="stream_user" placeholder="Username">
+						<button class="btn pull-right opt-tt" data-content=""><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<td data-i18n="opt_11"></td>
+					<td>
+						<label class="checkbox inline">
+							<input type="checkbox" id="auto_clear" value="0"> <span data-i18n="yes"></span>
+						</label>
+						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
+					</td>
+				</tr>
+			</table>
+			<p style="text-align:center;">
+				<button class="btn btn-large btn-primary" type="button" id="save_options" data-i18n="save"></button>
+			</p>
+		</div>
+		<div id="sites" class="main_content container">
+			<h1 data-i18n="nav_sites"></h1>
+			<p data-i18n="sites_des"></p>
+			<p data-i18n="sites_des_2"></p>
+			<table id="sites_table" class="table table-bordered table-hover table-condensed">
+				<thead>
+					<tr>
+						<th>&nbsp;</th>
+						<th data-i18n="sites_th_artist"></th>
+						<th data-i18n="sites_th_title"></th>
+						<th data-i18n="sites_th_duration"></th>
+						<th data-i18n="sites_th_album"></th>
+						<th data-i18n="sites_th_artwork"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a target="_blank" href="http://8tracks.com">8tracks.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://ah.fm">ah.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://blinkboxmusic.com">blinkboxmusic.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://deezer.com">deezer.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://di.fm">di.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://www.distortionradio.com">distortionradio.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://grooveshark.com">grooveshark.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://retro.grooveshark.com">retro.grooveshark.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://hypem.com">hypem.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://iheart.com">iheart.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://jango.com">jango.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://last.fm">last.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://nightbot.tv">nightbot.tv</a></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://pandora.com">pandora.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://piki.fm">piki.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://play.google.com">play.google.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://play.spotify.com">play.spotify.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://plug.dj">plug.dj</a></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://prostopleer.com">prostopleer.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://seoul.fm">seoul.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://slacker.com">slacker.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://songza.com">songza.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://soundcloud.com">soundcloud.com</a></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://themusicninja.com">themusicninja.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://tunein.com">tunein.com</a></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://turntable.fm">turntable.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://vk.com">vk.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://youtube.com">youtube.com</a></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://youtube.com/tv">youtube.com/tv</a></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="Possibly" src="ico/magnifier.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://zaycev.fm">zaycev.fm</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://play.baidu.com">play.baidu.com</a> (Chinese)</td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://player.kuwo.cn">player.kuwo.cn</a> (Chinese)</td>
+						<td><img alt="Yes" src="ico/magnifier.png"></td>
+						<td><img alt="Yes" src="ico/magnifier.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://y.qq.com">y.qq.com</a> (Chinese)</td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://www.rdio.com/">rdio.com</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/magnifier.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://www.xiami.com/play">xiami.com</a> (Chinese)</td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+					</tr>
+					<tr>
+						<td><a target="_blank" href="http://www.radiorecord.ru/player">radiorecord.ru/player</a></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="Yes" src="ico/tick.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+						<td><img alt="No" src="ico/cross.png"></td>
+					</tr>
+				</tbody>
+			</table>
+			<small data-i18n="sites_note"></small>
+			<p data-i18n="sites_des3"></p>
+			<h3 data-i18n="sites_var_list"></h3>
+			<pre><strong>%s%</strong> : <span data-i18n="sites_var_s"></span><br><strong>%a%</strong> : <span data-i18n="sites_var_a"></span><br><strong>%e%</strong> : <span data-i18n="sites_var_e"></span><br><strong>%b%</strong> : <span data-i18n="sites_var_b"></span><br><strong>%d%</strong> : <span data-i18n="sites_var_d"></span><br><strong>%t%</strong> : <span data-i18n="sites_var_t"></span><br><strong>%u%</strong> : <span data-i18n="sites_var_u"></span><br><strong>%n%</strong> : <span data-i18n="sites_var_n"></span></pre>
+			<h3 data-i18n="sites_example"></h3>
+			<p data-i18n="sites_example_1"></p>
+			<pre>%a% - %e% (%b%) [%d%]</pre>
+			<p data-i18n="sites_example_2"></p>
+			<pre>Artist - Title (Album) [Duration]</pre>
+		</div>
+		<div id="about" class="main_content container">
+			<h1 data-i18n="nav_about"></h1>
+			<p data-i18n="about_des"></p>
+			<!--Maintain supported sites list in 2 different place seems exhausting, So move contact to sites page -->
+			<h3 data-i18n="about_limi"></h3>
+			<p data-i18n="about_limi_1"></p>
+			<p data-i18n="about_limi_2"></p>
+			<h3 data-i18n="about_license"></h3>
+			<p data-i18n="about_license_1"></p>
+			<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a></p>
+			<p data-i18n="about_license_2"></p>
+			<ul>
+				<li><a target="_blank" href="https://bitbucket.org/ryanackley/npapi-chrome-file-api/overview">NPAPI-chrome-file-api</a> (GNU GPL v2.0)</li>
+				<li><a target="_blank" href="http://twitter.github.com/bootstrap">Bootstrap</a> (Apache License v2.0)</li>
+				<li><a target="_blank" href="http://jquery.com">jQuery</a> (MIT License)</li>
+				<li><a target="_blank" href="http://sammyjs.org">Sammy.js</a> (MIT License)</li>
+			</ul>
+			<p data-i18n="about_license_3"></p>
+		</div>
+		<div id="changelog" class="main_content container">
+			<h1  data-i18n="nav_change"></h1>
+			<p>&nbsp;</p>
+			<h4 title="1.5">1.5 - 26 Jun 14</h4>
+			<ul>
+				<li>Added:
+					<ul>
+						<li>radiorecord.ru/player (thanks to V-Rico)</li>
+					</ul>
+				</li>
+				<li>Fixed:
+					<ul>
+						<li>Soundcloud (thanks to Blackhive)</li>
+						<li>last.fm</li>
+					</ul>
+				</li>
+				<li>Language updated: zh_CN (thanks to CuGBabyBeaR)</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="1.4">1.4 - 31 May 14</h4>
+			<ul>
+				<li>Added:
+					<ul>
+						<li>www.youtube.com/tv</li>
+						<li>Twitch as a streaming service (thanks to night)</li>
+					</ul>
+				</li>
+				<li>Fixed:
+				<ul>
+					<li>youtube.com (in some case)</li>
+					<li>slacker.com</li>
+					<li>di.fm</li>
+					<li>Nightbot integration (thanks to night)</li>
+				</ul>
+				</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="1.3">1.3 - 26 Apr 14</h4>
+			<ul>
+				<li>Added:
+					<ul>
+						<li>xiami.com</li>
+					</ul>
+				</li>
+				<li>Fixed:
+					<ul>
+						<li>songza.com (thanks to Snowden42)</li>
+					</ul>
+				</li>
+				<li>New option: autoclear file if a music website is closed</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="1.2">1.2 - 13 Apr 14</h4>
+			<ul>
+				<li>Fixed:
+					<ul>
+						<li>plug.dj (thanks to sur0x)</li>
+					</ul>
+				</li>
+				<li>Fixed NightBot integration (thanks to sur0x)</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="1.1">1.1 - 12 Feb 14</h4>
+			<ul>
+				<li>Added:
+					<ul>
+						<li>rdio.com</li>
+					</ul>
+				</li>
+				<li>Fixed:
+					<ul>
+						<li>youtube.com</li>
+					</ul>
+				</li>
+				<li>Added prelimary support of language: fr</li>
+				<li>Fixed shift in text tooltip (in Options)</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="1.0">"Next" version (1.0) - 19 Jan 14</h4>
+			<ul>
+				<li>Added (thanks to CuGBabyBeaR):
+					<ul>
+						<li>play.baidu.com</li>
+						<li>y.qq.com</li>
+						<li>player.kuwo.cn</li>
+					</ul>
+				</li>
+				<li>Fixed:
+					<ul>
+						<li>distortionradio.com (thanks to tuimz)</li>
+						<li>deezer.com (thanks to tuimz)</li>
+						<li>youtube.com (playlist)</li>
+					</ul>
+				</li>
+				<li>Minor reconstruction for i18n (thanks to CuGBabyBeaR)</li>
+				<li>Added supported language: zh_CN (thanks to CuGBabyBeaR)</li>
+				<li>Add the ability to change the filename</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="0.6.1">0.6.1 - 30 Jun 13</h4>
+			<ul>
+				<li>Added piki.fm</li>
+				<li>Fixed 8tracks.com</li>
+				<li>Fixed UTF8/16 saving</li>
+				<li>Fixed max length always appending</li>
+				<li>Improved play.spotify.com</li>
+				<li>Improved empty string detection</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="0.6">0.6 - 29 Jun 13</h4>
+			<ul>
+				<li>Add support for Soundcloud sets</li>
+				<li>Added:
+					<ul>
+						<li>blinkboxmusic.com</li>
+						<li>DistortionRadio.com</li>
+						<li>HypeM.com</li>
+					</ul>
+				</li>
+				<li>Fixed:
+					<ul>
+						<li>play.google.com</li>
+						<li>play.spotify.com</li>
+						<li>Songza.com</li>
+						<li>zaycev.fm</li>
+					</ul>
+				</li>
+				<li>Improved:
+					<ul>
+						<li>Grooveshark.com</li>
+						<li>Jango.com</li>
+						<li>Seoul.fm</li>
+					</ul>
+				</li>
+				<li>Removed:
+					<ul>
+						<li>WE7.com (Rebranded to blinkboxmusic.com)</li>
+					</ul>
+				</li>
+				<li>Nightbot API intergration</li>
+				<li>Use regex for sites that don't split artist and title</li>
+				<li>Improve song/variable max length option</li>
+				<li>Option to output to multiple txt files, alternative to XML</li>
+				<li>Update jquery, sammy and boostrap</li>
+				<li>Code improvements, minimize DOM access</li>
+				<li>Remove own3d support</li>
+				<li>Open changelog page on auto update</li>
+				<li>Updates to documentation</li>
+				<li>Switched NPAPI plugins (from <a target="_blank" href="http://code.google.com/p/npapi-file-io/">npapi-file-io</a> to <a target="_blank" href="https://bitbucket.org/ryanackley/npapi-chrome-file-api/overview">NPAPI-chrome-file-api</a>)</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="0.5">0.5 - 25 May 13</h4>
+			<ul>
+				<li>Added support for:
+					<ul>
+						<li>NightBot.tv</li>
+						<li>play.google.com</li>
+						<li>play.spotify.com</li>
+						<li>Prostopleer.com</li>
+						<li>retro.grooveshark.com</li>
+						<li>Slacker.com</li>
+						<li>TheMusicNinja.com</li>
+						<li>zaycev.fm</li>
+					</ul>
+				</li>
+				<li>Fixed Last.fm localisation</li>
+				<li>Improvements to Soundcloud support</li>
+				<li>Option to disable YouTube parsing</li>
+				<li>Made install/initial configuration slightly more user friendly</li>
+				<li>Added changelog page to options</li>
+				<li>Misc code formatting &amp; other small fixes</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="0.4.1">0.4.1 - 17 Mar 13</h4>
+			<ul>
+				<li>Added missing support site to docs (TuneIn.com)</li>
+				<li>Fixed plain text format validation bug</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="0.4">0.4 - 16 Mar 13</h4>
+			<ul>
+				<li>Added support for:
+					<ul>
+						<li>Jango.com</li>
+						<li>Plug.dj</li>
+						<li>Seoul.fm</li>
+						<li>VK.com</li>
+					</ul>
+				</li>
+				<li>Fixed:
+					<ul>
+						<li>8tracks.com album art</li>
+						<li>TuneIn.com parsing</li>
+						<li>Turntable.fm parsing</li>
+					</ul>
+				</li>
+				<li>Improved:
+					<ul>
+						<li>Deezer.com</li>
+						<li>iHeart.com</li>
+						<li>Youtune.fm</li>
+					</ul>
+				</li>
+				<li>Added more plain text variables (Now more customisable, available variables depend on the site)</li>
+				<li>Added png album art support</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="0.3">0.3 - 27 Jan 13</h4>
+			<ul>
+				<li>Added more supported sites:
+					<ul>
+						<li>8tracks.com</li>
+						<li>Deezer.com</li>
+						<li>iheart.com</li>
+						<li>Last.fm</li>
+						<li>Songza.com</li>
+						<li>TuneIn.com</li>
+						<li>Turntable.fm</li>
+						<li>WE7.com</li>
+					</ul>
+				</li>
+				<li>Auto update</li>
+				<li>Option to download album art</li>
+				<li>own3D stream checking</li>
+				<li>Lots of parsing/misc fixes & improvements</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="0.2">0.2 - 3 Nov 12</h4>
+			<ul>
+				<li>Added support for new GrooveShark</li>
+				<li>Fixed typos &amp; misc</li>
+			</ul>
+			<p>&nbsp;</p>
+			<h4 title="0.1">0.1 - 19 Oct 12</h4>
+			<ul>
+				<li>Intial release</li>
+			</ul>
+			<p>&nbsp;</p>
+		</div>
+		<div id="contact" class="main_content container">
+			<h1 data-i18n="nav_contact"></h1>
+			<p data-i18n="contact_1"></p>
+			<p data-i18n="contact_2"></p>
+		</div>
+	</body>
+</html>
