@@ -950,14 +950,15 @@ $(document).ready(function()
 			var play = artistName + ' - ' + trackName;
 
 
-			nowPlaying(
+			if (last !== play){
+					nowPlaying(
 					{
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
 						albumName  : albumName,
-						albumArt   : albumArt,
 					});
+				}
 
 			}, interval);
 		break;
