@@ -1,5 +1,16 @@
 [Untamed Now Playing Next](https://github.com/Wylk/Untamed-Now-Playing-Next)
 =================
+# **Doesn't work anymore. See [chrome/chromuim npapi deprecation](https://www.chromium.org/developers/npapi-deprecation)** #
+
+**If you really need it, you can still get it working (at least until September 2015) :**
+
+> In April 2015 (Chrome 42) NPAPI support will be disabled by default in Chrome and we will unpublish extensions requiring NPAPI plugins from the Chrome Web Store. All NPAPI plugins will appear as if they are not installed, as they will not appear in the navigator.plugins list nor will they be instantiated (even as a placeholder). Although plugin vendors are working hard to move to alternate technologies, a small number of users still rely on plugins that haven’t completed the transition yet. We will provide an override for advanced users (via chrome://flags/#enable-npapi) and enterprises (via Enterprise Policy) to temporarily re-enable NPAPI (via the page action UI) while they wait for mission-critical plugins to make the transition. In addition, setting any of the plugin Enterprise policies (e.g. EnabledPlugins, PluginsAllowedForUrls) will temporarily re-enable NPAPI.
+
+**You may also considers using other similar tools, like :  
+[SMG now playing](https://obsproject.com/forum/resources/smg-now-playing.46/) (Use external program, support Firefox and Chrome)  
+Or [CurrentSong](https://obsproject.com/forum/resources/currentsong.182/) (Firefox only)**
+
+
 "Untamed Now Playing Next" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. At the moment, this extension is Windows only.
 This version ("Next") is the same as the original with some improvement by me (Wylk).
 
