@@ -1,18 +1,8 @@
-[Untamed Now Playing Next](https://github.com/Wylk/Untamed-Now-Playing-Next)
+[Untamed Now Playing](https://github.com/Wylk/Untamed-Now-Playing-Next)
 =================
-# **Doesn't work anymore. See [chrome/chromuim npapi deprecation](https://www.chromium.org/developers/npapi-deprecation)** #
 
-**If you really need it, you can still get it working (at least until September 2015) :**
-
-> In April 2015 (Chrome 42) NPAPI support will be disabled by default in Chrome and we will unpublish extensions requiring NPAPI plugins from the Chrome Web Store. All NPAPI plugins will appear as if they are not installed, as they will not appear in the navigator.plugins list nor will they be instantiated (even as a placeholder). Although plugin vendors are working hard to move to alternate technologies, a small number of users still rely on plugins that haven’t completed the transition yet. We will provide an override for advanced users (via chrome://flags/#enable-npapi) and enterprises (via Enterprise Policy) to temporarily re-enable NPAPI (via the page action UI) while they wait for mission-critical plugins to make the transition. In addition, setting any of the plugin Enterprise policies (e.g. EnabledPlugins, PluginsAllowedForUrls) will temporarily re-enable NPAPI.
-
-**You may also considers using other similar tools, like :  
-[SMG now playing](https://obsproject.com/forum/resources/smg-now-playing.46/) (Use external program, support Firefox and Chrome)  
-Or [CurrentSong](https://obsproject.com/forum/resources/currentsong.182/) (Firefox only)**
-
-
-"Untamed Now Playing Next" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. At the moment, this extension is Windows only.
-This version ("Next") is the same as the original with some improvement by me (Wylk).
+"Untamed Now Playing" is a Firefox extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played.
+Support Windows / Linux / OSX.
 
 Supported Sites
 --------------------------------------
@@ -56,28 +46,10 @@ Support for more sites will be added over time. If you have a suggestion for a s
 
 Install
 --------------------------------------
-There are a couple of ways to install the extension;
+### Packed extension (v2.0 - Unstable (first time in Firefox))
+1. Download the already packed extension **SOON** [here]()
 
-Important note
-Chrome will now only install extensions from Google’s Web Store and deactivates all other installed extensions.
-As a workaround you should be able to install the extension in dev mode (see "Install the unpacked extension")
-
-For more informations : https://github.com/Wykks/Untamed-Now-Playing-Next/issues/7
-
-### Install the packed extension (v1.4 - Stable)
-1. Download the already packed extension [here](https://dl.dropboxusercontent.com/u/3440078/UNPN_v1.4.crx)
-2. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
-3. Drag and drop the packed extension you downloaded in Step #1.
-4. Click 'continue' on the bottom left of the Chrome window.
-
-### Install the unpacked extension (Under development)
-1. Download the extension from Github [here](https://github.com/Wylk/Untamed-Now-Playing-Next/zipball/master)
-2. Extract the files to a safe place.
-3. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
-4. Tick "Developer mode" on the top right of the page.
-5. Click "Load unpacked extension" and navigate to where you extracted the files in Step #2.
-
-Note, the unpacked extension is from the development repository and thus may contain untested code and have bugs, so it's recommended you use the packed extension, which is always tested before release - unless you don't mind being a guinea pig :).
+Note, the packed extension is from the development repository and thus may contain untested code and have bugs, so it's recommended you use the official extension page on Mozilla Add-ons (AMO) **NOT RELEASED YET**, which is always tested before release - unless you don't mind being a guinea pig :).
 
 Configuration
 --------------------------------------
@@ -89,11 +61,12 @@ Limitations
 --------------------------------------
 At the moment, now playing data is only saved when the song intially plays and is only updated when the next song starts playing. Thus if you stop playing music, the output file will still contain the last song played.
 
-Chrome limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (C:\Users\USERNAME\* or C:\Documents and Settings\USERNAME\*).
+Firefox may limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (C:\Users\USERNAME\* or C:\Documents and Settings\USERNAME\*).
 
 Known Issues
 --------------------------------------
-Chrome under **Windows 8 in Metro mode** doesn't support NPAPI plugins, see [here](http://blog.chromium.org/2012/07/npapi-plug-ins-in-windows-8-metro-mode.html). There is also currently a bug in Chrome which causes NPAPI plugins to not work under **Windows 8 in Desktop mode**. A temporary work around is to run Chrome in Windows 7 compatability mode. This bug has already been reported to the Chrome team and has been confirmed.
+Nightbot support and Stream check feature disabled (not ported to Firefox yet), ask me if you need them !
+
 
 Licence
 --------------------------------------
@@ -102,7 +75,6 @@ This software is provided "AS IS" without warranty of any kind, either expressed
 This software uses the following libraries developed by third parties, and are licenced seperately;
 * [Bootstrap](http://twitter.github.com/bootstrap) (Apache License v2.0)
 * [jQuery](http://jquery.com) (MIT License)
-* [npapi-file-io](http://code.google.com/p/npapi-file-io) (New BSD License)
 * [Sammy.js](http://sammyjs.org) (MIT License)
 
 Additionally, the main icon was designed by [CSS Creme](http://csscreme.com/freeicons/), and icons designed by [FatCow](http://www.fatcow.com/free-icons) are used on the options pages.

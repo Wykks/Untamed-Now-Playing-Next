@@ -1,0 +1,10 @@
+{
+  "name": "unp",
+  "title": "Untamed Now Playing",
+  "id": "jid1-CCXBUPa5pAmTYw",
+  "description": "Save 'now playing' data from music websites locally in TXT/JSON/XML",
+  "author": "Wykks",
+  "license": "CC BY-SA 3.0",
+  "version": "2.0",
+  "icon": "data/ico/main_128.png"
+}

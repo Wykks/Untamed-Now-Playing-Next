@@ -2,8 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Untamed Now Playing Next v1.5 - Options</title>
-		<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<title>Untamed Now Playing v2.0 - Options</title>
+		<link href="third-party/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="icon" type="image/png" href="ico/favicon-16x16.png" sizes="16x16">
 		<style type="text/css">
 			body {
 				padding-top: 40px;
@@ -49,106 +50,103 @@
 				padding-right: 14px;
 			}
 		</style>
-		<script type="text/javascript" src="lib/jquery-2.0.2.min.js"></script>
-		<script type="text/javascript" src="lib/sammy-latest.min.js"></script>
-		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="lib/pages/options.js"></script>
 	</head>
 	<body>
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="#/about"><strong data-i18n="extention_name"></strong> <small>v1.5</small></a>
+					<a class="brand" href="#/about"><strong data-l10n-id="extention_name"></strong> <small>v2.0</small></a>
 					<div class="nav-collapse collapse">
 						<ul class="nav pull-right">
-							<li id="nav-options" class="active"><a href="#/options" data-i18n="nav_options"></a></li>
-							<li id="nav-sites"><a href="#/sites" data-i18n="nav_sites"></a></li>
-							<li id="nav-about"><a href="#/about" data-i18n="nav_about"></a></li>
-							<li id="nav-changelog"><a href="#/changelog" data-i18n="nav_change"></a></li>
-							<li id="nav-contact"><a href="#/contact" data-i18n="nav_contact"></a></li>
+							<li id="nav-options" class="active"><a href="#/options" data-l10n-id="nav_options"></a></li>
+							<li id="nav-sites"><a href="#/sites" data-l10n-id="nav_sites"></a></li>
+							<li id="nav-about"><a href="#/about" data-l10n-id="nav_about"></a></li>
+							<li id="nav-changelog"><a href="#/changelog" data-l10n-id="nav_change"></a></li>
+							<li id="nav-contact"><a href="#/contact" data-l10n-id="nav_contact"></a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div id="options" class="main_content container">
-			<h1 data-i18n="nav_options"></h1>
-			<p data-i18n="opt_des"></p>
-			<p data-i18n="opt_donate"></p>
-			<p data-i18n="opt_donate_2"></p>
+			<h1 data-l10n-id="nav_options"></h1>
+			<p data-l10n-id="opt_des"></p>
+			<p data-l10n-html-id="opt_donate"></p>
+			<p data-l10n-id="opt_donate_2"></p>
 			<table id="options_table" class="table table-bordered table-hover table-condensed">
 				<tr>
-					<td data-i18n="opt_0"></td>
+					<td data-l10n-id="opt_0"></td>
 					<td>
 						<input type="text" id="save_dir" style="width:370px;">
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td data-i18n="opt_1"></td>
+					<td data-l10n-id="opt_1"></td>
 					<td>
 						<select id="save_format" style="width: 150px;">
-							<option value="txt" data-i18n="opt_1_select_txt" selected></option>
-							<option value="json" data-i18n="opt_1_select_json"></option>
-							<option value="xml" data-i18n="opt_1_select_xml"></option>
-							<option value="multi" data-i18n="opt_1_select_multi"></option>
+							<option value="txt" data-l10n-id="opt_1_select_txt" selected></option>
+							<option value="json" data-l10n-id="opt_1_select_json"></option>
+							<option value="xml" data-l10n-id="opt_1_select_xml"></option>
+							<option value="multi" data-l10n-id="opt_1_select_multi"></option>
 						</select>
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="filename_details">
-					<td data-i18n="opt_2"></td>
+					<td data-l10n-id="opt_2"></td>
 					<td>
 						<input type="text" id="filename" style="width:370px;">
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="txt_format_details">
-					<td data-i18n="opt_3"></td>
+					<td data-l10n-id="opt_3"></td>
 					<td>
 						<input type="text" id="txt_format" style="width:370px;">
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td data-i18n="opt_4"></td>
+					<td data-l10n-id="opt_4"></td>
 					<td>
 						<input type="number" id="song_maxlen" min="10" max="256" style="width:100px;">
 						<label class="checkbox inline" style="width:200px;">
-							<input type="checkbox" id="song_maxlen_append" value="1"> <span data-i18n="opt_4_des"></span>
+							<input type="checkbox" id="song_maxlen_append" value="1"> <span data-l10n-id="opt_4_des"></span>
 						</label>
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td data-i18n="opt_5"></td>
+					<td data-l10n-id="opt_5"></td>
 					<td>
 						<label class="checkbox inline">
-							<input type="checkbox" id="album_artwork" value="1"> <span data-i18n="yes"></span>
+							<input type="checkbox" id="album_artwork" value="1"> <span data-l10n-id="yes"></span>
 						</label>
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr>
-					<td data-i18n="opt_6"></td>
+					<td data-l10n-id="opt_6"></td>
 					<td>
 						<label class="checkbox inline">
-							<input type="checkbox" id="disable_youtube" value="0"> <span data-i18n="yes"></span>
+							<input type="checkbox" id="disable_youtube" value="0"> <span data-l10n-id="yes"></span>
 						</label>
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
+				<!-- Nightbot integration and stream check not working (for now)
 				<tr>
-					<td data-i18n="opt_7"></td>
+					<td data-l10n-html-id="opt_7"></td>
 					<td>
 						<label class="checkbox inline">
-							<input type="checkbox" id="nightbot_enable" value="1"> <span data-i18n="yes"></span>
+							<input type="checkbox" id="nightbot_enable" value="1"> <span data-l10n-id="yes"></span>
 						</label>
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="nightbot_details">
-					<td data-i18n="opt_8"></td>
+					<td data-l10n-id="opt_8"></td>
 					<td>
 						<input type="text" id="nightbot_user" placeholder="Username" style="width:30%;">
 						<input type="password" id="nightbot_api_key" placeholder="API Key" style="width:45%;">
@@ -156,53 +154,53 @@
 					</td>
 				</tr>
 				<tr>
-					<td data-i18n="opt_9"></td>
+					<td data-l10n-id="opt_9"></td>
 					<td>
 						<label class="checkbox inline">
-							<input type="checkbox" id="check_live" value="1"> <span data-i18n="yes"></span>
+							<input type="checkbox" id="check_live" value="1"> <span data-l10n-id="yes"></span>
 						</label>
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 				<tr id="stream_details">
-					<td data-i18n="opt_10"></td>
+					<td data-l10n-id="opt_10"></td>
 					<td>
 						<select id="stream_site" style="width: 150px;">
-							<option value="" data-i18n="opt_10_select" selected disabled></option>
-							<option value="justin" data-i18n="opt_10_select_justin"></option>
-							<option value="twitch" data-i18n="opt_10_select_twitch"></option>
+							<option value="" data-l10n-id="opt_10_select" selected disabled></option>
+							<option value="justin" data-l10n-id="opt_10_select_justin"></option>
+							<option value="twitch" data-l10n-id="opt_10_select_twitch"></option>
 						</select>
 						<input type="text" id="stream_user" placeholder="Username">
 						<button class="btn pull-right opt-tt" data-content=""><i class="icon-info-sign"></i></button>
 					</td>
-				</tr>
+				</tr>-->
 				<tr>
-					<td data-i18n="opt_11"></td>
+					<td data-l10n-id="opt_11"></td>
 					<td>
 						<label class="checkbox inline">
-							<input type="checkbox" id="auto_clear" value="0"> <span data-i18n="yes"></span>
+							<input type="checkbox" id="auto_clear" value="0"> <span data-l10n-id="yes"></span>
 						</label>
 						<button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
 					</td>
 				</tr>
 			</table>
 			<p style="text-align:center;">
-				<button class="btn btn-large btn-primary" type="button" id="save_options" data-i18n="save"></button>
+				<button class="btn btn-large btn-primary" type="button" id="save_options" data-l10n-id="save"></button>
 			</p>
 		</div>
 		<div id="sites" class="main_content container">
-			<h1 data-i18n="nav_sites"></h1>
-			<p data-i18n="sites_des"></p>
-			<p data-i18n="sites_des_2"></p>
+			<h1 data-l10n-id="nav_sites"></h1>
+			<p data-l10n-html-id="sites_des"></p>
+			<p data-l10n-html-id="sites_des_2"></p>
 			<table id="sites_table" class="table table-bordered table-hover table-condensed">
 				<thead>
 					<tr>
 						<th>&nbsp;</th>
-						<th data-i18n="sites_th_artist"></th>
-						<th data-i18n="sites_th_title"></th>
-						<th data-i18n="sites_th_duration"></th>
-						<th data-i18n="sites_th_album"></th>
-						<th data-i18n="sites_th_artwork"></th>
+						<th data-l10n-id="sites_th_artist"></th>
+						<th data-l10n-id="sites_th_title"></th>
+						<th data-l10n-id="sites_th_duration"></th>
+						<th data-l10n-id="sites_th_album"></th>
+						<th data-l10n-id="sites_th_artwork"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -496,37 +494,57 @@
 					</tr>
 				</tbody>
 			</table>
-			<small data-i18n="sites_note"></small>
-			<p data-i18n="sites_des3"></p>
-			<h3 data-i18n="sites_var_list"></h3>
-			<pre><strong>%s%</strong> : <span data-i18n="sites_var_s"></span><br><strong>%a%</strong> : <span data-i18n="sites_var_a"></span><br><strong>%e%</strong> : <span data-i18n="sites_var_e"></span><br><strong>%b%</strong> : <span data-i18n="sites_var_b"></span><br><strong>%d%</strong> : <span data-i18n="sites_var_d"></span><br><strong>%t%</strong> : <span data-i18n="sites_var_t"></span><br><strong>%u%</strong> : <span data-i18n="sites_var_u"></span><br><strong>%n%</strong> : <span data-i18n="sites_var_n"></span></pre>
-			<h3 data-i18n="sites_example"></h3>
-			<p data-i18n="sites_example_1"></p>
+			<small data-l10n-id="sites_note"></small>
+			<p data-l10n-id="sites_des3"></p>
+			<h3 data-l10n-id="sites_var_list"></h3>
+			<pre><strong>%s%</strong> : <span data-l10n-id="sites_var_s"></span><br><strong>%a%</strong> : <span data-l10n-id="sites_var_a"></span><br><strong>%e%</strong> : <span data-l10n-id="sites_var_e"></span><br><strong>%b%</strong> : <span data-l10n-id="sites_var_b"></span><br><strong>%d%</strong> : <span data-l10n-id="sites_var_d"></span><br><strong>%t%</strong> : <span data-l10n-id="sites_var_t"></span><br><strong>%u%</strong> : <span data-l10n-id="sites_var_u"></span><br><strong>%n%</strong> : <span data-l10n-id="sites_var_n"></span></pre>
+			<h3 data-l10n-id="sites_example"></h3>
+			<p data-l10n-id="sites_example_1"></p>
 			<pre>%a% - %e% (%b%) [%d%]</pre>
-			<p data-i18n="sites_example_2"></p>
+			<p data-l10n-id="sites_example_2"></p>
 			<pre>Artist - Title (Album) [Duration]</pre>
 		</div>
 		<div id="about" class="main_content container">
-			<h1 data-i18n="nav_about"></h1>
-			<p data-i18n="about_des"></p>
+			<h1 data-l10n-id="nav_about"></h1>
+			<p data-l10n-id="about_des"></p>
 			<!--Maintain supported sites list in 2 different place seems exhausting, So move contact to sites page -->
-			<h3 data-i18n="about_limi"></h3>
-			<p data-i18n="about_limi_1"></p>
-			<p data-i18n="about_limi_2"></p>
-			<h3 data-i18n="about_license"></h3>
-			<p data-i18n="about_license_1"></p>
+			<h3 data-l10n-id="about_limi"></h3>
+			<p data-l10n-id="about_limi_1"></p>
+			<p data-l10n-id="about_limi_2"></p>
+			<h3 data-l10n-id="about_license"></h3>
+			<p data-l10n-html-id="about_license_1"></p>
 			<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a></p>
-			<p data-i18n="about_license_2"></p>
+			<p data-l10n-id="about_license_2"></p>
 			<ul>
-				<li><a target="_blank" href="https://bitbucket.org/ryanackley/npapi-chrome-file-api/overview">NPAPI-chrome-file-api</a> (GNU GPL v2.0)</li>
 				<li><a target="_blank" href="http://twitter.github.com/bootstrap">Bootstrap</a> (Apache License v2.0)</li>
 				<li><a target="_blank" href="http://jquery.com">jQuery</a> (MIT License)</li>
 				<li><a target="_blank" href="http://sammyjs.org">Sammy.js</a> (MIT License)</li>
 			</ul>
-			<p data-i18n="about_license_3"></p>
+			<p data-l10n-html-id="about_license_3"></p>
 		</div>
 		<div id="changelog" class="main_content container">
-			<h1  data-i18n="nav_change"></h1>
+			<h1  data-l10n-id="nav_change"></h1>
+			<p>&nbsp;</p>
+			<h4 title="2.0">2.0 - 25 April 15</h4>
+			<ul>
+				<li>Ported for Firefox (to avoid NPAPI issues) !</li>
+				<li>Now support Linux/OSX/Windows !</li>
+				<li>Added:
+					<ul>
+						<li>JSON support (thanks to Nikki)</li>
+						<li>Proper XML escape support (thanks to Nikki)</li>
+					</ul>
+				</li>
+				<li>Fixed:
+					<ul>
+						<li>Deezer (duration)</li>
+						<li>Soundcloud (thanks to Niller2005)</li>
+					</ul>
+				</li>
+				<li>Language updated: fr_FR (thanks to preovaleo)</li>
+				<li>Nightbot support disabled (not ported yet)</li>
+				<li>Stream check disabled (not ported yet)</li>
+			</ul>
 			<p>&nbsp;</p>
 			<h4 title="1.5">1.5 - 26 Jun 14</h4>
 			<ul>
@@ -765,9 +783,9 @@
 			<p>&nbsp;</p>
 		</div>
 		<div id="contact" class="main_content container">
-			<h1 data-i18n="nav_contact"></h1>
-			<p data-i18n="contact_1"></p>
-			<p data-i18n="contact_2"></p>
+			<h1 data-l10n-id="nav_contact"></h1>
+			<p data-l10n-html-id="contact_1"></p>
+			<p data-l10n-id="contact_2"></p>
 		</div>
 	</body>
 </html>
