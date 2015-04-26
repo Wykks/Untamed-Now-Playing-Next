@@ -354,7 +354,7 @@ function validateOptions()
 				{
 					Alert('error', msg.text);
 				});
-				console.log(status);
+				console.log("UNP: "+ status);
 				reject();
 				return;
 			}
