@@ -46,10 +46,11 @@ Support for more sites will be added over time. If you have a suggestion for a s
 
 Install
 --------------------------------------
-### Packed extension (v2.0 - Unstable (first time in Firefox))
-1. Download the already packed extension **SOON** [here]()
+### Packed extension (v2.0.1)
+Use the official extension page on Mozilla Add-ons (AMO) : [here](https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/)
 
-Note, the packed extension is from the development repository and thus may contain untested code and have bugs, so it's recommended you use the official extension page on Mozilla Add-ons (AMO) **NOT RELEASED YET**, which is always tested before release - unless you don't mind being a guinea pig :).
+### Unpacked extension (Under development)
+Instructions **SOON**
 
 Configuration
 --------------------------------------
