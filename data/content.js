@@ -363,7 +363,7 @@ switch(host)
 						trackName  : trackName,
 						artistName : artistName,
 						albumName  : $('.player-album').text(),
-						albumArt   : 'http:' + $('#playingAlbumArt').attr('src'),
+						albumArt   : $('#playingAlbumArt').attr('src'),
 						duration   : $('#time_container_duration').text(),
 						url        : 'http://play.google.com'
 					});
