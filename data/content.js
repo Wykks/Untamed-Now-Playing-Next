@@ -67,10 +67,15 @@ switch(host)
 		setInterval(function()
 		{
 
-			if ($('#player_control_pause').is(':visible'))
+			if ($('#player .control-pause').length)
 			{
-				var artistName = $('#player_track_artist').slice(0,1).text();
-				var trackName  = $('#player_track_title').slice(0,1).text();
+				var player = $('#player');
+				var artistName;
+				player.find('.player-track-artist > .player-track-link').each(function(i)
+				{
+					i === 0 ? artistName = $(this).text() : artistName += ", " + $(this).text();
+				});
+				var trackName  = player.find('.player-track-title > .player-track-link').text();
 				var play       = artistName + ' - ' + trackName;
 
 				if (last !== play){
@@ -79,7 +84,9 @@ switch(host)
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
-						duration   : $('#player_track_length').text(),
+						albumArt   : player.find('.player-cover > img').attr('src'),
+						duration   : player.find('.progress-length').text(),
+						url        : 'http://www.deezer.com' + player.find('.player-track-title > .player-track-link').data('href')
 					});
 				}
 			}
