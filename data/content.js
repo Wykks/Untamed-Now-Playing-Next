@@ -452,19 +452,21 @@ switch(host)
 		}, interval);
 	break;
 	// seoul.fm iframe
-	case 'yuri.seoul.fm':
-		var artistName = $.trim($('#title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text());
-		var trackName  = $.trim($('#title').find('font').find('b').text());
+	case 'assets.seoul.fm':
+		var artistName = $.trim($('table font:eq(1) > b').text());
+		var trackName  = $.trim($('table font:first > b').text());
 		var play       = artistName + ' - ' + trackName;
 
-		nowPlaying(
-		{
-			nowPlaying : play,
-			trackName  : trackName,
-			artistName : artistName,
-			albumArt   : $('#cpPictureMainSong').attr('src'),
-			url        : 'http://seoul.fm'
-		});
+		if (last !== play){
+			nowPlaying(
+			{
+				nowPlaying : play,
+				trackName  : trackName,
+				artistName : artistName,
+				albumArt   : $('#cpPictureMainSong').attr('src'),
+				url        : 'http://www.seoul.fm'
+			});
+		}
 	break;
 	// radiorecord.ru
 	case 'radiorecord.ru':
