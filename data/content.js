@@ -410,17 +410,16 @@ switch(host)
 			var play = $("#now-playing-media").find('span.bar-value').text();
 			var parse;
 
-			if (parse = parseArtistTitle(play)){
-				var artistName = parse[0];
-				var trackName  = parse[1];
-			}
-			else
-			{
-				var artistName = '?';
-				var trackName  = play;
-			}
-
 			if (last !== play){
+				if (parse = parseArtistTitle(play)){
+					var artistName = parse[0];
+					var trackName  = parse[1];
+				}
+				else
+				{
+					var artistName = '?';
+					var trackName  = play;
+				}
 				nowPlaying(
 				{
 					nowPlaying : play,
@@ -607,6 +606,32 @@ switch(host)
 			}
 		}, interval);
 	break;
+	case 'synchtu.be':
+		setInterval(function(){
+			var selector = $('#queue > .queue_entry.queue_active');
+			var play = selector.children('.qe_title').text();
+			var parse;
+
+			if (last !== play){
+				if (parse = parseArtistTitle(play)){
+					var artistName = parse[0];
+					var trackName  = parse[1];
+				}
+				else
+				{
+					var artistName = '?';
+					var trackName  = play;
+				}
+				nowPlaying(
+				{
+					nowPlaying : play,
+					trackName  : trackName,
+					artistName : artistName,
+					duration   : selector.children('.qe_time').text(),
+					url        : selector.children('.qe_title').attr('href')
+				});
+			}
+		}, interval);
 	case 'themusicninja.com':
 		setInterval(function(){
 			if ($('#player-features').hasClass('tmn_playing')){

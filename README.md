@@ -29,6 +29,7 @@ Supported Sites
 * [slacker.com](http://slacker.com)
 * [songza.com](http://songza.com)
 * [soundcloud.com](http://soundcloud.com)
+* [synchtu.be](http://synchtu.be/r/Playhouse)
 * [themusicninja.com](themusicninja.com)
 * [tunein.com](http://tunein.com)
 * [turntable.fm](http://turntable.fm)
