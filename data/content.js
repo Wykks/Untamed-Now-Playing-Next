@@ -1014,24 +1014,6 @@ function nowPlaying(np)
 	}
 }
 
-function updateNowPlaying(data)
-{
-	self.port.emit('updateNowPlaying', data);
-	return new Promise(function(resolve, reject) {
-		self.port.once('updateNowPlaying', function(status)
-		{
-			if (status === "success")
-			{
-				resolve(status);
-			}
-			else
-			{
-				reject(status);
-			}
-		});
-	});
-}
-
 function parseArtistTitle(input)
 {
 	var match;
@@ -1098,3 +1080,29 @@ function secToHms(sec)
 
 	return ((hours != 0) ? hours + ':' : '') + ((hours != 0 && minutes < 10) ? '0' + minutes : minutes) + ':' + ((seconds < 10) ? '0' + seconds : seconds);
 }
+
+//Firefox specific
+//================
+
+function updateNowPlaying(data)
+{
+	self.port.emit('updateNowPlaying', data);
+	return new Promise(function(resolve, reject) {
+		self.port.once('updateNowPlaying', function(status)
+		{
+			if (status === "success")
+			{
+				resolve(status);
+			}
+			else
+			{
+				reject(status);
+			}
+		});
+	});
+}
+
+self.port.once('shouldClearOnDetach', function()
+{
+	self.port.emit('shouldClearOnDetach', last !== false);
+});
