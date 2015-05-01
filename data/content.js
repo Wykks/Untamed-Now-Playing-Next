@@ -1101,8 +1101,3 @@ function updateNowPlaying(data)
 		});
 	});
 }
-
-self.port.once('shouldClearOnDetach', function()
-{
-	self.port.emit('shouldClearOnDetach', last !== false);
-});
