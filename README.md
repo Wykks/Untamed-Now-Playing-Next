@@ -41,6 +41,7 @@ Supported Sites
 * [player.kuwo.cn](http://player.kuwo.cn)
 * [y.qq.com](http://y.qq.com)
 * [rdio.com](http://www.rdio.com)
+* [radiorecord.ru](http://www.radiorecord.ru/player)
 * [radioultra.ru](http://www.radioultra.ru/player)
 * [xiami.com](http://www.xiami.com/play)
 
@@ -48,7 +49,7 @@ Support for more sites will be added over time. If you have a suggestion for a s
 
 Install
 --------------------------------------
-### Packed extension (v2.0.1)
+### Packed extension (v2.1)
 Use the official extension page on Mozilla Add-ons (AMO) : [here](https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/)
 
 ### Unpacked extension (Under development)
