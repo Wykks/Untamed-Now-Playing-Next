@@ -12,8 +12,6 @@ Supported Sites
 * [deezer.com](http://deezer.com)
 * [di.fm](http://di.fm)
 * [distortionradio.com](http://distortionradio.com)
-* [grooveshark.com](http://grooveshark.com)
-* [retro.grooveshark.com](http://retro.grooveshark.com)
 * [hypem.com](http://hypem.com)
 * [iheart.com](http://iheart.com)
 * [jango.com](http://jango.com)
@@ -49,11 +47,12 @@ Support for more sites will be added over time. If you have a suggestion for a s
 
 Install
 --------------------------------------
-### Packed extension (v2.1)
-Use the official extension page on Mozilla Add-ons (AMO) : [here](https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/)
+### Latest Mozilla reviewed (actually not reviewed yet) version
+On Mozilla Add-ons (AMO) : https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/
 
-### Unpacked extension (Under development)
-Instructions **SOON**
+### Latest unreviewed version:
+Get it here : https://github.com/Wykks/Untamed-Now-Playing-Next/releases.
+Then drag the downloaded file onto a Firefox window.
 
 Configuration
 --------------------------------------
