@@ -92,7 +92,6 @@ pageMod.PageMod(
 		"*.pandora.com",
 		"*.piki.fm",
 		"*.play.google.com",
-		"*.play.spotify.com",
 		"*.plug.dj",
 		"*.prostopleer.com",
 		"*.slacker.com",
@@ -132,7 +131,8 @@ pageMod.PageMod( //Iframe player
 {
     include:
     [
-		/.*assets.seoul.fm\/play\/art.html/
+		/.*assets.seoul.fm\/play\/art.html/,
+		/.*play.spotify.com\/apps\/player.*/,
 	],
 	contentScriptFile:
 	[

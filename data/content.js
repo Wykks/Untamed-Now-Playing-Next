@@ -349,7 +349,7 @@ switch(host)
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
-						albumArt   : $('.sp-image-img').css('background-image').replace('url(','').replace(')',''),
+						albumArt   : $('.sp-image-img').css('background-image').replace('url("','').replace('")',''),
 						duration   : $('#track-length').text(),
 						url        : trackNameSelector.attr('href')
 					});
