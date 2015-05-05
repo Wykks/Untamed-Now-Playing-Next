@@ -130,59 +130,6 @@ switch(host)
 			}
 		}, interval);
 	break;
-	case 'grooveshark.com':
-		setInterval(function(){
-			if ($('#play-pause').hasClass('playing')){
-				var artistName = $('.now-playing-link.artist').attr('title');
-				var trackName  = $('.now-playing-link.song').attr('title');
-				var albumName  = $('.now-playing-link.album');
-				var play       = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					var duration = $('#time-total').text();
-					var albumArt = $('#now-playing-image').attr('src').replace(/(.*)\/([0-9]+)_(.*)\.(jpg|jpeg|png)$/i, '$1/142_$3.$4');
-
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumName  : albumName.attr('title'),
-						albumArt   : (albumArt == 'http://images.gs-cdn.net/static/albums/142_album.png') ? '?' : albumArt,
-						duration   : $('#time-total').text(),
-						url        : 'http://grooveshark.com/' + albumName.attr('href')
-					});
-				}
-			}
-		}, interval);
-	break;
-	case 'retro.grooveshark.com':
-		setInterval(function(){
-			if ($('#playerDetails_current_song').length && $('#player_play_pause').hasClass('pause')){
-				var playerDetails = $('#playerDetails_current_song');
-				var artistName    = playerDetails.find('.artist').attr('title');
-				var trackName     = playerDetails.find('.song').attr('title');
-				var albumName     = playerDetails.find('.album');
-				var play          = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					var duration = $('#player_duration').html();
-					var albumArt = $('.queue-item-active').find('.queue-item-content').find('.queueSong').find('.albumart').find('img').attr('src').replace(/(.*)\/([0-9]+)_(.*)\.(jpg|jpeg|png)$/i, '$1/142_$3.$4');
-
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumName  : albumName.attr('title'),
-						albumArt   : (albumArt == 'http://images.gs-cdn.net/static/albums/142_album.png') ? '?' : albumArt,
-						duration   : ( (duration.substr(0,1) == '0') ? duration.substr(1, duration.length) : duration ),
-						url        : 'http://retro.grooveshark.com/' + albumName.attr('href')
-					});
-				}
-			}
-		}, interval);
-	break;
 	case 'hypem.com':
 		setInterval(function(){
 			if ($('#playerPlay').hasClass('pause')){
