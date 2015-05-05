@@ -50,9 +50,13 @@ Install
 ### Latest Mozilla reviewed (actually not reviewed yet) version
 On Mozilla Add-ons (AMO) : https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/
 
-### Latest unreviewed version:
+### Latest unreviewed release:
 Get it here : https://github.com/Wykks/Untamed-Now-Playing-Next/releases.
-Then drag the downloaded file onto a Firefox window.
+Then drag the downloaded file onto a Firefox extension page (about:addons).
+
+### Latest dev version:
+Get it here : https://www.dropbox.com/s/va4q249lwfl3b4n/unp_dev.xpi?dl=1
+Then drag the downloaded file onto a Firefox extension page (about:addons).
 
 Configuration
 --------------------------------------
