@@ -93,20 +93,25 @@ switch(host)
 		}, interval);
 	break;
 	case 'di.fm':
-		setInterval(function(){
-			if ($('#ctl-play > i').hasClass('icon-stop')){
-				var play    = $('#now-playing .title').text();
+		setInterval(function() {
+			var selector = $('#webplayer-region .track-region');
+			if (selector.find('.icon-pause').length) {
+				var artistName = selector.find('.artist-name').text().match(/(.+) -/);
+				if (!artistName)
+					return;
+				artistName = artistName[1];
+				var trackName  = $.trim(selector.find('.track-name').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text());
+				var play       = artistName + ' - ' + trackName;
 
 				if (last !== play){
-					var remainingTime = $('.timestamps .remaining').text();
-					var matches = play.match('^(.+) - (.+)$');
 					nowPlaying(
 					{
 						nowPlaying : play,
-						trackName  : matches[2],
-						artistName : matches[1],
-						albumArt   : $('#art').find('img').attr('src'),
-						duration   : (remainingTime == '') ? $('.timestamps .elapsed').text() : secToHms(hmsToSec(remainingTime.substr(1,remainingTime.length)) + hmsToSec($('.timestamps .elapsed').text()))
+						trackName  : trackName,
+						artistName : artistName,
+						albumArt   : "http:" + selector.find('.artwork img').attr('src'),
+						duration   : selector.find('.progress .timecode').text().match(/(.+) \/ (.+)/)[2],
+						url        : selector.find('.track-name').attr('href')
 					});
 				}
 			}
