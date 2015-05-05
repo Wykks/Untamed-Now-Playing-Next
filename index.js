@@ -5,7 +5,7 @@ var self = require("sdk/self");
 var ss = require("sdk/simple-storage");
 var system = require("sdk/system");
 var _ = require("sdk/l10n").get;
-var nowPlayingIO = require("nowPlayingIO");
+var nowPlayingIO = require("./lib/nowPlayingIO");
 
 var button = buttons.ActionButton(
 {
