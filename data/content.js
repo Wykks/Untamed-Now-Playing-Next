@@ -109,7 +109,7 @@ switch(host)
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
-						albumArt   : "http:" + selector.find('.artwork img').attr('src'),
+						albumArt   : "http:" + selector.find('.artwork img').attr('src').match(/(.+)\?/)[1],
 						duration   : selector.find('.progress .timecode').text().match(/(.+) \/ (.+)/)[2],
 						url        : selector.find('.track-name').attr('href')
 					});
