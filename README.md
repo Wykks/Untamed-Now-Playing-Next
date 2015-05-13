@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 [Untamed Now Playing Next](https://github.com/Wylk/Untamed-Now-Playing-Next)
 =================
 "Untamed Now Playing Next" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. At the moment, this extension is Windows only.
 This version ("Next") is the same as the original with some improvement by me (Wylk).
+=======
+[Untamed Now Playing](https://github.com/Wylk/Untamed-Now-Playing-Next)
+=================
+
+"Untamed Now Playing" is a Firefox extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played.
+Support Windows / Linux / OSX.
+>>>>>>> 34a674345b515745c4eed9ec19456da8eb93a086
 
 Supported Sites
 --------------------------------------
@@ -11,8 +19,6 @@ Supported Sites
 * [deezer.com](http://deezer.com)
 * [di.fm](http://di.fm)
 * [distortionradio.com](http://distortionradio.com)
-* [grooveshark.com](http://grooveshark.com)
-* [retro.grooveshark.com](http://retro.grooveshark.com)
 * [hypem.com](http://hypem.com)
 * [iheart.com](http://iheart.com)
 * [jango.com](http://jango.com)
@@ -28,6 +34,7 @@ Supported Sites
 * [slacker.com](http://slacker.com)
 * [songza.com](http://songza.com)
 * [soundcloud.com](http://soundcloud.com)
+* [synchtu.be](http://synchtu.be/r/Playhouse)
 * [themusicninja.com](themusicninja.com)
 * [tunein.com](http://tunein.com)
 * [turntable.fm](http://turntable.fm)
@@ -39,6 +46,10 @@ Supported Sites
 * [player.kuwo.cn](http://player.kuwo.cn)
 * [y.qq.com](http://y.qq.com)
 * [rdio.com](http://www.rdio.com)
+<<<<<<< HEAD
+=======
+* [radiorecord.ru](http://www.radiorecord.ru/player)
+>>>>>>> 34a674345b515745c4eed9ec19456da8eb93a086
 * [radioultra.ru](http://www.radioultra.ru/player)
 * [xiami.com](http://www.xiami.com/play)
 
@@ -46,6 +57,7 @@ Support for more sites will be added over time. If you have a suggestion for a s
 
 Install
 --------------------------------------
+<<<<<<< HEAD
 There are a couple of ways to install the extension;
 
 Important note
@@ -61,8 +73,18 @@ For more informations : https://github.com/Wykks/Untamed-Now-Playing-Next/issues
 3. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
 4. Tick "Developer mode" on the top right of the page.
 5. Click "Load unpacked extension" and navigate to where you extracted the files in Step #2.
+=======
+### Latest Mozilla reviewed (actually not reviewed yet) version
+On Mozilla Add-ons (AMO) : https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/
 
-Note, the unpacked extension is from the development repository and thus may contain untested code and have bugs, so it's recommended you use the packed extension, which is always tested before release - unless you don't mind being a guinea pig :).
+### Latest unreviewed release:
+Get it here : https://github.com/Wykks/Untamed-Now-Playing-Next/releases.
+Then drag the downloaded file onto a Firefox extension page (about:addons).
+>>>>>>> 34a674345b515745c4eed9ec19456da8eb93a086
+
+### Latest dev version:
+Get it here : https://www.dropbox.com/s/va4q249lwfl3b4n/unp_dev.xpi?dl=1
+Then drag the downloaded file onto a Firefox extension page (about:addons).
 
 Configuration
 --------------------------------------
@@ -74,11 +96,12 @@ Limitations
 --------------------------------------
 At the moment, now playing data is only saved when the song intially plays and is only updated when the next song starts playing. Thus if you stop playing music, the output file will still contain the last song played.
 
-Chrome limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (C:\Users\USERNAME\* or C:\Documents and Settings\USERNAME\*).
+Firefox may limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (C:\Users\USERNAME\* or C:\Documents and Settings\USERNAME\*).
 
 Known Issues
 --------------------------------------
-Chrome under **Windows 8 in Metro mode** doesn't support NPAPI plugins, see [here](http://blog.chromium.org/2012/07/npapi-plug-ins-in-windows-8-metro-mode.html). There is also currently a bug in Chrome which causes NPAPI plugins to not work under **Windows 8 in Desktop mode**. A temporary work around is to run Chrome in Windows 7 compatability mode. This bug has already been reported to the Chrome team and has been confirmed.
+Nightbot support and Stream check feature disabled (not ported to Firefox yet), ask me if you need them !
+
 
 Licence
 --------------------------------------
@@ -87,7 +110,6 @@ This software is provided "AS IS" without warranty of any kind, either expressed
 This software uses the following libraries developed by third parties, and are licenced seperately;
 * [Bootstrap](http://twitter.github.com/bootstrap) (Apache License v2.0)
 * [jQuery](http://jquery.com) (MIT License)
-* [npapi-file-io](http://code.google.com/p/npapi-file-io) (New BSD License)
 * [Sammy.js](http://sammyjs.org) (MIT License)
 
 Additionally, the main icon was designed by [CSS Creme](http://csscreme.com/freeicons/), and icons designed by [FatCow](http://www.fatcow.com/free-icons) are used on the options pages.

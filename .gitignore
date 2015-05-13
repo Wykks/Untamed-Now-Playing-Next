@@ -1,3 +1,8 @@
 /nbproject/private/
 nbproject/project.properties
+<<<<<<< HEAD
 nbproject/project.xml
+=======
+nbproject/project.xml
+*.xpi
+>>>>>>> 34a674345b515745c4eed9ec19456da8eb93a086
