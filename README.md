@@ -1,8 +1,15 @@
+<<<<<<< HEAD
+[Untamed Now Playing Next](https://github.com/Wylk/Untamed-Now-Playing-Next)
+=================
+"Untamed Now Playing Next" is a Chrome extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played. At the moment, this extension is Windows only.
+This version ("Next") is the same as the original with some improvement by me (Wylk).
+=======
 [Untamed Now Playing](https://github.com/Wylk/Untamed-Now-Playing-Next)
 =================
 
 "Untamed Now Playing" is a Firefox extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played.
 Support Windows / Linux / OSX.
+>>>>>>> 34a674345b515745c4eed9ec19456da8eb93a086
 
 Supported Sites
 --------------------------------------
@@ -39,7 +46,10 @@ Supported Sites
 * [player.kuwo.cn](http://player.kuwo.cn)
 * [y.qq.com](http://y.qq.com)
 * [rdio.com](http://www.rdio.com)
+<<<<<<< HEAD
+=======
 * [radiorecord.ru](http://www.radiorecord.ru/player)
+>>>>>>> 34a674345b515745c4eed9ec19456da8eb93a086
 * [radioultra.ru](http://www.radioultra.ru/player)
 * [xiami.com](http://www.xiami.com/play)
 
@@ -47,12 +57,30 @@ Support for more sites will be added over time. If you have a suggestion for a s
 
 Install
 --------------------------------------
+<<<<<<< HEAD
+There are a couple of ways to install the extension;
+
+Important note
+Chrome will now only install extensions from Google’s Web Store and deactivates all other installed extensions.
+As a workaround you should be able to install the extension in dev mode (see "Install the unpacked extension")
+
+For more informations : https://github.com/Wykks/Untamed-Now-Playing-Next/issues/7
+
+
+### Install the unpacked extension (Under development)
+1. Download the extension from Github [here](https://github.com/Niller2005/Untamed-Now-Playing-Next/archive/master.zip)
+2. Extract the files to a safe place.
+3. Open Chrome, click on the Spanner/Wrench icon -> Tools -> Extensions.
+4. Tick "Developer mode" on the top right of the page.
+5. Click "Load unpacked extension" and navigate to where you extracted the files in Step #2.
+=======
 ### Latest Mozilla reviewed (actually not reviewed yet) version
 On Mozilla Add-ons (AMO) : https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/
 
 ### Latest unreviewed release:
 Get it here : https://github.com/Wykks/Untamed-Now-Playing-Next/releases.
 Then drag the downloaded file onto a Firefox extension page (about:addons).
+>>>>>>> 34a674345b515745c4eed9ec19456da8eb93a086
 
 ### Latest dev version:
 Get it here : https://www.dropbox.com/s/va4q249lwfl3b4n/unp_dev.xpi?dl=1
