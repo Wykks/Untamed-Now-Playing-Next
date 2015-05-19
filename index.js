@@ -92,6 +92,7 @@ pageMod.PageMod(
 		"*.pandora.com",
 		"*.piki.fm",
 		"*.play.google.com",
+		"*.player.siriusxm.com",
 		"*.plug.dj",
 		"*.prostopleer.com",
 		"*.slacker.com",

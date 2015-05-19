@@ -21,6 +21,7 @@ Supported Sites
 * [piki.fm](http://piki.fm)
 * [play.google.com](http://play.google.com)
 * [play.spotify.com](http://play.spotify.com)
+* [player.siriusxm.com](http://player.siriusxm.com)
 * [plug.dj](http://plug.dj)
 * [prostopleer.com](prostopleer.com)
 * [seoul.fm](http://seoul.fm)

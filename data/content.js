@@ -357,6 +357,28 @@ switch(host)
 			}
 		}, interval);
 	break;
+	case 'player.siriusxm.com':
+		setInterval(function(){
+			if ($('#player .scrub-controls .RegularPause').is(':visible')){
+
+				var selector          = $('#nowPlaying .content-type-music-view > div:nth-child(3)');
+				var trackName         = $.trim(selector.children('.np-track-artist').children().eq(2).text());
+				var artistName        = $.trim(selector.children('.np-track-artist').children().eq(0).text());
+
+				var play              = artistName + ' - ' + trackName;
+
+				if (last !== play){
+					nowPlaying(
+					{
+						nowPlaying : play,
+						trackName  : trackName,
+						artistName : artistName,
+						albumArt   : selector.children('.np-track-art').children().attr('src')
+					});
+				}
+			}
+		}, interval);
+	break;
 	case 'plug.dj':
 		setInterval(function(){
 			var play = $("#now-playing-media").find('span.bar-value').text();
