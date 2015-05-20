@@ -90,7 +90,6 @@ pageMod.PageMod(
 		"*.lastfm.com.tr",
 		"*.nightbot.tv",
 		"*.pandora.com",
-		"*.piki.fm",
 		"*.play.google.com",
 		"*.player.siriusxm.com",
 		"*.plug.dj",
