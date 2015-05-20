@@ -93,7 +93,7 @@ pageMod.PageMod(
 		"*.play.google.com",
 		"*.player.siriusxm.com",
 		"*.plug.dj",
-		"*.prostopleer.com",
+		"*.pleer.com",
 		"*.slacker.com",
 		"*.songza.com",
 		"*.soundcloud.com",

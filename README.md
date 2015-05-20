@@ -23,7 +23,7 @@ Supported Sites
 * [play.spotify.com](http://play.spotify.com)
 * [player.siriusxm.com](http://player.siriusxm.com)
 * [plug.dj](http://plug.dj)
-* [prostopleer.com](prostopleer.com)
+* [pleer.com](http://pleer.com)
 * [seoul.fm](http://seoul.fm)
 * [slacker.com](http://slacker.com)
 * [songza.com](http://songza.com)
