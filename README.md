@@ -19,7 +19,7 @@ Supported Sites
 * [nightbot.tv](http://nightbot.tv)
 * [pandora.com](http://pandora.com)
 * [piki.fm](http://piki.fm)
-* [play.google.com](http://play.google.com)
+* [play.google.com](http://play.google.com/music)
 * [play.spotify.com](http://play.spotify.com)
 * [player.siriusxm.com](http://player.siriusxm.com)
 * [plug.dj](http://plug.dj)
