@@ -31,7 +31,6 @@ Supported Sites
 * [synchtu.be](http://synchtu.be/r/Playhouse)
 * [themusicninja.com](themusicninja.com)
 * [tunein.com](http://tunein.com)
-* [turntable.fm](http://turntable.fm)
 * [vk.com](http://vk.com)
 * [youtube.com](http://youtube.com)
 * [youtube.com/tv](http://youtube.com/tv)

@@ -101,7 +101,6 @@ pageMod.PageMod(
 		/.*synchtu.be\/r\/Playhouse.*/,
 		"*.themusicninja.com",
 		"*.tunein.com",
-		"*.turntable.fm",
 		"*.vk.com",
 		"*.youtube.com",
 		"*.zaycev.fm",
