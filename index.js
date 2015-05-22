@@ -131,7 +131,7 @@ pageMod.PageMod( //Iframe player
     include:
     [
 		/.*assets.seoul.fm\/play\/art.html/,
-		/.*play.spotify.com\/apps\/player.*/,
+		/.*playe?r?.spotify.com\/apps\/player.*/,
 	],
 	contentScriptFile:
 	[
