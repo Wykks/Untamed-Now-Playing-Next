@@ -947,23 +947,68 @@ function nowPlaying(np)
 		var minutes     = currentTime.getMinutes();
 		var	hours       = currentTime.getHours();
 
-		updateNowPlaying(
+		if (self.options.prefs.unpAlbumArtwork && (!empty(np.albumArt) && np.albumArt.substring(0,4) == 'http'))
 		{
-			nowPlaying  : np.nowPlaying,
-			duration    : ( (!empty(np.duration)) ? np.duration : '?' ),
-			trackName   : ( (!empty(np.trackName)) ? np.trackName : '?' ),
-			artistName  : ( (!empty(np.artistName)) ? np.artistName : '?' ),
-			albumName   : ( (!empty(np.albumName)) ? np.albumName : '?' ),
-			albumArt    : ( (!empty(np.albumArt) && np.albumArt.substring(0,4) == 'http') ? np.albumArt : '?' ),
-			timeStarted : ( (hours < 10) ? '0' + hours : hours ) + ':' + ( (minutes < 10) ? '0' + minutes : minutes ),
-			url         : ( (!empty(np.url)) ? np.url : window.location.href ),
-		}).then(function()
-		{
-			console.log('UNP: Now Playing Success');
-		}, function(reason) {
-			console.log('UNP: Now Playing Error - ' + reason);
-		});
+			getAlbumArtBlob(np.albumArt).then(function(albumArtBase64)
+			{
+				preUpdateNowPlaying(np, minutes, hours, albumArtBase64);
+			});
+			return;
+		}
+		preUpdateNowPlaying(np, minutes, hours, null);
 	}
+}
+
+function preUpdateNowPlaying(np, minutes, hours, albumArtBase64)
+{
+	updateNowPlaying(
+	{
+		nowPlaying  : np.nowPlaying,
+		duration    : ( (!empty(np.duration)) ? np.duration : '?' ),
+		trackName   : ( (!empty(np.trackName)) ? np.trackName : '?' ),
+		artistName  : ( (!empty(np.artistName)) ? np.artistName : '?' ),
+		albumName   : ( (!empty(np.albumName)) ? np.albumName : '?' ),
+		albumArtBase64: albumArtBase64,
+		timeStarted : ( (hours < 10) ? '0' + hours : hours ) + ':' + ( (minutes < 10) ? '0' + minutes : minutes ),
+		url         : ( (!empty(np.url)) ? np.url : window.location.href ),
+	}).then(function()
+	{
+		console.log('UNP: Now Playing Success');
+	}, function(reason) {
+		console.log('UNP: Now Playing Error - ' + reason);
+	});
+}
+
+function getAlbumArtBlob(src)
+{
+	var canvas = document.createElement("canvas");
+	var context = canvas.getContext("2d");
+	var img = new Image();
+	img.src = src;
+	
+	return new Promise(function(resolve, reject)
+	{
+		$(img).load(function(res, status, xhr)
+		{
+			if (status == "error") {
+				reject(xhr.status + " " + xhr.statusText);
+				return;
+			}
+			canvas.width = img.width;
+			canvas.height = img.height;
+			context.drawImage(this, 0, 0);
+			var data = null;
+			try
+			{
+				data = canvas.toDataURL();
+			}
+			catch (e)
+			{
+				console.log('UNP: ' + e.message);
+			}
+			resolve(data);
+		});
+	});
 }
 
 function parseArtistTitle(input)
