@@ -287,9 +287,9 @@ switch(host)
 	break;
 	case 'play.google.com':
 		setInterval(function(){
-			if ($('button.playing[data-id="play-pause"]').length){
+			if ($('sj-icon-button.playing[data-id="play-pause"]').length){
 				var artistName = $('#player-artist').text();
-				var trackName  = $('#playerSongTitle').text();
+				var trackName  = $('#player-song-title').text();
 				var play       = artistName + ' - ' + trackName;
 
 				if (last !== play){
