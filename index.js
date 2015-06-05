@@ -76,7 +76,6 @@ pageMod.PageMod(
 		"*.distortionradio.com",
 		"*.hypem.com",
 		"*.iheart.com",
-		"*.jango.com",
 		"*.last.fm",
 		"*.lastfm.de",
 		"*.lastfm.es",
@@ -132,6 +131,7 @@ pageMod.PageMod( //Iframe player
     [
 		/.*assets.seoul.fm\/play\/art.html/,
 		/.*playe?r?.spotify.com\/apps\/player.*/,
+		"*.jango.com",
 	],
 	contentScriptFile:
 	[

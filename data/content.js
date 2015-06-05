@@ -181,7 +181,7 @@ switch(host)
 		setInterval(function(){
 			if ($('#btn-playpause').hasClass('pause')){
 				var artistName = $('#player_current_artist').find('a').text();
-				var trackName  = $('#current-song').find('a').text();
+				var trackName  = $.trim($('#current-song').text());
 				var play       = artistName + ' - ' + trackName;
 
 				if (last !== play){
@@ -190,9 +190,8 @@ switch(host)
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
-						albumName  : $.trim($('#player_current_artist').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text()),
 						albumArt   : $('#player_main_pic_img').attr('src'),
-						url        : 'http://jango.com' + $('#station_info').find('a').attr('href')
+						url        : 'http://www.jango.com' + $('#station_info').find('a').attr('href')
 					});
 				}
 			}
