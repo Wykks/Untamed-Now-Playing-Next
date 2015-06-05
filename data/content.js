@@ -605,17 +605,17 @@ switch(host)
 	break;
 	case 'tunein.com':
 		setInterval(function(){
-			if ($('.playbutton-cont').find('a').hasClass('playing')){
-				var play = $('.line1').text();
+			if ($('#tuner').hasClass('playing')){
+				var play = $('#tuner div.line1').text();
 				var parse;
 
 				if (parse = parseArtistTitle(play)){
 					var artistName = parse[1];
-					var trackName  = parse[0] + ' [' + $('.line2').find('.title').text() + ']';
+					var trackName  = parse[0] + ' [' + $('#tuner div.line2 > .title').text() + ']';
 				}
 				else
 				{
-					var artistName = $('.line2').find('.title').text();
+					var artistName = $('#tuner div.line2 > .title').text();
 					var trackName  = play;
 				}
 
@@ -625,7 +625,7 @@ switch(host)
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
-						albumArt   : $('.image').find('img').attr('src')
+						albumArt   : $('.image > img').attr('src')
 					});
 				}
 			}
