@@ -306,6 +306,7 @@ switch(host)
 			}
 		}, interval);
 	break;
+	case 'player.spotify.com':
 	case 'play.spotify.com':
 		setInterval(function(){
 			if ($('#play-pause').hasClass('playing')){
