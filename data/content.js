@@ -30,8 +30,8 @@ switch(host)
 	case 'ah.fm':
 		setInterval(function(){
 			if ($('.now_playing').length && $('#pause').is(':visible')){
-				var play    = $('.now_playing > div > .blank').text();
-				var matches = play.match('^(.+) - (.+) on AH.FM$');
+				var play    = $('.now_playing > .status > a').text();
+				var matches = play.match('^(.+) - (.+) on AH.FM.*$');
 
 				if (last !== play){
 					nowPlaying(

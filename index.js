@@ -68,7 +68,7 @@ pageMod.PageMod(
     include:
     [
         "*.8tracks.com",
-		"*.ah.fm",
+		/.*ah.fm\/player\/.*/,
 		"*.blinkboxmusic.co",
 		"*.blinkboxmusic.com",
 		"*.deezer.com",
