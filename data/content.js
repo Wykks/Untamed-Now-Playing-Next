@@ -380,7 +380,7 @@ switch(host)
 			}
 		}, interval);
 	break;
-	case 'prostopleer.com':
+	case 'pleer.com':
 		setInterval(function(){
 			if ($('#play').hasClass('pause')){
 				var nPSelector = $.trim($('.now-playing').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text()).match(/^(.+) \u2014 (.+) \((.+)\)$/);
@@ -395,7 +395,7 @@ switch(host)
 						trackName  : trackName,
 						artistName : artistName,
 						duration   : secToHms(hmsToSec(nPSelector[3])),
-						url        : 'http://prostopleer.com/tracks/' + $('li.current').attr('link')
+						url        : 'http://pleer.com/tracks/' + $('li.current').attr('link')
 					});
 				}
 			}
