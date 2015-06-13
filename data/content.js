@@ -120,18 +120,19 @@ switch(host)
 	case 'distortionradio.com':
 		setInterval(function()
 		{
-			var currentPlaying = $('.item_info').slice(0,1);
-			var artistName     = currentPlaying.find('.artist').text();
-			var trackName      = currentPlaying.find('.title').text();
-			var play           = artistName + ' - ' + trackName;
+			if ($('#pause').length){
+				var artistName     = $('#current_artist > a').text();
+				var trackName      = $('#current_title').text();
+				var play           = artistName + ' - ' + trackName;
 
-			if (last !== play){
-				nowPlaying(
-				{
-					nowPlaying : play,
-					trackName  : artistName,
-					artistName : trackName,
-				});
+				if (last !== play){
+					nowPlaying(
+					{
+						nowPlaying : play,
+						trackName  : trackName,
+						artistName : artistName,
+					});
+				}
 			}
 		}, interval);
 	break;
