@@ -30,8 +30,8 @@ switch(host)
 	case 'ah.fm':
 		setInterval(function(){
 			if ($('.now_playing').length && $('#pause').is(':visible')){
-				var play    = $('.now_playing > div > .blank').text();
-				var matches = play.match('^(.+) - (.+) on AH.FM$');
+				var play    = $('.now_playing > .status > a').text();
+				var matches = play.match('^(.+) - (.+) on AH.FM.*$');
 
 				if (last !== play){
 					nowPlaying(
@@ -120,18 +120,19 @@ switch(host)
 	case 'distortionradio.com':
 		setInterval(function()
 		{
-			var currentPlaying = $('.item_info').slice(0,1);
-			var artistName     = currentPlaying.find('.artist').text();
-			var trackName      = currentPlaying.find('.title').text();
-			var play           = artistName + ' - ' + trackName;
+			if ($('#pause').length){
+				var artistName     = $('#current_artist > a').text();
+				var trackName      = $('#current_title').text();
+				var play           = artistName + ' - ' + trackName;
 
-			if (last !== play){
-				nowPlaying(
-				{
-					nowPlaying : play,
-					trackName  : artistName,
-					artistName : trackName,
-				});
+				if (last !== play){
+					nowPlaying(
+					{
+						nowPlaying : play,
+						trackName  : trackName,
+						artistName : artistName,
+					});
+				}
 			}
 		}, interval);
 	break;
@@ -181,7 +182,7 @@ switch(host)
 		setInterval(function(){
 			if ($('#btn-playpause').hasClass('pause')){
 				var artistName = $('#player_current_artist').find('a').text();
-				var trackName  = $('#current-song').find('a').text();
+				var trackName  = $.trim($('#current-song').text());
 				var play       = artistName + ' - ' + trackName;
 
 				if (last !== play){
@@ -190,9 +191,8 @@ switch(host)
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
-						albumName  : $.trim($('#player_current_artist').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text()),
 						albumArt   : $('#player_main_pic_img').attr('src'),
-						url        : 'http://jango.com' + $('#station_info').find('a').attr('href')
+						url        : 'http://www.jango.com' + $('#station_info').find('a').attr('href')
 					});
 				}
 			}
@@ -287,9 +287,9 @@ switch(host)
 	break;
 	case 'play.google.com':
 		setInterval(function(){
-			if ($('button.playing[data-id="play-pause"]').length){
+			if ($('sj-icon-button.playing[data-id="play-pause"]').length){
 				var artistName = $('#player-artist').text();
-				var trackName  = $('#playerSongTitle').text();
+				var trackName  = $('#player-song-title').text();
 				var play       = artistName + ' - ' + trackName;
 
 				if (last !== play){
@@ -307,6 +307,7 @@ switch(host)
 			}
 		}, interval);
 	break;
+	case 'player.spotify.com':
 	case 'play.spotify.com':
 		setInterval(function(){
 			if ($('#play-pause').hasClass('playing')){
@@ -380,7 +381,7 @@ switch(host)
 			}
 		}, interval);
 	break;
-	case 'prostopleer.com':
+	case 'pleer.com':
 		setInterval(function(){
 			if ($('#play').hasClass('pause')){
 				var nPSelector = $.trim($('.now-playing').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text()).match(/^(.+) \u2014 (.+) \((.+)\)$/);
@@ -395,7 +396,7 @@ switch(host)
 						trackName  : trackName,
 						artistName : artistName,
 						duration   : secToHms(hmsToSec(nPSelector[3])),
-						url        : 'http://prostopleer.com/tracks/' + $('li.current').attr('link')
+						url        : 'http://pleer.com/tracks/' + $('li.current').attr('link')
 					});
 				}
 			}
@@ -605,17 +606,17 @@ switch(host)
 	break;
 	case 'tunein.com':
 		setInterval(function(){
-			if ($('.playbutton-cont').find('a').hasClass('playing')){
-				var play = $('.line1').text();
+			if ($('#tuner').hasClass('playing')){
+				var play = $('#tuner div.line1').text();
 				var parse;
 
 				if (parse = parseArtistTitle(play)){
 					var artistName = parse[1];
-					var trackName  = parse[0] + ' [' + $('.line2').find('.title').text() + ']';
+					var trackName  = parse[0] + ' [' + $('#tuner div.line2 > .title').text() + ']';
 				}
 				else
 				{
-					var artistName = $('.line2').find('.title').text();
+					var artistName = $('#tuner div.line2 > .title').text();
 					var trackName  = play;
 				}
 
@@ -625,7 +626,7 @@ switch(host)
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
-						albumArt   : $('.image').find('img').attr('src')
+						albumArt   : $('.image > img').attr('src')
 					});
 				}
 			}
