@@ -8,6 +8,14 @@
   "engines": {
     "firefox": ">=38.0a1"
   },
-  "license": "CC BY-SA 3.0"
+  "license": "CC BY-SA 3.0",
+  "permissions": {
+    "cross-domain-content":
+    [
+    	"http://www.zaycev.fm",
+    	"http://userserve-ak.last.fm",
+    	"http://rdio1img-a.akamaihd.net"
+    ]
+  }
 }
 

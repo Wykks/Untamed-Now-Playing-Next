@@ -985,6 +985,7 @@ function getAlbumArtBlob(src)
 	var canvas = document.createElement("canvas");
 	var context = canvas.getContext("2d");
 	var img = new Image();
+	//img.crossOrigin = "Anonymous";
 	img.src = src;
 	
 	return new Promise(function(resolve, reject)
@@ -995,13 +996,13 @@ function getAlbumArtBlob(src)
 				reject(xhr.status + " " + xhr.statusText);
 				return;
 			}
-			canvas.width = img.width;
-			canvas.height = img.height;
+			canvas.width = this.width;
+			canvas.height = this.height;
 			context.drawImage(this, 0, 0);
 			var data = null;
 			try
 			{
-				data = canvas.toDataURL();
+				data = canvas.toDataURL('image/jpeg');
 			}
 			catch (e)
 			{
