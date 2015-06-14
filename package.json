@@ -6,7 +6,7 @@
   "description": "Save 'now playing' data from music websites locally in TXT/JSON/XML",
   "author": "Wykks",
   "engines": {
-    "firefox": ">=38"
+    "firefox": ">=38.0a1"
   },
   "license": "CC BY-SA 3.0"
 }
