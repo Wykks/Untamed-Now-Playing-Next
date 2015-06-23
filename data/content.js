@@ -3,6 +3,101 @@ var interval = 10000;
 
 var host = window.location.host.replace('www.', '');
 
+var inheritsFrom = function (child, parent) {
+   child.prototype = Object.create(parent.prototype);
+   child.prototype.constructor = child;
+};
+
+function runTrackListenerInterval(listener) {
+	setInterval(function() {
+		if (listener.isPlaying()) {
+			listener.findSelector();
+			listener.scrapPlayData();
+			var play = listener.artistName + ' - ' + listener.trackName;
+			if (play !== listener.play) {
+				listener.play = play;
+				nowPlaying(
+				{
+					nowPlaying : play,
+					trackName  : trackName,
+					artistName : artistName,
+					albumName  : listener.scrapAlbumName(),
+					albumArt   : listener.scrapAlbumArt(),
+					url        : listener.scrapUrl(),
+					duration   : listener.scrapDuration()
+				});
+			}
+		}
+	}, interval);
+};
+
+var WebsiteTrackListener = function() {
+		this.play = "";
+		this.artistName = "";
+		this.trackName = "";
+		this.selector = undefined;
+};
+WebsiteTrackListener.prototype.isPlaying = function() { return true; };
+WebsiteTrackListener.prototype.scrapAlbumName = function() { return ""; };
+WebsiteTrackListener.prototype.scrapAlbumArt = function() { return ""; };
+WebsiteTrackListener.prototype.scrapUrl = function() { return ""; };
+WebsiteTrackListener.prototype.scrapDuration = function() { return ""; };
+WebsiteTrackListener.prototype.scrapPlayData = function() { throw new Error("Not implemented"); };
+WebsiteTrackListener.prototype.findSelector = function() { };
+
+//---play.spotify.com
+var SpotifyTrackListener = function() {};
+inheritsFrom(SpotifyTrackListener, WebsiteTrackListener);
+
+SpotifyTrackListener.prototype.findSelector = function() { return $('#track-name').find('a'); }
+
+SpotifyTrackListener.prototype.isPlaying = function() { return $('#play-pause').hasClass('playing'); }
+
+SpotifyTrackListener.prototype.scrapPlayData = function() {
+	this.artistName = "";
+	$('#track-artist').find('a').each(function(){
+		this.artistName += (artistName == '') ? $(this).text() : ', ' + $(this).text();
+	});
+	this.trackName = this.selector.eq(0).text();
+}
+
+SpotifyTrackListener.prototype.scrapAlbumArt = function() {
+	return $('.sp-image-img').css('background-image').replace('url("','').replace('")','');
+}
+
+SpotifyTrackListener.prototype.scrapUrl = function() { return this.selector.attr('href'); }
+
+SpotifyTrackListener.prototype.scrapDuration = function() { return $('#track-length').text(); }
+
+//---pleer.com
+var PleerTrackListener = function() {};
+inheritsFrom(PleerTrackListener, WebsiteTrackListener);
+
+PleerTrackListener.prototype.isPlaying = function() { return $('#play').hasClass('pause'); }
+
+PleerTrackListener.prototype.scrapPlayData = function() {
+	var play = $.trim($('.now-playing').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; })
+				.text()).match(/^(.+) \u2014 (.+) \((.+)\)$/);
+	this.artistName = play[1];
+	this.trackName  = play[2];
+}
+
+PleerTrackListener.prototype.scrapUrl = function() {
+	return 'http://pleer.com/tracks/' + $('li.current').attr('link');
+}
+
+PleerTrackListener.prototype.scrapDuration = function() {
+	return secToHms(hmsToSec($.trim($('.now-playing').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; })
+								.text()).match(/^(.+) \u2014 (.+) \((.+)\)$/)[3]));
+}
+
+switch(host)
+{
+	case 'pleer.com':
+		runTrackListenerInterval(new PleerTrackListener());
+	break;
+}
+
 switch(host)
 {
 	case '8tracks.com':
@@ -381,6 +476,7 @@ switch(host)
 			}
 		}, interval);
 	break;
+	/*
 	case 'pleer.com':
 		setInterval(function(){
 			if ($('#play').hasClass('pause')){
@@ -401,7 +497,7 @@ switch(host)
 				}
 			}
 		}, interval);
-	break;
+	break;*/
 	// seoul.fm iframe
 	case 'assets.seoul.fm':
 		var artistName = $.trim($('table font:eq(1) > b').text());
