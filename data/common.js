@@ -7,7 +7,8 @@ var Common = (function() {
 		setInterval(function() {
 			if (listener.isPlaying()) {
 				listener.findSelector();
-				listener.scrapPlayData();
+				if (!listener.scrapPlayData())
+					return;
 				if (!empty(listener.artistName))
 					var play = listener.artistName + ' - ' + listener.trackName;
 				else

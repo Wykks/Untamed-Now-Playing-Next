@@ -15,6 +15,7 @@ SpotifyTrackListener.prototype.scrapPlayData = function() {
 		this.artistName += (artistName == '') ? $(this).text() : ', ' + $(this).text();
 	});
 	this.trackName = this.selector.eq(0).text();
+	return true;
 }
 
 SpotifyTrackListener.prototype.scrapAlbumArt = function() {

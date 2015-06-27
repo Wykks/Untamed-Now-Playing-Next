@@ -1,17 +1,18 @@
 var ExampleTrackListener = function() {};
 ExampleTrackListener.prototype = new Common.WebsiteTrackListener();
 
-ExampleTrackListener.prototype.findSelector = function() {
-	this.selector = undefined;
-}
-
 ExampleTrackListener.prototype.isPlaying = function() {
 	return true;
+}
+
+ExampleTrackListener.prototype.findSelector = function() {
+	this.selector = undefined;
 }
 
 ExampleTrackListener.prototype.scrapPlayData = function() {
 	this.artistName = "";
 	this.trackName  = "";
+	return true;
 }
 
 ExampleTrackListener.prototype.scrapAlbumName = function() {

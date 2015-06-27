@@ -12,6 +12,7 @@ HeightTracksTrackListener.prototype.isPlaying = function() {
 HeightTracksTrackListener.prototype.scrapPlayData = function() {
 	this.artistName = this.selector.find('.a').eq(0).text();
 	this.trackName  = this.selector.find('.t').eq(0).text();
+	return true;
 }
 
 HeightTracksTrackListener.prototype.scrapAlbumName = function() {

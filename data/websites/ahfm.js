@@ -14,6 +14,7 @@ AhFMTrackListener.prototype.scrapPlayData = function() {
 		this.artistName = matches[1];
 		this.trackName  = matches[2];
 	}
+	return true;
 }
 
 Common.runTrackListenerInterval(new AhFMTrackListener());

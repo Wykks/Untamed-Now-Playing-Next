@@ -8,6 +8,7 @@ BlinkboxmusicTrackListener.prototype.isPlaying = function() {
 BlinkboxmusicTrackListener.prototype.scrapPlayData = function() {
 	this.artistName = $('.track-artist').text();
 	this.trackName  = $('.track-name').text();
+	return true;
 }
 
 BlinkboxmusicTrackListener.prototype.scrapDuration = function() {

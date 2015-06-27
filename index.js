@@ -89,6 +89,7 @@ createMusicWebsiteWorker("*.8tracks.com", "8tracks.js", "top");
 createMusicWebsiteWorker(/.*ah.fm\/player\/.*/, "ahfm.js", "top");
 createMusicWebsiteWorker("*.blinkboxmusic.com", "blinkboxmusic.js", "top");
 createMusicWebsiteWorker("*.deezer.com", "deezer.js", "top");
+createMusicWebsiteWorker("*.di.fm", "difm.js", "top");
 createMusicWebsiteWorker("*.pleer.com", "pleer.js", "top");
 createMusicWebsiteWorker(/.*playe?r?.spotify.com\/apps\/player.*/, "spotify.js", "frame");
 
@@ -97,7 +98,6 @@ pageMod.PageMod(
 {
     include:
     [
-		"*.di.fm",
 		"*.distortionradio.com",
 		"*.hypem.com",
 		"*.iheart.com",

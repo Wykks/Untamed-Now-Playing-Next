@@ -1,12 +1,12 @@
 var DeezerTrackListener = function() {};
 DeezerTrackListener.prototype = new Common.WebsiteTrackListener();
 
-DeezerTrackListener.prototype.findSelector = function() {
-	this.selector = $('#player');
-}
-
 DeezerTrackListener.prototype.isPlaying = function() {
 	return $('#player .control-pause').length;
+}
+
+DeezerTrackListener.prototype.findSelector = function() {
+	this.selector = $('#player');
 }
 
 DeezerTrackListener.prototype.scrapPlayData = function() {
@@ -19,6 +19,7 @@ DeezerTrackListener.prototype.scrapPlayData = function() {
 			that.artistName += ", " + $(this).text();
 	});
 	this.trackName  = this.selector.find('.player-track-title > .player-track-link').text();
+	return true;
 }
 
 DeezerTrackListener.prototype.scrapAlbumArt = function() {

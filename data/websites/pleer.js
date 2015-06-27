@@ -8,6 +8,7 @@ PleerTrackListener.prototype.scrapPlayData = function() {
 				.text()).match(/^(.+) \u2014 (.+) \((.+)\)$/);
 	this.artistName = play[1];
 	this.trackName  = play[2];
+	return true;
 }
 
 PleerTrackListener.prototype.scrapUrl = function() {

@@ -5,31 +5,6 @@ var host = window.location.host.replace('www.', '');
 
 switch(host)
 {
-	case 'di.fm':
-		setInterval(function() {
-			var selector = $('#webplayer-region .track-region');
-			if (selector.find('.icon-pause').length) {
-				var artistName = selector.find('.artist-name').text().match(/(.+) -/);
-				if (!artistName)
-					return;
-				artistName = artistName[1];
-				var trackName  = $.trim(selector.find('.track-name').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text());
-				var play       = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumArt   : "http:" + selector.find('.artwork img').attr('src').match(/(.+)\?/)[1],
-						duration   : selector.find('.progress .timecode').text().match(/(.+) \/ (.+)/)[2],
-						url        : selector.find('.track-name').attr('href')
-					});
-				}
-			}
-		}, interval);
-	break;
 	case 'distortionradio.com':
 		setInterval(function()
 		{
