@@ -85,13 +85,15 @@ function createMusicWebsiteWorker(includes, script, attachTo)
 	pageMod.PageMod(param);
 }
 
+createMusicWebsiteWorker("*.8tracks.com", "8tracks.js", "top");
 createMusicWebsiteWorker("*.pleer.com", "pleer.js", "top");
+createMusicWebsiteWorker(/.*playe?r?.spotify.com\/apps\/player.*/, "spotify.js", "frame");
+
 
 pageMod.PageMod(
 {
     include:
     [
-        "*.8tracks.com",
 		/.*ah.fm\/player\/.*/,
 		"*.blinkboxmusic.co",
 		"*.blinkboxmusic.com",

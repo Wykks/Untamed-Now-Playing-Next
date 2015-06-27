@@ -5,28 +5,6 @@ var host = window.location.host.replace('www.', '');
 
 switch(host)
 {
-	case '8tracks.com':
-		setInterval(function(){
-			if ($('#player_pause_button').css('display') == 'block'){
-				var selector   = $('li.now_playing').find('.title_container').find('.title_artist');
-				var artistName = selector.find('.a').eq(0).text();
-				var trackName  = selector.find('.t').eq(0).text();
-				var play       = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumName  : $('li.now_playing').find('.album').find('.detail').text(),
-						albumArt   : $('#mix_player_details').find('a').find('img').attr('src').replace(/(.*)\?(.*)/i, '$1'),
-						url        : 'http://8tracks.com' + $('.mixname').find('a').attr('href')
-					});
-				}
-			}
-		}, interval);
-	break;
 	case 'ah.fm':
 		setInterval(function(){
 			if ($('.now_playing').length && $('#pause').is(':visible')){

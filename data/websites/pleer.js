@@ -1,5 +1,5 @@
 var PleerTrackListener = function() {};
-PleerTrackListener.prototype = new WebsiteTrackListener();
+PleerTrackListener.prototype = new Common.WebsiteTrackListener();
 
 PleerTrackListener.prototype.isPlaying = function() { return $('#play').hasClass('pause'); }
 
@@ -15,8 +15,8 @@ PleerTrackListener.prototype.scrapUrl = function() {
 }
 
 PleerTrackListener.prototype.scrapDuration = function() {
-	return secToHms(hmsToSec($.trim($('.now-playing').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; })
+	return Common.secToHms(Common.hmsToSec($.trim($('.now-playing').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; })
 								.text()).match(/^(.+) \u2014 (.+) \((.+)\)$/)[3]));
 }
 
-runTrackListenerInterval(new PleerTrackListener());
+Common.runTrackListenerInterval(new PleerTrackListener());
