@@ -19,7 +19,7 @@ switch(host)
 						nowPlaying : play,
 						trackName  : trackName,
 						artistName : artistName,
-						albumName  : $('li.now_playing').find('.album').find('.detail').text(),
+						albumName  : $('#now_playing').find('.album').find('.detail').text(),
 						albumArt   : $('#mix_player_details').find('a').find('img').attr('src').replace(/(.*)\?(.*)/i, '$1'),
 						url        : 'http://8tracks.com' + $('.mixname').find('a').attr('href')
 					});
