@@ -5,23 +5,6 @@ var host = window.location.host.replace('www.', '');
 
 switch(host)
 {
-	case 'ah.fm':
-		setInterval(function(){
-			if ($('.now_playing').length && $('#pause').is(':visible')){
-				var play    = $('.now_playing > .status > a').text();
-				var matches = play.match('^(.+) - (.+) on AH.FM.*$');
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : matches[2],
-						artistName : matches[1]
-					});
-				}
-			}
-		}, interval);
-	break;
 	case 'blinkboxmusic.com':
 		setInterval(function(){
 			if ($('.control-button[data-play-button]').hasClass('playing')){

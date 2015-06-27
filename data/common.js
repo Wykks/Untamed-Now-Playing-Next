@@ -8,7 +8,10 @@ var Common = (function() {
 			if (listener.isPlaying()) {
 				listener.findSelector();
 				listener.scrapPlayData();
-				var play = listener.artistName + ' - ' + listener.trackName;
+				if (!empty(listener.artistName))
+					var play = listener.artistName + ' - ' + listener.trackName;
+				else
+					var play = listener.trackName;
 				if (play !== listener.play) {
 					listener.play = play;
 					nowPlaying(
