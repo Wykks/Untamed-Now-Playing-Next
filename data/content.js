@@ -5,54 +5,6 @@ var host = window.location.host.replace('www.', '');
 
 switch(host)
 {
-	case 'blinkboxmusic.com':
-		setInterval(function(){
-			if ($('.control-button[data-play-button]').hasClass('playing')){
-				var artistName = $('.track-artist').text();
-				var trackName  = $('.track-name').text();
-				var play       = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						duration   : $('.total').text()
-					});
-				}
-			}
-		}, interval);
-	break;
-	case 'deezer.com':
-		setInterval(function()
-		{
-
-			if ($('#player .control-pause').length)
-			{
-				var player = $('#player');
-				var artistName;
-				player.find('.player-track-artist > .player-track-link').each(function(i)
-				{
-					i === 0 ? artistName = $(this).text() : artistName += ", " + $(this).text();
-				});
-				var trackName  = player.find('.player-track-title > .player-track-link').text();
-				var play       = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumArt   : player.find('.player-cover > img').attr('src'),
-						duration   : player.find('.progress-length').text(),
-						url        : 'http://www.deezer.com' + player.find('.player-track-title > .player-track-link').data('href')
-					});
-				}
-			}
-		}, interval);
-	break;
 	case 'di.fm':
 		setInterval(function() {
 			var selector = $('#webplayer-region .track-region');
