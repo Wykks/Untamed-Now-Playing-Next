@@ -63,6 +63,30 @@ pageMod.PageMod(
     }
 });
 
+function createMusicWebsiteWorker(includes, script, attachTo)
+{
+	var param =	{
+		include: includes,
+		contentScriptFile:
+		[
+			self.data.url('third-party/jquery-2.1.3.min.js'),
+			self.data.url('common.js'),
+			self.data.url('websites/'+ script)
+		],
+		contentScriptWhen: 'ready',
+		contentScriptOptions:
+		{
+			prefs: ss.storage //Read only
+		},
+		onAttach: onAttachNowPlaying
+	};
+	if (typeof attachTo !== 'undefined')
+		param.attachTo = attachTo;	
+	pageMod.PageMod(param);
+}
+
+createMusicWebsiteWorker("*.pleer.com", "pleer.js", "top");
+
 pageMod.PageMod(
 {
     include:
@@ -92,7 +116,6 @@ pageMod.PageMod(
 		"*.play.google.com",
 		"*.player.siriusxm.com",
 		"*.plug.dj",
-		"*.pleer.com",
 		"*.slacker.com",
 		"*.songza.com",
 		"*.soundcloud.com",
