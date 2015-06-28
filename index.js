@@ -63,88 +63,74 @@ pageMod.PageMod(
     }
 });
 
-pageMod.PageMod(
+function createMusicWebsiteWorker(includes, script, attachTo)
 {
-    include:
-    [
-        "*.8tracks.com",
-		/.*ah.fm\/player\/.*/,
-		"*.blinkboxmusic.co",
-		"*.blinkboxmusic.com",
-		"*.deezer.com",
-		"*.di.fm",
-		"*.distortionradio.com",
-		"*.hypem.com",
-		"*.iheart.com",
-		"*.last.fm",
-		"*.lastfm.de",
-		"*.lastfm.es",
-		"*.lastfm.fr",
-		"*.lastfm.it",
-		"*.lastfm.jp",
-		"*.lastfm.pl",
-		"*.lastfm.com.br",
-		"*.lastfm.ru",
-		"*.lastfm.se",
-		"*.lastfm.com.tr",
-		"*.nightbot.tv",
-		"*.pandora.com",
-		"*.play.google.com",
-		"*.player.siriusxm.com",
-		"*.plug.dj",
-		"*.pleer.com",
-		"*.slacker.com",
-		"*.songza.com",
-		"*.soundcloud.com",
-		/.*synchtu.be\/r\/Playhouse.*/,
-		"*.themusicninja.com",
-		"*.tunein.com",
-		"*.vk.com",
-		"*.youtube.com",
-		"*.zaycev.fm",
-		"*.rdio.com",
-		/.*radiorecord.ru\/player.*/,
-		/.*radioultra.ru\/player.*/,
-		// Chinese sites
-		"*.play.baidu.com",
-		"*.player.kuwo.cn",
-		"*.y.qq.com",
-		/.*xiami.com\/play.*/
-	],
-	contentScriptFile:
-	[
-		self.data.url('third-party/jquery-2.1.3.min.js'),
-		self.data.url('content.js')
-	],
-	contentScriptWhen: 'ready',
-	attachTo: 'top',
-	contentScriptOptions:
-	{
-		prefs: ss.storage //Read only
-	},
-    onAttach: onAttachNowPlaying
-});
+	var param =	{
+		include: includes,
+		contentScriptFile:
+		[
+			self.data.url('third-party/jquery-2.1.3.min.js'),
+			self.data.url('common.js'),
+			self.data.url('websites/'+ script)
+		],
+		contentScriptWhen: 'ready',
+		contentScriptOptions:
+		{
+			prefs: ss.storage //Read only
+		},
+		onAttach: onAttachNowPlaying
+	};
+	if (typeof attachTo !== 'undefined')
+		param.attachTo = attachTo;	
+	pageMod.PageMod(param);
+}
 
-pageMod.PageMod( //Iframe player
-{
-    include:
-    [
-		/.*assets.seoul.fm\/play\/art.html/,
-		/.*playe?r?.spotify.com\/apps\/player.*/,
-		"*.jango.com",
-	],
-	contentScriptFile:
-	[
-		self.data.url('third-party/jquery-2.1.3.min.js'),
-		self.data.url('content.js')
-	],
-	contentScriptWhen: 'ready',
-	contentScriptOptions:
-	{
-		prefs: ss.storage //Read only
-	},
-    onAttach: onAttachNowPlaying
-});
+createMusicWebsiteWorker("*.8tracks.com", "8tracks.js", "top");
+createMusicWebsiteWorker(/.*ah.fm\/player\/.*/, "ahfm.js", "top");
+createMusicWebsiteWorker("*.seoul.fm", "seoulfm.js", "top");
+createMusicWebsiteWorker("*.blinkboxmusic.com", "blinkboxmusic.js", "top");
+createMusicWebsiteWorker("*.deezer.com", "deezer.js", "top");
+createMusicWebsiteWorker("*.di.fm", "difm.js", "top");
+createMusicWebsiteWorker("*.distortionradio.com", "distortionradio.js", "top");
+createMusicWebsiteWorker("*.hypem.com", "hypem.js", "top");
+createMusicWebsiteWorker(
+[
+	"*.last.fm",
+	"*.lastfm.de",
+	"*.lastfm.es",
+	"*.lastfm.fr",
+	"*.lastfm.it",
+	"*.lastfm.jp",
+	"*.lastfm.pl",
+	"*.lastfm.com.br",
+	"*.lastfm.ru",
+	"*.lastfm.se",
+	"*.lastfm.com.tr"
+], "lastfm.js", "top");
+createMusicWebsiteWorker("*.jango.com", "jango.js", "frame");
+createMusicWebsiteWorker("*.nightbot.tv", "nightbottv.js", "top");
+createMusicWebsiteWorker("*.pandora.com", "pandora.js", "top");
+createMusicWebsiteWorker(/.*play.google.com\/music.*/, "playgoogle.js", "top");
+createMusicWebsiteWorker("*.player.siriusxm.com", "siriusxm.js", "top");
+createMusicWebsiteWorker("*.plug.dj", "plugdj.js", "top");
+createMusicWebsiteWorker("*.pleer.com", "pleer.js", "top");
+createMusicWebsiteWorker(/.*play.spotify.com\/apps\/player.*/, "spotify.js", "frame");
+createMusicWebsiteWorker(/.*radiorecord.ru\/player.*/, "radiorecord.js", "top");
+createMusicWebsiteWorker(/.*radioultra.ru\/player.*/, "radioultra.js", "top");
+createMusicWebsiteWorker("*.rdio.com", "rdio.js", "top");
+createMusicWebsiteWorker("*.slacker.com", "slacker.js", "top");
+createMusicWebsiteWorker("*.soundcloud.com", "soundcloud.js", "top");
+createMusicWebsiteWorker(/.*synchtu.be\/r\/Playhouse.*/, "synchtube.js", "top");
+createMusicWebsiteWorker("*.themusicninja.com", "themusicninja.js", "top");
+createMusicWebsiteWorker("*.tunein.com", "tunein.js", "top");
+createMusicWebsiteWorker("*.vk.com", "vk.js", "top");
+createMusicWebsiteWorker("*.youtube.com", "youtube.js", "top");
+createMusicWebsiteWorker("*.zaycev.fm", "zaycev.js", "top");
+// Chinese sites
+createMusicWebsiteWorker("*.play.baidu.com", "playbaidu.js", "top");
+createMusicWebsiteWorker("*.player.kuwo.cn", "kuwo.js", "top");
+createMusicWebsiteWorker("*.y.qq.com", "qq.js", "top");
+createMusicWebsiteWorker(/.*xiami.com\/play.*/, "xiami.js", "top");
 
 function onAttachNowPlaying(worker)
 {
