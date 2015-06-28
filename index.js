@@ -74,6 +74,10 @@ function createMusicWebsiteWorker(includes, script, attachTo)
 			self.data.url('websites/'+ script)
 		],
 		contentScriptWhen: 'ready',
+		contentScriptOptions:
+		{
+			prefs: ss.storage //Read only
+		},
 		onAttach: onAttachNowPlaying
 	};
 	if (typeof attachTo !== 'undefined')
@@ -120,8 +124,7 @@ createMusicWebsiteWorker(/.*synchtu.be\/r\/Playhouse.*/, "synchtube.js", "top");
 createMusicWebsiteWorker("*.themusicninja.com", "themusicninja.js", "top");
 createMusicWebsiteWorker("*.tunein.com", "tunein.js", "top");
 createMusicWebsiteWorker("*.vk.com", "vk.js", "top");
-if (ss.storage['unpDisableYoutube'] !== true)
-	createMusicWebsiteWorker("*.youtube.com", "youtube.js", "top");
+createMusicWebsiteWorker("*.youtube.com", "youtube.js", "top");
 createMusicWebsiteWorker("*.zaycev.fm", "zaycev.js", "top");
 // Chinese sites
 createMusicWebsiteWorker("*.play.baidu.com", "playbaidu.js", "top");

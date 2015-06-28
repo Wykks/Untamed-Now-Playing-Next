@@ -48,4 +48,5 @@ YoutubeTrackListener.prototype.scrapDuration = function() {
 	return $('.ytp-time-duration').text();
 }
 
-Common.runTrackListenerMutationObserverAttr(new YoutubeTrackListener());
+if (self.options.prefs.unpDisableYoutube !== true)
+	Common.runTrackListenerMutationObserverAttr(new YoutubeTrackListener());
