@@ -5,67 +5,6 @@ var host = window.location.host.replace('www.', '');
 
 switch(host)
 {
-	case 'distortionradio.com':
-		setInterval(function()
-		{
-			if ($('#pause').length){
-				var artistName     = $('#current_artist > a').text();
-				var trackName      = $('#current_title').text();
-				var play           = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-					});
-				}
-			}
-		}, interval);
-	break;
-	case 'hypem.com':
-		setInterval(function(){
-			if ($('#playerPlay').hasClass('pause')){
-				var playerDetails     = $('#player-nowplaying');
-				var artistName        = playerDetails.children('a').eq(0).text();
-				var trackNameSelector = playerDetails.children('a').eq(1);
-				var trackName         = trackNameSelector.text();
-				var play              = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						duration   : $('#player-time-total').text(),
-						url        : 'http://hypem.com' + trackNameSelector.attr('href')
-					});
-				}
-			}
-		}, interval);
-	break;
-	case 'iheart.com':
-		setInterval(function(){
-			if ($('#playerPlay').hasClass('pause')){
-				var artistName = $('h2.artist').find('a').attr('title');
-				var trackName  = $('h1.title').find('a').attr('title');
-				var play       = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumArt   : $('.playerArt').find('a').find('img').attr('src').replace('imscale?w=54', 'imscale?w=150'),
-						url        : 'http://iheart.com' + $('.liveStn').find('.title').find('a').attr('href')
-					});
-				}
-			}
-		}, interval);
-	break;
 	case 'jango.com':
 		setInterval(function(){
 			if ($('#btn-playpause').hasClass('pause')){
