@@ -118,24 +118,24 @@ createMusicWebsiteWorker(/.*play.spotify.com\/apps\/player.*/, "spotify.js", "fr
 createMusicWebsiteWorker(/.*radiorecord.ru\/player.*/, "radiorecord.js", "top");
 createMusicWebsiteWorker(/.*radioultra.ru\/player.*/, "radioultra.js", "top");
 createMusicWebsiteWorker("*.slacker.com", "slacker.js", "top");
+createMusicWebsiteWorker(/.*synchtu.be\/r\/Playhouse.*/, "synchtube.js", "top");
+createMusicWebsiteWorker("*.themusicninja.com", "themusicninja.js", "top");
+createMusicWebsiteWorker("*.tunein.com", "tunein.js", "top");
+createMusicWebsiteWorker("*.vk.com", "vk.js", "top");
+createMusicWebsiteWorker("*.zaycev.fm", "zaycev.js", "top");
+createMusicWebsiteWorker("*.rdio.com", "rdio.js", "top");
+// Chinese sites
+createMusicWebsiteWorker("*.play.baidu.com", "playbaidu.js", "top");
+createMusicWebsiteWorker("*.player.kuwo.cn", "kuwo.js", "top");
+createMusicWebsiteWorker("*.y.qq.com", "qq.js", "top");
+createMusicWebsiteWorker(/.*xiami.com\/play.*/, "xiami.js", "top");
 
 pageMod.PageMod(
 {
     include:
     [
 		"*.soundcloud.com",
-		/.*synchtu.be\/r\/Playhouse.*/,
-		"*.themusicninja.com",
-		"*.tunein.com",
-		"*.vk.com",
 		"*.youtube.com",
-		"*.zaycev.fm",
-		"*.rdio.com",
-		// Chinese sites
-		"*.play.baidu.com",
-		"*.player.kuwo.cn",
-		"*.y.qq.com",
-		/.*xiami.com\/play.*/
 	],
 	contentScriptFile:
 	[
