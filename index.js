@@ -107,15 +107,14 @@ createMusicWebsiteWorker(
 	"*.lastfm.com.tr"
 ], "lastfm.js", "top");
 createMusicWebsiteWorker("*.jango.com", "jango.js", "frame");
+createMusicWebsiteWorker("*.nightbot.tv", "nightbottv.js", "top");
 createMusicWebsiteWorker("*.pleer.com", "pleer.js", "top");
 createMusicWebsiteWorker(/.*playe?r?.spotify.com\/apps\/player.*/, "spotify.js", "frame");
-
 
 pageMod.PageMod(
 {
     include:
     [
-		"*.nightbot.tv",
 		"*.pandora.com",
 		"*.play.google.com",
 		"*.player.siriusxm.com",

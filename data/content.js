@@ -5,34 +5,6 @@ var host = window.location.host.replace('www.', '');
 
 switch(host)
 {
-	case 'nightbot.tv':
-		setInterval(function(){
-			if ($('#pause').is(':visible')){
-				var play = $('#currentTitle').text();
-				var parse;
-
-				if (parse = parseArtistTitle(play)){
-					var artistName = parse[0];
-					var trackName  = parse[1];
-				}
-				else
-				{
-					var artistName = '?';
-					var trackName  = play;
-				}
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						duration   : secToHms(hmsToSec($('#duration').text()))
-					});
-				}
-			}
-		}, interval);
-	break;
 	case 'pandora.com':
 		setInterval(function(){
 			if ($('.pauseButton').is(':visible')){
@@ -75,34 +47,6 @@ switch(host)
 						albumArt   : $('#playingAlbumArt').attr('src'),
 						duration   : $('#time_container_duration').text(),
 						url        : 'http://play.google.com'
-					});
-				}
-			}
-		}, interval);
-	break;
-	case 'player.spotify.com':
-	case 'play.spotify.com':
-		setInterval(function(){
-			if ($('#play-pause').hasClass('playing')){
-				var artistName = '';
-
-				$('#track-artist').find('a').each(function(){
-					artistName += (artistName == '') ? $(this).text() : ', ' + $(this).text();
-				});
-
-				var trackNameSelector = $('#track-name').find('a');
-				var trackName         = trackNameSelector.eq(0).text();
-				var play              = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumArt   : $('.sp-image-img').css('background-image').replace('url("','').replace('")',''),
-						duration   : $('#track-length').text(),
-						url        : trackNameSelector.attr('href')
 					});
 				}
 			}
