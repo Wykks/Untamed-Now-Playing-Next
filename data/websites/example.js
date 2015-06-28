@@ -1,4 +1,7 @@
-var ExampleTrackListener = function() {};
+var ExampleTrackListener = function() {
+	this.mutationObserverAttribute = new RegExp('');
+	this.mutationObserverElement = document.body;
+};
 ExampleTrackListener.prototype = new Common.WebsiteTrackListener();
 
 ExampleTrackListener.prototype.isPlaying = function() {

@@ -3,31 +3,49 @@ var Common = (function() {
 
 	var interval = 10000;
 
-	Common.runTrackListenerInterval = function(listener) {
-		setInterval(function() {
-			if (listener.isPlaying()) {
-				listener.findSelector();
-				if (!listener.scrapPlayData())
-					return;
-				if (!empty(listener.artistName))
-					var play = listener.artistName + ' - ' + listener.trackName;
-				else
-					var play = listener.trackName;
-				if (play !== listener.play) {
-					listener.play = play;
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : listener.trackName,
-						artistName : listener.artistName,
-						albumName  : listener.scrapAlbumName(),
-						albumArt   : listener.scrapAlbumArt(),
-						url        : listener.scrapUrl(),
-						duration   : listener.scrapDuration()
-					});
-				}
+	function trackListenerLogic() {
+		if (this.isPlaying()) {
+			this.findSelector();
+			if (!this.scrapPlayData())
+				return;
+			if (!empty(this.artistName))
+				var play = this.artistName + ' - ' + this.trackName;
+			else
+				var play = this.trackName;
+			if (play !== this.play) {
+				this.play = play;
+				nowPlaying(
+				{
+					nowPlaying : play,
+					trackName  : this.trackName,
+					artistName : this.artistName,
+					albumName  : this.scrapAlbumName(),
+					albumArt   : this.scrapAlbumArt(),
+					url        : this.scrapUrl(),
+					duration   : this.scrapDuration()
+				});
 			}
-		}, interval);
+		}
+	}
+
+	Common.runTrackListenerInterval = function(listener) {
+		setInterval(trackListenerLogic.bind(listener), interval);
+	};
+
+	function mutationObserverAttrModified(mutation) {
+		if (mutation.attributeName != 'class')
+			return;
+		var newValue = mutation.target.getAttribute(mutation.attributeName);
+		if (newValue.match(this.mutationObserverAttribute))
+			trackListenerLogic.bind(this)();
+	}
+
+	Common.runTrackListenerMutationObserverAttr = function(listener, element) {
+		var observer = new MutationObserver(function(mutations) {
+			mutations.forEach(mutationObserverAttrModified.bind(listener));
+		});
+		observer.observe(listener.mutationObserverElement, { attributes: true });
+		trackListenerLogic.bind(listener)();
 	};
 
 	Common.WebsiteTrackListener = function() {
@@ -35,6 +53,8 @@ var Common = (function() {
 			this.artistName = "";
 			this.trackName = "";
 			this.selector = undefined;
+			this.mutationObserverAttribute = undefined;
+			this.mutationObserverElement = undefined;
 	};
 	Common.WebsiteTrackListener.prototype.isPlaying = function() { return true; };
 	Common.WebsiteTrackListener.prototype.scrapAlbumName = function() { return ""; };

@@ -74,10 +74,6 @@ function createMusicWebsiteWorker(includes, script, attachTo)
 			self.data.url('websites/'+ script)
 		],
 		contentScriptWhen: 'ready',
-		contentScriptOptions:
-		{
-			prefs: ss.storage //Read only
-		},
 		onAttach: onAttachNowPlaying
 	};
 	if (typeof attachTo !== 'undefined')
@@ -117,39 +113,21 @@ createMusicWebsiteWorker("*.pleer.com", "pleer.js", "top");
 createMusicWebsiteWorker(/.*play.spotify.com\/apps\/player.*/, "spotify.js", "frame");
 createMusicWebsiteWorker(/.*radiorecord.ru\/player.*/, "radiorecord.js", "top");
 createMusicWebsiteWorker(/.*radioultra.ru\/player.*/, "radioultra.js", "top");
+createMusicWebsiteWorker("*.rdio.com", "rdio.js", "top");
 createMusicWebsiteWorker("*.slacker.com", "slacker.js", "top");
 createMusicWebsiteWorker("*.soundcloud.com", "soundcloud.js", "top");
 createMusicWebsiteWorker(/.*synchtu.be\/r\/Playhouse.*/, "synchtube.js", "top");
 createMusicWebsiteWorker("*.themusicninja.com", "themusicninja.js", "top");
 createMusicWebsiteWorker("*.tunein.com", "tunein.js", "top");
 createMusicWebsiteWorker("*.vk.com", "vk.js", "top");
+if (ss.storage['unpDisableYoutube'] !== true)
+	createMusicWebsiteWorker("*.youtube.com", "youtube.js", "top");
 createMusicWebsiteWorker("*.zaycev.fm", "zaycev.js", "top");
-createMusicWebsiteWorker("*.rdio.com", "rdio.js", "top");
 // Chinese sites
 createMusicWebsiteWorker("*.play.baidu.com", "playbaidu.js", "top");
 createMusicWebsiteWorker("*.player.kuwo.cn", "kuwo.js", "top");
 createMusicWebsiteWorker("*.y.qq.com", "qq.js", "top");
 createMusicWebsiteWorker(/.*xiami.com\/play.*/, "xiami.js", "top");
-
-pageMod.PageMod(
-{
-    include:
-    [
-		"*.youtube.com",
-	],
-	contentScriptFile:
-	[
-		self.data.url('third-party/jquery-2.1.3.min.js'),
-		self.data.url('content.js')
-	],
-	contentScriptWhen: 'ready',
-	attachTo: 'top',
-	contentScriptOptions:
-	{
-		prefs: ss.storage //Read only
-	},
-    onAttach: onAttachNowPlaying
-});
 
 function onAttachNowPlaying(worker)
 {

@@ -115,7 +115,7 @@ switch(host)
 				var play     = $('#watch7-content > meta[itemprop="name"]').attr('content');
 				var parse;
 
-				if ($('#eow-title').find('a').length){
+				if ($('#eow-title').find('a').length) {
 					var artistName = $('#eow-title').find('a').text();
 					var trackName  = $.trim($('#eow-title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text());
 					var matches;
