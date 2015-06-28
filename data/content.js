@@ -5,60 +5,6 @@ var host = window.location.host.replace('www.', '');
 
 switch(host)
 {
-	// seoul.fm iframe
-	case 'assets.seoul.fm':
-		var artistName = $.trim($('table font:eq(1) > b').text());
-		var trackName  = $.trim($('table font:first > b').text());
-		var play       = artistName + ' - ' + trackName;
-
-		if (last !== play){
-			nowPlaying(
-			{
-				nowPlaying : play,
-				trackName  : trackName,
-				artistName : artistName,
-				albumArt   : $('#cpPictureMainSong').attr('src'),
-				url        : 'http://www.seoul.fm'
-			});
-		}
-	break;
-	// radiorecord.ru
-	case 'radiorecord.ru':
-		setInterval(function()
-		{
-			var currentPlaying = $('.nowtrack');
-			var artistName     = currentPlaying.find('.artist').text();
-			var trackName      = currentPlaying.find('.title').text();
-			var play           = artistName + ' - ' + trackName;
-
-			if (last !== play){
-				nowPlaying(
-				{
-					nowPlaying : play,
-					trackName  : artistName,
-					artistName : trackName,
-				});
-			}
-		}, interval);
-	break;
-	case 'radioultra.ru':
-		setInterval(function()
-		{
-			var currentPlaying = $('#song-info');
-			var artistName     = currentPlaying.find('.artist').text();
-			var trackName      = currentPlaying.find('.title').text();
-			var play           = artistName + ' - ' + trackName;
-
-			if (last !== play){
-				nowPlaying(
-				{
-					nowPlaying : play,
-					trackName  : artistName,
-					artistName : trackName,
-				});
-			}
-		}, interval);
-	break;
 	case 'soundcloud.com':
 		setInterval(function(){
 			var selector = $('.sc-button-pause').parent().parent();

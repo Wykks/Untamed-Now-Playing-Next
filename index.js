@@ -87,6 +87,7 @@ function createMusicWebsiteWorker(includes, script, attachTo)
 
 createMusicWebsiteWorker("*.8tracks.com", "8tracks.js", "top");
 createMusicWebsiteWorker(/.*ah.fm\/player\/.*/, "ahfm.js", "top");
+createMusicWebsiteWorker("*.seoul.fm", "seoulfm.js", "top");
 createMusicWebsiteWorker("*.blinkboxmusic.com", "blinkboxmusic.js", "top");
 createMusicWebsiteWorker("*.deezer.com", "deezer.js", "top");
 createMusicWebsiteWorker("*.di.fm", "difm.js", "top");
@@ -114,6 +115,8 @@ createMusicWebsiteWorker("*.player.siriusxm.com", "siriusxm.js", "top");
 createMusicWebsiteWorker("*.plug.dj", "plugdj.js", "top");
 createMusicWebsiteWorker("*.pleer.com", "pleer.js", "top");
 createMusicWebsiteWorker(/.*play.spotify.com\/apps\/player.*/, "spotify.js", "frame");
+createMusicWebsiteWorker(/.*radiorecord.ru\/player.*/, "radiorecord.js", "top");
+createMusicWebsiteWorker(/.*radioultra.ru\/player.*/, "radioultra.js", "top");
 createMusicWebsiteWorker("*.slacker.com", "slacker.js", "top");
 
 pageMod.PageMod(
@@ -128,8 +131,6 @@ pageMod.PageMod(
 		"*.youtube.com",
 		"*.zaycev.fm",
 		"*.rdio.com",
-		/.*radiorecord.ru\/player.*/,
-		/.*radioultra.ru\/player.*/,
 		// Chinese sites
 		"*.play.baidu.com",
 		"*.player.kuwo.cn",
@@ -143,25 +144,6 @@ pageMod.PageMod(
 	],
 	contentScriptWhen: 'ready',
 	attachTo: 'top',
-	contentScriptOptions:
-	{
-		prefs: ss.storage //Read only
-	},
-    onAttach: onAttachNowPlaying
-});
-
-pageMod.PageMod( //Iframe player
-{
-    include:
-    [
-		/.*assets.seoul.fm\/play\/art.html/
-	],
-	contentScriptFile:
-	[
-		self.data.url('third-party/jquery-2.1.3.min.js'),
-		self.data.url('content.js')
-	],
-	contentScriptWhen: 'ready',
 	contentScriptOptions:
 	{
 		prefs: ss.storage //Read only
