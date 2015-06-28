@@ -59,29 +59,6 @@ switch(host)
 			}
 		}, interval);
 	break;
-	case 'slacker.com':
-		setInterval(function(){
-			if ($('#mini-play').hasClass('pause')) {
-				var artistName        = $('#player-artist-name').text();
-				var trackNameSelector = $('#player-track-name');
-				var trackName         = trackNameSelector.text();
-				var play              = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumName  : $('#player-album-name').text(),
-						albumArt   : $('#track-art-current-img').attr('src'),
-						duration   : $('#progress-total').text(),
-						url        : 'http://slacker.com/#song/' + trackNameSelector.attr('itemid') + '/' + trackNameSelector.attr('perfid') + '/' + trackNameSelector.attr('trackid')
-					});
-				}
-			}
-		}, interval);
-	break;
 	case 'songza.com':
         setInterval(function(){
             if ($('div.miniplayer-info').find('.miniplayer-info-track-title').length > 0){
