@@ -108,6 +108,10 @@ createMusicWebsiteWorker(
 ], "lastfm.js", "top");
 createMusicWebsiteWorker("*.jango.com", "jango.js", "frame");
 createMusicWebsiteWorker("*.nightbot.tv", "nightbottv.js", "top");
+createMusicWebsiteWorker("*.pandora.com", "pandora.js", "top");
+createMusicWebsiteWorker(/.*play.google.com\/music.*/, "playgoogle.js", "top");
+createMusicWebsiteWorker("*.player.siriusxm.com", "siriusxm.js", "top");
+createMusicWebsiteWorker("*.plug.dj", "plugdj.js", "top");
 createMusicWebsiteWorker("*.pleer.com", "pleer.js", "top");
 createMusicWebsiteWorker(/.*playe?r?.spotify.com\/apps\/player.*/, "spotify.js", "frame");
 
@@ -115,10 +119,6 @@ pageMod.PageMod(
 {
     include:
     [
-		"*.pandora.com",
-		"*.play.google.com",
-		"*.player.siriusxm.com",
-		"*.plug.dj",
 		"*.slacker.com",
 		"*.songza.com",
 		"*.soundcloud.com",
@@ -155,8 +155,7 @@ pageMod.PageMod( //Iframe player
 {
     include:
     [
-		/.*assets.seoul.fm\/play\/art.html/,
-		/.*playe?r?.spotify.com\/apps\/player.*/,
+		/.*assets.seoul.fm\/play\/art.html/
 	],
 	contentScriptFile:
 	[
