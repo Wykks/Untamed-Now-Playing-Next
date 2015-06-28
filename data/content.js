@@ -5,60 +5,6 @@ var host = window.location.host.replace('www.', '');
 
 switch(host)
 {
-	case 'jango.com':
-		setInterval(function(){
-			if ($('#btn-playpause').hasClass('pause')){
-				var artistName = $('#player_current_artist').find('a').text();
-				var trackName  = $.trim($('#current-song').text());
-				var play       = artistName + ' - ' + trackName;
-
-				if (last !== play){
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumArt   : $('#player_main_pic_img').attr('src'),
-						url        : 'http://www.jango.com' + $('#station_info').find('a').attr('href')
-					});
-				}
-			}
-		}, interval);
-		break;
-		case 'last.fm':
-		case 'lastfm.de':
-		case 'lastfm.es':
-		case 'lastfm.fr':
-		case 'lastfm.it':
-		case 'lastfm.jp':
-		case 'lastfm.pl':
-		case 'lastfm.com.br':
-		case 'lastfm.ru':
-		case 'lastfm.se':
-		case 'lastfm.com.tr':
-		case 'cn.last.fm':
-		setInterval(function(){
-			if (!$('#radioControlPlay').is(':visible') && $('#nowPlayingMeta').is(':visible')){
-				var artistName        = $('.artist').find('a').text();
-				var trackNameSelector = $('.track').find('a');
-				var trackName         = trackNameSelector.text();
-				var play              = artistName + ' - ' + trackName;
-
-				if (last !== play){
-
-					nowPlaying(
-					{
-						nowPlaying : play,
-						trackName  : trackName,
-						artistName : artistName,
-						albumName  : $('.album').find('.title').text(),
-						albumArt   : $('span.albumCover').find('img.art').attr('src').replace(/(.*)\/serve\/(.*)\/(.*)\.(jpg|jpeg|png)$/i, '$1/serve/126/$3.$4'),
-						url        : trackNameSelector.attr('href')
-					});
-				}
-			}
-		}, interval);
-	break;
 	case 'nightbot.tv':
 		setInterval(function(){
 			if ($('#pause').is(':visible')){

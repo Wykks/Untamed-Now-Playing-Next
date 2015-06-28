@@ -92,6 +92,21 @@ createMusicWebsiteWorker("*.deezer.com", "deezer.js", "top");
 createMusicWebsiteWorker("*.di.fm", "difm.js", "top");
 createMusicWebsiteWorker("*.distortionradio.com", "distortionradio.js", "top");
 createMusicWebsiteWorker("*.hypem.com", "hypem.js", "top");
+createMusicWebsiteWorker(
+[
+	"*.last.fm",
+	"*.lastfm.de",
+	"*.lastfm.es",
+	"*.lastfm.fr",
+	"*.lastfm.it",
+	"*.lastfm.jp",
+	"*.lastfm.pl",
+	"*.lastfm.com.br",
+	"*.lastfm.ru",
+	"*.lastfm.se",
+	"*.lastfm.com.tr"
+], "lastfm.js", "top");
+createMusicWebsiteWorker("*.jango.com", "jango.js", "frame");
 createMusicWebsiteWorker("*.pleer.com", "pleer.js", "top");
 createMusicWebsiteWorker(/.*playe?r?.spotify.com\/apps\/player.*/, "spotify.js", "frame");
 
@@ -100,17 +115,6 @@ pageMod.PageMod(
 {
     include:
     [
-		"*.last.fm",
-		"*.lastfm.de",
-		"*.lastfm.es",
-		"*.lastfm.fr",
-		"*.lastfm.it",
-		"*.lastfm.jp",
-		"*.lastfm.pl",
-		"*.lastfm.com.br",
-		"*.lastfm.ru",
-		"*.lastfm.se",
-		"*.lastfm.com.tr",
 		"*.nightbot.tv",
 		"*.pandora.com",
 		"*.play.google.com",
@@ -154,7 +158,6 @@ pageMod.PageMod( //Iframe player
     [
 		/.*assets.seoul.fm\/play\/art.html/,
 		/.*playe?r?.spotify.com\/apps\/player.*/,
-		"*.jango.com",
 	],
 	contentScriptFile:
 	[
