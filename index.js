@@ -120,7 +120,6 @@ pageMod.PageMod(
 {
     include:
     [
-		"*.songza.com",
 		"*.soundcloud.com",
 		/.*synchtu.be\/r\/Playhouse.*/,
 		"*.themusicninja.com",

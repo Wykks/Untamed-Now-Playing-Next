@@ -59,27 +59,6 @@ switch(host)
 			}
 		}, interval);
 	break;
-	case 'songza.com':
-        setInterval(function(){
-            if ($('div.miniplayer-info').find('.miniplayer-info-track-title').length > 0){
-                var selector   = $('div.miniplayer-info');
-                var artistName = selector.find('.miniplayer-info-artist-name').find('a').attr('title');
-                var trackName  = selector.find('.miniplayer-info-track-title').find('a').attr('title');
-                var play       = artistName + ' - ' + trackName;
-
-                if (last !== play){
-                    nowPlaying(
-                    {
-                        nowPlaying : play,
-                        trackName  : trackName,
-                        artistName : artistName,
-                        albumArt   : $('div.miniplayer-album-art-wrapper').find('img').attr('src'),
-                        url        : $('div.miniplayer-info-playlist-title').find('a').attr('href')
-                    });
-                }
-            }
-        }, interval);
-    break;
 	case 'soundcloud.com':
 		setInterval(function(){
 			var selector = $('.sc-button-pause').parent().parent();
