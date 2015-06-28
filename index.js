@@ -108,6 +108,7 @@ createMusicWebsiteWorker(
 	"*.lastfm.com.tr"
 ], "lastfm.js", "top");
 createMusicWebsiteWorker("*.jango.com", "jango.js", "frame");
+createMusicWebsiteWorker("*.music.yandex.ru", "musicyandex.js", "top");
 createMusicWebsiteWorker("*.nightbot.tv", "nightbottv.js", "top");
 createMusicWebsiteWorker("*.pandora.com", "pandora.js", "top");
 createMusicWebsiteWorker(/.*play.google.com\/music.*/, "playgoogle.js", "top");
