@@ -118,6 +118,7 @@ createMusicWebsiteWorker(/.*play.spotify.com\/apps\/player.*/, "spotify.js", "fr
 createMusicWebsiteWorker(/.*radiorecord.ru\/player.*/, "radiorecord.js", "top");
 createMusicWebsiteWorker(/.*radioultra.ru\/player.*/, "radioultra.js", "top");
 createMusicWebsiteWorker("*.slacker.com", "slacker.js", "top");
+createMusicWebsiteWorker("*.soundcloud.com", "soundcloud.js", "top");
 createMusicWebsiteWorker(/.*synchtu.be\/r\/Playhouse.*/, "synchtube.js", "top");
 createMusicWebsiteWorker("*.themusicninja.com", "themusicninja.js", "top");
 createMusicWebsiteWorker("*.tunein.com", "tunein.js", "top");
@@ -134,7 +135,6 @@ pageMod.PageMod(
 {
     include:
     [
-		"*.soundcloud.com",
 		"*.youtube.com",
 	],
 	contentScriptFile:
