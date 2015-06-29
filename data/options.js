@@ -27,7 +27,7 @@ self.port.on("prefs", function(storage)
             'key': key,
             'value': value,
         });
-    }
+    };
 
 	clickedAway = false;
 	isVisible   = false;
@@ -50,7 +50,7 @@ self.port.on("prefs", function(storage)
 				html: true,
 				content: msg.text,
 				trigger: 'click'
-			})
+			});
 		});
 	});
 
@@ -72,9 +72,9 @@ self.port.on("prefs", function(storage)
 	{
 		this.get('#/:page?', function()
 		{
-			if ($('#' + this.params['page']).length)
+			if ($('#' + this.params.page).length)
 			{
-				page = this.params['page'];
+				page = this.params.page;
 				$('.active').removeClass('active');
 				$('#nav-' + page).addClass('active');
 				$('.main_content').slideUp();

@@ -8,10 +8,11 @@ var Common = (function() {
 			this.findSelector();
 			if (!this.scrapPlayData())
 				return;
+			var play;
 			if (!empty(this.artistName))
-				var play = this.artistName + ' - ' + this.trackName;
+				play = this.artistName + ' - ' + this.trackName;
 			else
-				var play = this.trackName;
+				play = this.trackName;
 			if (play !== this.play) {
 				this.play = play;
 				nowPlaying(
@@ -68,24 +69,24 @@ var Common = (function() {
 	{
 		var match;
 
-		if (match = input.match(/(.+)[ ]?(-|\u[2012-2015]|\||:)[ ]?(.+)/))
+		if ((match = input.match(/(.+)[ ]?(-|\u[2012-2015]|\||:)[ ]?(.+)/)))
 		{
-			return [ $.trim(match[1]) , $.trim(match[3]) ];
+			return [$.trim(match[1]), $.trim(match[3])];
 		}
-		else if (match = input.match(/(.+)\|(.+)/))
+		else if ((match = input.match(/(.+)\|(.+)/)))
 		{
-			return [ $.trim(match[1]) , $.trim(match[2]) ];
+			return [$.trim(match[1]), $.trim(match[2])];
 		}
 		else
 		{
 			return false;
 		}
-	}
+	};
 
 	Common.hmsToSec = function(hms)
 	{
 		var p = hms.split(':');
-		var	s = 0
+		var	s = 0;
 		var m = 1;
 
 		while (p.length > 0) {
@@ -94,7 +95,7 @@ var Common = (function() {
 		}
 
 		return s;
-	}
+	};
 
 	Common.secToHms = function(sec)
 	{
@@ -102,8 +103,8 @@ var Common = (function() {
 		var	minutes = parseInt( sec / 60 ) % 60;
 		var seconds = sec % 60;
 
-		return ((hours != 0) ? hours + ':' : '') + ((hours != 0 && minutes < 10) ? '0' + minutes : minutes) + ':' + ((seconds < 10) ? '0' + seconds : seconds);
-	}
+		return ((hours !== 0) ? hours + ':' : '') + ((hours !== 0 && minutes < 10) ? '0' + minutes : minutes) + ':' + ((seconds < 10) ? '0' + seconds : seconds);
+	};
 
 	function empty(mixed_var)
 	{

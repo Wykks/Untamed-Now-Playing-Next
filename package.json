@@ -2,7 +2,7 @@
   "title": "Untamed Now Playing",
   "id": "jid1-CCXBUPa5pAmTYw@jetpack",
   "name": "unp",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Save 'now playing' data from music websites locally in TXT/JSON/XML",
   "author": "Wykks",
   "engines": {
