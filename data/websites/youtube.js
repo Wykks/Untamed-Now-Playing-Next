@@ -24,12 +24,7 @@ YoutubeTrackListener.prototype.scrapPlayData = function() {
 		return true;
 	}
 	var play = $('#watch7-content > meta[itemprop="name"]').attr('content');
-	if (parse = Common.parseArtistTitle(play)) {
-		this.artistName = parse[0];
-		this.trackName  = parse[1];
-	}
-	else
-		this.trackName = play;
+	[this.artistName, this.trackName] = Common.parseArtistTitle(play);
 	return true;
 }
 

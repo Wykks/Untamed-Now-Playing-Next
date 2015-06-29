@@ -7,10 +7,9 @@ TuneInTrackListener.prototype.isPlaying = function() {
 
 TuneInTrackListener.prototype.scrapPlayData = function() {
 	var play = $('#tuner div.line1').text();
-	if (parse = Common.parseArtistTitle(play)) {
-		this.artistName = parse[1];
-		this.trackName  = parse[0] + ' [' + $('#tuner div.line2 > .title').text() + ']';
-	}
+	[this.trackName, this.artistName] = Common.parseArtistTitle(play);
+	if (this.trackName !== "")
+		this.trackName += ' [' + $('#tuner div.line2 > .title').text() + ']';
 	else {
 		this.artistName = $('#tuner div.line2 > .title').text();
 		this.trackName = play;

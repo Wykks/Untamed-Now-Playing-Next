@@ -11,13 +11,7 @@ KuwoTrackListener.prototype.findSelector = function() {
 
 KuwoTrackListener.prototype.scrapPlayData = function() {
 	var play = this.selector.find('.dec_time span').text();
-	var parse = Common.parseArtistTitle(play);
-	if (parse) {
-		this.artistName = parse[0];
-		this.trackName  = parse[1];
-	}
-	else
-		this.trackName = play;
+	[this.artistName, this.trackName] = Common.parseArtistTitle(play);
 	return true;
 };
 

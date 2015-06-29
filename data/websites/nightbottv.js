@@ -7,12 +7,7 @@ NightbotTVTrackListener.prototype.isPlaying = function() {
 
 NightbotTVTrackListener.prototype.scrapPlayData = function() {
 	var play = $('#currentTitle').text();
-	if (parse = Common.parseArtistTitle(play)) {
-		this.artistName = parse[0];
-		this.trackName  = parse[1];
-	}
-	else
-		this.trackName  = play;
+	[this.artistName, this.trackName] = Common.parseArtistTitle(play);
 	return true;
 }
 

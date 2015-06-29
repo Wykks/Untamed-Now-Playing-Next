@@ -11,12 +11,7 @@ SynchtubeTrackListener.prototype.findSelector = function() {
 
 SynchtubeTrackListener.prototype.scrapPlayData = function() {
 	var play = this.selector.children('.qe_title').text();
-	if (parse = Common.parseArtistTitle(play)) {
-		this.artistName = parse[0];
-		this.trackName  = parse[1];
-	}
-	else
-		this.trackName  = play;
+	[this.artistName, this.trackName] = Common.parseArtistTitle(play);
 	return true;
 }
 

@@ -79,7 +79,7 @@ var Common = (function() {
 		}
 		else
 		{
-			return false;
+			return ["", input];
 		}
 	};
 
