@@ -10,7 +10,7 @@ PlayBaiduTrackListener.prototype.findSelector = function() {
 }
 
 PlayBaiduTrackListener.prototype.scrapPlayData = function() {
-	this.artistName = $.trim(this.selector.find('.songname').text())";
+	this.artistName = $.trim(this.selector.find('.songname').text());
 	this.trackName  = $.trim(this.selector.find('.artist').text());
 	return true;
 }
