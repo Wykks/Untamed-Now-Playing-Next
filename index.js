@@ -116,7 +116,7 @@ createMusicWebsiteWorker("*.player.siriusxm.com", "siriusxm.js", "top");
 createMusicWebsiteWorker("*.plug.dj", "plugdj.js", "top");
 createMusicWebsiteWorker("*.pleer.com", "pleer.js", "top");
 createMusicWebsiteWorker(/.*play.spotify.com\/apps\/player.*/, "spotify.js", "frame");
-createMusicWebsiteWorker("*.music.yandex.ru", "radioyandex.js", "top");
+createMusicWebsiteWorker("*.radio.yandex.ru", "radioyandex.js", "top");
 createMusicWebsiteWorker(/.*radiorecord.ru\/player.*/, "radiorecord.js", "top");
 createMusicWebsiteWorker(/.*radioultra.ru\/player.*/, "radioultra.js", "top");
 createMusicWebsiteWorker("*.rdio.com", "rdio.js", "top");
