@@ -87,6 +87,7 @@ function createMusicWebsiteWorker(includes, script, attachTo)
 
 createMusicWebsiteWorker("*.8tracks.com", "8tracks.js", "top");
 createMusicWebsiteWorker(/.*ah.fm\/player\/.*/, "ahfm.js", "top");
+createMusicWebsiteWorker(/.*animenfo.com\/radio\/nowplaying.php/, "animenfo.js", "top");
 createMusicWebsiteWorker("*.seoul.fm", "seoulfm.js", "top");
 createMusicWebsiteWorker("*.blinkboxmusic.com", "blinkboxmusic.js", "top");
 createMusicWebsiteWorker("*.deezer.com", "deezer.js", "top");
