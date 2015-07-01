@@ -1,5 +1,6 @@
 var YoutubeTrackListener = function() {
-	this.mutationObserverAttribute = new RegExp('page-loaded');
+	this.mutationObserverAttributeName = 'class';
+	this.mutationObserverAttributeValue = new RegExp('page-loaded');
 	this.mutationObserverElement = document.body;
 };
 YoutubeTrackListener.prototype = new Common.WebsiteTrackListener();

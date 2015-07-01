@@ -11,8 +11,9 @@ SpotifyTrackListener.prototype.isPlaying = function() {
 
 SpotifyTrackListener.prototype.scrapPlayData = function() {
 	this.artistName = "";
+	var self = this;
 	$('#track-artist').find('a').each(function() {
-		this.artistName += (artistName == '') ? $(this).text() : ', ' + $(this).text();
+		self.artistName += (self.artistName == '') ? $(this).text() : ', ' + $(this).text();
 	});
 	this.trackName = this.selector.eq(0).text();
 	return true;

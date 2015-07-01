@@ -34,10 +34,10 @@ var Common = (function() {
 	};
 
 	function mutationObserverAttrModified(mutation) {
-		if (mutation.attributeName != 'class')
+		if (mutation.attributeName != this.mutationObserverAttributeName)
 			return;
 		var newValue = mutation.target.getAttribute(mutation.attributeName);
-		if (newValue.match(this.mutationObserverAttribute))
+		if (!this.mutationObserverAttributeValue || newValue.match(this.mutationObserverAttributeValue))
 			trackListenerLogic.bind(this)();
 	}
 
@@ -54,7 +54,8 @@ var Common = (function() {
 			this.artistName = "";
 			this.trackName = "";
 			this.selector = undefined;
-			this.mutationObserverAttribute = undefined;
+			this.mutationObserverAttributeName = "";
+			this.mutationObserverAttributeValue = undefined;
 			this.mutationObserverElement = undefined;
 	};
 	Common.WebsiteTrackListener.prototype.isPlaying = function() { return true; };
