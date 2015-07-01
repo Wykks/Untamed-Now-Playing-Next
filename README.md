@@ -54,9 +54,19 @@ On Mozilla Add-ons (AMO) : https://addons.mozilla.org/en-US/firefox/addon/untame
 Get it here : https://github.com/Wykks/Untamed-Now-Playing-Next/releases.
 Then drag the downloaded file onto a Firefox extension page (about:addons).
 
-### Latest dev version:
-Get it here : https://www.dropbox.com/s/va4q249lwfl3b4n/unp_dev.xpi?dl=1
-Then drag the downloaded file onto a Firefox extension page (about:addons).
+### Build Latest dev version:
+To build UNP you'll need npm and jpm.
+
+To install npm, read this: https://github.com/npm/npm#super-easy-install
+
+Then install jpm:
+
+    npm install jpm -g
+And finally build UNP (do this where package.json is located):
+
+    jpm xpi
+
+Then drag the xpi generated file onto a Firefox extension page (about:addons).
 
 Configuration
 --------------------------------------
