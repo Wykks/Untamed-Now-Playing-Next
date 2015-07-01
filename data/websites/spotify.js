@@ -31,4 +31,4 @@ SpotifyTrackListener.prototype.scrapDuration = function() {
 	return $('#track-length').text();
 }
 
-Common.runTrackListenerInterval(new PleerTrackListener());
+Common.runTrackListenerInterval(new SpotifyTrackListener());
