@@ -1,9 +1,7 @@
 var Common = (function() {
 	var Common = {};
 
-	var interval = 10000;
-
-	function trackListenerLogic() {
+	function updateTrack() {
 		if (this.isPlaying()) {
 			this.findSelector();
 			if (!this.scrapPlayData())
@@ -29,34 +27,95 @@ var Common = (function() {
 		}
 	}
 
+	Common.MutationObserverUpdater = (function() {
+		var listener;
+		var attributeName = '';
+		var attributeValue;
+		var element;
+		
+		function MutationObserverUpdater(l) {
+			listener = l;
+		}
+
+		MutationObserverUpdater.prototype.setAttributeName = function(l) {
+		    attributeName = l;
+		};
+		
+		MutationObserverUpdater.prototype.setAttributeValue = function(l) {
+		    attributeValue = l;
+		};
+		
+		MutationObserverUpdater.prototype.setElement = function(l) {
+		    element = l;
+		};
+		
+//If the childs of the node are removed/added; Identify the good node by attribute
+//What if the node don't have attr ? Well that's unfortunate (for now)
+		MutationObserverUpdater.prototype.runOnChildAttr = function() {
+			var observer = new MutationObserver(function(mutations) {
+				mutations.forEach(function(mutation) {
+					if (mutation.removedNodes[0]) //Skip removed nodes
+						return;
+					var attr = mutation.addedNodes[0].getAttribute(attributeName);
+					if (attr.match(attributeValue)) {
+						updateTrack.call(listener);
+					}
+				});
+			});
+			observer.observe(element, { childList: true, subtree: true });
+			updateTrack.bind(listener)();
+		};
+
+//ONLY if the attr of the node change
+		MutationObserverUpdater.prototype.runOnAttr = function() {
+			var observer = new MutationObserver(function(mutations) {
+				mutations.forEach(function(mutation) {
+					if (mutation.attributeName != attributeName)
+						return;
+					var newValue = mutation.target.getAttribute(mutation.attributeName);
+					if (newValue.match(attributeValue))
+						updateTrack.bind(listener)();
+				});
+			});
+			observer.observe(element, { attributes: true });
+			updateTrack.bind(listener)();
+		};
+		
+		return MutationObserverUpdater;
+	}());
+	
+	Common.IntervalUpdater = (function() {
+		var listener;
+		var interval = 10000;
+		
+		function IntervalUpdater(l) {
+			listener = l;
+		}
+
+		IntervalUpdater.prototype.setInterval = function(l) {
+		    interval = l;
+		};
+
+		IntervalUpdater.prototype.run = function() {
+			setInterval(updateTrack.bind(listener), interval);
+		};
+		
+		return IntervalUpdater;
+	}());
+	
+	//Deprecated
 	Common.runTrackListenerInterval = function(listener) {
 		setInterval(trackListenerLogic.bind(listener), interval);
-	};
-
-	function mutationObserverAttrModified(mutation) {
-		if (mutation.attributeName != this.mutationObserverAttributeName)
-			return;
-		var newValue = mutation.target.getAttribute(mutation.attributeName);
-		if (!this.mutationObserverAttributeValue || newValue.match(this.mutationObserverAttributeValue))
-			trackListenerLogic.bind(this)();
-	}
-
-	Common.runTrackListenerMutationObserverAttr = function(listener, element) {
-		var observer = new MutationObserver(function(mutations) {
-			mutations.forEach(mutationObserverAttrModified.bind(listener));
-		});
-		observer.observe(listener.mutationObserverElement, { attributes: true });
-		trackListenerLogic.bind(listener)();
 	};
 
 	Common.WebsiteTrackListener = function() {
 			this.play = "";
 			this.artistName = "";
 			this.trackName = "";
-			this.selector = undefined;
+			this.selector;
 			this.mutationObserverAttributeName = "";
-			this.mutationObserverAttributeValue = undefined;
-			this.mutationObserverElement = undefined;
+			this.mutationObserverAttributeValue;
+			this.mutationObserverElement;
 	};
 	Common.WebsiteTrackListener.prototype.isPlaying = function() { return true; };
 	Common.WebsiteTrackListener.prototype.scrapAlbumName = function() { return ""; };
@@ -135,8 +194,6 @@ var Common = (function() {
 	
 	function nowPlaying(np)
 	{
-		last = np.nowPlaying;
-
 		if (np.nowPlaying !== null && np.nowPlaying !== false && typeof np.nowPlaying !== 'undefined')
 		{
 			var currentTime = new Date();

@@ -1,8 +1,7 @@
-var YoutubeTrackListener = function() {
-	this.mutationObserverAttributeName = 'class';
-	this.mutationObserverAttributeValue = new RegExp('page-loaded');
-	this.mutationObserverElement = document.body;
-};
+if (self.options.prefs.unpDisableYoutube === true)
+	throw new Error("UNP disabled on youtube");
+
+var YoutubeTrackListener = function() { };
 YoutubeTrackListener.prototype = new Common.WebsiteTrackListener();
 
 YoutubeTrackListener.prototype.isPlaying = function() {
@@ -44,5 +43,8 @@ YoutubeTrackListener.prototype.scrapDuration = function() {
 	return $('.ytp-time-duration').text();
 }
 
-if (self.options.prefs.unpDisableYoutube !== true)
-	Common.runTrackListenerMutationObserverAttr(new YoutubeTrackListener());
+var updateTriggerer = new Common.MutationObserverUpdater(new YoutubeTrackListener());
+updateTriggerer.setElement(document.body);
+updateTriggerer.setAttributeName('class');
+updateTriggerer.setAttributeValue(new RegExp('page-loaded'));
+updateTriggerer.runOnAttr();

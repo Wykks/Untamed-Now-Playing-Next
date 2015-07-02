@@ -1,4 +1,7 @@
-var PleerTrackListener = function() {};
+var PleerTrackListener = function() {
+	this.mutationObserverElement = $('.now-playing').get(0);
+};
+
 PleerTrackListener.prototype = new Common.WebsiteTrackListener();
 
 PleerTrackListener.prototype.isPlaying = function() { return $('#play').hasClass('pause'); }
@@ -20,4 +23,4 @@ PleerTrackListener.prototype.scrapDuration = function() {
 								.text()).match(/^(.+) \u2014 (.+) \((.+)\)$/)[3]));
 }
 
-Common.runTrackListenerInterval(new PleerTrackListener());
+Common.runTrackListenerMutationObserverChild(new PleerTrackListener());

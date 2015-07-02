@@ -1,8 +1,4 @@
-var ExampleTrackListener = function() {
-	this.mutationObserverAttributeName = '';
-	this.mutationObserverAttributeValue = new RegExp('');
-	this.mutationObserverElement = document.body;
-};
+var ExampleTrackListener = function() { };
 ExampleTrackListener.prototype = new Common.WebsiteTrackListener();
 
 ExampleTrackListener.prototype.isPlaying = function() {

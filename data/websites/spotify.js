@@ -1,4 +1,5 @@
-var SpotifyTrackListener = function() {};
+var SpotifyTrackListener = function() { };
+
 SpotifyTrackListener.prototype = new Common.WebsiteTrackListener();
 
 SpotifyTrackListener.prototype.findSelector = function() {
@@ -31,4 +32,10 @@ SpotifyTrackListener.prototype.scrapDuration = function() {
 	return $('#track-length').text();
 }
 
-Common.runTrackListenerInterval(new SpotifyTrackListener());
+var updateTriggerer = new Common.MutationObserverUpdater(new SpotifyTrackListener());
+updateTriggerer.setElement($('#cover-art').get(0));
+updateTriggerer.setAttributeName('class');
+updateTriggerer.setAttributeValue(new RegExp('sp-image-wrapper'));
+updateTriggerer.runOnChildAttr();
+
+//Common.runTrackListenerMutationObserverChildAttr(new SpotifyTrackListener());
