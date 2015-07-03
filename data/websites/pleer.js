@@ -17,14 +17,18 @@ PleerTrackListener.prototype.scrapUrl = function() {
 }
 
 PleerTrackListener.prototype.scrapDuration = function() {
-	return Common.secToHms(Common.hmsToSec($.trim($('.now-playing').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; })
-								.text()).match(/^(.+) \u2014 (.+) \((.+)\)$/)[3]));
+	return Common.secToHms(Common.hmsToSec($.trim(
+				$('.now-playing').contents().filter(
+					function() { return this.nodeType == Node.TEXT_NODE; }
+				).text()
+			).match(/^(.+) \u2014 (.+) \((.+)\)$/)[3]));
 }
 
 var updateTriggerer = new Common.MutationObserverUpdater(new PleerTrackListener());
 updateTriggerer.setElement($('#player .now-playing').get(0));
-updateTriggerer.setNodeType(Node.TEXT_NODE);
-updateTriggerer.setCustomFilter(function(addedNodes) {
-	return addedNodes[0].parentNode.id !== "time";
+updateTriggerer.setCustomFilter(function(observedNode) {
+	if (observedNode.parentNode.id === "time")
+		return false;
+	return observedNode.nodeType === Node.TEXT_NODE;
 });
 updateTriggerer.runOnChildAttr();

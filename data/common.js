@@ -1,32 +1,6 @@
 var Common = (function() {
 	var Common = {};
 
-	function updateTrack() {
-		if (this.isPlaying()) {
-			this.findSelector();
-			if (!this.scrapPlayData())
-				return;
-			var play;
-			if (!empty(this.artistName))
-				play = this.artistName + ' - ' + this.trackName;
-			else
-				play = this.trackName;
-			if (play !== this.play) {
-				this.play = play;
-				nowPlaying(
-				{
-					nowPlaying : play,
-					trackName  : this.trackName,
-					artistName : this.artistName,
-					albumName  : this.scrapAlbumName(),
-					albumArt   : this.scrapAlbumArt(),
-					url        : this.scrapUrl(),
-					duration   : this.scrapDuration()
-				});
-			}
-		}
-	}
-
 	Common.MutationObserverUpdater = (function() {
 		var listener;
 		var nodeAttrName = '';
@@ -59,31 +33,35 @@ var Common = (function() {
 		    customFilter = fn;
 		};
 		
-//If the childs of the node are removed/added; Identify the good node by nodeAttribute / nodeType
+		function builtinFilter(currentNode) {
+			if (nodeAttrName !== '') {
+				var attr = currentNode.getAttribute(nodeAttrName);
+				if (!nodeAttrValue || attr.match(nodeAttrValue)) {
+					return true;
+				}
+			}
+			else if (nodeType && currentNode.nodeType === nodeType) {
+				return true;
+			}
+			return false;
+		}
+
+//If the childs of the node are removed/added;
+//Filter the good node by nodeAttribute / nodeType or use a customFilter
 		MutationObserverUpdater.prototype.runOnChildAttr = function() {
 			var observer = new MutationObserver(function(mutations) {
 				mutations.forEach(function(mutation) {
 					if (!mutation.addedNodes[0])
 						return;
-					if (customFilter && !customFilter(mutation.addedNodes))
-						return;
 					for (var i = 0; i < mutation.addedNodes.length; i++) {
-						if (nodeAttrName !== '') {
-							var attr = mutation.addedNodes[i].getAttribute(nodeAttrName);
-							if (!nodeAttrValue || attr.match(nodeAttrValue)) {
-								updateTrack.call(listener);
-								return;
-							}
-						}
-						else if (nodeType && mutation.addedNodes[i].nodeType === nodeType) {
-							updateTrack.call(listener);
-							return;
+						if ((customFilter && customFilter(mutation.addedNodes[i]))
+						|| builtinFilter(mutation.addedNodes[i])) {
+							listener.updateTrack();
 						}
 					}
 				});
 			});
 			observer.observe(element, { childList: true, subtree: true, characterData: true });
-			updateTrack.bind(listener)();
 		};
 
 //ONLY if the attr of the node change
@@ -94,11 +72,11 @@ var Common = (function() {
 						return;
 					var newValue = mutation.target.getAttribute(mutation.attributeName);
 					if (!nodeAttrValue || newValue.match(nodeAttrValue))
-						updateTrack.call(listener);
+						listener.updateTrack();
 				});
 			});
 			observer.observe(element, { attributes: true });
-			updateTrack.call(listener);
+			listener.updateTrack();
 		};
 		
 		return MutationObserverUpdater;
@@ -117,7 +95,7 @@ var Common = (function() {
 		};
 
 		IntervalUpdater.prototype.run = function() {
-			setInterval(updateTrack.bind(listener), interval);
+			setInterval(listener.updateTrack.bind(listener), interval);
 		};
 		
 		return IntervalUpdater;
@@ -125,7 +103,7 @@ var Common = (function() {
 	
 	//Deprecated
 	Common.runTrackListenerInterval = function(listener) {
-		setInterval(trackListenerLogic.bind(listener), interval);
+		setInterval(listener.updateTrack.bind(listener), 10000);
 	};
 
 	Common.WebsiteTrackListener = function() {
@@ -144,6 +122,32 @@ var Common = (function() {
 	Common.WebsiteTrackListener.prototype.scrapDuration = function() { return ""; };
 	Common.WebsiteTrackListener.prototype.scrapPlayData = function() { throw new Error("Not implemented"); };
 	Common.WebsiteTrackListener.prototype.findSelector = function() { };
+
+	Common.WebsiteTrackListener.prototype.updateTrack = function() {
+		if (this.isPlaying()) {
+			this.findSelector();
+			if (!this.scrapPlayData())
+				return;
+			var play;
+			if (!empty(this.artistName))
+				play = this.artistName + ' - ' + this.trackName;
+			else
+				play = this.trackName;
+			if (play !== this.play) {
+				this.play = play;
+				nowPlaying(
+				{
+					nowPlaying : play,
+					trackName  : this.trackName,
+					artistName : this.artistName,
+					albumName  : this.scrapAlbumName(),
+					albumArt   : this.scrapAlbumArt(),
+					url        : this.scrapUrl(),
+					duration   : this.scrapDuration()
+				});
+			}
+		}
+	}
 
 	Common.parseArtistTitle = function(input)
 	{
