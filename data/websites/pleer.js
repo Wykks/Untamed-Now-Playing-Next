@@ -1,6 +1,4 @@
-var PleerTrackListener = function() {
-	this.mutationObserverElement = $('.now-playing').get(0);
-};
+var PleerTrackListener = function() { };
 
 PleerTrackListener.prototype = new Common.WebsiteTrackListener();
 
@@ -23,4 +21,10 @@ PleerTrackListener.prototype.scrapDuration = function() {
 								.text()).match(/^(.+) \u2014 (.+) \((.+)\)$/)[3]));
 }
 
-Common.runTrackListenerMutationObserverChild(new PleerTrackListener());
+var updateTriggerer = new Common.MutationObserverUpdater(new PleerTrackListener());
+updateTriggerer.setElement($('#player .now-playing').get(0));
+updateTriggerer.setNodeType(Node.TEXT_NODE);
+updateTriggerer.setCustomFilter(function(addedNodes) {
+	return addedNodes[0].parentNode.id !== "time";
+});
+updateTriggerer.runOnChildAttr();

@@ -45,6 +45,6 @@ YoutubeTrackListener.prototype.scrapDuration = function() {
 
 var updateTriggerer = new Common.MutationObserverUpdater(new YoutubeTrackListener());
 updateTriggerer.setElement(document.body);
-updateTriggerer.setAttributeName('class');
-updateTriggerer.setAttributeValue(new RegExp('page-loaded'));
+updateTriggerer.setNodeAttributeName('class');
+updateTriggerer.setNodeAttributeValue(new RegExp('page-loaded'));
 updateTriggerer.runOnAttr();

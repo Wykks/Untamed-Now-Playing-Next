@@ -29,40 +29,60 @@ var Common = (function() {
 
 	Common.MutationObserverUpdater = (function() {
 		var listener;
-		var attributeName = '';
-		var attributeValue;
+		var nodeAttrName = '';
+		var nodeAttrValue;
+		var nodeType;
 		var element;
+		var customFilter;
 		
 		function MutationObserverUpdater(l) {
 			listener = l;
 		}
 
-		MutationObserverUpdater.prototype.setAttributeName = function(l) {
-		    attributeName = l;
+		MutationObserverUpdater.prototype.setNodeAttributeName = function(l) {
+		    nodeAttrName = l;
 		};
 		
-		MutationObserverUpdater.prototype.setAttributeValue = function(l) {
-		    attributeValue = l;
+		MutationObserverUpdater.prototype.setNodeAttributeValue = function(l) {
+		    nodeAttrValue = l;
 		};
-		
+
+		MutationObserverUpdater.prototype.setNodeType = function(l) {
+		    nodeType = l;
+		};
+	
 		MutationObserverUpdater.prototype.setElement = function(l) {
 		    element = l;
 		};
 		
-//If the childs of the node are removed/added; Identify the good node by attribute
-//What if the node don't have attr ? Well that's unfortunate (for now)
+		MutationObserverUpdater.prototype.setCustomFilter = function(fn) {
+		    customFilter = fn;
+		};
+		
+//If the childs of the node are removed/added; Identify the good node by nodeAttribute / nodeType
 		MutationObserverUpdater.prototype.runOnChildAttr = function() {
 			var observer = new MutationObserver(function(mutations) {
 				mutations.forEach(function(mutation) {
-					if (mutation.removedNodes[0]) //Skip removed nodes
+					if (!mutation.addedNodes[0])
 						return;
-					var attr = mutation.addedNodes[0].getAttribute(attributeName);
-					if (attr.match(attributeValue)) {
-						updateTrack.call(listener);
+					if (customFilter && !customFilter(mutation.addedNodes))
+						return;
+					for (var i = 0; i < mutation.addedNodes.length; i++) {
+						if (nodeAttrName !== '') {
+							var attr = mutation.addedNodes[i].getAttribute(nodeAttrName);
+							if (!nodeAttrValue || attr.match(nodeAttrValue)) {
+								updateTrack.call(listener);
+								return;
+							}
+						}
+						else if (nodeType && mutation.addedNodes[i].nodeType === nodeType) {
+							updateTrack.call(listener);
+							return;
+						}
 					}
 				});
 			});
-			observer.observe(element, { childList: true, subtree: true });
+			observer.observe(element, { childList: true, subtree: true, characterData: true });
 			updateTrack.bind(listener)();
 		};
 
@@ -70,15 +90,15 @@ var Common = (function() {
 		MutationObserverUpdater.prototype.runOnAttr = function() {
 			var observer = new MutationObserver(function(mutations) {
 				mutations.forEach(function(mutation) {
-					if (mutation.attributeName != attributeName)
+					if (mutation.attributeName != nodeAttrName)
 						return;
 					var newValue = mutation.target.getAttribute(mutation.attributeName);
-					if (newValue.match(attributeValue))
-						updateTrack.bind(listener)();
+					if (!nodeAttrValue || newValue.match(nodeAttrValue))
+						updateTrack.call(listener);
 				});
 			});
 			observer.observe(element, { attributes: true });
-			updateTrack.bind(listener)();
+			updateTrack.call(listener);
 		};
 		
 		return MutationObserverUpdater;

@@ -34,8 +34,6 @@ SpotifyTrackListener.prototype.scrapDuration = function() {
 
 var updateTriggerer = new Common.MutationObserverUpdater(new SpotifyTrackListener());
 updateTriggerer.setElement($('#cover-art').get(0));
-updateTriggerer.setAttributeName('class');
-updateTriggerer.setAttributeValue(new RegExp('sp-image-wrapper'));
+updateTriggerer.setNodeAttributeName('class');
+updateTriggerer.setNodeAttributeValue(new RegExp('sp-image-wrapper'));
 updateTriggerer.runOnChildAttr();
-
-//Common.runTrackListenerMutationObserverChildAttr(new SpotifyTrackListener());
