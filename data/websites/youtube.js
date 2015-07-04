@@ -44,7 +44,7 @@ YoutubeTrackListener.prototype.scrapDuration = function() {
 }
 
 var updateTriggerer = new Common.MutationObserverUpdater(new YoutubeTrackListener());
-updateTriggerer.setElement(document.body);
+updateTriggerer.setSelector('body');
 updateTriggerer.setNodeAttributeName('class');
 updateTriggerer.setNodeAttributeValue(new RegExp('page-loaded'));
 updateTriggerer.runOnAttr();

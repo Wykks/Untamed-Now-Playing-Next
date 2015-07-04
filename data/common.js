@@ -6,8 +6,9 @@ var Common = (function() {
 		var nodeAttrName = '';
 		var nodeAttrValue;
 		var nodeType;
-		var element;
+		var selector;
 		var customFilter;
+		var element;
 		
 		function MutationObserverUpdater(l) {
 			listener = l;
@@ -25,8 +26,8 @@ var Common = (function() {
 		    nodeType = l;
 		};
 	
-		MutationObserverUpdater.prototype.setElement = function(l) {
-		    element = l;
+		MutationObserverUpdater.prototype.setSelector = function(l) {
+		    selector = l;
 		};
 		
 		MutationObserverUpdater.prototype.setCustomFilter = function(fn) {
@@ -45,10 +46,32 @@ var Common = (function() {
 			}
 			return false;
 		}
-
-//If the childs of the node are removed/added;
-//Filter the good node by nodeAttribute / nodeType or use a customFilter
-		MutationObserverUpdater.prototype.runOnChildAttr = function() {
+		
+		//Wait until what we want to observ is in the dom
+		function getElement(fn) {
+			var timed = false;
+			
+			function innerGetElement() {
+				if (!$(selector).get(0)) {
+					timed = true;
+					return function() {
+						setTimeout(innerGetElement.bind(this, fn), 10000);
+					}
+				}
+				element = $(selector).get(0);
+				if (timed)
+					fn.call(this);
+				else {
+					return function() {
+						fn.call(this);
+					}
+				}
+			}
+			
+			return innerGetElement();
+		}
+		
+		function innerRunOnChildAttr() {
 			var observer = new MutationObserver(function(mutations) {
 				mutations.forEach(function(mutation) {
 					if (!mutation.addedNodes[0])
@@ -62,10 +85,9 @@ var Common = (function() {
 				});
 			});
 			observer.observe(element, { childList: true, subtree: true, characterData: true });
-		};
+		}
 
-//ONLY if the attr of the node change
-		MutationObserverUpdater.prototype.runOnAttr = function() {
+		function innerRunOnAttr() {
 			var observer = new MutationObserver(function(mutations) {
 				mutations.forEach(function(mutation) {
 					if (mutation.attributeName != nodeAttrName)
@@ -77,7 +99,14 @@ var Common = (function() {
 			});
 			observer.observe(element, { attributes: true });
 			listener.updateTrack();
-		};
+		}
+
+//If the childs of the node are removed/added;
+//Filter the good node by nodeAttribute / nodeType or use a customFilter
+		MutationObserverUpdater.prototype.runOnChildAttr = getElement.call(this, innerRunOnChildAttr);
+
+//ONLY if the attr of the node change
+		MutationObserverUpdater.prototype.runOnAttr = getElement.call(this, innerRunOnAttr);
 		
 		return MutationObserverUpdater;
 	}());

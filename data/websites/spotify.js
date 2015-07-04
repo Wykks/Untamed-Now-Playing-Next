@@ -33,7 +33,7 @@ SpotifyTrackListener.prototype.scrapDuration = function() {
 }
 
 var updateTriggerer = new Common.MutationObserverUpdater(new SpotifyTrackListener());
-updateTriggerer.setElement($('#cover-art').get(0));
+updateTriggerer.setSelector('#cover-art');
 updateTriggerer.setNodeAttributeName('class');
 updateTriggerer.setNodeAttributeValue(new RegExp('sp-image-wrapper'));
 updateTriggerer.runOnChildAttr();

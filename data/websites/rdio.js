@@ -28,7 +28,11 @@ RdioTrackListener.prototype.scrapUrl = function() {
 }
 
 RdioTrackListener.prototype.scrapDuration = function() {
-	return this.selector.find('.duration').text();
+	return this.selector.find('.duration').text();queue_artqueue_art
 }
 
-Common.runTrackListenerInterval(new RdioTrackListener());
+var updateTriggerer = new Common.MutationObserverUpdater(new RdioTrackListener());
+updateTriggerer.setSelector('.queue_art');
+updateTriggerer.setNodeAttributeName('src');
+updateTriggerer.runOnAttr();
+

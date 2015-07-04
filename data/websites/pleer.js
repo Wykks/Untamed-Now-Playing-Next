@@ -25,7 +25,7 @@ PleerTrackListener.prototype.scrapDuration = function() {
 }
 
 var updateTriggerer = new Common.MutationObserverUpdater(new PleerTrackListener());
-updateTriggerer.setElement($('#player .now-playing').get(0));
+updateTriggerer.setSelector('#player .now-playing');
 updateTriggerer.setCustomFilter(function(observedNode) {
 	if (observedNode.parentNode.id === "time")
 		return false;
