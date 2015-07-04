@@ -55,7 +55,7 @@ var Common = (function() {
 				if (!$(selector).get(0)) {
 					timed = true;
 					return function() {
-						setTimeout(innerGetElement.bind(this, fn), 10000);
+						setTimeout(innerGetElement.bind(this, fn), 3000);
 					}
 				}
 				element = $(selector).get(0);
