@@ -42,6 +42,8 @@ self.port.on("prefs", function(storage)
 	{
 		if (i == 7)
 			i = 11; //Hack because of nighbot & stream check skip
+		if (i == 8)
+			i = 12; //Yeah... That's beautiful
 		l10n("opt_tt_" + i, $(this)).then(function(msg)
 		{
 			msg.data.popover(
