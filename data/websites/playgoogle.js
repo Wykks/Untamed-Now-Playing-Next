@@ -27,4 +27,9 @@ PlayGoogleTrackListener.prototype.scrapDuration = function() {
 	return $('#time_container_duration').text();
 }
 
-Common.runTrackListenerInterval(new PlayGoogleTrackListener());
+var updateTriggerer = new Common.MutationObserverUpdater(new PlayGoogleTrackListener());
+updateTriggerer.setSelector('#playerSongInfo');
+updateTriggerer.setNodeAttributeName('src');
+updateTriggerer.runOnChildAttr();
+
+//Common.runTrackListenerInterval(new PlayGoogleTrackListener());
