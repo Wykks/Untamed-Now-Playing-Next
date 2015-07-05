@@ -36,6 +36,8 @@ var Common = (function() {
 		
 		function builtinFilter(currentNode) {
 			if (nodeAttrName !== '') {
+				if (!currentNode.getAttribute)
+					return false;
 				var attr = currentNode.getAttribute(nodeAttrName);
 				if (!nodeAttrValue || attr.match(nodeAttrValue)) {
 					return true;
@@ -55,7 +57,7 @@ var Common = (function() {
 				if (!$(selector).get(0)) {
 					timed = true;
 					return function() {
-						setTimeout(innerGetElement.bind(this, fn), 3000);
+						setTimeout(innerGetElement.bind(this, fn), 2000);
 					}
 				}
 				element = $(selector).get(0);
@@ -80,6 +82,7 @@ var Common = (function() {
 						if ((customFilter && customFilter(mutation.addedNodes[i]))
 						|| builtinFilter(mutation.addedNodes[i])) {
 							listener.updateTrack();
+							return;
 						}
 					}
 				});

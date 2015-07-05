@@ -23,4 +23,8 @@ SoundcloudTrackListener.prototype.scrapDuration = function() {
 	return $('.playbackTimeline__duration span:eq(1)').text();
 }
 
-Common.runTrackListenerInterval(new SoundcloudTrackListener());
+var updateTriggerer = new Common.MutationObserverUpdater(new SoundcloudTrackListener());
+updateTriggerer.setSelector('.playControls__soundBadge > .playbackSoundBadge');
+updateTriggerer.setNodeAttributeName('class');
+updateTriggerer.setNodeAttributeValue(new RegExp('playbackSoundBadge__avatar'));
+updateTriggerer.runOnChildAttr();

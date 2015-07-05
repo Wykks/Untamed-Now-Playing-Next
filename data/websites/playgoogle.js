@@ -31,5 +31,3 @@ var updateTriggerer = new Common.MutationObserverUpdater(new PlayGoogleTrackList
 updateTriggerer.setSelector('#playerSongInfo');
 updateTriggerer.setNodeAttributeName('src');
 updateTriggerer.runOnChildAttr();
-
-//Common.runTrackListenerInterval(new PlayGoogleTrackListener());
