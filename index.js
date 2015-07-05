@@ -42,7 +42,7 @@ pageMod.PageMod(
     	
     	worker.port.on("writeFile", function(message)
     	{
-    		nowPlayingIO.writeFile(message.filename, message.text).then(function(test)
+    		nowPlayingIO.writeFile(message.filename, message.text).then(function()
     		{
     			worker.port.emit(message.filename, "success");
     		}, function(reason)

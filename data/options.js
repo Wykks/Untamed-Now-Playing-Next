@@ -147,6 +147,11 @@ self.port.on("prefs", function(storage)
 	{
 		$('#auto_clear').prop('checked', true);
 	}
+	
+	if (storage.unpNotification === true)
+	{
+		$('#notification').prop('checked', true);
+	}
 
 	if (!empty(storage.unpStreamUser))
 	{
@@ -308,6 +313,7 @@ self.port.on("prefs", function(storage)
 		storage.setValue('unpAlbumArtwork', $('#album_artwork').is(':checked'));
 		storage.setValue('unpDisableYoutube', $('#disable_youtube').is(':checked'));
 		storage.setValue('unpAutoClear', $('#auto_clear').is(':checked'));
+		storage.setValue('unpNotification', $('#notification').is(':checked'));
 		storage.setValue('unpNightbotEnable', $('#nightbot_enable').is(':checked'));
 		storage.setValue('unpNightbotUser', $('#nightbot_user').val());
 		storage.setValue('unpNightbotAPIKey', $('#nightbot_api_key').val());
