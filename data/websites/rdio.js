@@ -35,4 +35,3 @@ var updateTriggerer = new Common.MutationObserverUpdater(new RdioTrackListener()
 updateTriggerer.setSelector('.queue_art');
 updateTriggerer.setNodeAttributeName('src');
 updateTriggerer.runOnAttr();
-

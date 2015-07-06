@@ -54,13 +54,13 @@ var Common = (function() {
 			var timed = false;
 			
 			function innerGetElement() {
-				if (!$(selector).get(0)) {
+				element = $(selector).get(0);
+				if (!element) {
 					timed = true;
 					return function() {
 						setTimeout(innerGetElement.bind(this, fn), 2000);
 					}
 				}
-				element = $(selector).get(0);
 				if (timed)
 					fn.call(this);
 				else {
