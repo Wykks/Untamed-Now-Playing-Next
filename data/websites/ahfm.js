@@ -3,7 +3,7 @@ AhFMTrackListener.prototype = new Common.WebsiteTrackListener();
 
 AhFMTrackListener.prototype.isPlaying = function() {
 	return $('.now_playing').length && $('#pause').is(':visible');
-}
+};
 
 AhFMTrackListener.prototype.scrapPlayData = function() {
 	var play = $('.now_playing > .status > a').text();
@@ -15,6 +15,6 @@ AhFMTrackListener.prototype.scrapPlayData = function() {
 		this.trackName  = matches[2];
 	}
 	return true;
-}
+};
 
 Common.runTrackListenerInterval(new AhFMTrackListener());

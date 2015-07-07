@@ -3,7 +3,7 @@ TuneInTrackListener.prototype = new Common.WebsiteTrackListener();
 
 TuneInTrackListener.prototype.isPlaying = function() {
 	return $('#tuner').hasClass('playing');
-}
+};
 
 TuneInTrackListener.prototype.scrapPlayData = function() {
 	var play = $('#tuner div.line1').text();
@@ -15,7 +15,7 @@ TuneInTrackListener.prototype.scrapPlayData = function() {
 		this.trackName = play;
 	}
 	return true;
-}
+};
 
 TuneInTrackListener.prototype.scrapAlbumArt = function() {
 	return $('.image > img').attr('src');

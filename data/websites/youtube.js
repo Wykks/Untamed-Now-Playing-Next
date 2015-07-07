@@ -6,7 +6,7 @@ YoutubeTrackListener.prototype = new Common.WebsiteTrackListener();
 
 YoutubeTrackListener.prototype.isPlaying = function() {
 	return typeof $('#watch7-content > meta[itemprop="name"]').attr('content') !== 'undefined';
-}
+};
 
 YoutubeTrackListener.prototype.scrapPlayData = function() {
 	if ($('#eow-title').find('a').length) {
@@ -14,7 +14,7 @@ YoutubeTrackListener.prototype.scrapPlayData = function() {
 		this.trackName  = $.trim($('#eow-title').contents().filter(function(){ return this.nodeType == Node.TEXT_NODE; }).text());
 		var matches;
 
-		if (matches = this.trackName.match('^(-|\u2012|\u2013|\u2014|\u2015]|\|)'))
+		if ((matches = this.trackName.match('^(-|\u2012|\u2013|\u2014|\u2015]|\|)')))
 		{
 			if (matches[0] != '')
 			{
@@ -26,7 +26,7 @@ YoutubeTrackListener.prototype.scrapPlayData = function() {
 	var play = $('#watch7-content > meta[itemprop="name"]').attr('content');
 	[this.artistName, this.trackName] = Common.parseArtistTitle(play);
 	return true;
-}
+};
 
 YoutubeTrackListener.prototype.scrapAlbumArt = function() {
 	var link = $('link[itemprop="thumbnailUrl"]').attr('href');
@@ -37,11 +37,11 @@ YoutubeTrackListener.prototype.scrapAlbumArt = function() {
 
 YoutubeTrackListener.prototype.scrapUrl = function() {
 	return $('link[itemprop="url"]').attr('href');
-}
+};
 
 YoutubeTrackListener.prototype.scrapDuration = function() {
 	return $('.ytp-time-duration').text();
-}
+};
 
 var updateTriggerer = new Common.MutationObserverUpdater(new YoutubeTrackListener());
 updateTriggerer.setSelector('body');
