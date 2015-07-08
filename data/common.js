@@ -50,27 +50,13 @@ var Common = (function() {
 		}
 		
 		//Wait until what we want to observ is in the dom
-		function getElement(fn) {
-			var timed = false;
-			
-			function innerGetElement() {
-				element = $(selector).get(0);
-				if (!element) {
-					timed = true;
-					return function() {
-						setTimeout(innerGetElement.bind(this, fn), 2000);
-					}
-				}
-				if (timed)
-					fn.call(this);
-				else {
-					return function() {
-						fn.call(this);
-					}
-				}
+		function findElementThenRun(fn) {
+			element = $(selector).get(0);
+			if (!element) {
+				setTimeout(findElementThenRun.bind(this, fn), 2000);
+				return;
 			}
-			
-			return innerGetElement();
+			fn.call(this);
 		}
 		
 		function innerRunOnChildAttr() {
@@ -88,6 +74,7 @@ var Common = (function() {
 				});
 			});
 			observer.observe(element, { childList: true, subtree: true, characterData: true });
+			listener.updateTrack();
 		}
 
 		function innerRunOnAttr() {
@@ -106,10 +93,10 @@ var Common = (function() {
 
 //If the childs of the node are removed/added;
 //Filter the good node by nodeAttribute / nodeType or use a customFilter
-		MutationObserverUpdater.prototype.runOnChildAttr = getElement.call(this, innerRunOnChildAttr);
+		MutationObserverUpdater.prototype.runOnChildAttr = findElementThenRun.bind(this, innerRunOnChildAttr);
 
 //ONLY if the attr of the node change
-		MutationObserverUpdater.prototype.runOnAttr = getElement.call(this, innerRunOnAttr);
+		MutationObserverUpdater.prototype.runOnAttr = findElementThenRun.bind(this, innerRunOnAttr);
 		
 		return MutationObserverUpdater;
 	}());
