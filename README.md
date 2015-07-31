@@ -16,6 +16,7 @@ Supported Sites
 * [jamendo.com](http://www.jamendo.com)
 * [jango.com](http://jango.com)
 * [last.fm](http://last.fm)
+* [mixcloud.com](http://www.mixcloud.com)
 * [music.yandex.ru](http://music.yandex.ru)
 * [nightbot.tv](http://nightbot.tv)
 * [pandora.com](http://pandora.com)
