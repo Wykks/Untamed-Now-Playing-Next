@@ -108,6 +108,7 @@ createMusicWebsiteWorker(
 	"*.lastfm.se",
 	"*.lastfm.com.tr"
 ], "lastfm.js", "top");
+createMusicWebsiteWorker("*.jamendo.com", "jamendo.js", "top");
 createMusicWebsiteWorker("*.jango.com", "jango.js", "frame");
 createMusicWebsiteWorker("*.music.yandex.ru", "musicyandex.js", "top");
 createMusicWebsiteWorker("*.nightbot.tv", "nightbottv.js", "top");

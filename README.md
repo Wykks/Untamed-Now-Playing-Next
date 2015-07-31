@@ -13,6 +13,7 @@ Supported Sites
 * [di.fm](http://di.fm)
 * [distortionradio.com](http://distortionradio.com)
 * [hypem.com](http://hypem.com)
+* [jamendo.com](http://www.jamendo.com)
 * [jango.com](http://jango.com)
 * [last.fm](http://last.fm)
 * [music.yandex.ru](http://music.yandex.ru)
