@@ -2,33 +2,30 @@ var SlackerTrackListener = function() {};
 SlackerTrackListener.prototype = new Common.WebsiteTrackListener();
 
 SlackerTrackListener.prototype.isPlaying = function() {
-	return $('#mini-play').hasClass('pause');
+	return $('#transport > li.playpause').hasClass('play');
 };
 
 SlackerTrackListener.prototype.findSelector = function() {
-	this.selector = $('#player-track-name');
+	this.selector = $('#bar > div.container table > tbody > tr > td.fullwidth');
 };
 
 SlackerTrackListener.prototype.scrapPlayData = function() {
-	this.artistName = $('#player-artist-name').text();
-	this.trackName  = this.selector.text();
+	this.artistName = this.selector.find('.metadata > span.link:eq(0)').text();
+	this.trackName  = this.selector.find('.metadata > span.link:eq(1)').text();
 	return true;
 };
 
 SlackerTrackListener.prototype.scrapAlbumName = function() {
-	return $('#player-album-name').text(); 
+	//Not really the album name but still usefull
+	return this.selector.find('.stationname > p > span.link').text();
 };
 
 SlackerTrackListener.prototype.scrapAlbumArt = function() {
-	return $('#track-art-current-img').attr('src');
-};
-
-SlackerTrackListener.prototype.scrapUrl = function() {
-	return 'http://slacker.com/#song/' + this.selector.attr('itemid') + '/' + this.selector.attr('perfid') + '/' + this.selector.attr('trackid');
+	return $('tr > td.art > img').attr('src').replace(/300\.jpg$/, "500.jpg");
 };
 
 SlackerTrackListener.prototype.scrapDuration = function() {
-	return $('#progress-total').text();
+	return $('#progressContainer > span:eq(1)').text();
 };
 
 Common.runTrackListenerInterval(new SlackerTrackListener());
