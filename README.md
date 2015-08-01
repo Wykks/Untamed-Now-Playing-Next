@@ -19,6 +19,7 @@ Supported Sites
 * [mixcloud.com](http://www.mixcloud.com)
 * [music.yandex.ru](http://music.yandex.ru)
 * [nightbot.tv](http://nightbot.tv)
+* [noadradio.com](http://www.noadradio.com)
 * [pandora.com](http://pandora.com)
 * [piki.fm](http://piki.fm)
 * [play.google.com](http://play.google.com/music)

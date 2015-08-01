@@ -113,6 +113,7 @@ createMusicWebsiteWorker("*.jango.com", "jango.js", "frame");
 createMusicWebsiteWorker("*.mixcloud.com", "mixcloud.js", "top");
 createMusicWebsiteWorker("*.music.yandex.ru", "musicyandex.js", "top");
 createMusicWebsiteWorker("*.nightbot.tv", "nightbottv.js", "top");
+createMusicWebsiteWorker("*.noadradio.com", "noadradio.js", "frame");
 createMusicWebsiteWorker("*.pandora.com", "pandora.js", "top");
 createMusicWebsiteWorker(/.*play.google.com\/music.*/, "playgoogle.js", "top");
 createMusicWebsiteWorker("*.player.siriusxm.com", "siriusxm.js", "top");
