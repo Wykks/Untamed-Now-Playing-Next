@@ -70,9 +70,9 @@ function createMusicWebsiteWorker(includes, script, attachTo)
 		contentScriptFile:
 		[
 			self.data.url('third-party/jquery-2.1.3.min.js'),
-			self.data.url('browserFunc.js'),
-			self.data.url('common.js'),
-			self.data.url('websites/'+ script)
+			self.data.url('websites-support/browserFunc.js'),
+			self.data.url('websites-support/common.js'),
+			self.data.url('websites-support/websites/'+ script)
 		],
 		contentScriptWhen: 'ready',
 		contentScriptOptions:
