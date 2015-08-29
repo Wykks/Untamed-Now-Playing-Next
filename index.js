@@ -39,7 +39,7 @@ pageMod.PageMod(
     	{
     		ss.storage[message.key] = message.value;
     	});
-    	
+
     	worker.port.on("writeFile", function(message)
     	{
     		nowPlayingIO.writeFile(message.filename, message.text).then(function()
@@ -55,7 +55,7 @@ pageMod.PageMod(
     	{
     		nowPlayingIO.removeFile(filename);
     	});
-    	
+
     	worker.port.on("localization", function(key)
     	{
     		worker.port.emit('l10n'+key, _(key));
@@ -82,7 +82,7 @@ function createMusicWebsiteWorker(includes, script, attachTo)
 		onAttach: onAttachNowPlaying
 	};
 	if (typeof attachTo !== 'undefined')
-		param.attachTo = attachTo;	
+		param.attachTo = attachTo;
 	pageMod.PageMod(param);
 }
 
@@ -132,6 +132,7 @@ createMusicWebsiteWorker(/.*synchtu.be\/r\/Playhouse.*/, "synchtube.js", "top");
 createMusicWebsiteWorker("*.themusicninja.com", "themusicninja.js", "top");
 createMusicWebsiteWorker("*.tunein.com", "tunein.js", "top");
 createMusicWebsiteWorker("*.vk.com", "vk.js", "top");
+createMusicWebsiteWorker(/.*yggdrasilradio.net\/nowplaying.php/, "yggdrasilradio.js", "frame");
 createMusicWebsiteWorker("*.youtube.com", "youtube.js", "top");
 createMusicWebsiteWorker("*.zaycev.fm", "zaycev.js", "top");
 // Chinese sites

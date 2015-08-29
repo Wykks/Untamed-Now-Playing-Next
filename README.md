@@ -34,6 +34,7 @@ Supported Sites
 * [themusicninja.com](themusicninja.com)
 * [tunein.com](http://tunein.com)
 * [vk.com](http://vk.com)
+* [yggdrasilradio.net](http://yggdrasilradio.net)
 * [youtube.com](http://youtube.com)
 * [youtube.com/tv](http://youtube.com/tv)
 * [zaycev.fm](http://zaycev.fm)
