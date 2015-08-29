@@ -1,4 +1,4 @@
-if (self.options.prefs.unpDisableYoutube === true)
+if (BrowserFunc.option('unpDisableYoutube') === true)
 	throw new Error("UNP disabled on youtube");
 
 var YoutubeTrackListener = function() { };

@@ -243,7 +243,7 @@ var Common = (function() {
 			var minutes     = currentTime.getMinutes();
 			var	hours       = currentTime.getHours();
 
-			updateNowPlaying(
+			BrowserFunc.updateNowPlaying(
 			{
 				nowPlaying  : np.nowPlaying,
 				duration    : ( (!empty(np.duration)) ? np.duration : '?' ),
@@ -262,26 +262,7 @@ var Common = (function() {
 		}
 	}
 
-	//Firefox specific
-	//================
 
-	function updateNowPlaying(data)
-	{
-		self.port.emit('updateNowPlaying', data);
-		return new Promise(function(resolve, reject) {
-			self.port.once('updateNowPlaying', function(status)
-			{
-				if (status === "success")
-				{
-					resolve(status);
-				}
-				else
-				{
-					reject(status);
-				}
-			});
-		});
-	}
 	
 	return Common;
 }());
