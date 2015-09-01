@@ -19,6 +19,35 @@
 			table#options_table td label {
 				margin: 4px 0px 9px 8px;
 			}
+
+			table#sites_table {
+			    display: flex;
+			    flex-flow: column;
+			    height: 500px;
+			    width: 100%;
+			}
+			table#sites_table thead {
+			    flex: 0 0 auto;
+			    width: calc(100% - 0.9em);
+			}
+			table#sites_table thead tr th:first-child,
+			table#sites_table tbody tr td:first-child {
+					width:20%;
+			}
+			table#sites_table tbody {
+			    flex: 1 1 auto;
+			    display: block;
+			    overflow-y: scroll;
+			}
+			table#sites_table tbody tr {
+			    width: 100%;
+			}
+			table#sites_table thead,
+			table#sites_table tbody tr {
+			    display: table;
+			    table-layout: fixed;
+			}
+
 			table#sites_table {
 				margin-bottom: 4px;
 			}
