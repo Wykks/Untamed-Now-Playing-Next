@@ -10,17 +10,17 @@ PlayNeteaseListener.prototype.findSelector = function() {
 }
 
 PlayNeteaseListener.prototype.scrapPlayData = function() {
-	this.artistName = $.trim(this.selector.find('.f-thide.name.fc1.f-fl').text());
-	this.trackName  = $.trim(this.selector.find('.by.f-thide.f-fl').find('a').text());
+	this.artistName = $('.f-thide.name.fc1.f-fl').text();
+	this.trackName  = $('.by.f-thide.f-fl').find('a').text();
 	return true;
 }
 
 PlayNeteaseListener.prototype.scrapAlbumName = function() {
-	return '';
+	return 'http://music.163.com/';
 };
 
 PlayNeteaseListener.prototype.scrapAlbumArt = function() {
-	return $('.#auto-id-zJDczHc61fcEWoXD').attr('src');
+	return $('#auto-id').attr('src');
 };
 
 PlayNeteaseListener.prototype.scrapUrl = function() {
@@ -28,7 +28,7 @@ PlayNeteaseListener.prototype.scrapUrl = function() {
 }
 
 PlayNeteaseListener.prototype.scrapDuration = function() {
-	return '00:00';
+	return '00:01';
 }
 
 Common.runTrackListenerInterval(new PlayNeteaseListener());
