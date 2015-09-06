@@ -16,7 +16,7 @@ PlayNeteaseListener.prototype.scrapPlayData = function() {
 }
 
 PlayNeteaseListener.prototype.scrapAlbumName = function() {
-	return $('.album-wrapper .album-name').text(); 
+	return '';
 };
 
 PlayNeteaseListener.prototype.scrapAlbumArt = function() {
