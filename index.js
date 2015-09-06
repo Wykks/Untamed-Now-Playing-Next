@@ -86,6 +86,7 @@ function createMusicWebsiteWorker(includes, script, attachTo)
 	pageMod.PageMod(param);
 }
 
+createMusicWebsiteWorker("*.music.163.com", "netease.js", "top")
 createMusicWebsiteWorker("*.8tracks.com", "8tracks.js", "top");
 createMusicWebsiteWorker(/.*ah.fm\/player\/.*/, "ahfm.js", "top");
 createMusicWebsiteWorker(/.*animenfo.com\/radio\/nowplaying.php/, "animenfo.js", "top");
