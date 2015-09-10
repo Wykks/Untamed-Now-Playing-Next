@@ -17,6 +17,7 @@ Supported Sites
 * [jango.com](http://jango.com)
 * [last.fm](http://last.fm)
 * [mixcloud.com](http://www.mixcloud.com)
+* [music.163.com](http://music.163.com)
 * [music.yandex.ru](http://music.yandex.ru)
 * [nightbot.tv](http://nightbot.tv)
 * [noadradio.com](http://www.noadradio.com)
