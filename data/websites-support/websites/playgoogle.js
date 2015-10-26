@@ -2,7 +2,7 @@ var PlayGoogleTrackListener = function() {};
 PlayGoogleTrackListener.prototype = new Common.WebsiteTrackListener();
 
 PlayGoogleTrackListener.prototype.isPlaying = function() {
-	return $('sj-icon-button.playing[data-id="play-pause"]').length;
+	return $('div.material-player-middle > paper-icon-button[data-id="play-pause"]').hasClass('playing');
 };
 
 PlayGoogleTrackListener.prototype.scrapPlayData = function() {
@@ -12,7 +12,7 @@ PlayGoogleTrackListener.prototype.scrapPlayData = function() {
 };
 
 PlayGoogleTrackListener.prototype.scrapAlbumName = function() {
-	return $('.player-album').text(); 
+	return $('.player-album').text();
 };
 
 PlayGoogleTrackListener.prototype.scrapAlbumArt = function() {
