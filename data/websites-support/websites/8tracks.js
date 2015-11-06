@@ -16,15 +16,15 @@ HeightTracksTrackListener.prototype.scrapPlayData = function() {
 };
 
 HeightTracksTrackListener.prototype.scrapAlbumName = function() {
-	return $('#now_playing').find('.album').find('.detail').text(); 
+	return $('#now_playing').find('.album').find('.detail').text();
 };
 
 HeightTracksTrackListener.prototype.scrapAlbumArt = function() {
-	return $('#mix_player_details').find('a').find('img').attr('src').replace(/(.*)\?(.*)/i, '$1');
+	return $('#player_mix > a > img').attr('src').replace(/(.*)\?(.*)/i, '$1');
 };
 
 HeightTracksTrackListener.prototype.scrapUrl = function() {
-	return 'http://8tracks.com' + $('.mixname').find('a').attr('href');
+	return 'http://8tracks.com' + $('#player_mix > a').attr('href');
 };
 
 Common.runTrackListenerInterval(new HeightTracksTrackListener());
