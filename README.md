@@ -26,7 +26,6 @@ Supported Sites
 * [play.google.com](http://play.google.com/music)
 * [play.spotify.com](http://play.spotify.com)
 * [player.siriusxm.com](http://player.siriusxm.com)
-* [plug.dj](http://plug.dj)
 * [pleer.com](http://pleer.com)
 * [seoul.fm](http://seoul.fm)
 * [slacker.com](http://slacker.com)
