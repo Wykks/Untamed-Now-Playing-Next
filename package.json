@@ -8,5 +8,11 @@
   "engines": {
     "firefox": ">=38.0a1"
   },
-  "license": "CC BY-SA 3.0"
+  "license": "CC BY-SA 3.0",
+  "preferences": [{
+    "name": "options_button",
+    "label": "Options",
+    "type": "control",
+    "title": "Open options page"
+    }]
 }

@@ -5,9 +5,10 @@ var self = require("sdk/self");
 var ss = require("sdk/simple-storage");
 var system = require("sdk/system");
 var _ = require("sdk/l10n").get;
+var sp = require("sdk/simple-prefs");
 var nowPlayingIO = require("./lib/nowPlayingIO");
 
-var button = buttons.ActionButton(
+buttons.ActionButton(
 {
 	id: "unp-action",
 	label: "Untamed Now Playing",
@@ -17,6 +18,10 @@ var button = buttons.ActionButton(
 		"64": "./ico/icon-64.png"
 	},
 	onClick: openPreferences
+});
+
+sp.on("options_button", function() {
+	openPreferences();
 });
 
 pageMod.PageMod(
