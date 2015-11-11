@@ -9,7 +9,7 @@ var Common = (function() {
 		var selector;
 		var customFilter;
 		var element;
-		
+
 		function MutationObserverUpdater(l) {
 			listener = l;
 		}
@@ -17,7 +17,7 @@ var Common = (function() {
 		MutationObserverUpdater.prototype.setNodeAttributeName = function(l) {
 		    nodeAttrName = l;
 		};
-		
+
 		MutationObserverUpdater.prototype.setNodeAttributeValue = function(l) {
 		    nodeAttrValue = l;
 		};
@@ -25,15 +25,15 @@ var Common = (function() {
 		MutationObserverUpdater.prototype.setNodeType = function(l) {
 		    nodeType = l;
 		};
-	
+
 		MutationObserverUpdater.prototype.setSelector = function(l) {
 		    selector = l;
 		};
-		
+
 		MutationObserverUpdater.prototype.setCustomFilter = function(fn) {
 		    customFilter = fn;
 		};
-		
+
 		function builtinFilter(currentNode) {
 			if (nodeAttrName !== '') {
 				if (!currentNode.getAttribute)
@@ -48,17 +48,21 @@ var Common = (function() {
 			}
 			return false;
 		}
-		
+
 		//Wait until what we want to observ is in the dom
 		function findElementThenRun(fn) {
 			element = $(selector).get(0);
 			if (!element) {
-				setTimeout(findElementThenRun.bind(this, fn), 2000);
+				var self = this;
+				setTimeout(function() {
+					findElementThenRun.call(self, fn);
+				}, 2000);
+				//setTimeout(findElementThenRun.bind(this, fn), 2000);
 				return;
 			}
 			fn.call(this);
 		}
-		
+
 		function innerRunOnChildAttr() {
 			var observer = new MutationObserver(function(mutations) {
 				mutations.forEach(function(mutation) {
@@ -97,14 +101,14 @@ var Common = (function() {
 
 //ONLY if the attr of the node change
 		MutationObserverUpdater.prototype.runOnAttr = findElementThenRun.bind(this, innerRunOnAttr);
-		
+
 		return MutationObserverUpdater;
 	}());
-	
+
 	Common.IntervalUpdater = (function() {
 		var listener;
 		var interval = 10000;
-		
+
 		function IntervalUpdater(l) {
 			listener = l;
 		}
@@ -116,10 +120,10 @@ var Common = (function() {
 		IntervalUpdater.prototype.run = function() {
 			setInterval(listener.updateTrack.bind(listener), interval);
 		};
-		
+
 		return IntervalUpdater;
 	}());
-	
+
 	//Deprecated
 	Common.runTrackListenerInterval = function(listener) {
 		setInterval(listener.updateTrack.bind(listener), 10000);
@@ -234,7 +238,7 @@ var Common = (function() {
 
 		return false;
 	}
-	
+
 	function nowPlaying(np)
 	{
 		if (np.nowPlaying !== null && np.nowPlaying !== false && typeof np.nowPlaying !== 'undefined')
@@ -263,6 +267,6 @@ var Common = (function() {
 	}
 
 
-	
+
 	return Common;
 }());
