@@ -51,8 +51,9 @@ Support for more sites will be added over time. If you have a suggestion for a s
 
 Install
 --------------------------------------
-### Latest Mozilla reviewed (actually not reviewed yet) version
-On Mozilla Add-ons (AMO) : https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/
+### Latest Mozilla reviewed version
+On Mozilla Add-ons (AMO) :
+[![amo-button_1](https://cloud.githubusercontent.com/assets/1236069/11095684/7c37b7d4-8896-11e5-9e3e-6b7913983a8c.png)](https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/)
 
 ### Latest unreviewed release:
 Get it here : https://github.com/Wykks/Untamed-Now-Playing-Next/releases.
