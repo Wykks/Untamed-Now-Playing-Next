@@ -2,17 +2,17 @@ var RadioRecordTrackListener = function() {};
 RadioRecordTrackListener.prototype = new Common.WebsiteTrackListener();
 
 RadioRecordTrackListener.prototype.isPlaying = function() {
-	return true;
-};
-
-RadioRecordTrackListener.prototype.findSelector = function() {
-	this.selector = $('.nowtrack');
+	return $('div.play-pause').hasClass('play');
 };
 
 RadioRecordTrackListener.prototype.scrapPlayData = function() {
-	this.artistName = this.selector.find('.artist').text();
-	this.trackName  = this.selector.find('.title').text();
+	this.artistName = $('#nowplay-artist').text();
+	this.trackName  = $('#nowplay-title').text();
 	return true;
+};
+
+RadioRecordTrackListener.prototype.scrapAlbumArt = function() {
+	return $('#nowplay-image > img').attr('src');
 };
 
 Common.runTrackListenerInterval(new RadioRecordTrackListener());
