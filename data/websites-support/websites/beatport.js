@@ -30,7 +30,7 @@ BeatportTrackListener.prototype.scrapUrl = function() {
 };
 
 BeatportTrackListener.prototype.scrapDuration = function() {
-	return $.trim(this.selector.find('.omniplayer--extendable > .omniplayer--progress > .omniplayer--duration:nth-child(1)').text());
+	return $.trim(this.selector.find('.omniplayer--extendable > .omniplayer--progress > .omniplayer--duration:eq(1)').text());
 };
 
 Common.runTrackListenerInterval(new BeatportTrackListener());
