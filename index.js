@@ -95,6 +95,7 @@ createMusicWebsiteWorker("*.music.163.com", "netease.js", "top");
 createMusicWebsiteWorker("*.8tracks.com", "8tracks.js", "top");
 createMusicWebsiteWorker(/.*ah.fm\/player\/.*/, "ahfm.js", "top");
 createMusicWebsiteWorker(/.*animenfo.com\/radio\/nowplaying.php/, "animenfo.js", "top");
+createMusicWebsiteWorker(/.*www.beatport.com\/.*/, "beatport.js", "top");
 createMusicWebsiteWorker("*.seoul.fm", "seoulfm.js", "top");
 createMusicWebsiteWorker("*.blinkboxmusic.com", "blinkboxmusic.js", "top");
 createMusicWebsiteWorker("*.deezer.com", "deezer.js", "top");
