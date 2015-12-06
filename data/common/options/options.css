@@ -1,0 +1,68 @@
+body {
+    padding-top: 40px;
+}
+table#options_table td input[type="text"], table#options_table td input[type="password"], table#options_table td select, table#options_table td input[type="number"] {
+    margin: 5px;
+}
+table#options_table td {
+    vertical-align: middle;
+    width: 50%;
+}
+table#options_table td label {
+    margin: 4px 0px 9px 8px;
+}
+table#sites_table {
+    display: flex;
+    flex-flow: column;
+    height: 500px;
+    width: 100%;
+}
+table#sites_table thead {
+    flex: 0 0 auto;
+    width: calc(100% - 0.9em);
+}
+table#sites_table thead tr th:first-child, table#sites_table tbody tr td:first-child {
+    width: 20%;
+}
+table#sites_table tbody {
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: scroll;
+}
+table#sites_table tbody tr {
+    width: 100%;
+}
+table#sites_table thead, table#sites_table tbody tr {
+    display: table;
+    table-layout: fixed;
+}
+table#sites_table {
+    margin-bottom: 4px;
+}
+table#sites_table thead th, table#sites_table tbody td {
+    text-align: center;
+}
+table#sites_table tbody td:nth-of-type(1) {
+    text-align: left;
+}
+#stream_details, #nightbot_details {
+    display: none;
+}
+button.pull-right {
+    margin: 5px;
+}
+small {
+    font-size: 0.8em;
+}
+.popover-content {
+    text-align: justify;
+    font-size: 13px;
+    line-height: 18px;
+}
+.popover-content pre {
+    margin: 8px 0px;
+    padding: 1px 6px;
+}
+.alert {
+    padding-right: 14px;
+}

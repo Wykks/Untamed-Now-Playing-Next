@@ -147,7 +147,7 @@ self.port.on("prefs", function(storage)
 	{
 		$('#auto_clear').prop('checked', true);
 	}
-	
+
 	if (storage.unpNotification === true)
 	{
 		$('#notification').prop('checked', true);
@@ -234,7 +234,7 @@ self.port.on("prefs", function(storage)
 		$('#save_options').attr('disabled','disabled');
 
 		var save_dir;
-		
+
 		if (self.options.platform === 'winnt')
 		{
 			save_dir = $('#save_dir').val().split('/').join('\\');
@@ -256,41 +256,6 @@ self.port.on("prefs", function(storage)
 
 		validateOptions().then(function()
 		{
-			/* FIXME Nightbot stuff disabled for now...
-			if ($('#nightbot_enable').is(':checked'))
-			{
-				$.ajax(
-				{
-					url  : 'https://www.nightbot.tv/api/1/auth',
-					type : 'GET',
-					data :
-						{
-							'channel' : $('#nightbot_user').val(),
-							'key'     : $('#nightbot_api_key').val()
-						},
-					cache    : false,
-					dataType : 'json',
-					success  : function(response)
-					{
-						if (response['status'] == 'success')
-						{
-							saveOptions();
-						}
-						else
-						{
-							Alert('error', chrome.i18n.getMessage("err_nightbot", escapeHtml(response['result'])));
-						}
-
-						$('#save_options').removeAttr('disabled');
-					}
-				});
-			}
-			else
-			{
-				saveOptions();
-				$('#save_options').removeAttr('disabled');
-			}
-			*/
 			saveOptions();
 			$('#save_options').removeAttr('disabled');
 		}, function()
@@ -347,7 +312,7 @@ function validateOptions()
 		return false;
 	}*/
 
-	self.port.emit("writeFile", 
+	self.port.emit("writeFile",
 	{
 		filename: $('#save_dir').val() + $('#filename').val() + '_write_test_53642784162133643354.txt',
 		text: 'Just a quick test to ensure we can write to this directory! :)'
@@ -368,7 +333,7 @@ function validateOptions()
 			}
 
 			self.port.emit("removeFile", $('#save_dir').val() + $('#filename').val() + '_write_test_53642784162133643354.txt');
-			
+
 			if ($('#save_format').val() != 'xml' && $('#save_format').val() != 'txt' && $('#save_format').val() != 'json' && $('#save_format').val() != 'multi')
 			{
 				l10n("err_fmt_invalid").then(function(msg)
@@ -438,64 +403,3 @@ function validateOptions()
 		});
 	});
 }
-
-function Alert(type, data)
-{
-	$('.alert').fadeOut();
-	$('.alert').remove();
-
-	if (page == 'about')
-	{
-		$('<div class="alert alert-block alert-' + type + '" style="display:none;"><p>' + data + '</p></div>').prependTo('#about');
-	}
-	else
-	{
-		$('<div class="alert alert-block alert-' + type + '" style="display:none;"><p>' + data + '</p></div>').insertBefore('#options_table');
-	}
-
-	$('.alert').fadeIn();
-}
-
-function empty(mixed_var)
-{
-	var undef, key, i, len;
-	var emptyValues = [undef, null, false, 0, '', '0'];
-
-	for (i = 0, len = emptyValues.length; i < len; i++)
-	{
-		if (mixed_var === emptyValues[i])
-		{
-			return true;
-		}
-	}
-
-	if (typeof mixed_var === 'object')
-	{
-		for (key in mixed_var)
-		{
-			return false;
-		}
-
-		return true;
-	}
-
-	return false;
-}
-
-function escapeHtml(str)
-{
-	return $('<div/>').text(str).html();
-}
-
-function string2Bin(str) {
-	var result = [];
-	for (var i = 0; i < str.length; i++) {
-		result.push(str.charCodeAt(i));
-	}
-	return result;
-}
-
-function bin2String(array) {
-	return String.fromCharCode.apply(String, array);
-}
-

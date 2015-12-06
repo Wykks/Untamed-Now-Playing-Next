@@ -98,6 +98,6 @@ This software is provided "AS IS" without warranty of any kind, either expressed
 This software uses the following libraries developed by third parties, and are licenced seperately;
 * [Bootstrap](http://twitter.github.com/bootstrap) (Apache License v2.0)
 * [jQuery](http://jquery.com) (MIT License)
-* [Sammy.js](http://sammyjs.org) (MIT License)
+* [Angular.js](https://angularjs.org) (MIT License)
 
 Additionally, the main icon was designed by [CSS Creme](http://csscreme.com/freeicons/), and icons designed by [FatCow](http://www.fatcow.com/free-icons) are used on the options pages.
