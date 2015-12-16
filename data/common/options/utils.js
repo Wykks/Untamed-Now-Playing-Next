@@ -1,12 +1,5 @@
 app.factory('Utils', () => {
     return {
-        alert: (type, data) => {
-            $('.alert').fadeOut();
-            $('.alert').remove();
-            $('<div class="alert alert-block alert-' + type + '" style="display:none;"><p>' + data + '</p></div>').insertBefore('#options_table');
-            $('.alert').fadeIn();
-        },
-
         empty: (mixed_var) => {
             let undef, i, len;
             let emptyValues = [undef, null, false, 0, '', '0'];

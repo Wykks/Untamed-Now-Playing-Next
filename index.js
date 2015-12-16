@@ -4,7 +4,6 @@ var pageMod = require('sdk/page-mod');
 var self = require('sdk/self');
 var ss = require('sdk/simple-storage');
 var system = require('sdk/system');
-var _ = require('sdk/l10n').get;
 var sp = require('sdk/simple-prefs');
 var nowPlayingIO = require('./lib/nowPlayingIO');
 
@@ -33,6 +32,7 @@ pageMod.PageMod({
         self.data.url('third-party/angular-translate-loader-static-files.min.js'),
         self.data.url('browserFunc.js'),
         self.data.url('common/options/app.js'),
+        self.data.url('common/options/directives.js'),
         self.data.url('common/options/utils.js'),
         self.data.url('common/options/settingsCtrl.js')
     ],
@@ -56,10 +56,6 @@ pageMod.PageMod({
 
         worker.port.on('removeFile', function(filename) {
             nowPlayingIO.removeFile(filename);
-        });
-
-        worker.port.on('localization', function(key) {
-            worker.port.emit('l10n' + key, _(key));
         });
     }
 });

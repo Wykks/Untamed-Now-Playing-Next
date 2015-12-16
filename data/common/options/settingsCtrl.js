@@ -1,4 +1,4 @@
-app.controller('SettingsCtrl', function SettingsCtrl(Storage, Utils, $translate) {
+app.controller('SettingsCtrl', function SettingsCtrl(Storage, Utils, $translate, $sce) {
     const vm = this;
 
     vm.save = save;
@@ -7,7 +7,8 @@ app.controller('SettingsCtrl', function SettingsCtrl(Storage, Utils, $translate)
         vm.saveDir = Storage.get('unpSaveDir');
     } else {
         $translate('warn_opt').then((msg) => {
-            Utils.alert('warn', msg);
+            vm.messageType = 'warn';
+            vm.message = $sce.trustAsHtml(msg);
         });
         if (BrowserFunc.getPlatform() === 'winnt')
             vm.saveDir = 'C:\\Users\\USERNAME\\Documents\\unp\\';
@@ -63,7 +64,8 @@ app.controller('SettingsCtrl', function SettingsCtrl(Storage, Utils, $translate)
             Storage.set('unpNotification', vm.browserNotification);
 
             $translate('opt_saved').then((msg) => {
-                Utils.alert('success', msg);
+                vm.messageType = 'success';
+                vm.message = $sce.trustAsHtml(msg);
             });
             vm.savePending = false;
         }).catch(() => {
@@ -74,7 +76,8 @@ app.controller('SettingsCtrl', function SettingsCtrl(Storage, Utils, $translate)
     function validateOptions() {
         if (vm.saveDir.indexOf('windows') !== -1) {
             $translate('err_directory_win').then((msg) => {
-                Utils.alert('error', msg);
+                vm.messageType = 'error';
+                vm.message = $sce.trustAsHtml(msg);
             });
             return Promise.reject();
         }
@@ -87,7 +90,8 @@ app.controller('SettingsCtrl', function SettingsCtrl(Storage, Utils, $translate)
             BrowserFunc.removeFile(testFilename);
         }).catch(() => {
             $translate('err_directory_inaccess').then((msg) => {
-                Utils.alert('error', msg);
+                vm.messageType = 'error';
+                vm.message = $sce.trustAsHtml(msg);
             });
             return Promise.reject();
         });

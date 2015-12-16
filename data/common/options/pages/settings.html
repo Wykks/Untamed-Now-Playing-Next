@@ -1,93 +1,31 @@
-<h1 translate="nav_options"></h1>
-<p translate="opt_des"></p>
-<p translate="opt_donate"></p>
-<p translate="opt_donate_2"></p>
-<table id="options_table" class="table table-bordered table-hover table-condensed">
-    <tr>
-        <td translate="opt_0"></td>
-        <td>
-            <input type="text" ng-model="vm.saveDir" style="width:370px;"></input>
-            <button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
-        </td>
-    </tr>
-    <tr>
-        <td translate="opt_1"></td>
-        <td>
-            <select ng-model="vm.saveFormat" style="width: 150px;">
-                <option value="txt" translate="opt_1_select_txt" selected></option>
-                <option value="json" translate="opt_1_select_json"></option>
-                <option value="xml" translate="opt_1_select_xml"></option>
-                <option value="multi" translate="opt_1_select_multi"></option>
-            </select>
-            <button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
-        </td>
-    </tr>
-    <tr ng-hide="vm.saveFormat === 'multi'" id="filename_details">
-        <td translate="opt_2"></td>
-        <td>
-            <input type="text" ng-model="vm.filename" style="width:370px;"></input>
-            <button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
-        </td>
-    </tr>
-    <tr ng-show="vm.saveFormat === 'txt'" id="txt_format_details">
-        <td translate="opt_3"></td>
-        <td>
-            <input type="text" ng-model="vm.txtFormat" style="width:370px;"></input>
-            <button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
-        </td>
-    </tr>
-    <tr>
-        <td translate="opt_4"></td>
-        <td>
-            <input type="number" ng-model="vm.songMaxlen" min="10" max="256" style="width:100px;"></input>
-            <label class="checkbox inline" style="width:200px;">
-                <input type="checkbox" ng-model="vm.songMaxlenAppend"></input>
-                <span translate="opt_4_des"></span>
-            </label>
-            <button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
-        </td>
-    </tr>
-    <tr>
-        <td translate="opt_5"></td>
-        <td>
-            <label class="checkbox inline">
-                <input type="checkbox" ng-model="vm.albumArtwork"></input>
-                <span translate="yes"></span>
-            </label>
-            <button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
-        </td>
-    </tr>
-    <tr>
-        <td translate="opt_6"></td>
-        <td>
-            <label class="checkbox inline">
-                <input type="checkbox" ng-model="vm.disableYoutube"></input>
-                <span translate="yes"></span>
-            </label>
-            <button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
-        </td>
-    </tr>
-    <tr>
-        <td translate="opt_11"></td>
-        <td>
-            <label class="checkbox inline">
-                <input type="checkbox" ng-model="vm.autoClear"></input>
-                <span translate="yes"></span>
-            </label>
-            <button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
-        </td>
-    </tr>
-    <tr>
-        <td translate="opt_12"></td>
-        <td>
-            <label class="checkbox inline">
-                <input type="checkbox" ng-model="vm.browserNotification"></input>
-                <span translate="yes"></span>
-            </label>
-            <button class="btn pull-right opt-tt"><i class="icon-info-sign"></i></button>
-        </td>
-    </tr>
-</table>
-<p style="text-align:center;">
-    <button class="btn btn-large btn-primary" type="button" ng-click="vm.save()" ng-disabled="vm.savePending" translate="save"></button>
+<h1 data-translate="nav_options"></h1>
+<p data-translate="opt_des"></p>
+<p data-translate="opt_donate"></p>
+<p data-translate="opt_donate_2"></p>
+<div ng-if="vm.message" class="alert alert-{{vm.messageType}}" ng-bind-html="vm.message">
+</div>
+<form class="options">
+    <unp-option unp-title-key="opt_0" unp-option="vm.saveDir" unp-type="input" unp-info="opt_tt_0"></unp-option>
+    <unp-option unp-title-key="opt_1" unp-option="vm.saveFormat" unp-type="select" unp-info="opt_tt_1">
+        <option value="txt" translate="opt_1_select_txt" selected></option>
+        <option value="json" translate="opt_1_select_json"></option>
+        <option value="xml" translate="opt_1_select_xml"></option>
+        <option value="multi" translate="opt_1_select_multi"></option>
+    </unp-option>
+    <unp-option ng-hide="vm.saveFormat === 'multi'" unp-title-key="opt_2" unp-option="vm.filename" unp-type="input" unp-info="opt_tt_2"></unp-option>
+    <unp-option ng-show="vm.saveFormat === 'txt'" unp-title-key="opt_3" unp-option="vm.txtFormat" unp-type="input" unp-info="opt_tt_3"></unp-option>
+    <unp-option unp-title-key="opt_4" unp-info="opt_tt_4">
+        <input type="number" ng-model="vm.songMaxlen" min="10" max="256"</input>
+        <div class="checkbox">
+            <input type="checkbox" ng-model="vm.songMaxlenAppend"></input>
+            <span translate="opt_4_des"></span>
+        </div>
+    </unp-option>
+    <unp-option unp-title-key="opt_5" unp-option="vm.albumArtwork" unp-type="checkbox" unp-info="opt_tt_5"></unp-option>
+    <unp-option unp-title-key="opt_6" unp-option="vm.disableYoutube" unp-type="checkbox" unp-info="opt_tt_6"></unp-option>
+    <unp-option unp-title-key="opt_11" unp-option="vm.autoClear" unp-type="checkbox" unp-info="opt_tt_11"></unp-option>
+    <unp-option unp-title-key="opt_12" unp-option="vm.browserNotification" unp-type="checkbox" unp-info="opt_tt_12"></unp-option>
+</form>
+<p class="save">
+    <button class="save-btn" type="button" ng-click="vm.save()" ng-disabled="vm.savePending" translate="save"></button>
 </p>

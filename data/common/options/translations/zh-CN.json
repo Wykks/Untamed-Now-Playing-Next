@@ -78,7 +78,7 @@
     "about_license": "许可",
     "about_license_1": "This software is provided 'AS IS' without warranty of any kind, either expressed or implied. Licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-sa/3.0/deed'>Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.",
     "about_license_2": "本软件使用如下第三方库：",
-    "about_license_3": "另外，主图标是由<a target='_blank' href='http://csscreme.com/freeicons/'>CSS Creme</a>设计，选项页中使用的其它图标由<a target='_blank' href='http://www.fatcow.com/free-icons'>FatCow</a>设计。",
+    "about_license_3": "另外，主图标是由<a target='_blank' href='http://csscreme.com/freeicons/'>CSS Creme</a>设计。",
     "contact_1": "如果你有任何建议和反馈，可以在这里<span style='text-decoration:underline;'>http://obsproject.com/forum/viewtopic.php?f=22&t=2614</span> 或这里 <span style='text-decoration:underline;'>https://github.com/Wykks/Untamed-Now-Playing-Next</span>发帖。",
     "contact_2": "如果你对本扩展的汉化、中文网站的支持方面有任何意见或建议，可以给 CuGBabyBeaR 发送Email：<span style='text-decoration:underline;'>fxxd3740@163.com</span>。QQ:<span style='text-decoration:underline;'>304401964</span>。",
     "warn_opt": "<strong>警告!</strong><br />你需要设置 UNP! 主设置是 '保存到目录', 设置一个保存正在播放信息文件的目录。 如果你在使用中有任何问题，请直接联系我们（我们的联系信息 <a href='#/contact' style='color:#7C6238'>在这</a>）。",

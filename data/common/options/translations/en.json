@@ -77,7 +77,7 @@
     "about_license": "License",
     "about_license_1": "This software is provided 'AS IS' without warranty of any kind, either expressed or implied. Licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-sa/3.0/deed'>Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.",
     "about_license_2": "This software uses the following libraries developed by third parties;",
-    "about_license_3": "Additionally, the main icon was designed by <a target='_blank' href='http://csscreme.com/freeicons/'>CSS Creme</a>, and icons designed by <a target='_blank' href='http://www.fatcow.com/free-icons'>FatCow</a> are used on the options pages.",
+    "about_license_3": "Additionally, the main icon was designed by <a target='_blank' href='http://csscreme.com/freeicons/'>CSS Creme</a>.",
     "contact_1": "If you have any suggestions, feedback, etc, you can post here <span style='text-decoration:underline;'>http://obsproject.com/forum/viewtopic.php?f=22&t=2614</span> or here <span style='text-decoration:underline;'>https://github.com/Wykks/Untamed-Now-Playing-Next</span>.",
     "contact_2": "",
     "warn_opt": "<strong>Warning!</strong><br />You need to configure UNP! The main option is the 'Save to directory', set a directory where the now playing information will be saved. If you run into any problems, notify me (my contact info is available <a href='#/contact' style='color:#7C6238'>here</a>).",
