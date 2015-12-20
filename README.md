@@ -43,7 +43,6 @@ Supported Sites
 * [player.kuwo.cn](http://player.kuwo.cn)
 * [y.qq.com](http://y.qq.com)
 * [radio.yandex.ru](http://radio.yandex.ru)
-* [rdio.com](http://www.rdio.com)
 * [radiorecord.ru](http://www.radiorecord.ru/player)
 * [radioultra.ru](http://www.radioultra.ru/player)
 * [xiami.com](http://www.xiami.com/play)

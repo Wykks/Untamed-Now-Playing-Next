@@ -121,7 +121,6 @@ createMusicWebsiteWorker('*.radio.yandex.ru', 'radioyandex.js', 'top');
 createMusicWebsiteWorker(/.*radiorecord.ru\/player.*/, 'radiorecordplayer.js', 'top');
 createMusicWebsiteWorker(/.*radiorecord.ru\/(?!player).*/, 'radiorecord.js', 'top');
 createMusicWebsiteWorker(/.*radioultra.ru\/player.*/, 'radioultra.js', 'top');
-createMusicWebsiteWorker('*.rdio.com', 'rdio.js', 'top');
 createMusicWebsiteWorker('*.slacker.com', 'slacker.js', 'top');
 createMusicWebsiteWorker('*.soundcloud.com', 'soundcloud.js', 'top');
 createMusicWebsiteWorker(/.*synchtu.be\/r\/Playhouse.*/, 'synchtube.js', 'top');
