@@ -22,7 +22,14 @@ app.config(($routeProvider, $translateProvider) => {
         })
         .when('/sites', {
             templateUrl: 'pages/sites.html',
-            controller: 'SiteCtrl as vm'
+            controller: 'SiteCtrl as vm',
+            resolve: {
+                sites: ($http) => {
+                    return $http.get('sites.json').then((res) => {
+                        return res.data;
+                    });
+                }
+            }
         })
         .when('/about', {
             templateUrl: 'pages/about.html'
@@ -59,8 +66,10 @@ app.controller('NavCtrl', function NavCtrl($scope, $location) {
     };
 });
 
-app.controller('SiteCtrl', function SiteCtrl() {
+app.controller('SiteCtrl', function SiteCtrl(sites) {
     const vm = this;
+
+    vm.sites = sites;
 });
 
 app.controller('ChangelogCtrl', function ChangelogCtrl() {

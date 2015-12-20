@@ -259,6 +259,26 @@ label, select, button, input[type="button"], input[type="checkbox"] {
     border-color: #D6E9C6;
 }
 
+unp-status {
+    display: flex;
+    justify-content: center;
+}
+
+pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0px 0px 10px;
+    font-size: 13px;
+    line-height: 20px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    background-color: #F5F5F5;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+}
+
 /*=== TABLE ===*/
 
 table#sites_table {
@@ -266,6 +286,8 @@ table#sites_table {
     flex-flow: column;
     height: 500px;
     width: 100%;
+    margin-bottom: 4px;
+    border-spacing: 0px;
 }
 table#sites_table thead {
     flex: 0 0 auto;
@@ -286,12 +308,14 @@ table#sites_table thead, table#sites_table tbody tr {
     display: table;
     table-layout: fixed;
 }
-table#sites_table {
-    margin-bottom: 4px;
-}
 table#sites_table thead th, table#sites_table tbody td {
     text-align: center;
 }
 table#sites_table tbody td:nth-of-type(1) {
     text-align: left;
+}
+
+table#sites_table td {
+    border-top: 1px solid #DDD;
+    padding: 4px 5px;
 }
