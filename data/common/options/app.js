@@ -36,7 +36,14 @@ app.config(($routeProvider, $translateProvider) => {
         })
         .when('/changelog', {
             templateUrl: 'pages/changelog.html',
-            controller: 'ChangelogCtrl as vm'
+            controller: 'ChangelogCtrl as vm',
+            resolve: {
+                changelog: ($http) => {
+                    return $http.get('changelog.json').then((res) => {
+                        return res.data;
+                    });
+                }
+            }
         })
         .when('/contact', {
             templateUrl: 'pages/contact.html'
@@ -72,6 +79,8 @@ app.controller('SiteCtrl', function SiteCtrl(sites) {
     vm.sites = sites;
 });
 
-app.controller('ChangelogCtrl', function ChangelogCtrl() {
+app.controller('ChangelogCtrl', function ChangelogCtrl(changelog) {
     const vm = this;
+
+    vm.changelog = changelog;
 });
