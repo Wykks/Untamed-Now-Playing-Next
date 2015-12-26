@@ -18,11 +18,6 @@ let BrowserFunc = (function () {
     };
 
     //READONLY !
-    BrowserFunc.storageGet = function (key) {
-        return self.options.storage[key];
-    };
-
-    //READONLY !
     BrowserFunc.getPlatform = function () {
         return self.options.platform;
     };
@@ -44,28 +39,15 @@ let BrowserFunc = (function () {
         self.port.emit('removeFile', filename);
     };
 
-    BrowserFunc.setup = function () {
-        return new Promise((resolve) => {
-            self.port.on('prefs', function (storage) {
-                const storageFactory = () => {
-                    return {
-                        set: (key, value) => {
-                            this[key] = value;
-                            self.port.emit('setValue', {
-                                'key': key,
-                                'value': value,
-                            });
-                        },
-                        get: (key) => {
-                            return storage[key];
-                        }
-                    };
-                };
-                resolve({
-                    storageFactory
-                });
-            });
+    BrowserFunc.setOption = function (key, value) {
+        self.port.emit('setValue', {
+            'key': key,
+            'value': value,
         });
+    };
+
+    BrowserFunc.getOption = function (key) {
+        return self.options.storage[key];
     };
 
     return BrowserFunc;

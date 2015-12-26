@@ -1,10 +1,10 @@
-app.controller('SettingsCtrl', function SettingsCtrl(Storage, Utils, $translate, $sce) {
+app.controller('SettingsCtrl', function SettingsCtrl(Utils, $translate, $sce) {
     const vm = this;
 
     vm.save = save;
 
-    if (Storage.get('unpSaveDir') !== undefined) {
-        vm.saveDir = Storage.get('unpSaveDir');
+    if (BrowserFunc.getOption('unpSaveDir') !== undefined) {
+        vm.saveDir = BrowserFunc.getOption('unpSaveDir');
     } else {
         $translate('warn_opt').then((msg) => {
             vm.messageType = 'warn';
@@ -27,12 +27,12 @@ app.controller('SettingsCtrl', function SettingsCtrl(Storage, Utils, $translate,
     vm.browserNotification = getConfigBool('unpNotification', true);
 
     function getConfigValue(key, defaultVal) {
-        const val = Storage.get(key);
+        const val = BrowserFunc.getOption(key);
         return (!Utils.empty(val)) ? val : defaultVal;
     }
 
     function getConfigBool(key, defaultVal) {
-        const val = Storage.get(key);
+        const val = BrowserFunc.getOption(key);
         return (val !== undefined) ? val : defaultVal;
     }
 
@@ -52,16 +52,16 @@ app.controller('SettingsCtrl', function SettingsCtrl(Storage, Utils, $translate,
         }
 
         validateOptions().then(() => {
-            Storage.set('unpSaveDir', vm.saveDir);
-            Storage.set('unpSaveFormat', vm.saveFormat);
-            Storage.set('unpFilename', vm.filename);
-            Storage.set('unpTxtFormat', vm.txtFormat);
-            Storage.set('unpSongMaxLen', vm.songMaxlen);
-            Storage.set('unpSongMaxLenApp', vm.songMaxlenAppend);
-            Storage.set('unpAlbumArtwork', vm.albumArtwork);
-            Storage.set('unpDisableYoutube', vm.disableYoutube);
-            Storage.set('unpAutoClear', vm.autoClear);
-            Storage.set('unpNotification', vm.browserNotification);
+            BrowserFunc.setOption('unpSaveDir', vm.saveDir);
+            BrowserFunc.setOption('unpSaveFormat', vm.saveFormat);
+            BrowserFunc.setOption('unpFilename', vm.filename);
+            BrowserFunc.setOption('unpTxtFormat', vm.txtFormat);
+            BrowserFunc.setOption('unpSongMaxLen', vm.songMaxlen);
+            BrowserFunc.setOption('unpSongMaxLenApp', vm.songMaxlenAppend);
+            BrowserFunc.setOption('unpAlbumArtwork', vm.albumArtwork);
+            BrowserFunc.setOption('unpDisableYoutube', vm.disableYoutube);
+            BrowserFunc.setOption('unpAutoClear', vm.autoClear);
+            BrowserFunc.setOption('unpNotification', vm.browserNotification);
 
             $translate('opt_saved').then((msg) => {
                 vm.messageType = 'success';

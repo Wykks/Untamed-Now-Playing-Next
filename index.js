@@ -38,7 +38,8 @@ pageMod.PageMod({
     ],
     contentScriptWhen: 'ready',
     contentScriptOptions: {
-        platform: system.platform
+        platform: system.platform,
+        storage: ss.storage //Read only
     },
     onAttach: function(worker) {
         worker.port.emit('prefs', ss.storage);

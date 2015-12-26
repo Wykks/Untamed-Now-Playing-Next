@@ -1,12 +1,5 @@
 const app = angular.module('UNP', ['ngRoute', 'pascalprecht.translate']);
 
-BrowserFunc.setup().then(({
-    storageFactory
-}) => {
-    app.factory('Storage', storageFactory);
-    angular.bootstrap(document, ['UNP']);
-});
-
 app.run(($rootScope, $translate) => {
     $rootScope.VERSION = 'v3.0-dev';
     $translate('extention_name').then((name) => {
