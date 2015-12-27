@@ -52,9 +52,8 @@ let Common = (function () {
         function findElementThenRun(fn) {
             element = $(selector).get(0);
             if (!element) {
-                const self = this;
                 setTimeout(() => {
-                    findElementThenRun.call(self, fn);
+                    findElementThenRun.call(this, fn);
                 }, 2000);
                 //setTimeout(findElementThenRun.bind(this, fn), 2000);
                 return;
@@ -122,7 +121,10 @@ let Common = (function () {
         };
 
         IntervalUpdater.prototype.run = () => {
-            setInterval(listener.updateTrack.bind(listener), interval);
+            setInterval(() => {
+                listener.updateTrack.call(this, listener);
+            }, interval);
+            //setInterval(listener.updateTrack.bind(listener), interval);
         };
 
         return IntervalUpdater;
@@ -130,7 +132,10 @@ let Common = (function () {
 
     //Deprecated
     Common.runTrackListenerInterval = (listener) => {
-        setInterval(listener.updateTrack.bind(listener), 10000);
+        setInterval(() => {
+            listener.updateTrack.call(this, listener);
+        }, 10000);
+        //setInterval(listener.updateTrack.bind(listener), 10000);
     };
 
     Common.WebsiteTrackListener = (function () {

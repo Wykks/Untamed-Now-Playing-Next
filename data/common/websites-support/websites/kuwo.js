@@ -1,32 +1,32 @@
-var KuwoTrackListener = function() {};
+const KuwoTrackListener = function() {};
 KuwoTrackListener.prototype = new Common.WebsiteTrackListener();
 
 KuwoTrackListener.prototype.isPlaying = function() {
-	return true;
+    return true;
 };
 
 KuwoTrackListener.prototype.findSelector = function() {
-	this.selector = $('.control_left');
+    this.selector = $('.control_left');
 };
 
 KuwoTrackListener.prototype.scrapPlayData = function() {
-	var play = this.selector.find('.dec_time span').text();
-	[this.artistName, this.trackName] = Common.parseArtistTitle(play);
-	return true;
+    const play = this.selector.find('.dec_time span').text();
+    [this.artistName, this.trackName] = Common.parseArtistTitle(play);
+    return true;
 };
 
 KuwoTrackListener.prototype.scrapAlbumArt = function() {
-	return this.selector.find('.control_img img').attr('src');
+    return this.selector.find('.control_img img').attr('src');
 };
 
 KuwoTrackListener.prototype.scrapUrl = function() {
-	var data = $("#bdshare").attr("data");
-	var musicid = data.substr(data.indexOf('MUSIC_') + 6, 7);
-	return 'http://www.kuwo.cn/yinyue/' + musicid;
+    const data = $('#bdshare').attr('data');
+    const musicid = data.substr(data.indexOf('MUSIC_') + 6, 7);
+    return 'http://www.kuwo.cn/yinyue/' + musicid;
 };
 
 KuwoTrackListener.prototype.scrapDuration = function() {
-	return $.trim(this.selector.find('#wp_totalTime').text());
+    return $.trim(this.selector.find('#wp_totalTime').text());
 };
 
 Common.runTrackListenerInterval(new KuwoTrackListener());

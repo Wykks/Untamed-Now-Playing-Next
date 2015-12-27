@@ -1,20 +1,20 @@
 if (BrowserFunc.getOption('unpDisableYoutube') === true)
     throw new Error('UNP disabled on youtube');
 
-var YoutubeTrackListener = function () {};
+const YoutubeTrackListener = function() {};
 YoutubeTrackListener.prototype = new Common.WebsiteTrackListener();
 
-YoutubeTrackListener.prototype.isPlaying = function () {
+YoutubeTrackListener.prototype.isPlaying = function() {
     return typeof $('#watch7-content > meta[itemprop="name"]').attr('content') !== 'undefined';
 };
 
-YoutubeTrackListener.prototype.scrapPlayData = function () {
+YoutubeTrackListener.prototype.scrapPlayData = function() {
     if ($('#eow-title').find('a').length) {
         this.artistName = $('#eow-title').find('a').text();
-        this.trackName = $.trim($('#eow-title').contents().filter(function () {
+        this.trackName = $.trim($('#eow-title').contents().filter(function() {
             return this.nodeType == Node.TEXT_NODE;
         }).text());
-        var matches;
+        let matches;
 
         if ((matches = this.trackName.match('^(-|\u2012|\u2013|\u2014|\u2015]|\|)'))) {
             if (matches[0] != '') {
@@ -23,27 +23,27 @@ YoutubeTrackListener.prototype.scrapPlayData = function () {
         }
         return true;
     }
-    var play = $('#watch7-content > meta[itemprop="name"]').attr('content');
+    const play = $('#watch7-content > meta[itemprop="name"]').attr('content');
     [this.artistName, this.trackName] = Common.parseArtistTitle(play);
     return true;
 };
 
-YoutubeTrackListener.prototype.scrapAlbumArt = function () {
-    var link = $('link[itemprop="thumbnailUrl"]').attr('href');
+YoutubeTrackListener.prototype.scrapAlbumArt = function() {
+    const link = $('link[itemprop="thumbnailUrl"]').attr('href');
     if (link.substring(0, 4) != 'http')
         return 'https:' + link;
     return link;
 };
 
-YoutubeTrackListener.prototype.scrapUrl = function () {
+YoutubeTrackListener.prototype.scrapUrl = function() {
     return $('link[itemprop="url"]').attr('href');
 };
 
-YoutubeTrackListener.prototype.scrapDuration = function () {
+YoutubeTrackListener.prototype.scrapDuration = function() {
     return $('.ytp-time-duration').text();
 };
 
-var updateTriggerer = new Common.MutationObserverUpdater(new YoutubeTrackListener());
+const updateTriggerer = new Common.MutationObserverUpdater(new YoutubeTrackListener());
 updateTriggerer.setSelector('body');
 updateTriggerer.setNodeAttributeName('class');
 updateTriggerer.setNodeAttributeValue(new RegExp('page-loaded'));

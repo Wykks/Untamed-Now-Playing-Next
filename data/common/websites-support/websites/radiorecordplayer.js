@@ -1,18 +1,18 @@
-var RadioRecordPlayerTrackListener = function() {};
+const RadioRecordPlayerTrackListener = function() {};
 RadioRecordPlayerTrackListener.prototype = new Common.WebsiteTrackListener();
 
 RadioRecordPlayerTrackListener.prototype.isPlaying = function() {
-	return true;
+    return true;
 };
 
 RadioRecordPlayerTrackListener.prototype.findSelector = function() {
-	this.selector = $('.nowtrack');
+    this.selector = $('.nowtrack');
 };
 
 RadioRecordPlayerTrackListener.prototype.scrapPlayData = function() {
-	this.artistName = this.selector.find('.artist').text();
-	this.trackName  = this.selector.find('.title').text();
-	return true;
+    this.artistName = this.selector.find('.artist').text();
+    this.trackName = this.selector.find('.title').text();
+    return true;
 };
 
 Common.runTrackListenerInterval(new RadioRecordPlayerTrackListener());

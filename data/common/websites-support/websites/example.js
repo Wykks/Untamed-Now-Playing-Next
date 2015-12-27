@@ -1,34 +1,34 @@
-var ExampleTrackListener = function() { };
+const ExampleTrackListener = function() {};
 ExampleTrackListener.prototype = new Common.WebsiteTrackListener();
 
 ExampleTrackListener.prototype.isPlaying = function() {
-	return true;
+    return true;
 };
 
 ExampleTrackListener.prototype.findSelector = function() {
-	this.selector = undefined;
+    this.selector = undefined;
 };
 
 ExampleTrackListener.prototype.scrapPlayData = function() {
-	this.artistName = "";
-	this.trackName  = "";
-	return true;
+    this.artistName = '';
+    this.trackName = '';
+    return true;
 };
 
 ExampleTrackListener.prototype.scrapAlbumName = function() {
-	return ""; 
+    return '';
 };
 
 ExampleTrackListener.prototype.scrapAlbumArt = function() {
-	return "";
+    return '';
 };
 
 ExampleTrackListener.prototype.scrapUrl = function() {
-	return "";
+    return '';
 };
 
 ExampleTrackListener.prototype.scrapDuration = function() {
-	return "";
+    return '';
 };
 
 Common.runTrackListenerInterval(new ExampleTrackListener());
