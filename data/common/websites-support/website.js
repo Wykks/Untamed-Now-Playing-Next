@@ -1,36 +1,36 @@
-let Common = (function() {
+let Common = (function () {
     Common = {};
 
-    Common.MutationObserverUpdater = (function() {
-        var listener;
-        var nodeAttrName = '';
-        var nodeAttrValue;
-        var nodeType;
-        var selector;
-        var customFilter;
-        var element;
+    Common.MutationObserverUpdater = (function () {
+        let listener;
+        let nodeAttrName = '';
+        let nodeAttrValue;
+        let nodeType;
+        let selector;
+        let customFilter;
+        let element;
 
         function MutationObserverUpdater(l) {
             listener = l;
         }
 
-        MutationObserverUpdater.prototype.setNodeAttributeName = function(l) {
+        MutationObserverUpdater.prototype.setNodeAttributeName = (l) => {
             nodeAttrName = l;
         };
 
-        MutationObserverUpdater.prototype.setNodeAttributeValue = function(l) {
+        MutationObserverUpdater.prototype.setNodeAttributeValue = (l) => {
             nodeAttrValue = l;
         };
 
-        MutationObserverUpdater.prototype.setNodeType = function(l) {
+        MutationObserverUpdater.prototype.setNodeType = (l) => {
             nodeType = l;
         };
 
-        MutationObserverUpdater.prototype.setSelector = function(l) {
+        MutationObserverUpdater.prototype.setSelector = (l) => {
             selector = l;
         };
 
-        MutationObserverUpdater.prototype.setCustomFilter = function(fn) {
+        MutationObserverUpdater.prototype.setCustomFilter = (fn) => {
             customFilter = fn;
         };
 
@@ -38,7 +38,7 @@ let Common = (function() {
             if (nodeAttrName !== '') {
                 if (!currentNode.getAttribute)
                     return false;
-                var attr = currentNode.getAttribute(nodeAttrName);
+                const attr = currentNode.getAttribute(nodeAttrName);
                 if (!nodeAttrValue || attr.match(nodeAttrValue)) {
                     return true;
                 }
@@ -52,8 +52,8 @@ let Common = (function() {
         function findElementThenRun(fn) {
             element = $(selector).get(0);
             if (!element) {
-                var self = this;
-                setTimeout(function() {
+                const self = this;
+                setTimeout(() => {
                     findElementThenRun.call(self, fn);
                 }, 2000);
                 //setTimeout(findElementThenRun.bind(this, fn), 2000);
@@ -63,11 +63,11 @@ let Common = (function() {
         }
 
         function innerRunOnChildAttr() {
-            var observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
                     if (!mutation.addedNodes[0])
                         return;
-                    for (var i = 0; i < mutation.addedNodes.length; i++) {
+                    for (let i = 0; i < mutation.addedNodes.length; i++) {
                         if ((customFilter && customFilter(mutation.addedNodes[i])) || builtinFilter(mutation.addedNodes[i])) {
                             listener.updateTrack();
                             return;
@@ -84,11 +84,11 @@ let Common = (function() {
         }
 
         function innerRunOnAttr() {
-            var observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach(function (mutation) {
                     if (mutation.attributeName != nodeAttrName)
                         return;
-                    var newValue = mutation.target.getAttribute(mutation.attributeName);
+                    const newValue = mutation.target.getAttribute(mutation.attributeName);
                     if (!nodeAttrValue || newValue.match(nodeAttrValue))
                         listener.updateTrack();
                 });
@@ -109,19 +109,19 @@ let Common = (function() {
         return MutationObserverUpdater;
     }());
 
-    Common.IntervalUpdater = (function() {
-        var listener;
-        var interval = 10000;
+    Common.IntervalUpdater = (function () {
+        let listener;
+        let interval = 10000;
 
         function IntervalUpdater(l) {
             listener = l;
         }
 
-        IntervalUpdater.prototype.setInterval = function(l) {
+        IntervalUpdater.prototype.setInterval = (l) => {
             interval = l;
         };
 
-        IntervalUpdater.prototype.run = function() {
+        IntervalUpdater.prototype.run = () => {
             setInterval(listener.updateTrack.bind(listener), interval);
         };
 
@@ -129,66 +129,97 @@ let Common = (function() {
     }());
 
     //Deprecated
-    Common.runTrackListenerInterval = function(listener) {
+    Common.runTrackListenerInterval = (listener) => {
         setInterval(listener.updateTrack.bind(listener), 10000);
     };
 
-    Common.WebsiteTrackListener = function() {
-        this.play = '';
-        this.artistName = '';
-        this.trackName = '';
-        this.selector = undefined;
-        this.mutationObserverAttributeName = '';
-        this.mutationObserverAttributeValue = undefined;
-        this.mutationObserverElement = undefined;
-    };
-    Common.WebsiteTrackListener.prototype.isPlaying = function() {
-        return true;
-    };
-    Common.WebsiteTrackListener.prototype.scrapAlbumName = function() {
-        return '';
-    };
-    Common.WebsiteTrackListener.prototype.scrapAlbumArt = function() {
-        return '';
-    };
-    Common.WebsiteTrackListener.prototype.scrapUrl = function() {
-        return '';
-    };
-    Common.WebsiteTrackListener.prototype.scrapDuration = function() {
-        return '';
-    };
-    Common.WebsiteTrackListener.prototype.scrapPlayData = function() {
-        throw new Error('Not implemented');
-    };
-    Common.WebsiteTrackListener.prototype.findSelector = function() {};
+    Common.WebsiteTrackListener = (function () {
+        function WebsiteTrackListener() {
+            this.play = '';
+            this.artistName = '';
+            this.trackName = '';
+            this.selector = undefined;
+            this.mutationObserverAttributeName = '';
+            this.mutationObserverAttributeValue = undefined;
+            this.mutationObserverElement = undefined;
+        }
 
-    Common.WebsiteTrackListener.prototype.updateTrack = function() {
-        if (this.isPlaying()) {
+        WebsiteTrackListener.prototype.isPlaying = () => {
+            return true;
+        };
+
+        WebsiteTrackListener.prototype.scrapAlbumName = () => {
+            return '';
+        };
+
+        WebsiteTrackListener.prototype.scrapAlbumArt = () => {
+            return '';
+        };
+
+        WebsiteTrackListener.prototype.scrapUrl = () => {
+            return '';
+        };
+
+        WebsiteTrackListener.prototype.scrapDuration = () => {
+            return '';
+        };
+
+        WebsiteTrackListener.prototype.scrapPlayData = () => {
+            throw new Error('Not implemented');
+        };
+
+        WebsiteTrackListener.prototype.findSelector = () => {};
+
+        WebsiteTrackListener.prototype.updateTrack = function() {
+            if (!this.isPlaying()) {
+                return;
+            }
             this.findSelector();
             if (!this.scrapPlayData())
                 return;
-            var play;
-            if (!empty(this.artistName))
+            let play;
+            if (!$.isEmptyObject(this.artistName))
                 play = this.artistName + ' - ' + this.trackName;
             else
                 play = this.trackName;
-            if (play !== this.play) {
-                this.play = play;
-                nowPlaying({
-                    nowPlaying: play,
-                    trackName: this.trackName,
-                    artistName: this.artistName,
-                    albumName: this.scrapAlbumName(),
-                    albumArt: this.scrapAlbumArt(),
-                    url: this.scrapUrl(),
-                    duration: this.scrapDuration()
-                });
+            if (play === this.play || $.isEmptyObject(play)) {
+                return;
             }
-        }
-    }
+            this.play = play;
+            nowPlaying.call(this, play);
+        };
 
-    Common.parseArtistTitle = function(input) {
-        var match;
+        function getValue(value, def = '?', predicat = $.isEmptyObject) {
+            return predicat(value) ? def : value;
+        }
+
+        function nowPlaying(play) {
+            const currentTime = new Date();
+            const minutes = currentTime.getMinutes();
+            const hours = currentTime.getHours();
+            BrowserFunc.updateNowPlaying({
+                nowPlaying: play,
+                trackName: getValue(this.trackName),
+                artistName: getValue(this.artistName),
+                albumName: getValue(this.scrapAlbumName()),
+                albumArt: getValue(this.scrapAlbumArt(), '?', (v) => {
+                    return $.isEmptyObject(v) || v.substring(0, 4) !== 'http';
+                }),
+                url: getValue(this.scrapUrl(), window.location.href),
+                timeStarted: ((hours < 10) ? '0' + hours : hours) + ':' + ((minutes < 10) ? '0' + minutes : minutes),
+                duration: getValue(this.scrapDuration())
+            }).then(() => {
+                console.log('UNP: Now Playing Success');
+            }, (reason) => {
+                console.log('UNP: Now Playing Error - ' + reason);
+            });
+        }
+
+        return WebsiteTrackListener;
+    }());
+
+    Common.parseArtistTitle = (input) => {
+        let match;
 
         if ((match = input.match(/(.+)[ ]?(-|\u[2012-2015]|\||:)[ ]?(.+)/))) {
             return [$.trim(match[1]), $.trim(match[3])];
@@ -199,10 +230,10 @@ let Common = (function() {
         }
     };
 
-    Common.hmsToSec = function(hms) {
-        var p = hms.split(':');
-        var s = 0;
-        var m = 1;
+    Common.hmsToSec = (hms) => {
+        const p = hms.split(':');
+        let s = 0;
+        let m = 1;
 
         while (p.length > 0) {
             s += m * parseInt(p.pop());
@@ -212,59 +243,13 @@ let Common = (function() {
         return s;
     };
 
-    Common.secToHms = function(sec) {
-        var hours = parseInt(sec / 3600) % 24;
-        var minutes = parseInt(sec / 60) % 60;
-        var seconds = sec % 60;
+    Common.secToHms = (sec) => {
+        const hours = parseInt(sec / 3600) % 24;
+        const minutes = parseInt(sec / 60) % 60;
+        const seconds = sec % 60;
 
         return ((hours !== 0) ? hours + ':' : '') + ((hours !== 0 && minutes < 10) ? '0' + minutes : minutes) + ':' + ((seconds < 10) ? '0' + seconds : seconds);
     };
-
-    function empty(mixed_var) {
-        var undef, i, len;
-        var emptyValues = [undef, null, false, 0, '', '0'];
-
-        for (i = 0, len = emptyValues.length; i < len; i++) {
-            if (mixed_var === emptyValues[i]) {
-                return true;
-            }
-        }
-
-        if (typeof mixed_var === 'object') {
-            for (key in mixed_var) {
-                return false;
-            }
-
-            return true;
-        }
-
-        return false;
-    }
-
-    function nowPlaying(np) {
-        if (np.nowPlaying !== null && np.nowPlaying !== false && typeof np.nowPlaying !== 'undefined') {
-            var currentTime = new Date();
-            var minutes = currentTime.getMinutes();
-            var hours = currentTime.getHours();
-
-            BrowserFunc.updateNowPlaying({
-                nowPlaying: np.nowPlaying,
-                duration: ((!empty(np.duration)) ? np.duration : '?'),
-                trackName: ((!empty(np.trackName)) ? np.trackName : '?'),
-                artistName: ((!empty(np.artistName)) ? np.artistName : '?'),
-                albumName: ((!empty(np.albumName)) ? np.albumName : '?'),
-                albumArt: ((!empty(np.albumArt) && np.albumArt.substring(0, 4) == 'http') ? np.albumArt : '?'),
-                timeStarted: ((hours < 10) ? '0' + hours : hours) + ':' + ((minutes < 10) ? '0' + minutes : minutes),
-                url: ((!empty(np.url)) ? np.url : window.location.href),
-            }).then(function() {
-                console.log('UNP: Now Playing Success');
-            }, function(reason) {
-                console.log('UNP: Now Playing Error - ' + reason);
-            });
-        }
-    }
-
-
 
     return Common;
 }());

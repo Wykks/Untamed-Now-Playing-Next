@@ -1,11 +1,11 @@
-var buttons = require('sdk/ui/button/action');
-var tabs = require('sdk/tabs');
-var pageMod = require('sdk/page-mod');
-var self = require('sdk/self');
-var ss = require('sdk/simple-storage');
-var system = require('sdk/system');
-var sp = require('sdk/simple-prefs');
-var nowPlayingIO = require('./lib/nowPlayingIO');
+const buttons = require('sdk/ui/button/action');
+const tabs = require('sdk/tabs');
+const pageMod = require('sdk/page-mod');
+const self = require('sdk/self');
+const ss = require('sdk/simple-storage');
+const system = require('sdk/system');
+const sp = require('sdk/simple-prefs');
+const nowPlayingIO = require('./lib/nowPlayingIO');
 
 buttons.ActionButton({
     id: 'unp-action',
@@ -62,13 +62,13 @@ pageMod.PageMod({
 });
 
 function createMusicWebsiteWorker(includes, script, attachTo) {
-    var param = {
+    const param = {
         include: includes,
         contentScriptFile: [
             self.data.url('third-party/jquery-2.1.3.min.js'),
             self.data.url('browserFunc.js'),
-            self.data.url('websites-support/website.js'),
-            self.data.url('websites-support/websites/' + script)
+            self.data.url('common/websites-support/website.js'),
+            self.data.url('common/websites-support/websites/' + script)
         ],
         contentScriptWhen: 'ready',
         contentScriptOptions: {
