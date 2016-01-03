@@ -7,7 +7,7 @@ PlayGoogleTrackListener.prototype.isPlaying = function() {
 
 PlayGoogleTrackListener.prototype.scrapPlayData = function() {
     this.artistName = $('#player-artist').text();
-    this.trackName = $('#player-song-title').text();
+    this.trackName = $('#currently-playing-title').text();
     return true;
 };
 
@@ -16,7 +16,7 @@ PlayGoogleTrackListener.prototype.scrapAlbumName = function() {
 };
 
 PlayGoogleTrackListener.prototype.scrapAlbumArt = function() {
-    return $('#playingAlbumArt').attr('src');
+    return $('#playerBarArt').attr('src');
 };
 
 PlayGoogleTrackListener.prototype.scrapUrl = function() {
