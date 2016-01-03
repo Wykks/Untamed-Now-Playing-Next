@@ -16,7 +16,6 @@ PlanetaFMTrackListener.prototype.scrapPlayData = function() {
 };
 
 PlanetaFMTrackListener.prototype.scrapAlbumArt = function() {
-    console.log(this.selector.find('dt > img').attr('src'));
     return this.selector.find('dt > img').attr('src');
 };
 
