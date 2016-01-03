@@ -24,6 +24,7 @@ Supported Sites
 * [noadradio.com](http://www.noadradio.com)
 * [pandora.com](http://pandora.com)
 * [piki.fm](http://piki.fm)
+* [planeta.fm](http://www.planeta.fm)
 * [play.google.com](http://play.google.com/music)
 * [play.spotify.com](http://play.spotify.com)
 * [player.siriusxm.com](http://player.siriusxm.com)

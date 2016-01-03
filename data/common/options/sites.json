@@ -143,6 +143,14 @@
         "album": "yes",
         "artwork": "yes"
     },
+    "planeta.fm": {
+        "url": "http://www.planeta.fm",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
     "play.google.com/music": {
         "url": "http://play.google.com/music",
         "artist": "yes",
