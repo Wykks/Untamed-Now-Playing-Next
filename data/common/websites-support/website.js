@@ -1,7 +1,7 @@
-let Common = (function () {
+let Common = (function() {
     Common = {};
 
-    Common.MutationObserverUpdater = (function () {
+    Common.MutationObserverUpdater = (function() {
         let listener;
         let nodeAttrName = '';
         let nodeAttrValue;
@@ -84,7 +84,7 @@ let Common = (function () {
 
         function innerRunOnAttr() {
             const observer = new MutationObserver((mutations) => {
-                mutations.forEach(function (mutation) {
+                mutations.forEach(function(mutation) {
                     if (mutation.attributeName != nodeAttrName)
                         return;
                     const newValue = mutation.target.getAttribute(mutation.attributeName);
@@ -108,7 +108,7 @@ let Common = (function () {
         return MutationObserverUpdater;
     }());
 
-    Common.IntervalUpdater = (function () {
+    Common.IntervalUpdater = (function() {
         let listener;
         let interval = 10000;
 
@@ -122,7 +122,7 @@ let Common = (function () {
 
         IntervalUpdater.prototype.run = () => {
             setInterval(() => {
-                listener.updateTrack.call(this, listener);
+                listener.updateTrack.call(listener);
             }, interval);
             //setInterval(listener.updateTrack.bind(listener), interval);
         };
@@ -133,12 +133,12 @@ let Common = (function () {
     //Deprecated
     Common.runTrackListenerInterval = (listener) => {
         setInterval(() => {
-            listener.updateTrack.call(this, listener);
+            listener.updateTrack.call(listener);
         }, 10000);
         //setInterval(listener.updateTrack.bind(listener), 10000);
     };
 
-    Common.WebsiteTrackListener = (function () {
+    Common.WebsiteTrackListener = (function() {
         function WebsiteTrackListener() {
             this.play = '';
             this.artistName = '';
