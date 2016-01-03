@@ -54,8 +54,8 @@ app.config(($routeProvider, $translateProvider) => {
             'en_*': 'en',
             'fr_*': 'fr'
         })
-        .fallbackLanguage('en')
-        .determinePreferredLanguage();
+        .determinePreferredLanguage()
+        .fallbackLanguage('en');
 });
 
 app.controller('NavCtrl', function NavCtrl($scope, $location) {
