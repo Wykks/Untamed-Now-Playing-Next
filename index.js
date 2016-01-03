@@ -28,6 +28,7 @@ pageMod.PageMod({
         self.data.url('third-party/jquery-2.1.3.min.js'),
         self.data.url('third-party/angular.min.js'),
         self.data.url('third-party/angular-route.min.js'),
+        self.data.url('third-party/angular-animate.min.js'),
         self.data.url('third-party/angular-translate.min.js'),
         self.data.url('third-party/angular-translate-loader-static-files.min.js'),
         self.data.url('browserFunc.js'),

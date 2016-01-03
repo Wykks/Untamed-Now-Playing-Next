@@ -1,4 +1,4 @@
-const app = angular.module('UNP', ['ngRoute', 'pascalprecht.translate']);
+const app = angular.module('UNP', ['ngRoute', 'ngAnimate', 'pascalprecht.translate']);
 
 app.run(($rootScope, $translate) => {
     $rootScope.VERSION = 'v3.0-dev';
