@@ -132,6 +132,7 @@ createMusicWebsiteWorker('*.tunein.com', 'tunein.js', 'top');
 createMusicWebsiteWorker('*.vk.com', 'vk.js', 'top');
 createMusicWebsiteWorker(/.*yggdrasilradio.net\/nowplaying.php/, 'yggdrasilradio.js', 'frame');
 createMusicWebsiteWorker('*.youtube.com', 'youtube.js', 'top');
+createMusicWebsiteWorker(/.*youtube.com\/tv.*/, 'youtubetv.js', 'top');
 createMusicWebsiteWorker('*.zaycev.fm', 'zaycev.js', 'top');
 // Chinese sites
 createMusicWebsiteWorker('*.play.baidu.com', 'playbaidu.js', 'top');
