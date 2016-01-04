@@ -24,7 +24,7 @@ app.directive('unpOption', ($translate) => {
             <input ng-switch-when="input" id="{{::vm.unpTitleKey}}" type="text" ng-model="vm.unpOption"></input>
             <select ng-switch-when="select" id="{{::vm.unpTitleKey}}" ng-model="vm.unpOption" ng-transclude></select>
             <input ng-switch-when="checkbox" id="{{::vm.unpTitleKey}}" type="checkbox" ng-model="vm.unpOption"></input>
-            <div ng-switch-default ng-transclude></div>
+            <div ng-switch-default ng-transclude class="flex-center"></div>
             <unp-info-button unp-info="vm.unpInfoButton"></unp-info-button>
         </div>
         `
@@ -42,11 +42,16 @@ app.directive('unpOption', ($translate) => {
             require: 'unpInfoButton',
             link: ($scope, $element, $attrs, vm) => {
                 let added = false;
-                const elm = angular.element('<div/>');
-                elm.append(angular.element('<div/>').addClass('arrow'));
-                const content = angular.element('<div/>').addClass('content');
+                const elm = angular.element('<div/>', {
+                    class: 'popover'
+                });
+                elm.append(angular.element('<div/>', {
+                    class: 'arrow'
+                }));
+                const content = angular.element('<div/>', {
+                    class: 'content'
+                });
                 elm.append(content);
-                elm.addClass('popover');
                 vm.togglePopover = togglePopover;
 
                 function togglePopover() {
@@ -58,8 +63,8 @@ app.directive('unpOption', ($translate) => {
                         content.html(vm.unpInfo);
                         const offset = angular.element($element).offset();
                         const middleButton = offset.left + (angular.element($element).outerWidth() / 2);
-                        $element.parent().parent().parent().prepend(elm);
-                        const top = offset.top - elm.outerHeight();
+                        $('#container').append(elm);
+                        const top = $element[0].offsetTop - elm.outerHeight();
                         const left = middleButton - (elm.outerWidth() / 2);
                         elm.css({
                             top: top + 'px',

@@ -2,3 +2,5 @@
 nbproject/project.properties
 nbproject/project.xml
 *.xpi
+/install.rdf
+/bootstrap.js
