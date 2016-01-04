@@ -2,7 +2,7 @@
     "3.0": {
         "date": "3 Jan 16",
         "added": ["planeta.fm", "radiorecord.ru", "beatport.com/listen"],
-        "fixed": ["play.google.com", "8tracks.com"],
+        "fixed": ["play.google.com", "8tracks.com", "youtube.com/tv (4 Jan 2016)"],
         "removed": ["rdio.com"],
         "other": ["Option page: full rework, now use angular.js", "[Internal] random refactor / improvements"]
     },
