@@ -25,3 +25,4 @@ rules:
   strict: 0
   prefer-const: 2
   no-var: 2
+  no-const-assign: 2

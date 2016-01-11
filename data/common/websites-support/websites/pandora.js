@@ -28,7 +28,7 @@ PandoraTrackListener.prototype.scrapUrl = function() {
 };
 
 PandoraTrackListener.prototype.scrapDuration = function() {
-    const remainingTime = $('.remainingTime').text();
+    let remainingTime = $('.remainingTime').text();
     remainingTime = remainingTime.substr(1, remainingTime.length);
     return Common.secToHms(Common.hmsToSec(remainingTime) + Common.hmsToSec($('.elapsedTime').text()));
 };
