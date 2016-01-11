@@ -28,7 +28,7 @@ app.controller('SettingsCtrl', function SettingsCtrl(Utils, $translate, $sce) {
 
     function getConfigValue(key, defaultVal) {
         const val = BrowserFunc.getOption(key);
-        return (!Utils.empty(val)) ? val : defaultVal;
+        return (!$.isEmptyObject(val)) ? val : defaultVal;
     }
 
     function getConfigBool(key, defaultVal) {
