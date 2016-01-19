@@ -135,6 +135,14 @@
         "album": "no",
         "artwork": "yes"
     },
+    "open.fm": {
+        "url": "http://open.fm",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "yes",
+        "artwork": "yes"
+    },
     "pandora.com": {
         "url": "http://pandora.com",
         "artist": "yes",
