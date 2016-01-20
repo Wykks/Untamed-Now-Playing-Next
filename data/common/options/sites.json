@@ -63,6 +63,14 @@
         "album": "yes",
         "artwork": "no"
     },
+    "eskago.pl": {
+        "url": "http://www.eskago.pl",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
     "hypem.com": {
         "url": "http://hypem.com",
         "artist": "yes",
@@ -133,6 +141,14 @@
         "title": "yes",
         "duration": "no",
         "album": "no",
+        "artwork": "yes"
+    },
+    "open.fm": {
+        "url": "http://open.fm",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "yes",
         "artwork": "yes"
     },
     "pandora.com": {

@@ -139,6 +139,8 @@ createMusicWebsiteWorker('*.play.baidu.com', 'playbaidu.js', 'top');
 createMusicWebsiteWorker('*.player.kuwo.cn', 'kuwo.js', 'top');
 createMusicWebsiteWorker('*.y.qq.com', 'qq.js', 'top');
 createMusicWebsiteWorker(/.*xiami.com\/play.*/, 'xiami.js', 'top');
+createMusicWebsiteWorker(/.*open.fm.*/, 'openfm.js', 'top');
+createMusicWebsiteWorker(/.*www.eskago.pl\/radio.*/, 'eskago.js', 'top');
 
 function onAttachNowPlaying(worker) {
     worker.port.on('updateNowPlaying', function(data) {
