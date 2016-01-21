@@ -21,7 +21,7 @@ app.directive('unpOption', ($translate) => {
         <label for="{{::vm.unpTitleKey}}" translate="{{vm.unpTitleKey}}">
         </label>
         <div class="option-group" ng-switch on="vm.unpType">
-            <input ng-switch-when="input" id="{{::vm.unpTitleKey}}" type="text" ng-model="vm.unpOption"></input>
+            <input ng-switch-when="input" id="{{::vm.unpTitleKey}}" type="text" ng-model="vm.unpOption" ng-trim="false"></input>
             <select ng-switch-when="select" id="{{::vm.unpTitleKey}}" ng-model="vm.unpOption" ng-transclude></select>
             <input ng-switch-when="checkbox" id="{{::vm.unpTitleKey}}" type="checkbox" ng-model="vm.unpOption"></input>
             <div ng-switch-default ng-transclude class="flex-center"></div>
