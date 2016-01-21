@@ -39,12 +39,14 @@ pageMod.PageMod({
     ],
     contentScriptWhen: 'ready',
     contentScriptOptions: {
-        platform: system.platform,
-        storage: ss.storage //Read only
+        platform: system.platform
     },
     onAttach: function(worker) {
-        worker.port.emit('prefs', ss.storage);
-        worker.port.on('setValue', function(message) {
+        worker.port.on('getPrefs', function() {
+            worker.port.emit('prefs', ss.storage);
+        });
+
+        worker.port.on('setPref', function(message) {
             ss.storage[message.key] = message.value;
         });
 
@@ -72,9 +74,6 @@ function createMusicWebsiteWorker(includes, script, attachTo) {
             self.data.url('common/websites-support/websites/' + script)
         ],
         contentScriptWhen: 'ready',
-        contentScriptOptions: {
-            storage: ss.storage //Read only
-        },
         onAttach: onAttachNowPlaying
     };
     if (typeof attachTo !== 'undefined')
@@ -143,6 +142,10 @@ createMusicWebsiteWorker(/.*open.fm.*/, 'openfm.js', 'top');
 createMusicWebsiteWorker(/.*www.eskago.pl\/radio.*/, 'eskago.js', 'top');
 
 function onAttachNowPlaying(worker) {
+    worker.port.on('getPrefs', function() {
+        worker.port.emit('prefs', ss.storage);
+    });
+
     worker.port.on('updateNowPlaying', function(data) {
         nowPlayingIO.updateNowPlaying(data).then(function() {
             worker.port.emit('updateNowPlaying', 'success');

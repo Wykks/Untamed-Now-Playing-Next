@@ -11,7 +11,12 @@ app.config(($routeProvider, $translateProvider) => {
     $routeProvider
         .when('/settings', {
             templateUrl: 'pages/settings.html',
-            controller: 'SettingsCtrl as vm'
+            controller: 'SettingsCtrl as vm',
+            resolve: {
+                storage: () => {
+                    return BrowserFunc.getOptions();
+                }
+            }
         })
         .when('/sites', {
             templateUrl: 'pages/sites.html',

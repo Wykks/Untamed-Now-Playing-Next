@@ -1,10 +1,10 @@
-app.controller('SettingsCtrl', function SettingsCtrl(Utils, $translate, $sce) {
+app.controller('SettingsCtrl', function SettingsCtrl(storage, Utils, $translate, $sce) {
     const vm = this;
 
     vm.save = save;
 
-    if (BrowserFunc.getOption('unpSaveDir') !== undefined) {
-        vm.saveDir = BrowserFunc.getOption('unpSaveDir');
+    if (storage.unpSaveDir !== undefined) {
+        vm.saveDir = storage.unpSaveDir;
     } else {
         $translate('warn_opt').then((msg) => {
             vm.messageType = 'warn';
@@ -27,12 +27,12 @@ app.controller('SettingsCtrl', function SettingsCtrl(Utils, $translate, $sce) {
     vm.browserNotification = getConfigBool('unpNotification', true);
 
     function getConfigValue(key, defaultVal) {
-        const val = BrowserFunc.getOption(key);
+        const val = storage[key];
         return (!$.isEmptyObject(val)) ? val : defaultVal;
     }
 
     function getConfigBool(key, defaultVal) {
-        const val = BrowserFunc.getOption(key);
+        const val = storage[key];
         return (val !== undefined) ? val : defaultVal;
     }
 

@@ -39,15 +39,20 @@ let BrowserFunc = (function () {
         self.port.emit('removeFile', filename);
     };
 
-    BrowserFunc.setOption = function (key, value) {
-        self.port.emit('setValue', {
-            'key': key,
-            'value': value,
+    BrowserFunc.getOptions = function() {
+        return new Promise((resolve) => {
+            self.port.emit('getPrefs');
+            self.port.once('prefs', function(storage) {
+                resolve(storage);
+            });
         });
     };
 
-    BrowserFunc.getOption = function (key) {
-        return self.options.storage[key];
+    BrowserFunc.setOption = function(key, value) {
+        self.port.emit('setPref', {
+            'key': key,
+            'value': value,
+        });
     };
 
     return BrowserFunc;
