@@ -28,7 +28,7 @@ app.controller('SettingsCtrl', function SettingsCtrl(storage, Utils, $translate,
 
     function getConfigValue(key, defaultVal) {
         const val = storage[key];
-        return (!$.isEmptyObject(val)) ? val : defaultVal;
+        return (!$.isEmptyObject(val) || Number.isInteger(val)) ? val : defaultVal;
     }
 
     function getConfigBool(key, defaultVal) {
