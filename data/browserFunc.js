@@ -1,7 +1,7 @@
 //Browser specific code
 //Firefox version
 //self is coming from pageMod (see index.js)
-let BrowserFunc = (function () {
+var BrowserFunc = (function () { //eslint-disable-line no-var
     BrowserFunc = {};
 
     BrowserFunc.updateNowPlaying = function (data) {
