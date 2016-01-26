@@ -47,6 +47,8 @@ Supported Sites
 * [radiorecord.ru](http://www.radiorecord.ru/player)
 * [radioultra.ru](http://www.radioultra.ru/player)
 * [xiami.com](http://www.xiami.com/play)
+* [open.fm](http://open.fm)
+* [eskago.pl] (http://www.eskago.pl)
 
 Support for more sites will be added over time. If you have a suggestion for a site, please open an issue or reply to the obs topic.
 
