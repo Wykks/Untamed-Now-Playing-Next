@@ -1,4 +1,4 @@
-let Common = (function() {
+var Common = (function() { //eslint-disable-line no-var
     Common = {};
 
     Common.MutationObserverUpdater = (function() {
