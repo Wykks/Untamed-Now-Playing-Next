@@ -2,7 +2,7 @@ const OpenFMTrackListener = function() {};
 OpenFMTrackListener.prototype = new Common.WebsiteTrackListener();
 
 OpenFMTrackListener.prototype.isPlaying = function() {
-    return $('.controls-con > input').attr('class') == "active stop-btn";
+    return $('.controls-con > input').attr('class') == "stop-btn";
 };
 
 OpenFMTrackListener.prototype.scrapPlayData = function() {
