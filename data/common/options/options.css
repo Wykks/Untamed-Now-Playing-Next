@@ -186,8 +186,8 @@ label, select, button, input[type="button"], input[type="checkbox"] {
 
 .btn {
     height: 35px;
-    width: 40px;
     display: flex;
+    border: 1px solid #999;
 }
 
 .save {
