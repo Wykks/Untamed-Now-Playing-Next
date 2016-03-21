@@ -1,10 +1,8 @@
 //Browser specific code
 //Firefox version
 //self is coming from pageMod (see index.js)
-var BrowserFunc = (function () { //eslint-disable-line no-var
-    BrowserFunc = {};
-
-    BrowserFunc.updateNowPlaying = function (data) {
+class BrowserFunc { //eslint-disable-line
+    static updateNowPlaying(data) {
         self.port.emit('updateNowPlaying', data);
         return new Promise(function (resolve, reject) {
             self.port.once('updateNowPlaying', function (status) {
@@ -15,14 +13,13 @@ var BrowserFunc = (function () { //eslint-disable-line no-var
                 }
             });
         });
-    };
+    }
 
-    //READONLY !
-    BrowserFunc.getPlatform = function () {
+    static getPlatform() {
         return self.options.platform;
     };
 
-    BrowserFunc.writeFile = function (payload) {
+    static writeFile(payload) {
         self.port.emit('writeFile', payload);
         return new Promise(function (resolve, reject) {
             self.port.once(payload.filename, (status) => {
@@ -35,11 +32,11 @@ var BrowserFunc = (function () { //eslint-disable-line no-var
         });
     };
 
-    BrowserFunc.removeFile = function (filename) {
+    static removeFile(filename) {
         self.port.emit('removeFile', filename);
     };
 
-    BrowserFunc.getOptions = function() {
+    static getOptions() {
         return new Promise((resolve) => {
             self.port.emit('getPrefs');
             self.port.once('prefs', function(storage) {
@@ -48,12 +45,10 @@ var BrowserFunc = (function () { //eslint-disable-line no-var
         });
     };
 
-    BrowserFunc.setOption = function(key, value) {
+    static setOption(key, value) {
         self.port.emit('setPref', {
             'key': key,
             'value': value,
         });
     };
-
-    return BrowserFunc;
-}());
+}
