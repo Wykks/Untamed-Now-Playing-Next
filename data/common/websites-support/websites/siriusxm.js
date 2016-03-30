@@ -1,5 +1,5 @@
 const SiriusxmTrackListener = function() {};
-SiriusxmTrackListener.prototype = new Common.WebsiteTrackListener();
+SiriusxmTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 SiriusxmTrackListener.prototype.isPlaying = function() {
     return $('#player .scrub-controls .RegularPause').is(':visible');
@@ -19,4 +19,4 @@ SiriusxmTrackListener.prototype.scrapAlbumArt = function() {
     return this.selector.children('.np-track-art').children().attr('src');
 };
 
-Common.runTrackListenerInterval(new SiriusxmTrackListener());
+window.UNPCommon.runTrackListenerInterval(new SiriusxmTrackListener());

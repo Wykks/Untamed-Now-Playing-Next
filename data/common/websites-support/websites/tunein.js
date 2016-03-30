@@ -1,5 +1,5 @@
 const TuneInTrackListener = function() {};
-TuneInTrackListener.prototype = new Common.WebsiteTrackListener();
+TuneInTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 TuneInTrackListener.prototype.isPlaying = function() {
     return $('#tuner').hasClass('playing');
@@ -7,7 +7,7 @@ TuneInTrackListener.prototype.isPlaying = function() {
 
 TuneInTrackListener.prototype.scrapPlayData = function() {
     const play = $('#tuner div.line1').text();
-    [this.trackName, this.artistName] = Common.parseArtistTitle(play);
+    [this.trackName, this.artistName] = window.UNPCommon.parseArtistTitle(play);
     if (this.trackName !== '')
         this.trackName += ' [' + $('#tuner div.line2 > .title').text() + ']';
     else {
@@ -21,4 +21,4 @@ TuneInTrackListener.prototype.scrapAlbumArt = function() {
     return $('.image > img').attr('src');
 };
 
-Common.runTrackListenerInterval(new TuneInTrackListener());
+window.UNPCommon.runTrackListenerInterval(new TuneInTrackListener());

@@ -1,4 +1,4 @@
-var Common = (function() { //eslint-disable-line no-var
+window.UNPCommon = (function() { //eslint-disable-line no-var
     Common = {};
 
     Common.MutationObserverUpdater = (function() {
@@ -202,7 +202,7 @@ var Common = (function() { //eslint-disable-line no-var
             const currentTime = new Date();
             const minutes = currentTime.getMinutes();
             const hours = currentTime.getHours();
-            BrowserFunc.updateNowPlaying({
+           window.UNPBrowserFunc.updateNowPlaying({
                 nowPlaying: play,
                 trackName: getValue(this.trackName),
                 artistName: getValue(this.artistName),

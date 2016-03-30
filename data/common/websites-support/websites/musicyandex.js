@@ -1,5 +1,5 @@
 const MusicYandexTrackListener = function() {};
-MusicYandexTrackListener.prototype = new Common.WebsiteTrackListener();
+MusicYandexTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 MusicYandexTrackListener.prototype.isPlaying = function() {
     return $('div.player-controls__btn_play').hasClass('player-controls__btn_pause');
@@ -30,4 +30,4 @@ MusicYandexTrackListener.prototype.scrapDuration = function() {
     return $('.progress > .progress__progress > .progress__right').text();
 };
 
-Common.runTrackListenerInterval(new MusicYandexTrackListener());
+window.UNPCommon.runTrackListenerInterval(new MusicYandexTrackListener());

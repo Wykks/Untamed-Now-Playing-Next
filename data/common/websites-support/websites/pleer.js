@@ -1,6 +1,6 @@
 const PleerTrackListener = function() {};
 
-PleerTrackListener.prototype = new Common.WebsiteTrackListener();
+PleerTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 PleerTrackListener.prototype.isPlaying = function() {
     return $('#play').hasClass('pause');
@@ -21,7 +21,7 @@ PleerTrackListener.prototype.scrapUrl = function() {
 };
 
 PleerTrackListener.prototype.scrapDuration = function() {
-    return Common.secToHms(Common.hmsToSec($.trim(
+    return window.UNPCommon.secToHms(window.UNPCommon.hmsToSec($.trim(
         $('.now-playing').contents().filter(
             function() {
                 return this.nodeType == Node.TEXT_NODE;
@@ -30,7 +30,7 @@ PleerTrackListener.prototype.scrapDuration = function() {
     ).match(/^(.+) \u2014 (.+) \((.+)\)$/)[3]));
 };
 
-const updateTriggerer = new Common.MutationObserverUpdater(new PleerTrackListener());
+const updateTriggerer = new window.UNPCommon.MutationObserverUpdater(new PleerTrackListener());
 updateTriggerer.setSelector('#player .now-playing');
 updateTriggerer.setCustomFilter(function (observedNode) {
     if (observedNode.parentNode.id === 'time')

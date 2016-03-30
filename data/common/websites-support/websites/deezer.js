@@ -1,5 +1,5 @@
 const DeezerTrackListener = function() {};
-DeezerTrackListener.prototype = new Common.WebsiteTrackListener();
+DeezerTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 DeezerTrackListener.prototype.isPlaying = function() {
     return $('#player .control-pause').length;
@@ -33,4 +33,4 @@ DeezerTrackListener.prototype.scrapDuration = function() {
     return this.selector.find('.progress-length').text();
 };
 
-Common.runTrackListenerInterval(new DeezerTrackListener());
+window.UNPCommon.runTrackListenerInterval(new DeezerTrackListener());

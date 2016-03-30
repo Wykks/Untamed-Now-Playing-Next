@@ -1,5 +1,5 @@
 const TheMusicNinjaTrackListener = function() {};
-TheMusicNinjaTrackListener.prototype = new Common.WebsiteTrackListener();
+TheMusicNinjaTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 TheMusicNinjaTrackListener.prototype.isPlaying = function() {
     return $('#player-features').hasClass('tmn_playing');
@@ -19,4 +19,4 @@ TheMusicNinjaTrackListener.prototype.scrapDuration = function() {
     return $('.sm2_total').text();
 };
 
-Common.runTrackListenerInterval(new TheMusicNinjaTrackListener());
+window.UNPCommon.runTrackListenerInterval(new TheMusicNinjaTrackListener());

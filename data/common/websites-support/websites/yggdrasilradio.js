@@ -1,5 +1,5 @@
 const YggdrasilRadioTrackListener = function() {};
-YggdrasilRadioTrackListener.prototype = new Common.WebsiteTrackListener();
+YggdrasilRadioTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 YggdrasilRadioTrackListener.prototype.isPlaying = function() {
     return true;
@@ -31,4 +31,4 @@ YggdrasilRadioTrackListener.prototype.scrapDuration = function() {
     return $('#currduration').text();
 };
 
-Common.runTrackListenerInterval(new YggdrasilRadioTrackListener());
+window.UNPCommon.runTrackListenerInterval(new YggdrasilRadioTrackListener());

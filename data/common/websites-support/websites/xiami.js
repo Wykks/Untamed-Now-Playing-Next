@@ -1,5 +1,5 @@
 const XiamiTrackListener = function() {};
-XiamiTrackListener.prototype = new Common.WebsiteTrackListener();
+XiamiTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 XiamiTrackListener.prototype.isPlaying = function() {
     return $('#J_playBtn').hasClass('pause-btn');
@@ -33,4 +33,4 @@ XiamiTrackListener.prototype.scrapDuration = function() {
     return $('#J_durationTime').text();
 };
 
-Common.runTrackListenerInterval(new XiamiTrackListener());
+window.UNPCommon.runTrackListenerInterval(new XiamiTrackListener());

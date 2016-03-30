@@ -1,5 +1,5 @@
 const SoundcloudTrackListener = function() {};
-SoundcloudTrackListener.prototype = new Common.WebsiteTrackListener();
+SoundcloudTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 SoundcloudTrackListener.prototype.isPlaying = function() {
     return true;
@@ -7,7 +7,7 @@ SoundcloudTrackListener.prototype.isPlaying = function() {
 
 SoundcloudTrackListener.prototype.scrapPlayData = function() {
     const play = $('.playbackSoundBadge__title').attr('title');
-    [this.artistName, this.trackName] = Common.parseArtistTitle(play);
+    [this.artistName, this.trackName] = window.UNPCommon.parseArtistTitle(play);
     return true;
 };
 
@@ -25,7 +25,7 @@ SoundcloudTrackListener.prototype.scrapDuration = function() {
     return $('.playbackTimeline__duration span:eq(1)').text();
 };
 
-const updateTriggerer = new Common.MutationObserverUpdater(new SoundcloudTrackListener());
+const updateTriggerer = new window.UNPCommon.MutationObserverUpdater(new SoundcloudTrackListener());
 updateTriggerer.setSelector('.playControls__soundBadge > .playbackSoundBadge');
 updateTriggerer.setNodeAttributeName('class');
 updateTriggerer.setNodeAttributeValue(new RegExp('playbackSoundBadge__avatar'));

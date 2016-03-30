@@ -1,5 +1,5 @@
 const RadioRecordPlayerTrackListener = function() {};
-RadioRecordPlayerTrackListener.prototype = new Common.WebsiteTrackListener();
+RadioRecordPlayerTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 RadioRecordPlayerTrackListener.prototype.isPlaying = function() {
     return true;
@@ -15,4 +15,4 @@ RadioRecordPlayerTrackListener.prototype.scrapPlayData = function() {
     return true;
 };
 
-Common.runTrackListenerInterval(new RadioRecordPlayerTrackListener());
+window.UNPCommon.runTrackListenerInterval(new RadioRecordPlayerTrackListener());

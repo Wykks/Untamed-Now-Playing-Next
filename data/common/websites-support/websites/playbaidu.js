@@ -1,5 +1,5 @@
 const PlayBaiduTrackListener = function() {};
-PlayBaiduTrackListener.prototype = new Common.WebsiteTrackListener();
+PlayBaiduTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 PlayBaiduTrackListener.prototype.isPlaying = function() {
     return true;
@@ -31,4 +31,4 @@ PlayBaiduTrackListener.prototype.scrapDuration = function() {
     return $.trim($('#timeWrap').find('.totalTime').text());
 };
 
-Common.runTrackListenerInterval(new PlayBaiduTrackListener());
+window.UNPCommon.runTrackListenerInterval(new PlayBaiduTrackListener());

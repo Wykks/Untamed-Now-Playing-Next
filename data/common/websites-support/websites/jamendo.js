@@ -1,5 +1,5 @@
 const JamendoTrackListener = function() {};
-JamendoTrackListener.prototype = new Common.WebsiteTrackListener();
+JamendoTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 JamendoTrackListener.prototype.isPlaying = function() {
     return $('.playpause.pause').is(':visible');
@@ -23,4 +23,4 @@ JamendoTrackListener.prototype.scrapUrl = function() {
     return 'https://www.jamendo.com' + this.selector.find('p.artist > a').attr('href');
 };
 
-Common.runTrackListenerInterval(new JamendoTrackListener());
+window.UNPCommon.runTrackListenerInterval(new JamendoTrackListener());

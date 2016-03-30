@@ -1,5 +1,5 @@
 const SlackerTrackListener = function() {};
-SlackerTrackListener.prototype = new Common.WebsiteTrackListener();
+SlackerTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 SlackerTrackListener.prototype.isPlaying = function() {
     return $('#transport > li.playpause').hasClass('play');
@@ -28,4 +28,4 @@ SlackerTrackListener.prototype.scrapDuration = function() {
     return $('#progressContainer > span:eq(1)').text();
 };
 
-Common.runTrackListenerInterval(new SlackerTrackListener());
+window.UNPCommon.runTrackListenerInterval(new SlackerTrackListener());

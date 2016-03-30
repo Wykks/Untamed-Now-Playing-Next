@@ -1,5 +1,5 @@
 const DiFMTrackListener = function() {};
-DiFMTrackListener.prototype = new Common.WebsiteTrackListener();
+DiFMTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 DiFMTrackListener.prototype.isPlaying = function() {
     return $('#webplayer-region .track-region').find('.icon-pause').length;
@@ -32,4 +32,4 @@ DiFMTrackListener.prototype.scrapDuration = function() {
     return this.selector.find('.progress .timecode').text().match(/(.+) \/ (.+)/)[2];
 };
 
-Common.runTrackListenerInterval(new DiFMTrackListener());
+window.UNPCommon.runTrackListenerInterval(new DiFMTrackListener());

@@ -1,5 +1,5 @@
 const SynchtubeTrackListener = function() {};
-SynchtubeTrackListener.prototype = new Common.WebsiteTrackListener();
+SynchtubeTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 SynchtubeTrackListener.prototype.isPlaying = function() {
     return true;
@@ -11,7 +11,7 @@ SynchtubeTrackListener.prototype.findSelector = function() {
 
 SynchtubeTrackListener.prototype.scrapPlayData = function() {
     const play = this.selector.children('.qe_title').text();
-    [this.artistName, this.trackName] = Common.parseArtistTitle(play);
+    [this.artistName, this.trackName] = window.UNPCommon.parseArtistTitle(play);
     return true;
 };
 
@@ -23,4 +23,4 @@ SynchtubeTrackListener.prototype.scrapDuration = function() {
     return this.selector.children('.qe_time').text();
 };
 
-Common.runTrackListenerInterval(new SynchtubeTrackListener());
+window.UNPCommon.runTrackListenerInterval(new SynchtubeTrackListener());

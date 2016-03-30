@@ -1,5 +1,5 @@
 const LastFMTrackListener = function() {};
-LastFMTrackListener.prototype = new Common.WebsiteTrackListener();
+LastFMTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 LastFMTrackListener.prototype.isPlaying = function() {
     return !$('#radioControlPlay').is(':visible') && $('#nowPlayingMeta').is(':visible');
@@ -27,4 +27,4 @@ LastFMTrackListener.prototype.scrapUrl = function() {
     return this.selector.attr('href');
 };
 
-Common.runTrackListenerInterval(new LastFMTrackListener());
+window.UNPCommon.runTrackListenerInterval(new LastFMTrackListener());

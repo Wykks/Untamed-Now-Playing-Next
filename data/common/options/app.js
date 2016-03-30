@@ -14,7 +14,7 @@ app.config(($routeProvider, $translateProvider) => {
             controller: 'SettingsCtrl as vm',
             resolve: {
                 storage: () => {
-                    return BrowserFunc.getOptions();
+                    return window.UNPBrowserFunc.getOptions();
                 }
             }
         })

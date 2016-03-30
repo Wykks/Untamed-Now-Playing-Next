@@ -1,5 +1,5 @@
 const AnimenfoTrackListener = function() {};
-AnimenfoTrackListener.prototype = new Common.WebsiteTrackListener();
+AnimenfoTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 AnimenfoTrackListener.prototype.isPlaying = function() {
     return true;
@@ -33,4 +33,4 @@ AnimenfoTrackListener.prototype.scrapDuration = function() {
     return $('#np_time').text();
 };
 
-Common.runTrackListenerInterval(new AnimenfoTrackListener());
+window.UNPCommon.runTrackListenerInterval(new AnimenfoTrackListener());

@@ -10,9 +10,9 @@ app.controller('SettingsCtrl', function SettingsCtrl(storage, Utils, $translate,
             vm.messageType = 'warn';
             vm.message = $sce.trustAsHtml(msg);
         });
-        if (BrowserFunc.getPlatform() === 'winnt')
+        if (window.UNPBrowserFunc.getPlatform() === 'winnt')
             vm.saveDir = 'C:\\Users\\USERNAME\\Documents\\unp\\';
-        else if (BrowserFunc.getPlatform() === 'linux')
+        else if (window.UNPBrowserFunc.getPlatform() === 'linux')
             vm.saveDir = '/home/USERNAME/unp/';
     }
 
@@ -40,7 +40,7 @@ app.controller('SettingsCtrl', function SettingsCtrl(storage, Utils, $translate,
 
     function save() {
         vm.savePending = true;
-        if (BrowserFunc.getPlatform() === 'winnt') {
+        if (window.UNPBrowserFunc.getPlatform() === 'winnt') {
             vm.saveDir = vm.saveDir.split('/').join('\\');
             if (vm.saveDir.substr(vm.saveDir.length - 1) != '\\') {
                 vm.saveDir = vm.saveDir + '\\';
@@ -52,16 +52,16 @@ app.controller('SettingsCtrl', function SettingsCtrl(storage, Utils, $translate,
         }
 
         validateOptions().then(() => {
-            BrowserFunc.setOption('unpSaveDir', vm.saveDir);
-            BrowserFunc.setOption('unpSaveFormat', vm.saveFormat);
-            BrowserFunc.setOption('unpFilename', vm.filename);
-            BrowserFunc.setOption('unpTxtFormat', vm.txtFormat);
-            BrowserFunc.setOption('unpSongMaxLen', vm.songMaxlen);
-            BrowserFunc.setOption('unpSongMaxLenApp', vm.songMaxlenAppend);
-            BrowserFunc.setOption('unpAlbumArtwork', vm.albumArtwork);
-            BrowserFunc.setOption('unpDisableYoutube', vm.disableYoutube);
-            BrowserFunc.setOption('unpAutoClear', vm.autoClear);
-            BrowserFunc.setOption('unpNotification', vm.browserNotification);
+            window.UNPBrowserFunc.setOption('unpSaveDir', vm.saveDir);
+            window.UNPBrowserFunc.setOption('unpSaveFormat', vm.saveFormat);
+            window.UNPBrowserFunc.setOption('unpFilename', vm.filename);
+            window.UNPBrowserFunc.setOption('unpTxtFormat', vm.txtFormat);
+            window.UNPBrowserFunc.setOption('unpSongMaxLen', vm.songMaxlen);
+            window.UNPBrowserFunc.setOption('unpSongMaxLenApp', vm.songMaxlenAppend);
+            window.UNPBrowserFunc.setOption('unpAlbumArtwork', vm.albumArtwork);
+            window.UNPBrowserFunc.setOption('unpDisableYoutube', vm.disableYoutube);
+            window.UNPBrowserFunc.setOption('unpAutoClear', vm.autoClear);
+            window.UNPBrowserFunc.setOption('unpNotification', vm.browserNotification);
 
             $translate('opt_saved').then((msg) => {
                 vm.messageType = 'success';
@@ -83,11 +83,11 @@ app.controller('SettingsCtrl', function SettingsCtrl(storage, Utils, $translate,
         }
 
         const testFilename = vm.saveDir + vm.filename + '_write_test_53642784162133643354.txt';
-        return BrowserFunc.writeFile({
+        return window.UNPBrowserFunc.writeFile({
             filename: testFilename,
             text: 'Just a quick test to ensure we can write to this directory! :)'
         }).then(() => {
-            BrowserFunc.removeFile(testFilename);
+            window.UNPBrowserFunc.removeFile(testFilename);
         }).catch(() => {
             $translate('err_directory_inaccess').then((msg) => {
                 vm.messageType = 'error';

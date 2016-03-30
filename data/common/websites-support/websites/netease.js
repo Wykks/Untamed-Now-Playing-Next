@@ -1,5 +1,5 @@
 const PlayNeteaseListener = function() {};
-PlayNeteaseListener.prototype = new Common.WebsiteTrackListener();
+PlayNeteaseListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 PlayNeteaseListener.prototype.findSelector = function() {
     this.selector = $('#g_player');
@@ -31,4 +31,4 @@ PlayNeteaseListener.prototype.scrapDuration = function() {
         .replace(/^ \/ /, '');
 };
 
-Common.runTrackListenerInterval(new PlayNeteaseListener());
+window.UNPCommon.runTrackListenerInterval(new PlayNeteaseListener());

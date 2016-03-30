@@ -1,5 +1,5 @@
 const ZaycevTrackListener = function() {};
-ZaycevTrackListener.prototype = new Common.WebsiteTrackListener();
+ZaycevTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 ZaycevTrackListener.prototype.isPlaying = function() {
     return $('.zp_play').hasClass('g-active');
@@ -24,4 +24,4 @@ ZaycevTrackListener.prototype.scrapUrl = function() {
     return $('.ontheair_song').attr('href');
 };
 
-Common.runTrackListenerInterval(new ZaycevTrackListener());
+window.UNPCommon.runTrackListenerInterval(new ZaycevTrackListener());

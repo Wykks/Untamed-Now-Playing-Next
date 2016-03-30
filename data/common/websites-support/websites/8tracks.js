@@ -1,5 +1,5 @@
 const HeightTracksTrackListener = function() {};
-HeightTracksTrackListener.prototype = new Common.WebsiteTrackListener();
+HeightTracksTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 HeightTracksTrackListener.prototype.findSelector = function() {
     this.selector = $('li.now_playing').find('.title_container').find('.title_artist');
@@ -27,4 +27,4 @@ HeightTracksTrackListener.prototype.scrapUrl = function() {
     return 'http://8tracks.com' + $('#player #player_mix').children().attr('href');
 };
 
-Common.runTrackListenerInterval(new HeightTracksTrackListener());
+window.UNPCommon.runTrackListenerInterval(new HeightTracksTrackListener());

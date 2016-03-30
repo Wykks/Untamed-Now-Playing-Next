@@ -1,5 +1,5 @@
 const MixcloudTrackListener = function() {};
-MixcloudTrackListener.prototype = new Common.WebsiteTrackListener();
+MixcloudTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 MixcloudTrackListener.prototype.isPlaying = function() {
     return $('.player-wrapper > .player > .player-control')
@@ -30,7 +30,7 @@ MixcloudTrackListener.prototype.scrapUrl = function() {
 
 MixcloudTrackListener.prototype.scrapDuration = function() {
     const remainingTime = this.selector.find('.player-time.end-time > span').text();
-    return Common.secToHms(Common.hmsToSec(remainingTime) + Common.hmsToSec(this.selector.find('.player-scrubber > .player-time:eq(0)').text()));
+    return window.UNPCommon.secToHms(window.UNPCommon.hmsToSec(remainingTime) + window.UNPCommon.hmsToSec(this.selector.find('.player-scrubber > .player-time:eq(0)').text()));
 };
 
-Common.runTrackListenerInterval(new MixcloudTrackListener());
+window.UNPCommon.runTrackListenerInterval(new MixcloudTrackListener());

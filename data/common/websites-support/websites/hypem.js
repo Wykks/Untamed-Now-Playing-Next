@@ -1,5 +1,5 @@
 const HypemTrackListener = function() {};
-HypemTrackListener.prototype = new Common.WebsiteTrackListener();
+HypemTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 HypemTrackListener.prototype.isPlaying = function() {
     return $('#playerPlay').hasClass('pause');
@@ -23,4 +23,4 @@ HypemTrackListener.prototype.scrapDuration = function() {
     return $('#player-time-total').text();
 };
 
-Common.runTrackListenerInterval(new HypemTrackListener());
+window.UNPCommon.runTrackListenerInterval(new HypemTrackListener());

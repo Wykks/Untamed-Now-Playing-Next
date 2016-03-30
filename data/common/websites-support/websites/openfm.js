@@ -1,5 +1,5 @@
 const OpenFMTrackListener = function() {};
-OpenFMTrackListener.prototype = new Common.WebsiteTrackListener();
+OpenFMTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 OpenFMTrackListener.prototype.isPlaying = function() {
     return $('.controls-con > input').attr('class') == "stop-btn";
@@ -19,4 +19,4 @@ OpenFMTrackListener.prototype.scrapAlbumArt = function() {
     return "http://open.fm" + $('#station-view > .img-holder > img').attr('src');
 };
 
-Common.runTrackListenerInterval(new OpenFMTrackListener());
+window.UNPCommon.runTrackListenerInterval(new OpenFMTrackListener());

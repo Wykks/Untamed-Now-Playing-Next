@@ -1,5 +1,5 @@
 const SeoulFMTrackListener = function() {};
-SeoulFMTrackListener.prototype = new Common.WebsiteTrackListener();
+SeoulFMTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 SeoulFMTrackListener.prototype.isPlaying = function() {
     return $('#flashradiostopbutton').is(':visible');
@@ -7,7 +7,7 @@ SeoulFMTrackListener.prototype.isPlaying = function() {
 
 SeoulFMTrackListener.prototype.scrapPlayData = function() {
     const play = $('#flashradiostatustext > span').text();
-    [this.artistName, this.trackName] = Common.parseArtistTitle(play);
+    [this.artistName, this.trackName] = window.UNPCommon.parseArtistTitle(play);
     return true;
 };
 
@@ -15,4 +15,4 @@ SeoulFMTrackListener.prototype.scrapUrl = function() {
     return 'http://www.seoul.fm';
 };
 
-Common.runTrackListenerInterval(new SeoulFMTrackListener());
+window.UNPCommon.runTrackListenerInterval(new SeoulFMTrackListener());

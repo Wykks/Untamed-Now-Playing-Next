@@ -1,5 +1,5 @@
 const AhFMTrackListener = function() {};
-AhFMTrackListener.prototype = new Common.WebsiteTrackListener();
+AhFMTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 AhFMTrackListener.prototype.isPlaying = function() {
     return $('.now_playing').length && $('#pause').is(':visible');
@@ -17,4 +17,4 @@ AhFMTrackListener.prototype.scrapPlayData = function() {
     return true;
 };
 
-Common.runTrackListenerInterval(new AhFMTrackListener());
+window.UNPCommon.runTrackListenerInterval(new AhFMTrackListener());

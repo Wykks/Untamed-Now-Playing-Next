@@ -3,7 +3,7 @@ const youtube = (options) => {
         throw new Error('UNP disabled on youtube');
     }
     const YoutubeTrackListener = function() {};
-    YoutubeTrackListener.prototype = new Common.WebsiteTrackListener();
+    YoutubeTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
     YoutubeTrackListener.prototype.isPlaying = function() {
         return typeof $('#watch7-content > meta[itemprop="name"]').attr('content') !== 'undefined';
@@ -25,7 +25,7 @@ const youtube = (options) => {
             return true;
         }
         const play = $('#watch7-content > meta[itemprop="name"]').attr('content');
-        [this.artistName, this.trackName] = Common.parseArtistTitle(play);
+        [this.artistName, this.trackName] = window.UNPCommon.parseArtistTitle(play);
         return true;
     };
 
@@ -44,7 +44,7 @@ const youtube = (options) => {
         return $('.ytp-time-duration').text();
     };
 
-    const updateTriggerer = new Common.MutationObserverUpdater(new YoutubeTrackListener());
+    const updateTriggerer = new window.UNPCommon.MutationObserverUpdater(new YoutubeTrackListener());
     updateTriggerer.setSelector('body');
     updateTriggerer.setNodeAttributeName('class');
     updateTriggerer.setNodeAttributeValue(new RegExp('page-loaded'));

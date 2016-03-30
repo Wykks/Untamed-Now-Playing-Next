@@ -1,5 +1,5 @@
 const ExampleTrackListener = function() {};
-ExampleTrackListener.prototype = new Common.WebsiteTrackListener();
+ExampleTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 ExampleTrackListener.prototype.isPlaying = function() {
     return true;
@@ -31,4 +31,4 @@ ExampleTrackListener.prototype.scrapDuration = function() {
     return '';
 };
 
-Common.runTrackListenerInterval(new ExampleTrackListener());
+window.UNPCommon.runTrackListenerInterval(new ExampleTrackListener());

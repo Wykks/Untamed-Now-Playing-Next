@@ -1,5 +1,5 @@
 const PlanetaFMTrackListener = function() {};
-PlanetaFMTrackListener.prototype = new Common.WebsiteTrackListener();
+PlanetaFMTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 PlanetaFMTrackListener.prototype.isPlaying = function() {
     return $('#eplayer-online .playpause').hasClass('pause');
@@ -19,4 +19,4 @@ PlanetaFMTrackListener.prototype.scrapAlbumArt = function() {
     return this.selector.find('dt > img').attr('src');
 };
 
-Common.runTrackListenerInterval(new PlanetaFMTrackListener());
+window.UNPCommon.runTrackListenerInterval(new PlanetaFMTrackListener());

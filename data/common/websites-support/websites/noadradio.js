@@ -1,5 +1,5 @@
 const NoAdRadioTrackListener = function() {};
-NoAdRadioTrackListener.prototype = new Common.WebsiteTrackListener();
+NoAdRadioTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 NoAdRadioTrackListener.prototype.isPlaying = function() {
     return $('#btn-playpause').hasClass('pause');
@@ -19,4 +19,4 @@ NoAdRadioTrackListener.prototype.scrapUrl = function() {
     return 'http://www.noadradio.com' + $('#player_vid_link > a').attr('href');
 };
 
-Common.runTrackListenerInterval(new NoAdRadioTrackListener());
+window.UNPCommon.runTrackListenerInterval(new NoAdRadioTrackListener());

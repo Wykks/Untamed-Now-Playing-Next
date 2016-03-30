@@ -1,5 +1,5 @@
 const VkTrackListener = function() {};
-VkTrackListener.prototype = new Common.WebsiteTrackListener();
+VkTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 VkTrackListener.prototype.isPlaying = function() {
     return $('#gp_play').hasClass('playing');
@@ -15,4 +15,4 @@ VkTrackListener.prototype.scrapUrl = function() {
     return 'http://vk.com/wall-' + $('#gp_play_btn').find('a').attr('onclick').replace(/playAudioNew\('(.*)-(.*)',(.*)/i, '$2');
 };
 
-Common.runTrackListenerInterval(new VkTrackListener());
+window.UNPCommon.runTrackListenerInterval(new VkTrackListener());

@@ -4,7 +4,7 @@ const youtubetv = (options) => {
     }
 
     const YoutubeTVTrackListener = function() {};
-    YoutubeTVTrackListener.prototype = new Common.WebsiteTrackListener();
+    YoutubeTVTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
     YoutubeTVTrackListener.prototype.isPlaying = function() {
         return $('#watch').hasClass('play');
@@ -12,7 +12,7 @@ const youtubetv = (options) => {
 
     YoutubeTVTrackListener.prototype.scrapPlayData = function() {
         const play = $('#title-tray .player-video-title').text();
-        [this.artistName, this.trackName] = Common.parseArtistTitle(play);
+        [this.artistName, this.trackName] = window.UNPCommon.parseArtistTitle(play);
         return true;
     };
 
@@ -20,7 +20,7 @@ const youtubetv = (options) => {
         return $('#bottom-half .player-time-total').text();
     };
 
-    const updateTriggerer = new Common.MutationObserverUpdater(new YoutubeTVTrackListener());
+    const updateTriggerer = new window.UNPCommon.MutationObserverUpdater(new YoutubeTVTrackListener());
     updateTriggerer.setSelector('#watch');
     updateTriggerer.setNodeAttributeName('class');
     updateTriggerer.setNodeAttributeValue(new RegExp('play'));

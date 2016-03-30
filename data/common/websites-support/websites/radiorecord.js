@@ -1,5 +1,5 @@
 const RadioRecordTrackListener = function() {};
-RadioRecordTrackListener.prototype = new Common.WebsiteTrackListener();
+RadioRecordTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 RadioRecordTrackListener.prototype.isPlaying = function() {
     return $('div.play-pause').hasClass('play');
@@ -15,4 +15,4 @@ RadioRecordTrackListener.prototype.scrapAlbumArt = function() {
     return $('#nowplay-image > img').attr('src');
 };
 
-Common.runTrackListenerInterval(new RadioRecordTrackListener());
+window.UNPCommon.runTrackListenerInterval(new RadioRecordTrackListener());

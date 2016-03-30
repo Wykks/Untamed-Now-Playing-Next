@@ -1,5 +1,5 @@
 const KuwoTrackListener = function() {};
-KuwoTrackListener.prototype = new Common.WebsiteTrackListener();
+KuwoTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 KuwoTrackListener.prototype.isPlaying = function() {
     return true;
@@ -11,7 +11,7 @@ KuwoTrackListener.prototype.findSelector = function() {
 
 KuwoTrackListener.prototype.scrapPlayData = function() {
     const play = this.selector.find('.dec_time span').text();
-    [this.artistName, this.trackName] = Common.parseArtistTitle(play);
+    [this.artistName, this.trackName] = window.UNPCommon.parseArtistTitle(play);
     return true;
 };
 
@@ -29,4 +29,4 @@ KuwoTrackListener.prototype.scrapDuration = function() {
     return $.trim(this.selector.find('#wp_totalTime').text());
 };
 
-Common.runTrackListenerInterval(new KuwoTrackListener());
+window.UNPCommon.runTrackListenerInterval(new KuwoTrackListener());

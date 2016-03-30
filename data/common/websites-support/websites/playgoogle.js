@@ -1,5 +1,5 @@
 const PlayGoogleTrackListener = function() {};
-PlayGoogleTrackListener.prototype = new Common.WebsiteTrackListener();
+PlayGoogleTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 PlayGoogleTrackListener.prototype.isPlaying = function() {
     return $('div.material-player-middle > paper-icon-button[data-id="play-pause"]').hasClass('playing');
@@ -27,7 +27,7 @@ PlayGoogleTrackListener.prototype.scrapDuration = function() {
     return $('#time_container_duration').text();
 };
 
-const updateTriggerer = new Common.MutationObserverUpdater(new PlayGoogleTrackListener());
+const updateTriggerer = new window.UNPCommon.MutationObserverUpdater(new PlayGoogleTrackListener());
 updateTriggerer.setSelector('#playerSongInfo');
 updateTriggerer.setNodeAttributeName('src');
 updateTriggerer.runOnChildAttr();

@@ -1,7 +1,7 @@
 //Browser specific code
 //Firefox version
 //self is coming from pageMod (see index.js)
-class BrowserFunc { //eslint-disable-line
+class BrowserFunc {
     static updateNowPlaying(data) {
         self.port.emit('updateNowPlaying', data);
         return new Promise(function (resolve, reject) {
@@ -52,3 +52,5 @@ class BrowserFunc { //eslint-disable-line
         });
     };
 }
+
+window.UNPBrowserFunc = BrowserFunc;

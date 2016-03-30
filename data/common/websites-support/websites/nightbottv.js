@@ -1,18 +1,28 @@
 const NightbotTVTrackListener = function() {};
-NightbotTVTrackListener.prototype = new Common.WebsiteTrackListener();
+NightbotTVTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 NightbotTVTrackListener.prototype.isPlaying = function() {
-    return $('#pause').is(':visible');
+    return $('.pause-play-container .fa-pause').is(':visible');
+};
+
+NightbotTVTrackListener.prototype.findSelector = function() {
+    this.selector = $('div[ng-show="queue.current"]');
 };
 
 NightbotTVTrackListener.prototype.scrapPlayData = function() {
-    const play = $('#currentTitle').text();
-    [this.artistName, this.trackName] = Common.parseArtistTitle(play);
+    this.trackName = this.selector.find('h4 > strong').contents().filter(function() {
+        return this.nodeType == Node.TEXT_NODE;
+    }).text();
+    this.artistName = this.selector.find('h4 > strong > span').text().replace(/\s—\s+/, '');
     return true;
 };
 
-NightbotTVTrackListener.prototype.scrapDuration = function() {
-    return secToHms(hmsToSec($('#duration').text()));
+NightbotTVTrackListener.prototype.scrapAlbumName = function() {
+    return $.trim(this.selector.children('p:eq(2)').text());
 };
 
-Common.runTrackListenerInterval(new NightbotTVTrackListener());
+NightbotTVTrackListener.prototype.scrapDuration = function() {
+    return $.trim(this.selector.children('p:first').text());
+};
+
+window.UNPCommon.runTrackListenerInterval(new NightbotTVTrackListener());

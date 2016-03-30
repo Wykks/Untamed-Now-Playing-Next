@@ -1,5 +1,5 @@
 const RadioYandexTrackListener = function() {};
-RadioYandexTrackListener.prototype = new Common.WebsiteTrackListener();
+RadioYandexTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 RadioYandexTrackListener.prototype.isPlaying = function() {
     return $('body').hasClass('body_state_playing');
@@ -26,4 +26,4 @@ RadioYandexTrackListener.prototype.scrapUrl = function() {
     return 'https:' + this.selector.find('div.track__title > a').attr('href');
 };
 
-Common.runTrackListenerInterval(new RadioYandexTrackListener());
+window.UNPCommon.runTrackListenerInterval(new RadioYandexTrackListener());

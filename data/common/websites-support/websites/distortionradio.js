@@ -1,5 +1,5 @@
 const DistortionRadioTrackListener = function() {};
-DistortionRadioTrackListener.prototype = new Common.WebsiteTrackListener();
+DistortionRadioTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 DistortionRadioTrackListener.prototype.isPlaying = function() {
     return $('#pause').length;
@@ -11,4 +11,4 @@ DistortionRadioTrackListener.prototype.scrapPlayData = function() {
     return true;
 };
 
-Common.runTrackListenerInterval(new DistortionRadioTrackListener());
+window.UNPCommon.runTrackListenerInterval(new DistortionRadioTrackListener());

@@ -1,5 +1,5 @@
 const PandoraTrackListener = function() {};
-PandoraTrackListener.prototype = new Common.WebsiteTrackListener();
+PandoraTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 PandoraTrackListener.prototype.isPlaying = function() {
     return $('.pauseButton').is(':visible');
@@ -30,7 +30,7 @@ PandoraTrackListener.prototype.scrapUrl = function() {
 PandoraTrackListener.prototype.scrapDuration = function() {
     let remainingTime = $('.remainingTime').text();
     remainingTime = remainingTime.substr(1, remainingTime.length);
-    return Common.secToHms(Common.hmsToSec(remainingTime) + Common.hmsToSec($('.elapsedTime').text()));
+    return window.UNPCommon.secToHms(window.UNPCommon.hmsToSec(remainingTime) + window.UNPCommon.hmsToSec($('.elapsedTime').text()));
 };
 
-Common.runTrackListenerInterval(new PandoraTrackListener());
+window.UNPCommon.runTrackListenerInterval(new PandoraTrackListener());

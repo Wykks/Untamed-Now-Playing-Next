@@ -1,5 +1,5 @@
 const BeatportTrackListener = function() {};
-BeatportTrackListener.prototype = new Common.WebsiteTrackListener();
+BeatportTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 BeatportTrackListener.prototype.isPlaying = function() {
     return $('.omniplayer').hasClass('is-playing');
@@ -35,4 +35,4 @@ BeatportTrackListener.prototype.scrapDuration = function() {
     return $.trim(this.selector.find('.omniplayer--extendable > .omniplayer--progress > .omniplayer--duration:eq(1)').text());
 };
 
-Common.runTrackListenerInterval(new BeatportTrackListener());
+window.UNPCommon.runTrackListenerInterval(new BeatportTrackListener());

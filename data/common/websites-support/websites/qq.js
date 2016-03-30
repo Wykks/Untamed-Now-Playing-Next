@@ -1,5 +1,5 @@
 const QQTrackListener = function() {};
-QQTrackListener.prototype = new Common.WebsiteTrackListener();
+QQTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 QQTrackListener.prototype.isPlaying = function() {
     return true;
@@ -27,4 +27,4 @@ QQTrackListener.prototype.scrapDuration = function() {
     return $.trim(this.selector.find('#ptime').text());
 };
 
-Common.runTrackListenerInterval(new QQTrackListener());
+window.UNPCommon.runTrackListenerInterval(new QQTrackListener());

@@ -1,5 +1,5 @@
 const EskaGoTrackListener = function() {};
-EskaGoTrackListener.prototype = new Common.WebsiteTrackListener();
+EskaGoTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 EskaGoTrackListener.prototype.isPlaying = function() {
     return $('#radio-controller > .wrap > a').attr('class') == "playButton pause";
@@ -15,4 +15,4 @@ EskaGoTrackListener.prototype.scrapAlbumArt = function() {
     return $('.playlist_small > img').attr('src');
 };
 
-Common.runTrackListenerInterval(new EskaGoTrackListener());
+window.UNPCommon.runTrackListenerInterval(new EskaGoTrackListener());

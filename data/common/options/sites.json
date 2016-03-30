@@ -127,12 +127,12 @@
         "album": "no",
         "artwork": "yes"
     },
-    "nightbot.tv": {
-        "url": "http://nightbot.tv",
-        "artist": "maybe",
-        "title": "maybe",
+    "beta.nightbot.tv": {
+        "url": "http://beta.nightbot.tv",
+        "artist": "yes",
+        "title": "yes",
         "duration": "yes",
-        "album": "no",
+        "album": "maybe",
         "artwork": "no"
     },
     "noadradio.com": {

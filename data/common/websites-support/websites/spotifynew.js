@@ -1,5 +1,5 @@
 const SpotifyNewTrackListener = function() {};
-SpotifyNewTrackListener.prototype = new Common.WebsiteTrackListener();
+SpotifyNewTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 SpotifyNewTrackListener.prototype.isPlaying = function() {
     return $('#play').hasClass('playing');
@@ -27,4 +27,4 @@ SpotifyNewTrackListener.prototype.scrapDuration = function() {
     return $('#remaining').text();
 };
 
-Common.runTrackListenerInterval(new SpotifyNewTrackListener());
+window.UNPCommon.runTrackListenerInterval(new SpotifyNewTrackListener());

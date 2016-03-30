@@ -1,5 +1,5 @@
 const RadioUltraTrackListener = function() {};
-RadioUltraTrackListener.prototype = new Common.WebsiteTrackListener();
+RadioUltraTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 RadioUltraTrackListener.prototype.isPlaying = function() {
     return true;
@@ -15,4 +15,4 @@ RadioUltraTrackListener.prototype.scrapPlayData = function() {
     return true;
 };
 
-Common.runTrackListenerInterval(new RadioUltraTrackListener());
+window.UNPCommon.runTrackListenerInterval(new RadioUltraTrackListener());
