@@ -279,6 +279,14 @@
         "album": "no",
         "artwork": "no"
     },
+    "youtube-playlist-randomizer.valami.info": {
+        "url": "http://youtube-playlist-randomizer.valami.info",
+        "artist": "maybe",
+        "title": "maybe",
+        "duration": "no",
+        "album": "no",
+        "artwork": "no"
+    },
     "zaycev.fm": {
         "url": "http://zaycev.fm",
         "artist": "yes",

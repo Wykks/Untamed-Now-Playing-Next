@@ -39,6 +39,7 @@ Supported Sites
 * [yggdrasilradio.net](http://yggdrasilradio.net)
 * [youtube.com](http://youtube.com)
 * [youtube.com/tv](http://youtube.com/tv)
+* [youtube-playlist-randomizer.valami.info](http://youtube-playlist-randomizer.valami.info)
 * [zaycev.fm](http://zaycev.fm)
 * [play.baidu.com](http://play.baidu.com)
 * [player.kuwo.cn](http://player.kuwo.cn)
