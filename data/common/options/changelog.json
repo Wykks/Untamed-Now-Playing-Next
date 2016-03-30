@@ -1,4 +1,10 @@
 {
+    "3.2": {
+        "date": "30 March 16",
+        "added": ["beta.nightbot.tv", "youtube-playlist-randomizer.valami.info"],
+        "fixed": ["open.fm (thanks to starhel)", "youtube.com/tv"],
+        "other": ["Various fixes and improvements"]
+    },
     "3.1": {
         "date": "26 Jan 16",
         "added": ["open.fm (thanks to starhel)", "eskago.pl (thanks to starhel)"],
