@@ -115,6 +115,7 @@ createMusicWebsiteWorker('*.noadradio.com', 'noadradio.js', 'frame');
 createMusicWebsiteWorker('*.pandora.com', 'pandora.js', 'top');
 createMusicWebsiteWorker('*.planeta.fm', 'planetafm.js', 'top');
 createMusicWebsiteWorker(/.*play.google.com\/music.*/, 'playgoogle.js', 'top');
+createMusicWebsiteWorker('*.player.epidemicsound.com', 'epidemicsound.js', 'top');
 createMusicWebsiteWorker('*.player.siriusxm.com', 'siriusxm.js', 'top');
 createMusicWebsiteWorker('*.pleer.com', 'pleer.js', 'top');
 createMusicWebsiteWorker(/.*play.spotify.com\/apps\/player.*/, 'spotify.js', 'frame');

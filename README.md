@@ -27,6 +27,7 @@ Supported Sites
 * [planeta.fm](http://www.planeta.fm)
 * [play.google.com](http://play.google.com/music)
 * [play.spotify.com](http://play.spotify.com)
+* [player.epidemicsound.com](http://player.epidemicsound.com)
 * [player.siriusxm.com](http://player.siriusxm.com)
 * [pleer.com](http://pleer.com)
 * [seoul.fm](http://seoul.fm)

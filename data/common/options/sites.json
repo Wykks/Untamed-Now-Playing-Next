@@ -183,6 +183,14 @@
         "album": "no",
         "artwork": "yes"
     },
+    "player.epidemicsound.com": {
+        "url": "https://player.epidemicsound.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "no"
+    },
     "player.siriusxm.com": {
         "url": "http://player.siriusxm.com",
         "artist": "yes",
