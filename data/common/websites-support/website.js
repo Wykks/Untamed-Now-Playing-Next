@@ -224,11 +224,12 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
     }());
 
     Common.parseArtistTitle = (input) => {
-        let match;
+        // Remove [whatever] part at the beginning (usually doesn't contain something usefull)
+        const str = input.replace(/^(\[.*?\]\s*)+/, '');
 
-        if ((match = input.match(/(.+)[ ]?(-|\u[2012-2015]|\||:)[ ]?(.+)/))) {
-            return [$.trim(match[1]), $.trim(match[3])];
-        } else if ((match = input.match(/(.+)\|(.+)/))) {
+        const match = str.match(/^\s*[-~_]?\s*(.+?)\s*[-~_]+\s+(.+)/);
+
+        if (match.length === 3) {
             return [$.trim(match[1]), $.trim(match[2])];
         } else {
             return ['', input];
