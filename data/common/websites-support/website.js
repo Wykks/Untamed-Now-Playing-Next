@@ -229,7 +229,7 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
 
         const match = str.match(/^\s*[-~_]?\s*(.+?)\s*[-~_]+\s+(.+)/);
 
-        if (match.length === 3) {
+        if (match && match.length === 3) {
             return [$.trim(match[1]), $.trim(match[2])];
         } else {
             return ['', input];
