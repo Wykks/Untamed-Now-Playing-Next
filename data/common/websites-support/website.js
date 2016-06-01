@@ -256,5 +256,11 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
         return ((hours !== 0) ? hours + ':' : '') + ((hours !== 0 && minutes < 10) ? '0' + minutes : minutes) + ':' + ((seconds < 10) ? '0' + seconds : seconds);
     };
 
+    Common.toTitleCase = (str) => {
+        return str.replace(/(?:^|\s)\w/g, (match) => {
+            return match.toUpperCase();
+        });
+    };
+
     return Common;
 }());

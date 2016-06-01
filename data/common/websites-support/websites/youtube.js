@@ -15,9 +15,9 @@ const youtube = (options) => {
             this.trackName = $.trim($('#eow-title').contents().filter(function() {
                 return this.nodeType == Node.TEXT_NODE;
             }).text());
-            let matches;
+            const matches = this.trackName.match('^(-|\u2012|\u2013|\u2014|\u2015]|\|)');
 
-            if ((matches = this.trackName.match('^(-|\u2012|\u2013|\u2014|\u2015]|\|)'))) {
+            if (matches) {
                 if (matches[0] != '') {
                     this.trackName = $.trim(this.trackName.substring(1));
                 }
@@ -26,6 +26,9 @@ const youtube = (options) => {
         }
         const play = $('#watch7-content > meta[itemprop="name"]').attr('content');
         [this.artistName, this.trackName] = window.UNPCommon.parseArtistTitle(play);
+        if (!this.artistName) {
+            this.artistName = $.trim($('#watch7-user-header .yt-user-info a').text());
+        }
         return true;
     };
 
