@@ -24,7 +24,7 @@ app.controller('SettingsCtrl', function SettingsCtrl(storage, Utils, $translate,
     vm.albumArtwork = getConfigBool('unpAlbumArtwork', true);
     vm.disableYoutube = getConfigBool('unpDisableYoutube', false);
     vm.autoClear = getConfigBool('unpAutoClear', false);
-    vm.noMusicMessage = getConfigBool('unpNoMusicMessage', '');
+    vm.noMusicMessage = getConfigValue('unpNoMusicMessage', '');
     vm.browserNotification = getConfigBool('unpNotification', true);
 
     function getConfigValue(key, defaultVal) {
