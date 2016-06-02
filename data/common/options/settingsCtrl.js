@@ -24,6 +24,7 @@ app.controller('SettingsCtrl', function SettingsCtrl(storage, Utils, $translate,
     vm.albumArtwork = getConfigBool('unpAlbumArtwork', true);
     vm.disableYoutube = getConfigBool('unpDisableYoutube', false);
     vm.autoClear = getConfigBool('unpAutoClear', false);
+    vm.noMusicMessage = getConfigBool('unpNoMusicMessage', '');
     vm.browserNotification = getConfigBool('unpNotification', true);
 
     function getConfigValue(key, defaultVal) {
@@ -61,6 +62,7 @@ app.controller('SettingsCtrl', function SettingsCtrl(storage, Utils, $translate,
             window.UNPBrowserFunc.setOption('unpAlbumArtwork', vm.albumArtwork);
             window.UNPBrowserFunc.setOption('unpDisableYoutube', vm.disableYoutube);
             window.UNPBrowserFunc.setOption('unpAutoClear', vm.autoClear);
+            window.UNPBrowserFunc.setOption('unpNoMusicMessage', vm.noMusicMessage);
             window.UNPBrowserFunc.setOption('unpNotification', vm.browserNotification);
 
             $translate('opt_saved').then((msg) => {

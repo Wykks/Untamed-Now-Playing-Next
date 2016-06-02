@@ -158,7 +158,7 @@ function onAttachNowPlaying(worker) {
     });
     worker.on('detach', function() {
         if (ss.storage.unpAutoClear === true)
-            nowPlayingIO.clearNowPlaying();
+            nowPlayingIO.clearNowPlaying(ss.storage.unpNoMusicMessage);
     });
 }
 
