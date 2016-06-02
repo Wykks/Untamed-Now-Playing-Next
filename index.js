@@ -118,6 +118,7 @@ createMusicWebsiteWorker(/.*play.google.com\/music.*/, 'playgoogle.js', 'top');
 createMusicWebsiteWorker('*.player.epidemicsound.com', 'epidemicsound.js', 'top');
 createMusicWebsiteWorker('*.player.siriusxm.com', 'siriusxm.js', 'top');
 createMusicWebsiteWorker('*.pleer.com', 'pleer.js', 'top');
+createMusicWebsiteWorker('*.plex.tv', 'plex.js', 'top');
 createMusicWebsiteWorker(/.*play.spotify.com\/apps\/player.*/, 'spotify.js', 'frame');
 createMusicWebsiteWorker(/.*player.spotify.com\/app.*/, 'spotifynew.js', 'frame');
 createMusicWebsiteWorker('*.radio.yandex.ru', 'radioyandex.js', 'top');

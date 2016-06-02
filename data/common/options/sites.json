@@ -207,6 +207,14 @@
         "album": "no",
         "artwork": "no"
     },
+    "app.plex.tv": {
+        "url": "http://app.plex.tv",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
     "seoul.fm": {
         "url": "http://seoul.fm",
         "artist": "yes",

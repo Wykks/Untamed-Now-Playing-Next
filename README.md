@@ -30,6 +30,7 @@ Supported Sites
 * [player.epidemicsound.com](http://player.epidemicsound.com)
 * [player.siriusxm.com](http://player.siriusxm.com)
 * [pleer.com](http://pleer.com)
+* [plex.tv](http://plex.tv)
 * [seoul.fm](http://seoul.fm)
 * [slacker.com](http://slacker.com)
 * [soundcloud.com](http://soundcloud.com)
