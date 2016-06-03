@@ -224,10 +224,12 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
     }());
 
     Common.parseArtistTitle = (input) => {
-        // Remove [whatever] part at the beginning (usually doesn't contain something usefull)
-        const str = input.replace(/^(\[.*?\]\s*)+/, '');
+        // Removes [whatever] from whole title as it is usually not important and just contains the [genre] or [premiere/release] (these usually contain the singer)
+        const str = input.replace(/\[.*?\]/g, '');
 
-        const match = str.match(/^\s*[-~_]?\s*(.+?)\s*[-~_]+\s+(.+)/);
+        const fancystr = str.replace(/\【.*?\】/g, '');
+
+        const match = fancystr.match(/^\s*[-~_]?\s*(.+?)\s*[-~_]+\s+(.+)/);
 
         if (match && match.length === 3) {
             return [$.trim(match[1]), $.trim(match[2])];
