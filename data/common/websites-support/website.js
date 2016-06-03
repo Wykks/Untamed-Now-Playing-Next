@@ -226,7 +226,7 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
     Common.parseArtistTitle = (input) => {
         // Removes [whatever] from whole title as it is usually not important
         // and just contains the [genre] or [premiere/release]
-        const str = input.replace(/\[.*?\]|【.*?\】/g, '');
+        const str = input.replace(/\[.*?\]|【.*?】/g, '');
 
         const match = str.match(/^\s*[-~_]?\s*(.+?)\s*[-~_]+\s+(.+)/);
 
