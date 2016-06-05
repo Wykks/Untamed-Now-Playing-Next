@@ -103,6 +103,14 @@
         "album": "yes",
         "artwork": "yes"
     },
+    "music.amazon.*": {
+        "url": "https://music.amazon.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "yes",
+        "artwork": "yes"
+    },
     "music.yandex.ru": {
         "url": "https://music.yandex.ru",
         "artist": "yes",
