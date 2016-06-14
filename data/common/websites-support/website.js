@@ -202,6 +202,8 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
             const currentTime = new Date();
             const minutes = currentTime.getMinutes();
             const hours = currentTime.getHours();
+            // timeStarted: ((hours < 10) ? '0' + hours : hours) + ':' + ((minutes < 10) ? '0' + minutes : minutes),
+            // timeStarted: currentTime.toString(),
            window.UNPBrowserFunc.updateNowPlaying({
                 nowPlaying: play,
                 trackName: getValue(this.trackName),
@@ -211,7 +213,7 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
                     return $.isEmptyObject(v) || v.substring(0, 4) !== 'http';
                 }),
                 url: getValue(this.scrapUrl(), window.location.href),
-                timeStarted: ((hours < 10) ? '0' + hours : hours) + ':' + ((minutes < 10) ? '0' + minutes : minutes),
+                timeStarted: currentTime.toString(),
                 duration: getValue(this.scrapDuration())
             }).then(() => {
                 console.log('UNP: Now Playing Success');
@@ -224,13 +226,11 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
     }());
 
     Common.parseArtistTitle = (input) => {
-        // Removes [whatever] from whole title as it is usually not important
-        // and just contains the [genre] or [premiere/release]
-        const str = input.replace(/\[.*?\]|【.*?】/g, '');
+        let match;
 
-        const match = str.match(/^\s*[-~_]?\s*(.+?)\s*[-~_]+\s+(.+)/);
-
-        if (match && match.length === 3) {
+        if ((match = input.match(/(.+)[ ]?(-|\u[2012-2015]|\||:)[ ]?(.+)/))) {
+            return [$.trim(match[1]), $.trim(match[3])];
+        } else if ((match = input.match(/(.+)\|(.+)/))) {
             return [$.trim(match[1]), $.trim(match[2])];
         } else {
             return ['', input];
@@ -256,12 +256,6 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
         const seconds = sec % 60;
 
         return ((hours !== 0) ? hours + ':' : '') + ((hours !== 0 && minutes < 10) ? '0' + minutes : minutes) + ':' + ((seconds < 10) ? '0' + seconds : seconds);
-    };
-
-    Common.toTitleCase = (str) => {
-        return str.replace(/(?:^|\s)\w/g, (match) => {
-            return match.toUpperCase();
-        });
     };
 
     return Common;
