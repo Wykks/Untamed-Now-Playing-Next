@@ -2,11 +2,15 @@ const HeightTracksTrackListener = function() {};
 HeightTracksTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 HeightTracksTrackListener.prototype.findSelector = function() {
-    this.selector = $('li.now_playing').find('.title_container').find('.title_artist');
+    let np = $('#now_playing > li.now_playing');
+    if (np.length === 0) {
+        np = $('#now_playing');
+    }
+    this.selector = np.find('.title_container').find('.title_artist');
 };
 
 HeightTracksTrackListener.prototype.isPlaying = function() {
-    return $('#player_pause_button').css('display') == 'block';
+    return $('#player_pause_button').css('display') === 'block' || $('#youtube_pause_button').css('display') === 'block';
 };
 
 HeightTracksTrackListener.prototype.scrapPlayData = function() {
