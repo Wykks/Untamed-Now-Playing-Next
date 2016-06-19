@@ -27,8 +27,8 @@
         "url": "https://www.beatport.com/listen",
         "artist": "yes",
         "title": "yes",
-        "duration": "yes",
-        "album": "yes",
+        "duration": "no",
+        "album": "no",
         "artwork": "yes"
     },
     "blinkboxmusic.com": {
