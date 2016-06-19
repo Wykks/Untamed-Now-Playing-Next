@@ -110,7 +110,7 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
 
     Common.IntervalUpdater = (function() {
         let listener;
-        let interval = 10000;
+        let interval = 5000;
 
         function IntervalUpdater(l) {
             listener = l;
@@ -134,8 +134,8 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
     Common.runTrackListenerInterval = (listener) => {
         setInterval(() => {
             listener.updateTrack.call(listener);
-        }, 10000);
-        //setInterval(listener.updateTrack.bind(listener), 10000);
+        }, 5000);
+        //setInterval(listener.updateTrack.bind(listener), 5000);
     };
 
     Common.WebsiteTrackListener = (function() {
