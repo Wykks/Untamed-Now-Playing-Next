@@ -15,7 +15,7 @@ BeatportTrackListener.prototype.scrapPlayData = function() {
     this.selector.find('.player-track-name-artist-standard > .track-artist').each(function() {
         self.artistName += (self.artistName === '') ? $.trim($(this).text()) : ', ' + $.trim($(this).text());
     });
-    this.trackName = this.selector.find('.track-title .primary-title').text();
+    this.trackName = this.selector.find('.player-track-name-artist-standard > .track-title .primary-title').text();
     return true;
 };
 
