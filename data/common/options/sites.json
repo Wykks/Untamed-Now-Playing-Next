@@ -143,14 +143,6 @@
         "album": "maybe",
         "artwork": "no"
     },
-    "noadradio.com": {
-        "url": "http://www.noadradio.com",
-        "artist": "yes",
-        "title": "yes",
-        "duration": "no",
-        "album": "no",
-        "artwork": "yes"
-    },
     "open.fm": {
         "url": "http://open.fm",
         "artist": "yes",
