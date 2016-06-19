@@ -19,7 +19,7 @@ MixcloudTrackListener.prototype.scrapPlayData = function() {
 };
 
 MixcloudTrackListener.prototype.scrapAlbumArt = function() {
-    return 'https:' + this.selector.find('.player-cloudcast-image > img')
+    return this.selector.find('.player-cloudcast-image > img')
         .attr('src')
         .replace(/\/w\/60\/h\/60/, '/w/500/h/500');
 };
