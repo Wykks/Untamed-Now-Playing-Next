@@ -31,14 +31,6 @@
         "album": "no",
         "artwork": "yes"
     },
-    "blinkboxmusic.com": {
-        "url": "http://blinkboxmusic.com",
-        "artist": "yes",
-        "title": "yes",
-        "duration": "yes",
-        "album": "no",
-        "artwork": "no"
-    },
     "deezer.com": {
         "url": "http://deezer.com",
         "artist": "yes",
