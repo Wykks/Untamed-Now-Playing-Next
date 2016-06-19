@@ -55,4 +55,4 @@ const youtube = (options) => {
 
 };
 
-BrowserFunc.getOptions().then(youtube);
+window.UNPBrowserFunc.getOptions().then(youtube);
