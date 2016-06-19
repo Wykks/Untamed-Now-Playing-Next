@@ -87,7 +87,6 @@ createMusicWebsiteWorker(/.*ah.fm\/player\/.*/, 'ahfm.js', 'top');
 createMusicWebsiteWorker(/.*animenfo.com\/radio\/nowplaying.php/, 'animenfo.js', 'top');
 createMusicWebsiteWorker(/.*www.beatport.com\/.*/, 'beatport.js', 'top');
 createMusicWebsiteWorker('*.seoul.fm', 'seoulfm.js', 'top');
-createMusicWebsiteWorker('*.blinkboxmusic.com', 'blinkboxmusic.js', 'top');
 createMusicWebsiteWorker('*.deezer.com', 'deezer.js', 'top');
 createMusicWebsiteWorker('*.di.fm', 'difm.js', 'top');
 createMusicWebsiteWorker('*.distortionradio.com', 'distortionradio.js', 'top');
