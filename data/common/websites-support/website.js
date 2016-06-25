@@ -213,10 +213,6 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
                 url: getValue(this.scrapUrl(), window.location.href),
                 timeStarted: ((hours < 10) ? '0' + hours : hours) + ':' + ((minutes < 10) ? '0' + minutes : minutes),
                 duration: getValue(this.scrapDuration())
-            }).then(() => {
-                console.log('UNP: Now Playing Success');
-            }, (reason) => {
-                console.log('UNP: Now Playing Error - ' + reason);
             });
         }
 
