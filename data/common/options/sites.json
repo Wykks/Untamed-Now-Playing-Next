@@ -95,6 +95,14 @@
         "album": "yes",
         "artwork": "yes"
     },
+    "loopmasters.com": {
+        "url": "http://www.loopmasters.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
     "music.amazon.*": {
         "url": "https://music.amazon.com",
         "artist": "yes",
