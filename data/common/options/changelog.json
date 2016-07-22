@@ -1,4 +1,10 @@
 {
+    "3.4": {
+        "date": "22 July 16",
+        "added": ["loopmasters.com", "new.vk.com"],
+        "fixed": ["8tracks (youtube player)", "jango.com", "beatport.com", "mixcloud.com"],
+        "removed": ["noadradio.com", "blinkboxmusic.com"]
+    },
     "3.3": {
         "date": "5 Jun 16",
         "added": ["music.amazon.*", "player.epidemicsound.com", "plex.tv (thanks to exofudge)"],
