@@ -131,6 +131,7 @@ createMusicWebsiteWorker(/.*synchtu.be\/r\/Playhouse.*/, 'synchtube.js', 'top');
 createMusicWebsiteWorker('*.themusicninja.com', 'themusicninja.js', 'top');
 createMusicWebsiteWorker('*.tunein.com', 'tunein.js', 'top');
 createMusicWebsiteWorker('*.vk.com', 'vk.js', 'top');
+createMusicWebsiteWorker(/.*new.vk.com.*/, 'newvk.js', 'top');
 createMusicWebsiteWorker(/.*yggdrasilradio.net\/nowplaying.php/, 'yggdrasilradio.js', 'frame');
 createMusicWebsiteWorker('*.youtube.com', 'youtube.js', 'top');
 createMusicWebsiteWorker(/.*youtube.com\/tv.*/, 'youtubetv.js', 'top');

@@ -224,7 +224,7 @@ window.UNPCommon = (function() { //eslint-disable-line no-var
         // and just contains the [genre] or [premiere/release]
         const str = input.replace(/\[.*?\]|【.*?】/g, '');
 
-        const match = str.match(/^\s*[-~_]?\s*(.+?)\s*[-~_]+\s+(.+)/);
+        const match = str.match(/^\s*[-~_–]?\s*(.+?)\s*[-~_–]+\s+(.+)/);
 
         if (match && match.length === 3) {
             return [$.trim(match[1]), $.trim(match[2])];

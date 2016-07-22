@@ -271,6 +271,14 @@
         "album": "no",
         "artwork": "no"
     },
+    "new.vk.com": {
+        "url": "http://new.vk.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "no"
+    },
     "yggdrasilradio.net": {
         "url": "http://yggdrasilradio.net",
         "artist": "yes",
