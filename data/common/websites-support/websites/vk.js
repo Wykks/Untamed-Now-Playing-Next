@@ -1,18 +1,14 @@
-const VkTrackListener = function() {};
-VkTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
+const NewVkTrackListener = function() {};
+NewVkTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
-VkTrackListener.prototype.isPlaying = function() {
-    return $('#gp_play').hasClass('playing');
+NewVkTrackListener.prototype.isPlaying = function() {
+    return $('.top_audio_player.top_audio_player_enabled').hasClass('top_audio_player_playing');
 };
 
-VkTrackListener.prototype.scrapPlayData = function() {
-    this.artistName = $('#gp_performer').text();
-    this.trackName = $('#gp_title').text();
+NewVkTrackListener.prototype.scrapPlayData = function() {
+    const play = $('.top_audio_player_title').text();
+    [this.artistName, this.trackName] = window.UNPCommon.parseArtistTitle(play);
     return true;
 };
 
-VkTrackListener.prototype.scrapUrl = function() {
-    return 'http://vk.com/wall-' + $('#gp_play_btn').find('a').attr('onclick').replace(/playAudioNew\('(.*)-(.*)',(.*)/i, '$2');
-};
-
-window.UNPCommon.runTrackListenerInterval(new VkTrackListener());
+window.UNPCommon.runTrackListenerInterval(new NewVkTrackListener());
