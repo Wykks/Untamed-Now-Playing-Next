@@ -19,7 +19,7 @@ Supported Sites
 * [music.amazon.*](https://music.amazon.com)
 * [mixcloud.com](http://www.mixcloud.com)
 * [music.163.com](http://music.163.com)
-* [music.yandex.ru](http://music.yandex.ru)
+* [music.yandex.*](http://music.yandex.ru)
 * [beta.nightbot.tv](http://beta.nightbot.tv)
 * [pandora.com](http://pandora.com)
 * [piki.fm](http://piki.fm)
@@ -37,7 +37,6 @@ Supported Sites
 * [themusicninja.com](themusicninja.com)
 * [tunein.com](http://tunein.com)
 * [vk.com](http://vk.com)
-* [new.vk.com](http://new.vk.com)
 * [yggdrasilradio.net](http://yggdrasilradio.net)
 * [youtube.com](http://youtube.com)
 * [youtube.com/tv](http://youtube.com/tv)
@@ -51,7 +50,7 @@ Supported Sites
 * [radioultra.ru](http://www.radioultra.ru/player)
 * [xiami.com](http://www.xiami.com/play)
 * [open.fm](http://open.fm)
-* [eskago.pl] (http://www.eskago.pl)
+* [eskago.pl](http://www.eskago.pl)
 
 Support for more sites will be added over time. If you have a suggestion for a site, please open an issue or reply to the obs topic.
 
