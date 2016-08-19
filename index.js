@@ -110,7 +110,7 @@ createMusicWebsiteWorker('*.jango.com', 'jango.js', 'top');
 createMusicWebsiteWorker('*.loopmasters.com', 'loopmasters.js', 'top');
 createMusicWebsiteWorker('*.mixcloud.com', 'mixcloud.js', 'top');
 createMusicWebsiteWorker(/.*music.amazon\..*/, 'musicamazon.js', 'top');
-createMusicWebsiteWorker('*.music.yandex.ru', 'musicyandex.js', 'top');
+createMusicWebsiteWorker(/.*music.yandex\..*/, 'musicyandex.js', 'top');
 createMusicWebsiteWorker('*.nightbot.tv', 'nightbottv.js', 'top');
 createMusicWebsiteWorker('*.pandora.com', 'pandora.js', 'top');
 createMusicWebsiteWorker('*.planeta.fm', 'planetafm.js', 'top');
