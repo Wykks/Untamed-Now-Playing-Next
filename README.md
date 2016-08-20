@@ -47,6 +47,7 @@ Supported Sites
 * [y.qq.com](http://y.qq.com)
 * [radio.yandex.ru](http://radio.yandex.ru)
 * [radiorecord.ru](http://www.radiorecord.ru/player)
+* [radiotunes.com](http://www.radiotunes.com)
 * [radioultra.ru](http://www.radioultra.ru/player)
 * [xiami.com](http://www.xiami.com/play)
 * [open.fm](http://open.fm)

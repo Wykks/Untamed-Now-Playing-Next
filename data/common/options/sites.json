@@ -375,6 +375,14 @@
         "album": "no",
         "artwork": "yes"
     },
+    "radiotunes.com": {
+        "url": "http://www.radiotunes.com",
+        "artist": "maybe",
+        "title": "maybe",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
     "radioultra.ru/player": {
         "url": "http://www.radioultra.ru/player",
         "artist": "yes",
