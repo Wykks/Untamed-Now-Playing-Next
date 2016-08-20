@@ -54,8 +54,17 @@ pageMod.PageMod({
             nowPlayingIO.writeFile(message.filename, message.text).then(function() {
                 worker.port.emit(message.filename, 'success');
             }, function(reason) {
-                worker.port.emit(message.filename, 'failure: ' + reason);
+                worker.port.emit(message.filename, reason);
             });
+        });
+
+        worker.port.on('createDirIfNotExists', function(message) {
+            const status = nowPlayingIO.createDirIfNotExists(message.directory);
+            if (status === 'success') {
+                worker.port.emit(message.directory, 'success');
+            } else {
+                worker.port.emit(message.directory, status);
+            }
         });
 
         worker.port.on('removeFile', function(filename) {

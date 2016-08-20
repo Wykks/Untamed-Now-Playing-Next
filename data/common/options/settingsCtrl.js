@@ -85,15 +85,19 @@ app.controller('SettingsCtrl', function SettingsCtrl(storage, Utils, $translate,
         }
 
         const testFilename = vm.saveDir + vm.filename + '_write_test_53642784162133643354.txt';
-        return window.UNPBrowserFunc.writeFile({
-            filename: testFilename,
-            text: 'Just a quick test to ensure we can write to this directory! :)'
+        return window.UNPBrowserFunc.createDirIfNotExists({
+            directory: vm.saveDir
+        }).then(() => {
+            return window.UNPBrowserFunc.writeFile({
+                filename: testFilename,
+                text: 'Just a quick test to ensure we can write to this directory! :)'
+            });
         }).then(() => {
             window.UNPBrowserFunc.removeFile(testFilename);
-        }).catch(() => {
+        }).catch((reason) => {
             $translate('err_directory_inaccess').then((msg) => {
                 vm.messageType = 'error';
-                vm.message = $sce.trustAsHtml(msg);
+                vm.message = $sce.trustAsHtml(msg + ' (' + reason + ')');
             });
             return Promise.reject();
         });

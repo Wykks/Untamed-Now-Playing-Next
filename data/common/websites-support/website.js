@@ -1,4 +1,4 @@
-window.UNPCommon = (function() { //eslint-disable-line no-var
+window.UNPCommon = (function() {
     Common = {};
 
     Common.MutationObserverUpdater = (function() {

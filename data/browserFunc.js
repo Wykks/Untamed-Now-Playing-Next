@@ -24,7 +24,20 @@ class BrowserFunc {
         return new Promise(function (resolve, reject) {
             self.port.once(payload.filename, (status) => {
                 if (status !== 'success') {
-                    reject();
+                    reject(status);
+                    return;
+                }
+                resolve();
+            });
+        });
+    };
+
+    static createDirIfNotExists(payload) {
+        self.port.emit('createDirIfNotExists', payload);
+        return new Promise(function (resolve, reject) {
+            self.port.once(payload.directory, (status) => {
+                if (status !== 'success') {
+                    reject(status);
                     return;
                 }
                 resolve();
