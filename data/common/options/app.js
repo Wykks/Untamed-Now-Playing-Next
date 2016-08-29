@@ -1,7 +1,7 @@
 const app = angular.module('UNP', ['ngRoute', 'ngAnimate', 'pascalprecht.translate']);
 
 app.run(($rootScope, $translate) => {
-    $rootScope.VERSION = 'v3.4';
+    $rootScope.VERSION = 'v3.5';
     $translate('extention_name').then((name) => {
         $rootScope.PAGE_TITLE = `${name} ${$rootScope.VERSION} - Options`;
     });

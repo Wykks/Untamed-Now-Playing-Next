@@ -1,4 +1,13 @@
 {
+    "3.5": {
+        "date": "29 August 16",
+        "added": ["radiotunes.com (thanks to Senpos)"],
+        "fixed": ["vk.com (thanks to Senpos)"],
+        "removed": ["new.vk.com, moved to vk.com (thanks to Senpos)"],
+        "other": [
+            "Automatic folder creation & improve error message "
+        ]
+    },
     "3.4": {
         "date": "22 July 16",
         "added": ["loopmasters.com", "new.vk.com"],
