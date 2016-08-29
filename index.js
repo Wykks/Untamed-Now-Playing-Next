@@ -25,7 +25,7 @@ sp.on('options_button', function() {
 pageMod.PageMod({
     include: self.data.url('common/options/index.html'),
     contentScriptFile: [
-        self.data.url('third-party/jquery-2.1.3.min.js'),
+        self.data.url('third-party/jquery-3.1.0.min.js'),
         self.data.url('third-party/angular.min.js'),
         self.data.url('third-party/angular-route.min.js'),
         self.data.url('third-party/angular-animate.min.js'),
@@ -77,7 +77,7 @@ function createMusicWebsiteWorker(includes, script, attachTo) {
     const param = {
         include: includes,
         contentScriptFile: [
-            self.data.url('third-party/jquery-2.1.3.min.js'),
+            self.data.url('third-party/jquery-3.1.0.min.js'),
             self.data.url('browserFunc.js'),
             self.data.url('common/websites-support/website.js'),
             self.data.url('common/websites-support/websites/' + script)
