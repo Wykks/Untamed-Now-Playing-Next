@@ -6,13 +6,17 @@ RadioUltraTrackListener.prototype.isPlaying = function() {
 };
 
 RadioUltraTrackListener.prototype.findSelector = function() {
-    this.selector = $('#song-info');
+    this.selector = $('.track-info');
 };
 
 RadioUltraTrackListener.prototype.scrapPlayData = function() {
     this.artistName = this.selector.find('.artist').text();
-    this.trackName = this.selector.find('.title').text();
+    this.trackName = this.selector.find('.song').text();
     return true;
+};
+
+RadioUltraTrackListener.prototype.scrapAlbumArt = function() {
+    return $(".cover").find(".pic").css('background-image').replace('url("', '').replace('")', '');
 };
 
 window.UNPCommon.runTrackListenerInterval(new RadioUltraTrackListener());
