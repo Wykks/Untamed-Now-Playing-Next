@@ -133,7 +133,7 @@ createMusicWebsiteWorker(/.*player.spotify.com\/app.*/, 'spotifynew.js', 'frame'
 createMusicWebsiteWorker('*.radio.yandex.ru', 'radioyandex.js', 'top');
 createMusicWebsiteWorker(/.*radiorecord.ru\/player.*/, 'radiorecordplayer.js', 'top');
 createMusicWebsiteWorker(/.*radiorecord.ru\/(?!player).*/, 'radiorecord.js', 'top');
-createMusicWebsiteWorker(/.*radioultra.ru\/player.*/, 'radioultra.js', 'top');
+createMusicWebsiteWorker(/.*player.radioultra.ru.*/, 'radioultra.js', 'top');
 createMusicWebsiteWorker(/.*www\.radiotunes\.com\/.+/, 'radiotunes.js', 'top');
 createMusicWebsiteWorker('*.slacker.com', 'slacker.js', 'top');
 createMusicWebsiteWorker('*.soundcloud.com', 'soundcloud.js', 'top');

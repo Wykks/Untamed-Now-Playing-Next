@@ -383,12 +383,12 @@
         "album": "no",
         "artwork": "yes"
     },
-    "radioultra.ru/player": {
-        "url": "http://www.radioultra.ru/player",
+    "player.radioultra.ru": {
+        "url": "http://player.radioultra.ru",
         "artist": "yes",
         "title": "yes",
         "duration": "no",
         "album": "no",
-        "artwork": "no"
+        "artwork": "yes"
     }
 }
