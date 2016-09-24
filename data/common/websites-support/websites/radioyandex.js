@@ -6,24 +6,17 @@ RadioYandexTrackListener.prototype.isPlaying = function() {
 };
 
 RadioYandexTrackListener.prototype.findSelector = function() {
-    this.selector = $('div.slider__item.slider__item_track:eq(2)');
+    this.selector = $('.slider__item_playing');
 };
 
 RadioYandexTrackListener.prototype.scrapPlayData = function() {
-    this.artistName = this.selector.find('div.track__artists').attr('title');
-    this.trackName = this.selector.find('div.track__title > a').text();
+    this.artistName = this.selector.find('.track__artists').attr('title');
+    this.trackName = this.selector.find('.track__title').attr('title');
     return true;
 };
 
 RadioYandexTrackListener.prototype.scrapAlbumArt = function() {
-    const link = this.selector.find('img.track__cover').attr('src');
-    if (link.substring(0, 4) != 'http')
-        return 'https:' + link;
-    return link;
-};
-
-RadioYandexTrackListener.prototype.scrapUrl = function() {
-    return 'https:' + this.selector.find('div.track__title > a').attr('href');
+    return this.selector.find(".track__cover").css('background-image').replace('url("', '').replace('")', '');
 };
 
 window.UNPCommon.runTrackListenerInterval(new RadioYandexTrackListener());
