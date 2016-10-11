@@ -41,7 +41,7 @@ body {
     min-height: 100%;
 }
 
-body > header {
+#app > header {
     display: flex;
     justify-content: center;
     align-items: center;

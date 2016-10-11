@@ -1,28 +1,12 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en" ng-app="UNP">
-	<head>
-		<meta charset="utf-8">
-		<title ng-bind="PAGE_TITLE">Options</title>
-		<link href="options.css" rel="stylesheet">
-		<link rel="icon" type="image/png" href="ico/favicon-16x16.png" sizes="16x16">
-	</head>
-	<body>
-		<header>
-			<a class="unp-title" href="#/about"><strong translate="extention_name"></strong> <small>{{VERSION}}</small></a>
-			<nav ng-controller="NavCtrl as vm">
-				<ul id="menu">
-					<li id="nav-options" ng-class="{ active: vm.isActive('/settings')}"><a href="#/settings" translate="nav_options"></a></li>
-					<li id="nav-sites" ng-class="{ active: vm.isActive('/sites')}"><a href="#/sites" translate="nav_sites"></a></li>
-					<li id="nav-about" ng-class="{ active: vm.isActive('/about')}"><a href="#/about" translate="nav_about"></a></li>
-					<li id="nav-changelog" ng-class="{ active: vm.isActive('/changelog')}"><a href="#/changelog" translate="nav_change"></a></li>
-					<li id="nav-contact" ng-class="{ active: vm.isActive('/contact')}"><a href="#/contact" translate="nav_contact"></a></li>
-				</ul>
-			</nav>
-		</header>
-		<div id="container">
-			<div id="main-content">
-				<main class="fade" ng-view></main>
-			</div>
-		</div>
-	</body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Options</title>
+    <link href="options.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="ico/favicon-16x16.png" sizes="16x16">
+  </head>
+  <body>
+  </body>
 </html>
