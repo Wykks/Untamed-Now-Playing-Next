@@ -17,7 +17,7 @@ class BrowserFunc {
 
     static getPlatform() {
         return self.options.platform;
-    };
+    }
 
     static writeFile(payload) {
         self.port.emit('writeFile', payload);
@@ -30,7 +30,7 @@ class BrowserFunc {
                 resolve();
             });
         });
-    };
+    }
 
     static createDirIfNotExists(payload) {
         self.port.emit('createDirIfNotExists', payload);
@@ -43,11 +43,11 @@ class BrowserFunc {
                 resolve();
             });
         });
-    };
+    }
 
     static removeFile(filename) {
         self.port.emit('removeFile', filename);
-    };
+    }
 
     static getOptions() {
         return new Promise((resolve) => {
@@ -56,14 +56,14 @@ class BrowserFunc {
                 resolve(storage);
             });
         });
-    };
+    }
 
     static setOption(key, value) {
         self.port.emit('setPref', {
             'key': key,
             'value': value,
         });
-    };
+    }
 }
 
 window.UNPBrowserFunc = BrowserFunc;

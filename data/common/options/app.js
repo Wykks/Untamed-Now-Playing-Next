@@ -1,84 +1,62 @@
-const app = angular.module('UNP', ['ngRoute', 'ngAnimate', 'pascalprecht.translate']);
+(() => {
+    const { Component, h, render } = window.preact;
+    const i18n = window.UNPI18n;
+    const t = i18n.translate;
+    const SettingsPage = window.UNPSettingsPage;
 
-app.run(($rootScope, $translate) => {
-    $rootScope.VERSION = 'v3.5';
-    $translate('extention_name').then((name) => {
-        $rootScope.PAGE_TITLE = `${name} ${$rootScope.VERSION} - Options`;
-    });
-});
+    class App extends Component {
+        componentDidMount() {
+            i18n.loadTranslations().then(() => {
+                this.setState({ ready: true });
+            });
+        }
 
-app.config(($routeProvider, $translateProvider) => {
-    $routeProvider
-        .when('/settings', {
-            templateUrl: 'pages/settings.html',
-            controller: 'SettingsCtrl as vm',
-            resolve: {
-                storage: () => {
-                    return window.UNPBrowserFunc.getOptions();
-                }
+        render() {
+            if (!this.state.ready) {
+                return (
+                    h('div', null, '')
+                );
             }
-        })
-        .when('/sites', {
-            templateUrl: 'pages/sites.html',
-            controller: 'SiteCtrl as vm',
-            resolve: {
-                sites: ($http) => {
-                    return $http.get('sites.json').then((res) => {
-                        return res.data;
-                    });
-                }
-            }
-        })
-        .when('/about', {
-            templateUrl: 'pages/about.html'
-        })
-        .when('/changelog', {
-            templateUrl: 'pages/changelog.html',
-            controller: 'ChangelogCtrl as vm',
-            resolve: {
-                changelog: ($http) => {
-                    return $http.get('changelog.json').then((res) => {
-                        return res.data;
-                    });
-                }
-            }
-        })
-        .when('/contact', {
-            templateUrl: 'pages/contact.html'
-        })
-        .otherwise({
-            redirectTo: '/settings'
-        });
+            return (
+                h('div', { id: 'app' },
+                    h(Header, { version: 'v4.0' }),
+                    h('div', { id: 'container' },
+                        h('div', { id: 'main-content' },
+                        h(SettingsPage)
+                        )
+                    )
+                )
+            );
+        }
+    }
 
-    $translateProvider
-        .useStaticFilesLoader({
-            prefix: 'translations/',
-            suffix: '.json'
-        })
-        .registerAvailableLanguageKeys(['fr', 'fr_FR', 'en', 'en_GB', 'en_US', 'zh-CN'], {
-            'en_*': 'en',
-            'fr_*': 'fr'
-        })
-        .determinePreferredLanguage()
-        .fallbackLanguage('en');
-});
-
-app.controller('NavCtrl', function NavCtrl($scope, $location) {
-    const vm = this;
-
-    vm.isActive = function (viewLocation) {
-        return viewLocation === $location.path();
+    const Header = ({version}) => {
+        return h('header', null,
+            h('a', { class: 'unp-title' },
+                h('strong', null, t('extention_name') + ' '),
+                h('small', null, version)
+            ),
+            h('nav', null,
+                h('ul', { id: 'menu' },
+                    h('li', { id: 'nav-options' },
+                        h('a', null, t('nav_options'))
+                    ),
+                    h('li', { id: 'nav-sites' },
+                        h('a', null, t('nav_sites'))
+                    ),
+                    h('li', { id: 'nav-about' },
+                        h('a', null, t('nav_about'))
+                    ),
+                    h('li', { id: 'nav-changelog' },
+                        h('a', null, t('nav_change'))
+                    ),
+                    h('li', { id: 'nav-contact' },
+                        h('a', null, t('nav_contact'))
+                    )
+                )
+            )
+        );
     };
-});
 
-app.controller('SiteCtrl', function SiteCtrl(sites) {
-    const vm = this;
-
-    vm.sites = sites;
-});
-
-app.controller('ChangelogCtrl', function ChangelogCtrl(changelog) {
-    const vm = this;
-
-    vm.changelog = changelog;
-});
+    render(h(App), document.body);
+})();

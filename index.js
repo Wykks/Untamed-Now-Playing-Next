@@ -25,17 +25,12 @@ sp.on('options_button', function() {
 pageMod.PageMod({
     include: self.data.url('common/options/index.html'),
     contentScriptFile: [
-        self.data.url('third-party/jquery-3.1.0.min.js'),
-        self.data.url('third-party/angular.min.js'),
-        self.data.url('third-party/angular-route.min.js'),
-        self.data.url('third-party/angular-animate.min.js'),
-        self.data.url('third-party/angular-translate.min.js'),
-        self.data.url('third-party/angular-translate-loader-static-files.min.js'),
+        self.data.url('third-party/preact.min.js'),
+        self.data.url('third-party/preact-router.min.js'),
         self.data.url('browserFunc.js'),
-        self.data.url('common/options/app.js'),
-        self.data.url('common/options/directives.js'),
-        self.data.url('common/options/utils.js'),
-        self.data.url('common/options/settingsCtrl.js')
+        self.data.url('common/options/i18n.js'),
+        self.data.url('common/options/pages/settings.js'),
+        self.data.url('common/options/app.js')
     ],
     contentScriptWhen: 'ready',
     contentScriptOptions: {
@@ -172,6 +167,6 @@ function onAttachNowPlaying(worker) {
     });
 }
 
-function openPreferences(state) {
-    tabs.open(self.data.url('common/options/index.html'));
+function openPreferences() {
+    tabs.open(self.data.url('common/options_new/index.html'));
 }
