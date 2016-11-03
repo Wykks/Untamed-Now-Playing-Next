@@ -1,8 +1,11 @@
 (() => {
     const { Component, h, render } = window.preact;
+    const { Router } = window.preactRouter;
+    const { createHashHistory } = window.History;
     const i18n = window.UNPI18n;
     const t = i18n.translate;
     const SettingsPage = window.UNPSettingsPage;
+    const AboutPage = window.UNPAboutPage;
 
     class App extends Component {
         componentDidMount() {
@@ -22,7 +25,10 @@
                     h(Header, { version: 'v4.0' }),
                     h('div', { id: 'container' },
                         h('div', { id: 'main-content' },
-                        h(SettingsPage)
+                            h(Router, { history: createHashHistory() },
+                                h(SettingsPage, { path: '/settings', default: true }),
+                                h(AboutPage, { path: '/about' })
+                            )
                         )
                     )
                 )
@@ -39,13 +45,13 @@
             h('nav', null,
                 h('ul', { id: 'menu' },
                     h('li', { id: 'nav-options' },
-                        h('a', null, t('nav_options'))
+                        h('a', { href: '#/settings' }, t('nav_options'))
                     ),
                     h('li', { id: 'nav-sites' },
                         h('a', null, t('nav_sites'))
                     ),
                     h('li', { id: 'nav-about' },
-                        h('a', null, t('nav_about'))
+                        h('a', { href: '#/about' }, t('nav_about'))
                     ),
                     h('li', { id: 'nav-changelog' },
                         h('a', null, t('nav_change'))

@@ -1,11 +1,11 @@
 (() => {
     const { Component, h } = window.preact;
-    const BrowserFunce = window.UNPBrowserFunc;
+    const BrowserFunc = window.UNPBrowserFunc;
     const t = window.UNPI18n.translate;
 
     class SettingsPage extends Component {
         componentDidMount() {
-            BrowserFunce.getOptions().then((options) => {
+            BrowserFunc.getOptions().then((options) => {
                 this.setState({ options });
             });
         }

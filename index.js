@@ -23,13 +23,15 @@ sp.on('options_button', function() {
 });
 
 pageMod.PageMod({
-    include: self.data.url('common/options/index.html'),
+    include: self.data.url('common/options/index.html') + '*',
     contentScriptFile: [
         self.data.url('third-party/preact.min.js'),
         self.data.url('third-party/preact-router.min.js'),
+        self.data.url('third-party/history.min.js'),
         self.data.url('browserFunc.js'),
         self.data.url('common/options/i18n.js'),
         self.data.url('common/options/pages/settings.js'),
+        self.data.url('common/options/pages/about.js'),
         self.data.url('common/options/app.js')
     ],
     contentScriptWhen: 'ready',
@@ -168,5 +170,5 @@ function onAttachNowPlaying(worker) {
 }
 
 function openPreferences() {
-    tabs.open(self.data.url('common/options_new/index.html'));
+    tabs.open(self.data.url('common/options/index.html'));
 }
