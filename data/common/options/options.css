@@ -331,6 +331,9 @@ table#sites_table thead, table#sites_table tbody tr {
 table#sites_table thead th, table#sites_table tbody td {
     text-align: center;
 }
+table#sites_table tbody td.status-icon > svg {
+    vertical-align: middle;
+}
 table#sites_table tbody td:nth-of-type(1) {
     text-align: left;
 }

@@ -1,0 +1,394 @@
+{
+    "8tracks.com": {
+        "url": "http://8tracks.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "animenfo.com": {
+        "url": "https://www.animenfo.com/radio/nowplaying.php",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "ah.fm": {
+        "url": "http://ah.fm",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "no"
+    },
+    "beatport.com/listen": {
+        "url": "https://www.beatport.com/listen",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "deezer.com": {
+        "url": "http://deezer.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "di.fm": {
+        "url": "http://di.fm",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "distortionradio.com": {
+        "url": "http://www.distortionradio.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "yes",
+        "artwork": "no"
+    },
+    "eskago.pl": {
+        "url": "http://www.eskago.pl",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "hypem.com": {
+        "url": "http://hypem.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "no"
+    },
+    "jamendo.com": {
+        "url": "http://www.jamendo.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "jango.com": {
+        "url": "http://jango.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "last.fm": {
+        "url": "http://last.fm",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "loopmasters.com": {
+        "url": "http://www.loopmasters.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "music.amazon.*": {
+        "url": "https://music.amazon.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "music.yandex.ru": {
+        "url": "https://music.yandex.ru",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "mixcloud.com": {
+        "url": "http://www.mixcloud.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "Netease music": {
+        "url": "http://music.163.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "beta.nightbot.tv": {
+        "url": "http://beta.nightbot.tv",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "maybe",
+        "artwork": "no"
+    },
+    "open.fm": {
+        "url": "http://open.fm",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "pandora.com": {
+        "url": "http://pandora.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "planeta.fm": {
+        "url": "http://www.planeta.fm",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "play.google.com/music": {
+        "url": "http://play.google.com/music",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "play.spotify.com": {
+        "url": "http://play.spotify.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "player.epidemicsound.com": {
+        "url": "https://player.epidemicsound.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "no"
+    },
+    "player.siriusxm.com": {
+        "url": "http://player.siriusxm.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "pleer.com": {
+        "url": "http://pleer.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "no"
+    },
+    "app.plex.tv": {
+        "url": "http://app.plex.tv",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "seoul.fm": {
+        "url": "http://seoul.fm",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "no"
+    },
+    "slacker.com": {
+        "url": "http://slacker.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "soundcloud.com": {
+        "url": "http://soundcloud.com",
+        "artist": "maybe",
+        "title": "maybe",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "synchtu.be/r/Playhouse": {
+        "url": "http://synchtu.be/r/Playhouse",
+        "artist": "maybe",
+        "title": "maybe",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "no"
+    },
+    "themusicninja.com": {
+        "url": "http://themusicninja.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "no"
+    },
+    "tunein.com": {
+        "url": "http://tunein.com",
+        "artist": "maybe",
+        "title": "maybe",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "vk.com": {
+        "url": "http://vk.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "no"
+    },
+    "new.vk.com": {
+        "url": "http://new.vk.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "no"
+    },
+    "yggdrasilradio.net": {
+        "url": "http://yggdrasilradio.net",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "youtube.com": {
+        "url": "http://youtube.com",
+        "artist": "maybe",
+        "title": "maybe",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "youtube.com/tv": {
+        "url": "http://youtube.com/tv",
+        "artist": "maybe",
+        "title": "maybe",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "no"
+    },
+    "youtube-playlist-randomizer.valami.info": {
+        "url": "http://youtube-playlist-randomizer.valami.info",
+        "artist": "maybe",
+        "title": "maybe",
+        "duration": "no",
+        "album": "no",
+        "artwork": "no"
+    },
+    "zaycev.fm": {
+        "url": "http://zaycev.fm",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "play.baidu.com": {
+        "url": "http://play.baidu.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "player.kuwo.cn": {
+        "url": "http://player.kuwo.cn",
+        "artist": "maybe",
+        "title": "maybe",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "y.qq.com": {
+        "url": "http://y.qq.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "radio.yandex.ru": {
+        "url": "https://radio.yandex.ru",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "www.xiami.com/play": {
+        "url": "http://www.xiami.com/play",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "yes",
+        "artwork": "yes"
+    },
+    "radiorecord.ru/player": {
+        "url": "ttp://www.radiorecord.ru/player",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "no"
+    },
+    "radiorecord.ru": {
+        "url": "http://www.radiorecord.ru",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "radiotunes.com": {
+        "url": "http://www.radiotunes.com",
+        "artist": "maybe",
+        "title": "maybe",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    },
+    "player.radioultra.ru": {
+        "url": "http://player.radioultra.ru",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "yes"
+    }
+}
