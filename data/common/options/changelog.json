@@ -1,0 +1,119 @@
+{
+    "3.5": {
+        "date": "29 August 16",
+        "added": ["radiotunes.com (thanks to Senpos)"],
+        "fixed": ["vk.com (thanks to Senpos)"],
+        "removed": ["new.vk.com, moved to vk.com (thanks to Senpos)"],
+        "other": [
+            "Automatic folder creation & improve error message "
+        ]
+    },
+    "3.4": {
+        "date": "22 July 16",
+        "added": ["loopmasters.com", "new.vk.com"],
+        "fixed": ["8tracks (youtube player)", "jango.com", "beatport.com", "mixcloud.com"],
+        "removed": ["noadradio.com", "blinkboxmusic.com"]
+    },
+    "3.3": {
+        "date": "5 Jun 16",
+        "added": ["music.amazon.*", "player.epidemicsound.com", "plex.tv (thanks to exofudge)"],
+        "other": [
+            "Title / Artist guessing improvements",
+            "Youtube / Soundcloud: now take artist from channel name if the artist name cannot be found in the title",
+            "New feature: Custom message after emptying the file ",
+            "Fix image conversion to jpg (websites with image other than jpg should now works)"
+        ]
+    },
+    "3.2": {
+        "date": "30 March 16",
+        "added": ["beta.nightbot.tv", "youtube-playlist-randomizer.valami.info"],
+        "fixed": ["open.fm (thanks to starhel)", "youtube.com/tv"],
+        "other": ["Various fixes and improvements"]
+    },
+    "3.1": {
+        "date": "26 Jan 16",
+        "added": ["open.fm (thanks to starhel)", "eskago.pl (thanks to starhel)"],
+        "fixed": ["pandora.com"],
+        "other": ["Various fixes and improvements"]
+    },
+    "3.0": {
+        "date": "3 Jan 16",
+        "added": ["planeta.fm", "radiorecord.ru", "beatport.com/listen"],
+        "fixed": ["play.google.com", "8tracks.com", "youtube.com/tv (4 Jan 2016)"],
+        "removed": ["rdio.com"],
+        "other": ["Option page: full rework, now use angular.js", "[Internal] random refactor / improvements"]
+    },
+    "2.8": {
+        "date": "11 Nov 15",
+        "added": ["music.163.com"],
+        "fixed": ["play.google.com", "8tracks.com"],
+        "removed": ["plug.dj"],
+        "other": ["Option page: better table (fixed header)", "Add a pref button from Extensions Manager"]
+    },
+    "2.7": {
+        "date": "31 August 15",
+        "added": ["yggdrasilradio.net"],
+        "other": ["Soundcloud album art quality improved"]
+    },
+    "2.6": {
+        "date": "1 August 15",
+        "added": ["jamendo.com", "noadradio.com", "mixcloud.com"],
+        "fixed": ["slacker.com"]
+    },
+    "2.5": {
+        "date": "10 July 15",
+        "added": ["animenfo.com"],
+        "fixed": ["play.spotify.com", "player.spotify.com finally ! (thanks to DopaSensei)"],
+        "other": [
+            "New feature: browser notifications ! (Doesn't work properly on Linux yet)",
+            "Experimental system for instant music change detection. (Enabled for rdio.com/play.google.com/pleer.com/soundcloud.com)"
+        ]
+    },
+    "2.4": {
+        "date": "29 Jun 15",
+        "added": ["music.yandex.ru", "radio.yandex.ru"],
+        "fixed": ["soundcloud.com", "Various sites (when converting to the new system, see below)"],
+        "removed": ["iheart.com", "songza.com"],
+        "other": ["[Internal] Website support system rewritten. Each website support script are now separated."]
+    },
+    "2.3": {
+        "date": "13 Jun 15",
+        "fixed": [
+            "play.spotify.com (premium version should works now)",
+            "play.google.com (thanks to PhannGor)",
+            "jango.com",
+            "ah.fm/player",
+            "pleer.com",
+            "distortionradio.com"
+        ],
+        "removed": ["turntable.fm", "piki.fm"]
+    },
+    "2.2": {
+        "date": "19 May 15",
+        "added": ["player.siriusxm.com"],
+        "fixed": ["play.spotify.com", "di.fm"],
+        "other": ["Farewell Grooveshark :("]
+    },
+    "2.1": {
+        "date": "2 May 15",
+        "added": ["radioultra.ru/player (thanks to Niller2005)", "synchtu.be/r/Playhouse"],
+        "fixed": ["deezer.com", "Google play (album art)", "seoul.fm"],
+        "other": [
+            "Language updated: fr_FR",
+            "Add description of xiami.com (thanks to CuGBabyBeaR)",
+            "Various fixes and improvements"
+        ]
+    },
+    "2.0": {
+        "date": "25 April 15",
+        "added": ["JSON support (thanks to Nikki)", "Proper XML escape support (thanks to Nikki)"],
+        "fixed": ["Deezer (duration)", "Soundcloud (thanks to Niller2005)"],
+        "other": [
+            "Ported for Firefox (to avoid NPAPI issues) !",
+            "Now support Linux/OSX/Windows !",
+            "Language updated: fr_FR (thanks to preovaleo)",
+            "Nightbot support disabled (not ported yet)",
+            "Stream check disabled (not ported yet)"
+        ]
+    }
+}

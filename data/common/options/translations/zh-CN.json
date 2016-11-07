@@ -72,7 +72,7 @@
     "sites_example": "文本格式化示例",
     "sites_example_1": "如果你在GrooveShark听歌，并且你的文本格式设置为：",
     "sites_example_2": "输出将会是：",
-    "sites_des_3": "更多站点的支持将会在将来逐渐增加。如果你对于某个站点有什么建议，请<a href='#/contact'>联系我们</a>.",
+    "sites_des_3": "更多站点的支持将会在将来逐渐增加。如果你对于某个站点有什么建议，请 联系我们.",
     "about_des": "'Untamed Now Playing' 是一个Firefox浏览器扩展，它从在线电台/音乐网站解析歌曲标题和歌手，并且写到硬盘的文件中。如Xsplit或OBS之类的软件就可以读取这个文件并显示出来，使观众可以很容易的看见当前正在播放的歌曲信息。程序：Untamed、CuGBabyBeaR、Wykks",
     "about_limi": "限制",
     "about_limi_1": "现在，正在播放信息只会在歌曲刚开始播放时保存，并且只在下一首歌播放后更新。因此如果你停止播放音乐，输出文件仍然会保持为你播放的上一个音乐。",

@@ -32,6 +32,9 @@ pageMod.PageMod({
         self.data.url('common/options/i18n.js'),
         self.data.url('common/options/pages/settings.js'),
         self.data.url('common/options/pages/about.js'),
+        self.data.url('common/options/pages/changelog.js'),
+        self.data.url('common/options/pages/contact.js'),
+        self.data.url('common/options/pages/sites.js'),
         self.data.url('common/options/app.js')
     ],
     contentScriptWhen: 'ready',
