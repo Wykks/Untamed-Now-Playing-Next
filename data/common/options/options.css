@@ -120,7 +120,7 @@ p {
     border-radius: 4px;
 }
 
-unp-option {
+.unp-option {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -132,7 +132,7 @@ unp-option {
     height: 42px;
 }
 
-unp-option:last-child {
+.unp-option:last-child {
     border: 0px;
 }
 
