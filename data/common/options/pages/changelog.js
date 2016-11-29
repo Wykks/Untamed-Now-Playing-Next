@@ -14,7 +14,7 @@
         render() {
             if (!this.state.changelog) {
                 return (
-                    h('div', null, '')
+                    h('main')
                 );
             }
 
@@ -29,7 +29,7 @@
         }
     }
 
-    const changeElement = ({version, changes}) => {
+    const changeElement = ({ version, changes }) => {
         return h('div', null,
             h('h4', null, `${version} - ${changes.date}`),
             h.apply(null, ['ul', null,

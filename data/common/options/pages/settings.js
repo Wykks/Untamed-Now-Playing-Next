@@ -2,18 +2,91 @@
     const { Component, h } = window.preact;
     const BrowserFunc = window.UNPBrowserFunc;
     const t = window.UNPI18n.translate;
+    const SettingsFormComponent = window.UNPSettingsFormComponent;
 
     class SettingsPage extends Component {
+        constructor() {
+            super();
+            this.handleSubmit = this.handleSubmit.bind(this);
+        }
+
         componentDidMount() {
             BrowserFunc.getOptions().then((options) => {
-                this.setState({ options });
+                let saveDir;
+                let message;
+                if (options.unpSaveDir !== undefined) {
+                    saveDir = options.unpSaveDir;
+                } else {
+                    message = {
+                        type: 'warn',
+                        text: t('warn_opt')
+                    };
+                    if (BrowserFunc.getPlatform() === 'winnt')
+                        saveDir = 'C:\\Users\\USERNAME\\Documents\\unp\\';
+                    else if (BrowserFunc.getPlatform() === 'linux')
+                        saveDir = '/home/USERNAME/unp/';
+                }
+                this.setState({
+                    options: {
+                        saveDir,
+                        filename: this._getConfigValue(options.unpFilename, 'unp_now_playing'),
+                        txtFormat: this._getConfigValue(options.unpTxtFormat, '%s%'),
+                        saveFormat: this._getConfigValue(options.unpSaveFormat, 'txt'),
+                        songMaxlen: this._getConfigValue(options.unpSongMaxLen, 60),
+                        songMaxlenAppend: this._getConfigBool(options.unpSongMaxLenApp, true),
+                        albumArtwork: this._getConfigBool(options.unpAlbumArtwork, true),
+                        disableYoutube: this._getConfigBool(options.unpDisableYoutube, false),
+                        autoClear: this._getConfigBool(options.unpAutoClear, false),
+                        noMusicMessage: this._getConfigValue(options.unpNoMusicMessage, ''),
+                        browserNotification: this._getConfigBool(options.unpNotification, true)
+                    },
+                    message
+                });
             });
+        }
+
+        handleSubmit(options) {
+            if (BrowserFunc.getPlatform() === 'winnt') {
+                options.saveDir = options.saveDir.split('/').join('\\');
+                if (options.saveDir.substr(options.saveDir.length - 1) != '\\') {
+                    options.saveDir = options.saveDir + '\\';
+                }
+            } else {
+                if (options.saveDir.substr(options.saveDir.length - 1) != '/') {
+                    options.saveDir = options.saveDir + '/';
+                }
+            }
+            // BrowserFunc.setOption('unpSaveDir', options.saveDir);
+            // BrowserFunc.setOption('unpSaveFormat', options.saveFormat);
+            // BrowserFunc.setOption('unpFilename', options.filename);
+            // BrowserFunc.setOption('unpTxtFormat', options.txtFormat);
+            // BrowserFunc.setOption('unpSongMaxLen', options.songMaxlen);
+            // BrowserFunc.setOption('unpSongMaxLenApp', options.songMaxlenAppend);
+            // BrowserFunc.setOption('unpAlbumArtwork', options.albumArtwork);
+            // BrowserFunc.setOption('unpDisableYoutube', options.disableYoutube);
+            // BrowserFunc.setOption('unpAutoClear', options.autoClear);
+            // BrowserFunc.setOption('unpNoMusicMessage', options.noMusicMessage);
+            // BrowserFunc.setOption('unpNotification', options.browserNotification);
+            this.setState({
+                message: {
+                    type: 'success',
+                    text: t('opt_saved')
+                }
+            });
+        }
+
+        _getConfigValue(val, defaultVal) {
+            return val ? val : defaultVal;
+        }
+
+        _getConfigBool(val, defaultVal) {
+            return (val !== undefined) ? val : defaultVal;
         }
 
         render() {
             if (!this.state.options) {
                 return (
-                    h('div', null, '')
+                    h('main')
                 );
             }
             let message;
@@ -30,33 +103,9 @@
                     h('p', { dangerouslySetInnerHTML: { __html: t('opt_donate') } }),
                     message,
                     t('opt_donate_2') !== 'opt_donate_2' ? h('p', { dangerouslySetInnerHTML: { __html: t('opt_donate_2') } }) : null,
-                    h('form', { class: 'options' },
-                        h('p', null, this._getConfigValue('unpSaveDir'))
-                    ),
-                    h('p', { class: 'save' },
-                        h('button', { class: 'save-btn', type: 'button', onClick: this.onSave.bind(this) }, t('save'))
-                    )
+                    h(SettingsFormComponent, Object.assign({ onSubmit: this.handleSubmit }, this.state.options))
                 )
             );
-        }
-
-        onSave() {
-            this.setState({
-                message: {
-                    type: 'success',
-                    text: t('opt_saved')
-                }
-            });
-        }
-
-        _getConfigValue(key, defaultVal) {
-            const val = this.state.options[key];
-            return val ? val : defaultVal;
-        }
-
-        _getConfigBool(key, defaultVal) {
-            const val = this.state.options[key];
-            return (val !== undefined) ? val : defaultVal;
         }
     }
 

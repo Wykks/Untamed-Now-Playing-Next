@@ -30,6 +30,8 @@ pageMod.PageMod({
         self.data.url('third-party/history.min.js'),
         self.data.url('browserFunc.js'),
         self.data.url('common/options/i18n.js'),
+        self.data.url('common/options/components/header.js'),
+        self.data.url('common/options/components/settingsForm.js'),
         self.data.url('common/options/pages/settings.js'),
         self.data.url('common/options/pages/about.js'),
         self.data.url('common/options/pages/changelog.js'),
