@@ -113,7 +113,7 @@ p {
     margin: 0px 0px 10px;
 }
 
-.options {
+.option-form-content {
     border-width: 1px;
     border-style: solid;
     border-color: #DDD;
@@ -169,7 +169,7 @@ select {
     background-color: #FFF;
 }
 
-label, select, button, input[type="button"], input[type="checkbox"] {
+label, select, button, input[type="submit"], input[type="checkbox"] {
     cursor: pointer;
 }
 
@@ -197,12 +197,8 @@ label, select, button, input[type="button"], input[type="checkbox"] {
 }
 
 .save-btn {
-    padding: 11px 19px;
+    padding: 15px 40px;
     font-size: 17.5px;
-}
-
-unp-info-button {
-    display: block;
 }
 
 .popover {
@@ -277,11 +273,6 @@ unp-info-button {
     color: #468847;
     background-color: #DFF0D8;
     border-color: #D6E9C6;
-}
-
-unp-status {
-    display: flex;
-    justify-content: center;
 }
 
 pre {
