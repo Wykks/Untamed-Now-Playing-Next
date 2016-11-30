@@ -42,5 +42,5 @@
         }
     }
 
-    render(h(App), document.body);
+    render(h(App), document.getElementById('root'));
 })();
