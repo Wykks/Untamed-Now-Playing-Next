@@ -1,7 +1,7 @@
-window.UNPCommon = (function() {
+window.UNPCommon = (function () {
     Common = {};
 
-    Common.MutationObserverUpdater = (function() {
+    Common.MutationObserverUpdater = (function () {
         let listener;
         let nodeAttrName = '';
         let nodeAttrValue;
@@ -84,7 +84,7 @@ window.UNPCommon = (function() {
 
         function innerRunOnAttr() {
             const observer = new MutationObserver((mutations) => {
-                mutations.forEach(function(mutation) {
+                mutations.forEach(function (mutation) {
                     if (mutation.attributeName != nodeAttrName)
                         return;
                     const newValue = mutation.target.getAttribute(mutation.attributeName);
@@ -106,9 +106,9 @@ window.UNPCommon = (function() {
         MutationObserverUpdater.prototype.runOnAttr = findElementThenRun.bind(this, innerRunOnAttr);
 
         return MutationObserverUpdater;
-    }());
+    } ());
 
-    Common.IntervalUpdater = (function() {
+    Common.IntervalUpdater = (function () {
         let listener;
         let interval = 5000;
 
@@ -128,7 +128,7 @@ window.UNPCommon = (function() {
         };
 
         return IntervalUpdater;
-    }());
+    } ());
 
     //Deprecated
     Common.runTrackListenerInterval = (listener) => {
@@ -138,7 +138,7 @@ window.UNPCommon = (function() {
         //setInterval(listener.updateTrack.bind(listener), 5000);
     };
 
-    Common.WebsiteTrackListener = (function() {
+    Common.WebsiteTrackListener = (function () {
         function WebsiteTrackListener() {
             this.play = '';
             this.artistName = '';
@@ -173,9 +173,9 @@ window.UNPCommon = (function() {
             throw new Error('Not implemented');
         };
 
-        WebsiteTrackListener.prototype.findSelector = () => {};
+        WebsiteTrackListener.prototype.findSelector = () => { };
 
-        WebsiteTrackListener.prototype.updateTrack = function() {
+        WebsiteTrackListener.prototype.updateTrack = function () {
             if (!this.isPlaying()) {
                 return;
             }
@@ -199,10 +199,8 @@ window.UNPCommon = (function() {
         }
 
         function nowPlaying(play) {
-            const currentTime = new Date();
-            const minutes = currentTime.getMinutes();
-            const hours = currentTime.getHours();
-           window.UNPBrowserFunc.updateNowPlaying({
+            const timeStarted = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: 'numeric', second: 'numeric' }).format(new Date());
+            window.UNPBrowserFunc.updateNowPlaying({
                 nowPlaying: play,
                 trackName: getValue(this.trackName),
                 artistName: getValue(this.artistName),
@@ -211,13 +209,13 @@ window.UNPCommon = (function() {
                     return $.isEmptyObject(v) || v.substring(0, 4) !== 'http';
                 }),
                 url: getValue(this.scrapUrl(), window.location.href),
-                timeStarted: ((hours < 10) ? '0' + hours : hours) + ':' + ((minutes < 10) ? '0' + minutes : minutes),
+                timeStarted,
                 duration: getValue(this.scrapDuration())
             });
         }
 
         return WebsiteTrackListener;
-    }());
+    } ());
 
     Common.parseArtistTitle = (input) => {
         // Removes [whatever] from whole title as it is usually not important
@@ -261,4 +259,4 @@ window.UNPCommon = (function() {
     };
 
     return Common;
-}());
+} ());
