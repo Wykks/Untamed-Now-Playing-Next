@@ -1,6 +1,7 @@
 (() => {
     const { h } = window.preact;
     const t = window.UNPI18n.translate;
+    const Markup = window.preactMarkup;
 
     const AboutPage = () => (
         h('main', null,
@@ -10,7 +11,9 @@
             h('p', null, t('about_limi_1')),
             h('p', null, t('about_limi_2')),
             h('h3', null, t('about_license')),
-            h('p', { dangerouslySetInnerHTML: { __html: t('about_license_1') } }),
+            h('p', null,
+                h(Markup, { markup: t('about_license_1'), trim: false })
+            ),
             h('p', null,
                 h('a', { rel: 'license', href: 'http://creativecommons.org/licenses/by-sa/3.0/deed' },
                     h('img', { alt: 'Creative Commons Licence', style: 'border-width:0', src: 'http://i.creativecommons.org/l/by-sa/3.0/88x31.png' })
@@ -27,7 +30,9 @@
                     ' (MIT License)'
                 )
             ),
-            h('p', { dangerouslySetInnerHTML: { __html: t('about_license_3') } }),
+            h('p', null,
+                h(Markup, { markup: t('about_license_3'), trim: false })
+            ),
             h('div', null,
                 'Icons made by ',
                 h('a', { href: 'http://www.freepik.com', title: 'Freepik' }, 'Freepik'),

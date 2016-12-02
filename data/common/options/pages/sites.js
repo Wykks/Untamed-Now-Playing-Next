@@ -1,15 +1,22 @@
 (() => {
     const { Component, h } = window.preact;
+    const Markup = window.preactMarkup;
     const t = window.UNPI18n.translate;
 
     const SitesPage = () => (
         h('main', null,
             h('h1', null, t('nav_sites')),
-            h('p', { dangerouslySetInnerHTML: { __html: t('sites_des') } }),
-            h('p', { dangerouslySetInnerHTML: { __html: t('sites_des_2') } }),
+            h('p', null,
+                h(Markup, { markup: t('sites_des'), trim: false })
+            ),
+            h('p', null,
+                h(Markup, { markup: t('sites_des_2'), trim: false })
+            ),
             h(SitesTable),
             h('small', null, t('sites_note_2')),
-            h('p', null, t('sites_des_3')),
+            h('p', null,
+                h(Markup, { markup: t('sites_des_3'), trim: false })
+            ),
             h('h3', null, t('sites_var_list')),
             h('pre', null,
                 h('strong', null, '%s%'), ' : ', h('span', null, t('sites_var_s')),

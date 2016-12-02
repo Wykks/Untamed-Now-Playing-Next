@@ -1,12 +1,19 @@
 (() => {
     const { h } = window.preact;
     const t = window.UNPI18n.translate;
+    const Markup = window.preactMarkup;
 
     const ContactPage = () => (
         h('main', null,
             h('h1', null, t('nav_contact')),
-            h('p', { dangerouslySetInnerHTML: { __html: t('contact_1') } }),
-            t('contact_2') !== 'contact_2' ? h('p', { dangerouslySetInnerHTML: { __html: t('contact_2') } }) : null
+            h('p', null,
+                h(Markup, { markup: t('contact_1'), trim: false })
+            ),
+            t('contact_2') !== 'contact_2' ?
+                h('p', null,
+                    h(Markup, { markup: t('contact_2'), trim: false })
+                ) :
+                null
         )
     );
 

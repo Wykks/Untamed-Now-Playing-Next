@@ -1,6 +1,8 @@
 (() => {
-    const { Component, h } = window.preact;
+    const { Component, h, render } = window.preact;
+    const Markup = window.preactMarkup;
     const jQuery = window.jQuery;
+    const Nothing = () => null;
 
     class InfoButtonComponent extends Component {
         constructor(props) {
@@ -28,11 +30,12 @@
 
         _toggleTooltip() {
             if (this.isTooltipOpen) {
+                render(h(Nothing), this.tooltipContent, this.renderedContent);
                 this.tooltipElement.remove();
                 this.isTooltipOpen = false;
                 jQuery('body').off('click', this._onClickOutside);
             } else {
-                this.tooltipContent.innerHTML = this.props.msg;
+                this.renderedContent = render(h(Markup, { markup: this.props.msg, trim: false }), this.tooltipContent);
                 const offset = jQuery(this.base).offset();
                 const middleButton = offset.left + (jQuery(this.base).outerWidth() / 2);
                 jQuery('#container').append(this.tooltipElement);

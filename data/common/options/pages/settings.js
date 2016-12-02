@@ -2,6 +2,7 @@
     const { Component, h } = window.preact;
     const BrowserFunc = window.UNPBrowserFunc;
     const t = window.UNPI18n.translate;
+    const Markup = window.preactMarkup;
     const SettingsFormComponent = window.UNPSettingsFormComponent;
 
     class SettingsPage extends Component {
@@ -105,7 +106,7 @@
             }).then(() => {
                 BrowserFunc.removeFile(testFilename);
             }).catch((reason) => {
-                return Promise.reject(`${t('err_directory_inaccess')} (${reason}`);
+                return Promise.reject(`${t('err_directory_inaccess')} (${reason})`);
             });
         }
 
@@ -127,17 +128,22 @@
             if (this.state.message) {
                 message = h('div', {
                     class: `alert alert-${this.state.message.type}`,
-                    dangerouslySetInnerHTML: { __html: this.state.message.text }
-                });
+                },
+                    h(Markup, { markup: this.state.message.text, trim: false })
+                );
             }
             return (
                 h('main', null,
                     h('h1', null, t('nav_options')),
                     h('p', null, t('opt_des')),
-                    h('p', { dangerouslySetInnerHTML: { __html: t('opt_donate') } }),
+                    h('p', null,
+                        h(Markup, { markup: t('opt_donate'), trim: false })
+                    ),
                     message,
                     t('opt_donate_2') !== 'opt_donate_2' ?
-                        h('p', { dangerouslySetInnerHTML: { __html: t('opt_donate_2') } }) :
+                        h('p', null,
+                            h(Markup, { markup: t('opt_donate_2'), trim: false })
+                        ) :
                         null,
                     h(SettingsFormComponent,
                         Object.assign({

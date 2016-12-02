@@ -13,7 +13,10 @@
     class App extends Component {
         componentDidMount() {
             i18n.loadTranslations().then(() => {
-                this.setState({ ready: true });
+                this.setState({
+                    ready: true,
+                    history: createHashHistory()
+                });
             });
         }
 
@@ -25,10 +28,10 @@
             }
             return (
                 h('div', { id: 'app' },
-                    h(HeaderComponent, { version: 'v4.0' }),
+                    h(HeaderComponent, { version: 'v4.0', history: this.state.history }),
                     h('div', { id: 'container' },
                         h('div', { id: 'main-content' },
-                            h(Router, { history: createHashHistory() },
+                            h(Router, { history: this.state.history },
                                 h(SettingsPage, { path: '/settings', default: true }),
                                 h(AboutPage, { path: '/about' }),
                                 h(ChangelogPage, { path: '/changelog' }),

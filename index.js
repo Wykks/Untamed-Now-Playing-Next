@@ -27,6 +27,7 @@ pageMod.PageMod({
     contentScriptFile: [
         self.data.url('third-party/preact.min.js'),
         self.data.url('third-party/preact-router.min.js'),
+        self.data.url('third-party/preact-markup.min.js'),
         self.data.url('third-party/history.min.js'),
         self.data.url('third-party/jquery-3.1.0.min.js'),
         self.data.url('browserFunc.js'),
