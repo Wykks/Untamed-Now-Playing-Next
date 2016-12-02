@@ -1,11 +1,18 @@
 {
+    "4.0": {
+        "date": "3 Dec 16",
+        "fixed": ["radioultra.ru (thanks to Senpos)", "radio.yandex.ru (thanks to ten0r)"],
+        "other": [
+            "Option page: full rework, now use preact"
+        ]
+    },
     "3.5": {
         "date": "29 August 16",
         "added": ["radiotunes.com (thanks to Senpos)"],
         "fixed": ["vk.com (thanks to Senpos)"],
         "removed": ["new.vk.com, moved to vk.com (thanks to Senpos)"],
         "other": [
-            "Automatic folder creation & improve error message "
+            "Automatic folder creation & improve error message"
         ]
     },
     "3.4": {
