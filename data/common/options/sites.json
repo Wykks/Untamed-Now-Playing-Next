@@ -199,6 +199,14 @@
         "album": "no",
         "artwork": "yes"
     },
+    "playmoss.com": {
+        "url": "https://playmoss.com/",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "yes",
+        "artwork": "yes"
+    },
     "pleer.com": {
         "url": "http://pleer.com",
         "artist": "yes",

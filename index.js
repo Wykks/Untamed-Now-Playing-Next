@@ -135,6 +135,7 @@ createMusicWebsiteWorker('*.pleer.com', 'pleer.js', 'top');
 createMusicWebsiteWorker('*.plex.tv', 'plex.js', 'top');
 createMusicWebsiteWorker(/.*play.spotify.com\/apps\/player.*/, 'spotify.js', 'frame');
 createMusicWebsiteWorker(/.*player.spotify.com\/app.*/, 'spotifynew.js', 'frame');
+createMusicWebsiteWorker('*.playmoss.com', 'playmoss.js', 'top');
 createMusicWebsiteWorker('*.radio.yandex.ru', 'radioyandex.js', 'top');
 createMusicWebsiteWorker(/.*radiorecord.ru\/player.*/, 'radiorecordplayer.js', 'top');
 createMusicWebsiteWorker(/.*radiorecord.ru\/(?!player).*/, 'radiorecord.js', 'top');
