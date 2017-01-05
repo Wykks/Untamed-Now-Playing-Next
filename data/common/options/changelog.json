@@ -1,4 +1,9 @@
 {
+    "4.1": {
+        "date": "5 Jan 17",
+        "added": ["playmoss.com"],
+        "fixed": ["soundcloud.com (artist)"]
+    },
     "4.0": {
         "date": "3 Dec 16",
         "fixed": ["radioultra.ru (thanks to Senpos)", "radio.yandex.ru (thanks to ten0r)"],
