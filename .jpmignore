@@ -1,1 +1,7 @@
 updateDeps.sh
+.git
+.jpmignore
+.gitignore
+.eslintrc.yml
+.editorconfig
+*.xpi
