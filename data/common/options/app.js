@@ -28,7 +28,7 @@
             }
             return (
                 h('div', { id: 'app' },
-                    h(HeaderComponent, { version: 'v4.0', history: this.state.history }),
+                    h(HeaderComponent, { version: 'v4.1', history: this.state.history }),
                     h('div', { id: 'container' },
                         h('div', { id: 'main-content' },
                             h(Router, { history: this.state.history },
