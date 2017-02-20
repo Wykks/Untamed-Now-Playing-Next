@@ -398,5 +398,13 @@
         "duration": "no",
         "album": "no",
         "artwork": "yes"
+    },
+    "zvooq.com": {
+        "url": "http://zvooq.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "no"
     }
 }
