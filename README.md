@@ -53,6 +53,7 @@ Supported Sites
 * [open.fm](http://open.fm)
 * [eskago.pl](http://www.eskago.pl)
 * [zvooq.com](http://zvooq.com)
+* [jombly.com](http://www.jombly.com)
 
 Support for more sites will be added over time. If you have a suggestion for a site, please open an issue or reply to the obs topic.
 

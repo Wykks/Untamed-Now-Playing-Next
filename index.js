@@ -121,6 +121,7 @@ createMusicWebsiteWorker(
     ], 'lastfm.js', 'top');
 createMusicWebsiteWorker('*.jamendo.com', 'jamendo.js', 'top');
 createMusicWebsiteWorker('*.jango.com', 'jango.js', 'top');
+createMusicWebsiteWorker('*.jombly.com', 'jombly.js', 'top');
 createMusicWebsiteWorker('*.loopmasters.com', 'loopmasters.js', 'top');
 createMusicWebsiteWorker('*.mixcloud.com', 'mixcloud.js', 'top');
 createMusicWebsiteWorker(/.*music.amazon\..*/, 'musicamazon.js', 'top');

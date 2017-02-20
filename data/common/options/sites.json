@@ -406,5 +406,13 @@
         "duration": "yes",
         "album": "no",
         "artwork": "no"
+    },
+    "jombly.com": {
+        "url": "http://www.jombly.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "no"
     }
 }
