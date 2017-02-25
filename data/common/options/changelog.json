@@ -1,4 +1,8 @@
 {
+    "4.2": {
+        "date": "25 Feb 17",
+        "added": ["zvooq.com (thanks to Senpos)", "jombly.com (thanks to Senpos)"]
+    },
     "4.1": {
         "date": "5 Jan 17",
         "added": ["playmoss.com"],
