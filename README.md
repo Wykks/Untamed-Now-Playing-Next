@@ -103,8 +103,7 @@ Licence
 This software is provided "AS IS" without warranty of any kind, either expressed or implied. Licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed).
 
 This software uses the following libraries developed by third parties, and are licenced seperately;
-* [Bootstrap](http://twitter.github.com/bootstrap) (Apache License v2.0)
 * [jQuery](http://jquery.com) (MIT License)
-* [Angular.js](https://angularjs.org) (MIT License)
+* [Preact](https://preactjs.com) (MIT License)
 
 Additionally, the main icon was designed by [CSS Creme](http://csscreme.com/freeicons/), and icons designed by [FatCow](http://www.fatcow.com/free-icons) are used on the options pages.
