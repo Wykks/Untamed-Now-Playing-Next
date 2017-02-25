@@ -18,7 +18,7 @@ small {
 
 #container {
     position: absolute;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: calc(100% - 42px);
     width: 100%;
     display: flex;
