@@ -127,6 +127,7 @@ createMusicWebsiteWorker('*.mixcloud.com', 'mixcloud.js', 'top');
 createMusicWebsiteWorker(/.*music.amazon\..*/, 'musicamazon.js', 'top');
 createMusicWebsiteWorker(/.*music.yandex\..*/, 'musicyandex.js', 'top');
 createMusicWebsiteWorker('*.nightbot.tv', 'nightbottv.js', 'top');
+createMusicWebsiteWorker('*.openwhyd.org','openwhyd.js','top');
 createMusicWebsiteWorker('*.pandora.com', 'pandora.js', 'top');
 createMusicWebsiteWorker('*.planeta.fm', 'planetafm.js', 'top');
 createMusicWebsiteWorker(/.*play.google.com\/music.*/, 'playgoogle.js', 'top');
