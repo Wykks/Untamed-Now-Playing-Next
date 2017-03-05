@@ -1,22 +1,33 @@
-const PlexTrackListener = function() {};
+const PlexTrackListener = function () { };
 PlexTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
-PlexTrackListener.prototype.isPlaying = function() {
+PlexTrackListener.prototype.isPlaying = function () {
     return $('.play-btn').hasClass('hidden');
 };
 
-PlexTrackListener.prototype.scrapPlayData = function() {
-    this.artistName = $('.grandparent-title').text();
-    this.trackName = $('.item-title').text();
+PlexTrackListener.prototype.findSelector = function () {
+    this.selector = $('.mini-controls');
+};
+
+PlexTrackListener.prototype.scrapPlayData = function () {
+    this.artistName = this.selector.find('.grandparent-title').text();
+    this.trackName = this.selector.find('.item-title').text();
     return true;
 };
 
-PlexTrackListener.prototype.scrapAlbumArt = function() {
-    return $('.media-poster-container > .media-poster').attr('data-image-url').concat('.jpeg').replace('&width=80&height=80','&width=250&height=250');
+PlexTrackListener.prototype.scrapAlbumArt = function () {
+    var album_selector = this.selector.find('.media-poster-container > .media-poster');
+    if (album_selector.hasClass('loaded')) {
+        return album_selector.attr('data-image-url').replace('&width=80&height=80', '&width=250&height=250').concat('&format=.jpeg');
+    }
 };
 
-PlexTrackListener.prototype.scrapDuration = function() {
-    return $('.player-duration').text();
+PlexTrackListener.prototype.scrapAlbumName = function () {
+    return this.selector.find('.media-poster-container > .media-poster').attr('data-image-title');
+};
+
+PlexTrackListener.prototype.scrapDuration = function () {
+    return this.selector.find('.player-duration').text();
 };
 
 window.UNPCommon.runTrackListenerInterval(new PlexTrackListener());
