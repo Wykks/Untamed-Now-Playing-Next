@@ -220,7 +220,7 @@
         "artist": "yes",
         "title": "yes",
         "duration": "yes",
-        "album": "no",
+        "album": "yes",
         "artwork": "yes"
     },
     "seoul.fm": {
