@@ -422,5 +422,13 @@
         "duration": "no",
         "album": "no",
         "artwork": "no"
+    },
+    "openwhyd.org": {
+        "url": "http://www.openwhyd.org",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "no"
     }
 }
