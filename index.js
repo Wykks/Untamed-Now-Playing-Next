@@ -140,6 +140,7 @@ createMusicWebsiteWorker('*.playmoss.com', 'playmoss.js', 'top');
 createMusicWebsiteWorker('*.radio.yandex.ru', 'radioyandex.js', 'top');
 createMusicWebsiteWorker(/.*radiorecord.ru\/player.*/, 'radiorecordplayer.js', 'top');
 createMusicWebsiteWorker(/.*radiorecord.ru\/(?!player).*/, 'radiorecord.js', 'top');
+createMusicWebsiteWorker('*.radiobells.com', 'radiobells.js', 'top');
 createMusicWebsiteWorker(/.*player.radioultra.ru.*/, 'radioultra.js', 'top');
 createMusicWebsiteWorker(/.*www\.radiotunes\.com\/.+/, 'radiotunes.js', 'top');
 createMusicWebsiteWorker('*.slacker.com', 'slacker.js', 'top');

@@ -414,5 +414,13 @@
         "duration": "yes",
         "album": "no",
         "artwork": "no"
+    },
+    "radiobells.com": {
+        "url": "https://www.radiobells.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "no"
     }
 }
