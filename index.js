@@ -156,6 +156,7 @@ createMusicWebsiteWorker(/.*youtube.com\/tv.*/, 'youtubetv.js', 'top');
 createMusicWebsiteWorker(/.*youtube-playlist-randomizer.valami.info.*/, 'youtubeplaylistrandomizer.js', 'top');
 createMusicWebsiteWorker('*.zaycev.fm', 'zaycev.js', 'top');
 createMusicWebsiteWorker('*.zvooq.com', 'zvooq.js', 'top');
+createMusicWebsiteWorker(/.*listen.tidal.com\/.*/, 'tidal.js', 'top');
 // Chinese sites
 createMusicWebsiteWorker('*.play.baidu.com', 'playbaidu.js', 'top');
 createMusicWebsiteWorker('*.player.kuwo.cn', 'kuwo.js', 'top');
