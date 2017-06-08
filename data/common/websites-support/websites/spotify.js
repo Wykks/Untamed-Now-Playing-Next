@@ -1,42 +1,22 @@
-const SpotifyTrackListener = function() {};
-
+const SpotifyTrackListener = function () {};
 SpotifyTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
-SpotifyTrackListener.prototype.findSelector = function() {
-    this.selector = $('#track-name').find('a');
+SpotifyTrackListener.prototype.isPlaying = function () {
+    return $('.player-controls__buttons').find('.spoticon-pause-16').length ? true : false;
 };
 
-SpotifyTrackListener.prototype.isPlaying = function() {
-    return $('#play-pause').hasClass('playing');
-};
-
-SpotifyTrackListener.prototype.scrapPlayData = function() {
-    this.artistName = '';
-    const self = this;
-    $('#track-artist').find('a').each(function() {
-        self.artistName += (self.artistName === '') ? $(this).text() : ', ' + $(this).text();
-    });
-    this.trackName = this.selector.eq(0).text();
+SpotifyTrackListener.prototype.scrapPlayData = function () {
+    this.artistName = $('.now-playing').find('.track-info').find('.track-info__artists').find('a').text();
+    this.trackName = $('.now-playing').find('.track-info').find('.track-info__name').find('a').text();
     return true;
 };
 
-SpotifyTrackListener.prototype.scrapAlbumArt = function() {
-    return $('.sp-image-img').css('background-image').replace('url("', '').replace('")', '');
+SpotifyTrackListener.prototype.scrapAlbumArt = function () {
+    return $('.now-playing').find('.cover-art-image').css('background-image').replace('url("', '').replace('")', '');
 };
 
-SpotifyTrackListener.prototype.scrapUrl = function() {
-    return this.selector.attr('href');
+SpotifyTrackListener.prototype.scrapDuration = function () {
+    return $('.playback-bar').find('.playback-bar__progress-time').last().text();
 };
 
-SpotifyTrackListener.prototype.scrapDuration = function() {
-    return $('#track-length').text();
-};
-
-/*
-const updateTriggerer = new window.UNPCommon.MutationObserverUpdater(new SpotifyTrackListener());
-updateTriggerer.setSelector('#cover-art');
-updateTriggerer.setNodeAttributeName('class');
-updateTriggerer.setNodeAttributeValue(new RegExp('sp-image-wrapper'));
-updateTriggerer.runOnChildAttr();
-*/
 window.UNPCommon.runTrackListenerInterval(new SpotifyTrackListener());
