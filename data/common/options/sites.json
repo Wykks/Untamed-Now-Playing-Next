@@ -111,7 +111,7 @@
         "album": "yes",
         "artwork": "yes"
     },
-    "music.yandex.ru": {
+    "music.yandex.*": {
         "url": "https://music.yandex.ru",
         "artist": "yes",
         "title": "yes",
