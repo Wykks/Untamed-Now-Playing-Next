@@ -1,4 +1,17 @@
 {
+    "4.3": {
+        "date": "21 Jun 17",
+        "added": [
+            "openwhyd.org (thanks to M4rissa)",
+            "radiobells.com (thanks to Senpos)",
+            "listen.tidal.com (thanks to Senpos)"
+        ],
+        "fixed": [
+            "plex.tv (thanks to Senpos)",
+            "spotify.com (thanks to Senpos)",
+            "music.yandex (thanks to Senpos)"
+        ]
+    },
     "4.2": {
         "date": "25 Feb 17",
         "added": ["zvooq.com (thanks to Senpos)", "jombly.com (thanks to Senpos)"]
