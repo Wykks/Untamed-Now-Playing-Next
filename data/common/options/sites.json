@@ -430,5 +430,13 @@
         "duration": "no",
         "album": "no",
         "artwork": "no"
-    }
+    },
+    "listen.tidal.com": {
+        "url": "https://listen.tidal.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "yes",
+        "artwork": "yes"
+    },
 }
