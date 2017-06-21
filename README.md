@@ -25,7 +25,7 @@ Supported Sites
 * [piki.fm](http://piki.fm)
 * [planeta.fm](http://www.planeta.fm)
 * [play.google.com](http://play.google.com/music)
-* [play.spotify.com](http://play.spotify.com)
+* [open.spotify.com](https://open.spotify.com)
 * [player.epidemicsound.com](http://player.epidemicsound.com)
 * [player.siriusxm.com](http://player.siriusxm.com)
 * [pleer.com](http://pleer.com)

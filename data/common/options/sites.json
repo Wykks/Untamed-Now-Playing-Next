@@ -175,8 +175,8 @@
         "album": "yes",
         "artwork": "yes"
     },
-    "play.spotify.com": {
-        "url": "http://play.spotify.com",
+    "open.spotify.com": {
+        "url": "https://open.spotify.com",
         "artist": "yes",
         "title": "yes",
         "duration": "yes",
