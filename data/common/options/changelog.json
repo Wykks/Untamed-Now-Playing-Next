@@ -1,4 +1,10 @@
 {
+    "4.4": {
+        "date": "23 July 17",
+        "fixed": [
+            "pandora.com (thanks to Senpos)"
+        ]
+    },
     "4.3": {
         "date": "21 Jun 17",
         "added": [
