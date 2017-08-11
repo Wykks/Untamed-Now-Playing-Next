@@ -6,13 +6,10 @@ SoundcloudTrackListener.prototype.isPlaying = function() {
 };
 
 SoundcloudTrackListener.prototype.scrapPlayData = function() {
-    const play = $('.playbackSoundBadge__title').attr('title');
+    const play = $('.playbackSoundBadge__titleLink ').attr('title');
     [this.artistName, this.trackName] = window.UNPCommon.parseArtistTitle(play);
     if (!this.artistName) {
-        const artist = $('.playbackSoundBadge__title').attr('href').match(/^\/(.*?)\//);
-        if (artist.length > 1) {
-            this.artistName = window.UNPCommon.toTitleCase(artist[1].replace('-', ' '));
-        }
+        this.artistName = $('.playbackSoundBadge__lightLink').attr('title');
     }
     return true;
 };
@@ -24,7 +21,7 @@ SoundcloudTrackListener.prototype.scrapAlbumArt = function() {
 };
 
 SoundcloudTrackListener.prototype.scrapUrl = function() {
-    return 'http://soundcloud.com' + $('.playbackSoundBadge__title').attr('href');
+    return 'http://soundcloud.com' + $('.playbackSoundBadge__titleLink').attr('href');
 };
 
 SoundcloudTrackListener.prototype.scrapDuration = function() {
