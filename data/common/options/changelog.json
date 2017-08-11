@@ -1,4 +1,10 @@
 {
+    "4.5": {
+        "date": "11 August 17",
+        "fixed": [
+            "soundcloud.com (thanks to Senpos)"
+        ]
+    },
     "4.4": {
         "date": "23 July 17",
         "fixed": [
