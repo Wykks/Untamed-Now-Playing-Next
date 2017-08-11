@@ -15,7 +15,7 @@ SoundcloudTrackListener.prototype.scrapPlayData = function() {
 };
 
 SoundcloudTrackListener.prototype.scrapAlbumArt = function() {
-    return $('.playControls__inner span.image__full').css('background-image')
+    return $('.playControls__inner .playbackSoundBadge__avatar span.image__full').css('background-image')
         .replace('url("', '').replace('")', '')
         .replace(/50x50.jpg$/, '500x500.jpg');
 };
