@@ -221,7 +221,7 @@
         "title": "yes",
         "duration": "yes",
         "album": "yes",
-        "artwork": "yes"
+        "artwork": "no"
     },
     "seoul.fm": {
         "url": "http://seoul.fm",
