@@ -6,7 +6,13 @@ SpotifyTrackListener.prototype.isPlaying = function () {
 };
 
 SpotifyTrackListener.prototype.scrapPlayData = function () {
-    this.artistName = $('.now-playing').find('.track-info').find('.track-info__artists').find('a').text();
+    this.artistName = $('.now-playing').find('.track-info').find('.track-info__artists').find('a')
+        .map(function () {
+            return $(this).text();
+        })
+        .get()
+        .join(', '); // makes comma-seperated list of multiple artists
+
     this.trackName = $('.now-playing').find('.track-info').find('.track-info__name').find('a').text();
     return true;
 };
