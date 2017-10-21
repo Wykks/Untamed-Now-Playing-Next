@@ -21,15 +21,15 @@ DiFMTrackListener.prototype.scrapPlayData = function() {
 };
 
 DiFMTrackListener.prototype.scrapAlbumArt = function() {
-    return 'http:' + this.selector.find('.artwork img').attr('src').match(/(.+)\?/)[1];
-};
-
-DiFMTrackListener.prototype.scrapUrl = function() {
-    return this.selector.find('.track-name').attr('href');
+    var artwork_selector = this.selector.find('.artwork').find('img');
+    // preventing error when track has no album art
+    if (artwork_selector.length) {
+            return 'http:' + artwork_selector.attr('src').match(/(.+)\?/)[1];
+    }
 };
 
 DiFMTrackListener.prototype.scrapDuration = function() {
-    return this.selector.find('.progress .timecode').text().match(/(.+) \/ (.+)/)[2];
+    return this.selector.find('.timecode').find('.total').text();
 };
 
 window.UNPCommon.runTrackListenerInterval(new DiFMTrackListener());
