@@ -277,7 +277,7 @@
         "title": "yes",
         "duration": "no",
         "album": "no",
-        "artwork": "no"
+        "artwork": "yes"
     },
     "new.vk.com": {
         "url": "http://new.vk.com",
