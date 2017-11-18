@@ -11,4 +11,17 @@ VkTrackListener.prototype.scrapPlayData = function() {
     return true;
 };
 
+VkTrackListener.prototype.scrapAlbumArt = function () {
+    let coverBackgroundAttr = $('.audio_page_player__cover').css('background-image');
+    // if "background-image" property doesn't exist - ".css" method will return "none" as a string
+    if (coverBackgroundAttr !== 'none') {
+        let coverURL = coverBackgroundAttr.replace('url("', '').replace('")', '');
+        // if track has no cover - default SVG "music note" picture image will be retrieved
+        if (!coverURL.startsWith('data')) {
+            // we are interested only in cover URL
+            return coverURL;
+        }
+    }
+};
+
 window.UNPCommon.runTrackListenerInterval(new VkTrackListener());
