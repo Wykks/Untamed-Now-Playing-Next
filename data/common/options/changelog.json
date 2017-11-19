@@ -1,4 +1,17 @@
 {
+    "4.6": {
+        "date": "19 Nov 17",
+        "fixed": [
+            "pandora.com",
+            "youtube.com",
+            "di.fm",
+            "app.plex.tv",
+            "vk.com (album art support)"
+        ],
+        "other": [
+            "Thanks again to Senpos (https://github.com/Senpos). This is the final release for me (Wykks), feel free to fork and update this if you want."
+        ]
+    },
     "4.5": {
         "date": "11 August 17",
         "fixed": [
