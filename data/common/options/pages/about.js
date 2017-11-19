@@ -14,11 +14,6 @@
             h('p', null,
                 h(Markup, { markup: t('about_license_1'), trim: false })
             ),
-            h('p', null,
-                h('a', { rel: 'license', href: 'http://creativecommons.org/licenses/by-sa/3.0/deed' },
-                    h('img', { alt: 'Creative Commons Licence', style: 'border-width:0', src: 'http://i.creativecommons.org/l/by-sa/3.0/88x31.png' })
-                )
-            ),
             h('p', null, t('about_license_2')),
             h('ul', null,
                 h('li', null,

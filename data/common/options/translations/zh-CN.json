@@ -78,7 +78,7 @@
     "about_limi_1": "现在，正在播放信息只会在歌曲刚开始播放时保存，并且只在下一首歌播放后更新。因此如果你停止播放音乐，输出文件仍然会保持为你播放的上一个音乐。",
     "about_limi_2": "Firefox限制保存目录，如果你在运行时出现问题，试着将文件保存在你的个人文档的子文件夹下(C:\\Users\\USERNAME* 或 C:\\Documents and Settings\\USERNAME*)。",
     "about_license": "许可",
-    "about_license_1": "This software is provided 'AS IS' without warranty of any kind, either expressed or implied. Licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-sa/3.0/deed'>Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.",
+    "about_license_1": "This software is provided 'AS IS' without warranty of any kind, either expressed or implied. Licensed under a MIT.",
     "about_license_2": "本软件使用如下第三方库：",
     "about_license_3": "另外，主图标是由<a target='_blank' href='http://csscreme.com/freeicons/'>CSS Creme</a>设计。",
     "contact_1": "如果你有任何建议和反馈，可以在这里<span style='text-decoration:underline;'>http://obsproject.com/forum/viewtopic.php?f=22&amp;t=2614</span> 或这里 <span style='text-decoration:underline;'>https://github.com/Wykks/Untamed-Now-Playing-Next</span>发帖。",

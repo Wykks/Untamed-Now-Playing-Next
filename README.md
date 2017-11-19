@@ -5,9 +5,8 @@ From Firefox 57 onwards, WebExtensions will be the only supported extension type
 UNP rely on io/file api which doesn't exist in WebExtension API (https://bugzilla.mozilla.org/show_bug.cgi?id=1246236). This means I'll have to create an external app in addition to simply porting UNP to WebExtension.
 
 To be honest, I kind of lost interest in developping browser extension (and I'm not using UNP since years).
-But I'll probably to the work someday if enough people find this extension usefull (and are OK with **running an external program in addition to Firefox or Chrome**).
 
-And, of course, patch are always welcome :)
+You can do whatever you want with this. It's now MIT licenced.
 
 [Untamed Now Playing](https://github.com/Wylk/Untamed-Now-Playing-Next)
 =================
@@ -113,7 +112,7 @@ Nightbot support and Stream check feature disabled (not ported to Firefox yet), 
 
 Licence
 --------------------------------------
-This software is provided "AS IS" without warranty of any kind, either expressed or implied. Licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed).
+MIT
 
 This software uses the following libraries developed by third parties, and are licenced seperately;
 * [jQuery](http://jquery.com) (MIT License)

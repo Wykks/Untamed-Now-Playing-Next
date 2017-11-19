@@ -77,7 +77,7 @@
     "about_limi_1": "At the moment, now playing data is only saved when the song intially plays and is only updated when the next song starts playing. Thus if you stop playing music, the output file will still contain the last song played.",
     "about_limi_2": "Firefox limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (C:\\Users\\USERNAME* or C:\\Documents and Settings\\USERNAME*).",
     "about_license": "License",
-    "about_license_1": "This software is provided 'AS IS' without warranty of any kind, either expressed or implied. Licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-sa/3.0/deed'>Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.",
+    "about_license_1": "This software is provided 'AS IS' without warranty of any kind, either expressed or implied. Licensed under a MIT.",
     "about_license_2": "This software uses the following libraries developed by third parties;",
     "about_license_3": "Additionally, the main icon was designed by <a target='_blank' href='http://csscreme.com/freeicons/'>CSS Creme</a>.",
     "contact_1": "If you have any suggestions, feedback, etc, you can post on <a target='_blank' href='http://obsproject.com/forum/viewtopic.php?f=22&amp;t=2614'>OBS forum</a> or on <a target='_blank' href='https://github.com/Wykks/Untamed-Now-Playing-Next'>GitHub</a>.",
