@@ -1,21 +1,25 @@
 Important Information
 =================
-From Firefox 57 onwards, WebExtensions will be the only supported extension type, and Firefox will not load other types. Which mean that the actual version of **UNP won't work anymore**.
-
-UNP rely on io/file api which doesn't exist in WebExtension API (https://bugzilla.mozilla.org/show_bug.cgi?id=1246236). This means I'll have to create an external app in addition to simply porting UNP to WebExtension.
+Starting from **Firefox 57** and onwards, *WebExtensions* will be the only supported extension type, and *Firefox* will not load other types. Which mean that the actual version of **UNP won't work anymore**.
 
 To be honest, I kind of lost interest in developping browser extension (and I'm not using UNP since years).
 
 You can do whatever you want with this. It's now MIT licenced.
 
+Still interested in using UNP?
+=================
+Even if new Firefox won't support this extension anymore, other browsers, like [Waterfox](https://www.waterfoxproject.org/) and [Cyberfox](https://cyberfox.8pecxstudios.com), which are built on top of Firefox older versions - **would**. At least for some more time.
+
+I've tried [Waterfox](https://www.waterfoxproject.org/) as a replacement and it worked perfectly fine with the latest build of **Untamed Now Playing**. Checkout [**Install**](#Install) section for instuctions.
+
+
 [Untamed Now Playing](https://github.com/Wylk/Untamed-Now-Playing-Next)
 =================
 
-"Untamed Now Playing" is a Firefox extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played.
+**Untamed Now Playing** is a Firefox extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played.
 Support Windows / Linux / OSX.
 
-Supported Sites
---------------------------------------
+#Supported Sites
 * [8tracks.com](http://8tracks.com)
 * [ah.fm](http://ah.fm)
 * [beatport.com](https://www.beatport.com/listen)
@@ -67,19 +71,24 @@ Supported Sites
 * [jombly.com](http://www.jombly.com)
 * [listen.tidal.com](https://listen.tidal.com)
 
-Support for more sites will be added over time. If you have a suggestion for a site, please open an issue or reply to the obs topic.
+Support for more sites will be added over time. If you have a suggestion for a site, please open an issue.
 
-Install
---------------------------------------
-### Latest Mozilla reviewed version
-On Mozilla Add-ons (AMO) :
+# Install
+> Supported browser versions: **49** - **56**
+## Latest Mozilla reviewed version
+
+### On Mozilla Add-ons (AMO)
 [![amo-button_1](https://cloud.githubusercontent.com/assets/1236069/11095684/7c37b7d4-8896-11e5-9e3e-6b7913983a8c.png)](https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/)
 
-### Latest unreviewed release:
-Get it here : https://github.com/Wykks/Untamed-Now-Playing-Next/releases.
-Then drag the downloaded file onto a Firefox extension page (about:addons).
+## Latest unreviewed release
+> **Unsigned**, can be installed on Firefox-based browsers (e.g. [Waterfox](https://www.waterfoxproject.org/), [Cyberfox](https://cyberfox.8pecxstudios.com))
 
-### Build Latest dev version:
+**Download** the latest build from [releases page](https://github.com/Wykks/Untamed-Now-Playing-Next/releases).
+
+It will automatically promt you to install extension (
+[short video explanation](https://drive.google.com/uc?id=1umZOEK1NBpDHPk1FSOimFd_WfmNh2kE2)). If it does not, then drag the downloaded file onto a Firefox extension page (`about:addons`).
+
+## Build Latest dev version:
 To build UNP you'll need npm and jpm.
 
 To install npm, read this: https://github.com/npm/npm#super-easy-install
@@ -91,7 +100,7 @@ And finally build UNP (do this where package.json is located):
 
     jpm xpi
 
-Then drag the xpi generated file onto a Firefox extension page (about:addons).
+Then drag generated `xpi` file onto a Firefox extension page (`about:addons`).
 
 Configuration
 --------------------------------------
@@ -103,7 +112,7 @@ Limitations
 --------------------------------------
 At the moment, now playing data is only saved when the song intially plays and is only updated when the next song starts playing. Thus if you stop playing music, the output file will still contain the last song played.
 
-Firefox may limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (C:\Users\USERNAME\* or C:\Documents and Settings\USERNAME\*).
+Firefox may limits what directories can be saved to, if you run into problems, try saving to a subdirectory of your profile (`C:\Users\USERNAME\*` or `C:\Documents and Settings\USERNAME\*`).
 
 Known Issues
 --------------------------------------
