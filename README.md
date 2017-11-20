@@ -12,7 +12,7 @@ Even if new Firefox won't support this extension anymore, other browsers, like [
 
 I've tried [Waterfox](https://www.waterfoxproject.org/) as a replacement and it worked perfectly fine with the latest build of **Untamed Now Playing**.
 
-Check [**Install** > Latest unreviewed release](#latest-unreviewed-release) section for installation instructions.
+Check [**Install > Latest unreviewed release**](#latest-unreviewed-release) section for installation instructions.
 
 
 [Untamed Now Playing](https://github.com/Wylk/Untamed-Now-Playing-Next)
@@ -83,7 +83,7 @@ Support for more sites will be added over time. If you have a suggestion for a s
 [![amo-button_1](https://cloud.githubusercontent.com/assets/1236069/11095684/7c37b7d4-8896-11e5-9e3e-6b7913983a8c.png)](https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/)
 
 ## Latest unreviewed release
-> **Unsigned**, can be installed on Firefox-based browsers (e.g. [Waterfox](https://www.waterfoxproject.org/), [Cyberfox](https://cyberfox.8pecxstudios.com))
+> **Unsigned**, can be easily installed on Firefox-based browsers (e.g. [Waterfox](https://www.waterfoxproject.org/), [Cyberfox](https://cyberfox.8pecxstudios.com))
 
 **Download** the latest build from [releases page](https://github.com/Wykks/Untamed-Now-Playing-Next/releases).
 
