@@ -10,7 +10,9 @@ Still interested in using UNP?
 =================
 Even if new Firefox won't support this extension anymore, other browsers, like [Waterfox](https://www.waterfoxproject.org/) and [Cyberfox](https://cyberfox.8pecxstudios.com), which are built on top of Firefox older versions - **would**. At least for some more time.
 
-I've tried [Waterfox](https://www.waterfoxproject.org/) as a replacement and it worked perfectly fine with the latest build of **Untamed Now Playing**. Checkout [**Install**](#Install) section for instuctions.
+I've tried [Waterfox](https://www.waterfoxproject.org/) as a replacement and it worked perfectly fine with the latest build of **Untamed Now Playing**.
+
+Check [**Install** > Latest unreviewed release](#latest-unreviewed-release) section for installation instructions.
 
 
 [Untamed Now Playing](https://github.com/Wylk/Untamed-Now-Playing-Next)
@@ -19,7 +21,7 @@ I've tried [Waterfox](https://www.waterfoxproject.org/) as a replacement and it 
 **Untamed Now Playing** is a Firefox extension which parses the song title and artist from popular online radio/music sites, and writes it to a file on your hard drive. Programs such as Xsplit or OBS can then read the file and display it on an overlay, allowing viewers to easily see what song is currently being played.
 Support Windows / Linux / OSX.
 
-#Supported Sites
+## Supported Sites
 * [8tracks.com](http://8tracks.com)
 * [ah.fm](http://ah.fm)
 * [beatport.com](https://www.beatport.com/listen)
@@ -88,15 +90,15 @@ Support for more sites will be added over time. If you have a suggestion for a s
 It will automatically promt you to install extension (
 [short video explanation](https://drive.google.com/uc?id=1umZOEK1NBpDHPk1FSOimFd_WfmNh2kE2)). If it does not, then drag the downloaded file onto a Firefox extension page (`about:addons`).
 
-## Build Latest dev version:
-To build UNP you'll need npm and jpm.
+## Build Latest dev version
+To build UNP you'll need `npm` and `jpm`.
 
-To install npm, read this: https://github.com/npm/npm#super-easy-install
+To install `npm`, read this: https://github.com/npm/npm#super-easy-install
 
-Then install jpm:
+Then install `jpm`:
 
     npm install jpm -g
-And finally build UNP (do this where package.json is located):
+And finally build UNP (do this where `package.json` is located):
 
     jpm xpi
 
@@ -116,7 +118,7 @@ Firefox may limits what directories can be saved to, if you run into problems, t
 
 Known Issues
 --------------------------------------
-Nightbot support and Stream check feature disabled (not ported to Firefox yet), ask me if you need them !
+Nightbot support and Stream check features are not available.
 
 
 Licence
