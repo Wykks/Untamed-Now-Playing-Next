@@ -91,11 +91,11 @@
                         tooltip: t('opt_tt_11')
                     }),
                     this.state.autoClear ? h(formOption, {
-                        title: t('opt_13'),
+                        title: t('opt_14'),
                         value: this.state.noMusicMessage,
                         onChange: this.linkState('noMusicMessage'),
                         type: 'input',
-                        tooltip: t('opt_tt_13')
+                        tooltip: t('opt_tt_14')
                     }) : null,
                     h(formOption, {
                         title: t('opt_12'),
@@ -103,6 +103,13 @@
                         onChange: this.linkState('browserNotification'),
                         type: 'checkbox',
                         tooltip: t('opt_tt_12')
+                    }),
+                    h(formOption, {
+                        title: t('opt_13'),
+                        value: this.state.appendOutput,
+                        onChange: this.linkState('appendOutput'),
+                        type: 'checkbox',
+                        tooltip: t('opt_tt_13')
                     })
                 ),
                 h('p', { class: 'save' },
@@ -143,5 +150,3 @@
 
     window.UNPSettingsFormComponent = SettingsForm;
 })();
-
-
