@@ -31,6 +31,14 @@
         "album": "no",
         "artwork": "yes"
     },
+    "classicalradio.com": {
+        "url": "http://classicalradio.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
     "deezer.com": {
         "url": "http://deezer.com",
         "artist": "yes",
