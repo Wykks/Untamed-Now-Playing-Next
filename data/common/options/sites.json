@@ -87,6 +87,14 @@
         "album": "no",
         "artwork": "yes"
     },
+    "jazzradio.com": {
+        "url": "http://jazzradio.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
     "last.fm": {
         "url": "http://last.fm",
         "artist": "yes",
