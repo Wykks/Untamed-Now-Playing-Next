@@ -104,6 +104,7 @@ createMusicWebsiteWorker('*.seoul.fm', 'seoulfm.js', 'top');
 createMusicWebsiteWorker('*.deezer.com', 'deezer.js', 'top');
 createMusicWebsiteWorker('*.di.fm', 'difm.js', 'top');
 createMusicWebsiteWorker('*.jazzradio.com', 'jazzradio.js', 'top');
+createMusicWebsiteWorker('*.rockradio.com', 'rockradio.js', 'top');
 createMusicWebsiteWorker('*.distortionradio.com', 'distortionradio.js', 'top');
 createMusicWebsiteWorker('*.hypem.com', 'hypem.js', 'top');
 createMusicWebsiteWorker(
