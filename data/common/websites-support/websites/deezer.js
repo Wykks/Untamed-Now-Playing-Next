@@ -2,7 +2,7 @@ const DeezerTrackListener = function() {};
 DeezerTrackListener.prototype = new window.UNPCommon.WebsiteTrackListener();
 
 DeezerTrackListener.prototype.isPlaying = function() {
-    return $('#player .control-pause').length;
+    return $('#player .control-play').length;
 };
 
 DeezerTrackListener.prototype.findSelector = function() {
