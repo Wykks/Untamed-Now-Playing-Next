@@ -103,6 +103,14 @@
         "album": "no",
         "artwork": "yes"
     },
+    "rockradio.com": {
+        "url": "http://rockradio.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "yes",
+        "album": "no",
+        "artwork": "yes"
+    },
     "last.fm": {
         "url": "http://last.fm",
         "artist": "yes",
