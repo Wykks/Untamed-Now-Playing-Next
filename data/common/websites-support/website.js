@@ -199,7 +199,8 @@ window.UNPCommon = (function () {
         }
 
         function nowPlaying(play) {
-            const timeStarted = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: 'numeric', second: 'numeric' }).format(new Date());
+            //const timeStarted = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: 'numeric', second: 'numeric' }).format(new Date());
+            const timeStarted = new Date().toString(); // jevan 2017dec3
             window.UNPBrowserFunc.updateNowPlaying({
                 nowPlaying: play,
                 trackName: getValue(this.trackName),

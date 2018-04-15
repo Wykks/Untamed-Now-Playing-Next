@@ -39,7 +39,8 @@
                         disableYoutube: this._getConfigBool(options.unpDisableYoutube, false),
                         autoClear: this._getConfigBool(options.unpAutoClear, false),
                         noMusicMessage: this._getConfigValue(options.unpNoMusicMessage, ''),
-                        browserNotification: this._getConfigBool(options.unpNotification, true)
+                        browserNotification: this._getConfigBool(options.unpNotification, true),
+                        appendOutput: this._getConfigBool(options.unpAppendOutput, false)
                     },
                     isSaving: false,
                     message
@@ -71,6 +72,7 @@
                 BrowserFunc.setOption('unpAutoClear', options.autoClear);
                 BrowserFunc.setOption('unpNoMusicMessage', options.noMusicMessage);
                 BrowserFunc.setOption('unpNotification', options.browserNotification);
+                BrowserFunc.setOption('unpAppendOutput', options.appendOutput);
                 this.setState({
                     message: {
                         type: 'success',
