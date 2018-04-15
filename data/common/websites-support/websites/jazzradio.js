@@ -5,7 +5,7 @@ JazzradioTrackListener.prototype.isPlaying = function() {
     return $('#webplayer-region').attr('data-state') === 'playing';
 };
 
-DiFMTrackListener.prototype.findSelector = function() {
+JazzradioTrackListener.prototype.findSelector = function() {
     this.selector = $('#main-container');
 };
 
