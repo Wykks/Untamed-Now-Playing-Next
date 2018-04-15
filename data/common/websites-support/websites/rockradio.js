@@ -5,7 +5,7 @@ RockradioTrackListener.prototype.isPlaying = function() {
     return $('#webplayer-region').attr('data-state') === 'playing';
 };
 
-DiFMTrackListener.prototype.findSelector = function() {
+RockradioTrackListener.prototype.findSelector = function() {
     this.selector = $('#main-container');
 };
 
