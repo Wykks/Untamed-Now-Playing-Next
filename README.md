@@ -12,7 +12,7 @@ Even if new Firefox won't support this extension anymore, other browsers, like [
 
 I've tried [Waterfox](https://www.waterfoxproject.org/) as a replacement and it worked perfectly fine with the latest build of **Untamed Now Playing**.
 
-Check [**Install > Latest unreviewed release**](#latest-unreviewed-release) section for installation instructions.
+Check [**Install > Latest unreviewed release**](#latest-release-recommended) section for installation instructions.
 
 
 [Untamed Now Playing](https://github.com/Wylk/Untamed-Now-Playing-Next)
@@ -89,7 +89,7 @@ Support for more sites will be added over time. If you have a suggestion for a s
 It will automatically promt you to install extension (
 [short video explanation](https://drive.google.com/uc?id=1umZOEK1NBpDHPk1FSOimFd_WfmNh2kE2)). If it does not, then drag the downloaded file onto a Firefox extension page (`about:addons`).
 
-### Build Latest dev version (for advanced users)
+## Build Latest dev version (for advanced users)
 To build UNP you'll need `npm` and `jpm`.
 
 To install `npm`, read this: https://github.com/npm/npm#super-easy-install
@@ -104,7 +104,7 @@ And finally build UNP (do this where `package.json` is located):
 Then drag generated `xpi` file onto a Firefox extension page (`about:addons`).
 
 
-#####On Mozilla Add-ons (version 4.5, outdated)
+## On Mozilla Add-ons (version 4.5, outdated)
 [![amo-button_1](https://cloud.githubusercontent.com/assets/1236069/11095684/7c37b7d4-8896-11e5-9e3e-6b7913983a8c.png)](https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/)
 
 Configuration
