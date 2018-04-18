@@ -25,12 +25,14 @@ Support Windows / Linux / OSX.
 * [8tracks.com](http://8tracks.com)
 * [ah.fm](http://ah.fm)
 * [beatport.com](https://www.beatport.com/listen)
+* [classicalradio.com](http://classicalradio.com/)
 * [deezer.com](http://deezer.com)
 * [di.fm](http://di.fm)
 * [distortionradio.com](http://distortionradio.com)
 * [hypem.com](http://hypem.com)
 * [jamendo.com](http://www.jamendo.com)
 * [jango.com](http://jango.com)
+* [jazzradio.com](https://www.jazzradio.com/)
 * [last.fm](http://last.fm)
 * [music.amazon.*](https://music.amazon.com)
 * [mixcloud.com](http://www.mixcloud.com)
@@ -66,6 +68,7 @@ Support Windows / Linux / OSX.
 * [radiorecord.ru](http://www.radiorecord.ru/player)
 * [radiotunes.com](http://www.radiotunes.com)
 * [radioultra.ru](http://www.radioultra.ru/player)
+* [rockradio.com](https://www.rockradio.com/)
 * [xiami.com](http://www.xiami.com/play)
 * [open.fm](http://open.fm)
 * [eskago.pl](http://www.eskago.pl)
@@ -76,13 +79,9 @@ Support Windows / Linux / OSX.
 Support for more sites will be added over time. If you have a suggestion for a site, please open an issue.
 
 # Install
-> Supported browser versions: **49** - **56**
-## Latest Mozilla reviewed version
+> Supported **Firefox**-based browser versions: **49** - **56**
 
-### On Mozilla Add-ons (AMO)
-[![amo-button_1](https://cloud.githubusercontent.com/assets/1236069/11095684/7c37b7d4-8896-11e5-9e3e-6b7913983a8c.png)](https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/)
-
-## Latest unreviewed release
+## Latest release (recommended)
 > **Unsigned**, can be easily installed on Firefox-based browsers (e.g. [Waterfox](https://www.waterfoxproject.org/), [Cyberfox](https://cyberfox.8pecxstudios.com))
 
 **Download** the latest build from [releases page](https://github.com/Wykks/Untamed-Now-Playing-Next/releases).
@@ -90,7 +89,7 @@ Support for more sites will be added over time. If you have a suggestion for a s
 It will automatically promt you to install extension (
 [short video explanation](https://drive.google.com/uc?id=1umZOEK1NBpDHPk1FSOimFd_WfmNh2kE2)). If it does not, then drag the downloaded file onto a Firefox extension page (`about:addons`).
 
-## Build Latest dev version
+### Build Latest dev version (for advanced users)
 To build UNP you'll need `npm` and `jpm`.
 
 To install `npm`, read this: https://github.com/npm/npm#super-easy-install
@@ -103,6 +102,10 @@ And finally build UNP (do this where `package.json` is located):
     jpm xpi
 
 Then drag generated `xpi` file onto a Firefox extension page (`about:addons`).
+
+
+#####On Mozilla Add-ons (version 4.5, outdated)
+[![amo-button_1](https://cloud.githubusercontent.com/assets/1236069/11095684/7c37b7d4-8896-11e5-9e3e-6b7913983a8c.png)](https://addons.mozilla.org/en-US/firefox/addon/untamed-now-playing/)
 
 Configuration
 --------------------------------------
