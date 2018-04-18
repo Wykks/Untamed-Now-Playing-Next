@@ -1,4 +1,18 @@
 {
+    "4.7": {
+        "date": "18 April 18",
+        "added": [
+            "jazzradio.com",
+            "rockradio.com",
+            "classicalradio.com"
+        ],
+        "fixed": [
+            "deezer.com (thanks to adevyatov)"
+        ],
+        "other": [
+            "Option page: implemented \"Append to output\" feature (thanks to jevanpipitone)"
+        ]
+    },
     "4.6": {
         "date": "19 Nov 17",
         "fixed": [
