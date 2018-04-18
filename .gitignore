@@ -1,6 +1,7 @@
 /nbproject/private/
 nbproject/project.properties
 nbproject/project.xml
+.idea/
 *.xpi
 /install.rdf
 /bootstrap.js
