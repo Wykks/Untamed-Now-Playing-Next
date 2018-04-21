@@ -29,6 +29,7 @@
     "opt_6": "Disable YouTube parsing",
     "opt_7": "Integrate with <a href='http://nightbot.tv' target='_blank'>Nightbot</a>?",
     "opt_8": "Nightbot API details",
+    "opt_8_username": "Username",
     "opt_9": "Check stream is live before saving?",
     "opt_10": "Stream details",
     "opt_10_select": "Select Service",
