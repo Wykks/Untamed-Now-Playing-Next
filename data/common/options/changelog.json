@@ -1,4 +1,10 @@
 {
+    "4.7.1": {
+        "date": "21 April 18",
+        "other": [
+            "Update inconsistencies between translations (thanks to jevanpipitone)"
+        ]
+    },
     "4.7": {
         "date": "18 April 18",
         "added": [
