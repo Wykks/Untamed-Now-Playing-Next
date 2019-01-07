@@ -24,7 +24,8 @@ PandoraTrackListener.prototype.scrapAlbumName = function() {
 };
 
 PandoraTrackListener.prototype.scrapAlbumArt = function() {
-    return this.selector.find('div.nowPlayingTopInfo__artContainer__art[data-qa=album_active_image]').css('background-image').replace('url("', '').replace('")', '');
+    var albumArtSelector = this.selector.find('div.nowPlayingTopInfo__artContainer__art[data-qa=album_active_image]');
+    return albumArtSelector.length ? albumArtSelector.css('background-image').replace('url("', '').replace('")', '') : false;
 };
 
 PandoraTrackListener.prototype.scrapDuration = function() {
