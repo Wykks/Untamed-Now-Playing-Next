@@ -1,4 +1,10 @@
 {
+    "4.7.2": {
+        "date": "07 January 19",
+        "fixed": [
+            "pandora.com"
+        ]
+    },
     "4.7.1": {
         "date": "21 April 18",
         "other": [
