@@ -180,7 +180,7 @@
         "artist": "yes",
         "title": "yes",
         "duration": "yes",
-        "album": "yes",
+        "album": "no",
         "artwork": "yes"
     },
     "planeta.fm": {
