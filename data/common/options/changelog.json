@@ -1,4 +1,10 @@
 {
+    "4.8": {
+        "date": "15 May 19",
+        "added": [
+            "monstercat.com (requested by mozg1986)"
+        ]
+    },
     "4.7.2": {
         "date": "07 January 19",
         "fixed": [
