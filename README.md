@@ -75,6 +75,7 @@ Support Windows / Linux / OSX.
 * [zvooq.com](http://zvooq.com)
 * [jombly.com](http://www.jombly.com)
 * [listen.tidal.com](https://listen.tidal.com)
+* [monstercat.com](https://monstercat.com)
 
 Support for more sites will be added over time. If you have a suggestion for a site, please open an issue.
 
