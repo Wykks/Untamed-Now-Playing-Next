@@ -462,5 +462,13 @@
         "duration": "yes",
         "album": "yes",
         "artwork": "yes"
+    },
+    "monstercat.com": {
+        "url": "https://www.monstercat.com",
+        "artist": "yes",
+        "title": "yes",
+        "duration": "no",
+        "album": "no",
+        "artwork": "no"
     }
 }
