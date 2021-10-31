@@ -1,3 +1,11 @@
+❗ **THIS PROJECT IS NO LONGER MAINTAINED.**
+
+Please, consider using some other similar tool, if the use-case is still valid.
+
+The readme below is **outdated**.
+
+---
+
 Important Information
 =================
 Starting from **Firefox 57** and onwards, *WebExtensions* will be the only supported extension type, and *Firefox* will not load other types. Which mean that the actual version of **UNP won't work anymore**.
